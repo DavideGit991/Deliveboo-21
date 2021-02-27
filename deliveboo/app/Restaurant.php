@@ -27,4 +27,8 @@ class Restaurant extends Model
     }
 
     // completare la relazione con la tabella restaurateur
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
