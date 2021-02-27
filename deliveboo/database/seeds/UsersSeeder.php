@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Dish;
+use App\User;
 
-class DishSeeder extends Seeder
+class UsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class DishSeeder extends Seeder
      */
     public function run()
     {
-        factory(Dish::class, 50)-> create();
+        factory(User::class, 10)-> create();
     }
 }

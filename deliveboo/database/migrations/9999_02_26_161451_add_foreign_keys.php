@@ -41,6 +41,7 @@ class AddForeignKeys extends Migration
                  ->on('restaurants');
 
          });
+
     }
 
     /**
@@ -66,5 +67,6 @@ class AddForeignKeys extends Migration
             $table->dropForeign('r_d');
 
         });
+
     }
 }

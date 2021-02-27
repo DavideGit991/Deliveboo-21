@@ -23,8 +23,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('logo')->nullable();
             $table->string('phone',20);
             $table->integer('vote')->nullable();
-
-
+            
             $table->timestamps();
         });
     }
