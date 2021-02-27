@@ -14,6 +14,7 @@ class Restaurant extends Model
         'logo',
         'phone',
         'vote',
+        'user_id'
     ];
 
     public function typologies()

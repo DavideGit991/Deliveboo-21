@@ -23,7 +23,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('city',40);
             $table->string('url',100);
             $table->string('logo')->nullable();
-            $table->string('phone',20);
+            $table->string('phone',30);
             $table->integer('vote')->nullable();
 
             $table->bigInteger('user_id')->unsigned();

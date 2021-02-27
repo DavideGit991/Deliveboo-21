@@ -15,6 +15,15 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+
+                </div>
+                <div>
+                    <h1>il tuo ristorante e':</h1>
+                    <li>
+                        {{$restaurant->name}}
+                    </li>
+
                 </div>
             </div>
         </div>

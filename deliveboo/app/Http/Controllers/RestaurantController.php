@@ -3,20 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Restaurant;
+
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+
 use App\User;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
+        $this->middleware('auth');
+    }
 
+
+    public function index()
+    {   $userid=Auth::user()->id;
+        $restaurant= User::find($userid)->restaurant;
+        return view('home',compact('restaurant'));
     }
 
     /**
