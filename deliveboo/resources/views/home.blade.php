@@ -18,12 +18,18 @@
 
 
                 </div>
-                <div>
-                    <h1>il tuo ristorante e':</h1>
-                    <li>
-                        {{$restaurant->name}}
-                    </li>
-
+                <div class="m-3">
+                    {{-- @dd($restaurant); --}}
+                    @if ($restaurant==null)
+                        <h4>
+                            non esiste nessun ristorante
+                        </h4>
+                    @else
+                        <h1>il tuo ristorante e':</h1>
+                        <li>
+                            {{$restaurant->name}}
+                        </li>
+                    @endif
                 </div>
             </div>
         </div>
