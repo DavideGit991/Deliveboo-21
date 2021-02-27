@@ -13,6 +13,8 @@ class AddForeignKeys extends Migration
      */
     public function up()
     {
+
+
         // chiavi secondarie tabella ponte piatti ordini
         Schema::table('dish_order', function (Blueprint $table) {
            $table->foreign('dish_id','d_o')
@@ -67,6 +69,8 @@ class AddForeignKeys extends Migration
             $table->dropForeign('r_d');
 
         });
+
+
 
     }
 }

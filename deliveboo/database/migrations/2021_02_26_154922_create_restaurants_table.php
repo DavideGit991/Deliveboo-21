@@ -13,6 +13,8 @@ class CreateRestaurantsTable extends Migration
      */
     public function up()
     {
+
+
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
 
@@ -23,9 +25,19 @@ class CreateRestaurantsTable extends Migration
             $table->string('logo')->nullable();
             $table->string('phone',20);
             $table->integer('vote')->nullable();
-            
+
+            $table->bigInteger('user_id')->unsigned();
+
             $table->timestamps();
         });
+
+        Schema::table('restaurants', function (Blueprint $table) {
+            $table->foreign('user_id')
+                 ->references('id')
+                 ->on('users');
+                });
+
+
     }
 
     /**
@@ -36,5 +48,6 @@ class CreateRestaurantsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('restaurants');
+
     }
 }
