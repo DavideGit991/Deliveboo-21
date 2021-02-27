@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Restaurant;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -14,7 +16,10 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        $user= Auth::user()-> user;
+        // $restaurant = User::find(1)-> restaurant;
+        dd($restaurant);
+        return view('home', compact('restaurant'));
     }
 
     /**

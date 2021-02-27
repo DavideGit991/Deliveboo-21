@@ -25,6 +25,33 @@
                             </div>
                         </div>
 
+
+                        {{-- campo input business name--}}
+                        <div class="form-group row">
+                            <label for="business_name" class="col-md-4 col-form-label text-md-right">{{ __('business_name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="business_name" type="text" class="form-control @error('business_name') is-invalid @enderror" name="business_name" value="{{ old('business_name') }}" required autocomplete="business_name" autofocus>
+
+                                @error('business_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <label for="piva" class="col-md-4 col-form-label text-md-right">{{ __('piva') }}</label>
+                            <div class="col-md-6">
+                                <input id="piva" type="text" class="form-control @error('piva') is-invalid @enderror" name="piva" value="{{ old('piva') }}" required autocomplete="piva" autofocus>
+
+                                @error('piva')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
