@@ -20,7 +20,7 @@
                 </div>
                 <div class="m-3">
                     {{-- @dd($restaurant); --}}
-                    @if ($restaurant==null)
+                    @if (!$restaurant)
                         <h4>
                             non esiste nessun ristorante
                         </h4>
@@ -30,6 +30,7 @@
                             {{$restaurant->name}}
                         </li>
                     @endif
+
                 </div>
             </div>
         </div>
