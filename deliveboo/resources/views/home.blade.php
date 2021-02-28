@@ -15,6 +15,22 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+
+                </div>
+                <div class="m-3">
+                    {{-- @dd($restaurant); --}}
+                    @if (!$restaurant)
+                        <h4>
+                            non esiste nessun ristorante
+                        </h4>
+                    @else
+                        <h1>il tuo ristorante e':</h1>
+                        <li>
+                            {{$restaurant->name}}
+                        </li>
+                    @endif
+
                 </div>
             </div>
         </div>

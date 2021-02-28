@@ -14,6 +14,6 @@ $factory->define(Restaurant::class, function (Faker $faker) {
         'logo'=> $faker -> imageUrl,
         'phone'=> $faker -> phoneNumber,
         'vote'=>  rand(1,5),
-        // 'user_id'=> $faker -> unique()-> numberBetween(1,10)
+
     ];
 });
