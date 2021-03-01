@@ -8,10 +8,12 @@
   </div>
   {{-- Elenco tipologia ristoranti --}}
   <div id="typologies">
-    tipo
+    <div class="">
+        <h3>SUSHI</h3>
+    </div>
   </div>
   {{-- Elenco ristoranti primo piano --}}
   <div id="bestRated">
-    best
+    <h2>I Più Votati</h2>
   </div>
 @endsection
