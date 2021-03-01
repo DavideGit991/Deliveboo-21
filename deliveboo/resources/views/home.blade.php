@@ -29,6 +29,7 @@
                         <li>
                             {{$restaurant->name}}
                         </li>
+                        <a href="{{route('dishes-index', $restaurant -> id) }}">Menu del ristorante</a>
                     @endif
 
                 </div>

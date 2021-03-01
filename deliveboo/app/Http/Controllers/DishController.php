@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Dish;
+use App\Restaurant;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -12,9 +13,11 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index($id)
+    {   
+        // $restaurantId= Restaurant::findOrFail($id);
+        $dishes=Dish::where('restaurant_id', $id)->get();
+        return view('dishes-index', compact('dishes'));
     }
 
     /**
