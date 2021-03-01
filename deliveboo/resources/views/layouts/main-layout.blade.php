@@ -7,19 +7,19 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-    <script src="{{ asset('/js/app.js') }}"></script>
-
+    
     <title>Document</title>
 </head>
 <body>
-
-    <div class="container">
-
+    
+    <div id="app" class="container">
+        
         @include('components.header')
         @yield('content')
         @include('components.footer')
-
+        
     </div>
     
+    <script src="{{ asset('/js/app.js') }}"></script>
 </body>
 </html>
