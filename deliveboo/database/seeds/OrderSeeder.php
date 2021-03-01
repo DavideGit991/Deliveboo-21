@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Typology;
+
 class OrderSeeder extends Seeder
 {
     /**
@@ -11,6 +13,6 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        
+        factory(Typology::class, 30)-> create();
     }
 }

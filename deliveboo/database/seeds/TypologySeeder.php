@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Typology;
 
 class TypologySeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class TypologySeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Typology::class, 10)-> create();
     }
 }
