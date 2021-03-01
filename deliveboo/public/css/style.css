@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    background-color: #00ccbc;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+}
+
+/* HOME */
+    #jumbo {
+        background-color: #d0eb99;
+        height: 200px;
+    }
+
+    #typologies {
+        background-color: white;
+        height: 200px;
+    }
+
+    #bestRated {
+        background-color: #e67fc4;
+        height: 200px;
+    }
+
