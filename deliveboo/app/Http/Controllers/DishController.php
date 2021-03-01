@@ -8,68 +8,34 @@ use Illuminate\Http\Request;
 
 class DishController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index($id)
     {   
-        // $restaurantId= Restaurant::findOrFail($id);
+        $restaurantId= Restaurant::findOrFail($id);
         $dishes=Dish::where('restaurant_id', $id)->get();
-        return view('dishes-index', compact('dishes'));
+        return view('dishes-index', compact('dishes', 'restaurantId'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $dish=Dish::create($request -> all());
+        return response()-> json($dish, 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
     public function show(Dish $dish)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Dish $dish)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Dish $dish)
     {
         //

@@ -20,7 +20,8 @@ class RestaurantController extends Controller
 
 
     public function index()
-    {   $userid=Auth::user()->id;
+    {  
+        $userid=Auth::user()->id;
         $restaurant= User::find($userid)->restaurant;
 
         return view('home',compact('restaurant'));
