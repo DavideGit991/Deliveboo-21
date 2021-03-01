@@ -9,10 +9,12 @@
                     
                 </div>
 
-                <form action="{{route('dishes-create')}}" method="post">
+                <form action="{{route('dish-store')}}" method="post">
                     <h2>Add new dish</h2>
                     @method('post')
                     @csrf
+
+                    
 
                     <label for="name">Name: </label>
                     <input type="text" name="name">
@@ -22,6 +24,15 @@
                     <br>
                     <label for="price">Price: </label>
                     <input type="text" name="price">
+                    <br><br>
+                    <label for="availability">Availability: </label>
+                    <input type="text" name="availability">
+                    <br><br>
+                    <label for="img">Img: </label>
+                    <input type="text" name="img">
+
+                    <input type="text" name="restaurant_id" value="{{$restaurantId-> id}}">
+
                     <br><br>
                     <input type="submit" value="SALVA">
                 

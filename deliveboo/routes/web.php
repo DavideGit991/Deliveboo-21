@@ -10,5 +10,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'RestaurantController@index')->name('home');
-Route::get('/home/dishes/{id}', 'DishController@index')->name('dishes-index');
-Route::get('/home/dishes/create', 'DishController@create')->name('dishes-create');
+Route::get('/home/restaurant/{id}/dishes', 'DishController@index')->name('dishes-index');
+Route::post('/home/dish/store', 'DishController@store')->name('dish-store');

@@ -11,24 +11,19 @@ class DishController extends Controller
     public function index($id)
     {   
         $restaurantId= Restaurant::findOrFail($id);
-        $dishes=Dish::where('restaurant_id', $id)->get();
+        $dishes=Dish::where('restaurant_id', $id)->orderBy('id','desc')->get();     //recuper solo i piatti con id_restaurant del ristoratore loggato
         return view('dishes-index', compact('dishes', 'restaurantId'));
-    }
-
-    public function create(Request $request)
-    {
-        $dish=Dish::create($request -> all());
-        return response()-> json($dish, 200);
     }
 
     public function store(Request $request)
     {
-        //
-    }
-
-    public function show(Dish $dish)
-    {
-        //
+        $data=$request-> all();
+        // $idRest=$request
+        $dish = Dish::make($request -> all());      
+        $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
+        $dish -> restaurant() -> associate($restaurant);
+        $dish -> save();
+        return redirect() -> route('dishes-index', $restaurant-> id);
     }
 
     public function edit(Dish $dish)
