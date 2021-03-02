@@ -39,14 +39,18 @@ class DishController extends Controller
         return redirect() -> route('dishes-index', $dish-> restaurant_id );
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Dish $dish)
+    public function delete(Request $request, $id)
     {
-        //
+        $dish=Dish::findOrFail($id);
+        if ($dish-> availability==1) {
+            $dish-> availability=0;
+            // dd($dish);
+        } else {
+            $dish-> availability=1;
+        }
+
+        $dish->update($request -> all());
+        
+        return redirect() -> route('dishes-index', $dish-> restaurant_id );
     }
 }

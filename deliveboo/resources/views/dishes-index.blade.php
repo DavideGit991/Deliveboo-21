@@ -39,14 +39,23 @@
                 </form>
                 <div class="col-md-8">
                     @foreach ($dishes as $dish)
+
+                        @if ($dish-> availability==0)
+                            <div class="card my-5">
+                                <div><span>NAME:</span> {{$dish-> name}}</div>
+                                <span>non disponibile</span>
+                                <a href="{{route('dish-edit', $dish-> id)}}">EDIT</a>
+                            </div>
+                        @else
+                            <div class="card my-5">
+                                <div><span>NAME:</span> {{$dish-> name}}</div>
+                                <div><span>DESCRIPTION:</span> {{$dish-> description}}</div>
+                                <div><span>PRICE:</span> {{$dish-> price}} €</div>
+                                <a href="{{route('dish-edit', $dish-> id)}}">EDIT</a>
+                                <a href="{{route('dish-delete', $dish-> id)}}">delete</a>
+                            </div>
+                        @endif
                         
-                        <div class="card my-5">
-                            <div><span>NAME:</span> {{$dish-> name}}</div>
-                            <div><span>DESCRIPTION:</span> {{$dish-> description}}</div>
-                            <div><span>PRICE:</span> {{$dish-> price}} €</div>
-                            <a href="{{route('dish-edit', $dish-> id)}}">EDIT</a>
-                            <a href="{{route('dish-delete', $dish-> id)}}">delete</a>
-                        </div>
                             
                     @endforeach
                 </div>

@@ -25,7 +25,17 @@
                     <input type="text" name="price" value="{{$dish-> price}}">
                     <br><br>
                     <label for="availability">Availability: </label>
-                    <input type="text" name="availability" value="{{$dish-> availability}}">
+                    <select name="availability">
+                        @if ($dish-> availability==1)
+                            <option selected value="1">Disponibile</option>
+                            <option value="0">Non disponibile</option>
+                        @else
+                        <option value="1">Disponibile</option>
+                        <option selected value="0">Non disponibile</option>
+                        @endif
+                        
+                    </select>
+                    {{-- <input type="text" name="availability" value="{{$dish-> availability}}"> --}}
                     <br><br>
                     <label for="img">Img: </label>
                     <input type="text" name="img" value="{{$dish-> img}}">
