@@ -24,14 +24,14 @@
                     <br>
                     <label for="price">Price: </label>
                     <input type="text" name="price">
-                    <br><br>
+                    <br>
                     <label for="availability">Availability: </label>
                     <input type="text" name="availability">
-                    <br><br>
+                    <br>
                     <label for="img">Img: </label>
                     <input type="text" name="img">
 
-                    <input type="text" name="restaurant_id" value="{{$restaurantId-> id}}">
+                    <input type="text" hidden name="restaurant_id" value="{{$restaurantId-> id}}">
 
                     <br><br>
                     <input type="submit" value="SALVA">
@@ -44,6 +44,8 @@
                             <div><span>NAME:</span> {{$dish-> name}}</div>
                             <div><span>DESCRIPTION:</span> {{$dish-> description}}</div>
                             <div><span>PRICE:</span> {{$dish-> price}} €</div>
+                            <a href="{{route('dish-edit', $dish-> id)}}">EDIT</a>
+                            <a href="{{route('dish-delete', $dish-> id)}}">delete</a>
                         </div>
                             
                     @endforeach
