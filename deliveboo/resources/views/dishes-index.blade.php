@@ -27,7 +27,7 @@
                                 <div><span>NAME:</span> {{$dish-> name}}</div>
                                 <div><span>DESCRIPTION:</span> {{$dish-> description}}</div>
                                 <div><span>PRICE:</span> {{$dish-> price}} €</div>
-                                <a href="{{route('dish-edit', $dish-> id)}}"><button class="btn btn-primary">EDIT</button></a>
+                                <a href="{{route('dish-edit', $dish-> id)}}"><button class="btn btn-primary">EDITs</button></a>
                                 <a href="{{route('dish-delete', $dish-> id)}}"><button class="btn btn-danger">DELETE</button></a>
                             </div>
                         @endif
