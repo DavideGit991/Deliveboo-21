@@ -3,83 +3,59 @@
 namespace App\Http\Controllers;
 
 use App\Dish;
+use App\Restaurant;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function index($id)
+    {   
+        $restaurant= Restaurant::findOrFail($id);
+        $dishes=Dish::where('restaurant_id', $id)->orderBy('id','desc')->get();     //recuper solo i piatti con id_restaurant del ristoratore loggato
+        return view('dishes-index', compact('dishes', 'restaurant'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create($id)
     {
-        //
+        $restaurant= Restaurant::findOrFail($id);
+        return view('dish-create', compact('restaurant'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data=$request-> all();
+        // $idRest=$request
+        $dish = Dish::make($request -> all());      
+        $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
+        $dish -> restaurant() -> associate($restaurant);
+        $dish -> save();
+        return redirect() -> route('dishes-index', $restaurant-> id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Dish $dish)
+    public function edit($id)
     {
-        //
+        $dish=Dish::findOrFail($id);
+        return view('dish-edit', compact('dish'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Dish $dish)
-    {
-        //
+    public function update(Request $request, $id)
+    {   
+        $dish=Dish::findOrFail($id);
+        $dish->update($request -> all());
+        return redirect() -> route('dishes-index', $dish-> restaurant_id );
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Dish $dish)
+    public function delete(Request $request, $id)     //lo rendo non disponibile ma esiste ancora nel db
     {
-        //
-    }
+        $dish=Dish::findOrFail($id);
+        if ($dish-> availability==1) {
+            $dish-> availability=0;
+        } else {
+            $dish-> availability=1;
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Dish $dish)
-    {
-        //
+        $dish->update($request -> all());
+        
+        return redirect() -> route('dishes-index', $dish-> restaurant_id );
     }
 }
