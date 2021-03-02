@@ -14,17 +14,18 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
 
-            $table->string('name',60)->nullable();
-            $table->string('lastname',60)->nullable();
-            $table->string('address',60)->nullable();
-            $table->integer('tot_price')->nullable();
-            $table->string('month',40)->nullable();
-            $table->string('phone',20)->nullable();
-            $table->boolean('status')->nullable();
+            $table -> id();
 
-            $table->timestamps();
+            $table -> string('name',60) -> nullable();
+            $table -> string('lastname',60) -> nullable();
+            $table -> string('address',60) -> nullable();
+            $table -> integer('price') -> nullable();
+            $table -> string('date') -> nullable();
+            $table -> string('phone',20) -> nullable();
+            $table -> boolean('status') -> nullable();
+
+            $table -> timestamps();
         });
     }
 

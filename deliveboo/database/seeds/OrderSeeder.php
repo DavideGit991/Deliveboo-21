@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Typology;
+use App\Order;
+use App\Dish;
 
 class OrderSeeder extends Seeder
 {
@@ -13,6 +14,12 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        factory(Typology::class, 30)-> create();
-    }
+        factory(Order::class, 30)
+            -> create()
+            -> each(function($order) {
+                $dish = Dish::inRandomOrder() -> limit(5) -> get();
+                $order -> dishes() -> attach($dish);
+            });
+      }
+
 }

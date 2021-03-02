@@ -4,7 +4,6 @@ use Illuminate\Database\Seeder;
 use App\Restaurant;
 use App\User;
 
-
 class RestaurantSeeder extends Seeder
 {
     /**
@@ -14,12 +13,12 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
-        factory(Restaurant::class, 10)-> make()
-        ->each(function($restaurant){
+      factory(Restaurant::class, 10)
+          -> make()
+          -> each(function($restaurant){
 
-                $user=User::inRandomOrder()->first();
-                $restaurant->user()->associate($user)->save();
-
+            $user=User::inRandomOrder() -> first();
+            $restaurant->user() -> associate($user) -> save();
         });
-    }
+}
 }

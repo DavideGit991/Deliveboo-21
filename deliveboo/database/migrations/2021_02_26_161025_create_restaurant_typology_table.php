@@ -14,12 +14,13 @@ class CreateRestaurantTypologyTable extends Migration
     public function up()
     {
         Schema::create('restaurant_typology', function (Blueprint $table) {
-            $table->id();
 
-            $table->bigInteger('restaurant_id')->unsigned();
-            $table->bigInteger('typology_id')->unsigned();
+            $table -> id();
 
-            $table->timestamps();
+            $table -> bigInteger('restaurant_id') -> unsigned();
+            $table -> bigInteger('typology_id')   -> unsigned();
+
+            $table -> timestamps();
         });
     }
 

@@ -10,10 +10,11 @@ use Faker\Generator as Faker;
 
 $factory->define(Dish::class, function (Faker $faker) {
     return [
-        'name'=> $faker -> word,
-        'description'=> $faker -> sentence,
-        'price'=> rand(10,100),
-        'availability'=> rand(0, 1),
-        'img'=> $faker -> imageUrl,
+        //'name'         => $faker -> foodName(),
+        'name'         => $faker -> word,
+        'description'  => $faker -> sentence,
+        'price'        =>           rand(10,100),
+        'availability' =>           rand(0, 1),
+        'img'          => $faker -> imageUrl
     ];
 });

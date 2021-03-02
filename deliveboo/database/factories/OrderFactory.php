@@ -7,13 +7,12 @@ use Faker\Generator as Faker;
 
 $factory->define(Order::class, function (Faker $faker) {
     return [
-      'name' => $faker->firstName,
-      'last_name' => $faker->lastName,
-      'address' => $faker->streetAddress,
-      'price' => rand(10,10000),
-      'mouth' => monthName($max = 'now'),
-      'email' => $faker->email,
-      'phone' => $faker->e164PhoneNumber,
-      'status' => $faker->rand(0,1),
+      'name'     => $faker -> firstName,
+      'lastname' => $faker -> lastName,
+      'address'  => $faker -> streetAddress,
+      'price'    =>           rand(10,10000),
+      'date'     => $faker -> monthName($max = 'now'),
+      'phone'    => $faker -> e164PhoneNumber,
+      'status'   =>           rand(0, 1)
     ];
 });
