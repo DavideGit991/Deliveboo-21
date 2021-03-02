@@ -25,11 +25,8 @@
                             non esiste nessun ristorante
                         </h4>
                     @else
-                        <h1>il tuo ristorante e':</h1>
-                        <li>
-                            {{$restaurant->name}}
-                        </li>
-                        <a href="{{route('dishes-index', $restaurant -> id) }}">Menu del ristorante</a>
+                        <h1>il tuo ristorante e': {{$restaurant->name}}</h1>
+                        <a href="{{route('dishes-index', $restaurant -> id) }}"><button class="btn btn-primary">Menu del ristorante</button></a>
                     @endif
 
                 </div>
