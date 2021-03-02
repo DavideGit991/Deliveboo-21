@@ -14,12 +14,13 @@ class CreateTypologiesTable extends Migration
     public function up()
     {
         Schema::create('typologies', function (Blueprint $table) {
-            $table->id();
 
-            $table->string('name',60);
-            $table->text('description')->nullable();
+            $table -> id();
 
-            $table->timestamps();
+            $table -> string('name',60)   -> unique();
+            $table -> text('description') -> nullable();
+
+            $table -> timestamps();
         });
     }
 

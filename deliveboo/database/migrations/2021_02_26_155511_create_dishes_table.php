@@ -14,17 +14,18 @@ class CreateDishesTable extends Migration
     public function up()
     {
         Schema::create('dishes', function (Blueprint $table) {
-            $table->id();
 
-            $table->string('name',60);
-            $table->text('description');
-            $table->integer('price');
-            $table->boolean('availability');
-            $table->string('img')->nullable();
+            $table -> id();
 
-            $table->bigInteger('restaurant_id')->unsigned()->unique();
+            $table -> string('name');
+            $table -> text('description');
+            $table -> integer('price');
+            $table -> boolean('availability');
+            $table -> string('img') -> nullable();
 
-            $table->timestamps();
+            $table -> bigInteger('restaurant_id') -> unsigned();
+
+            $table -> timestamps();
         });
     }
 

@@ -7,13 +7,12 @@ use Faker\Generator as Faker;
 
 $factory->define(Restaurant::class, function (Faker $faker) {
     return [
-        'name'=> $faker ->  word,
-        'address'=> $faker -> address,
-        'city'=> $faker -> word,
-        'url'=> $faker -> url,
-        'logo'=> $faker -> imageUrl,
-        'phone'=> $faker -> phoneNumber,
-        'vote'=>  rand(1,5),
-        'piva'=>  rand(100000,10000000)
-        ];
+        'name'    => $faker -> company,
+        'address' => $faker -> streetAddress,
+        'city'    => $faker -> city,
+        'url'     => $faker -> url,
+        'logo'    => $faker -> imageUrl,
+        'phone'   => $faker -> e164PhoneNumber,
+        'vote'    =>           rand(1,5)
+    ];
 });
