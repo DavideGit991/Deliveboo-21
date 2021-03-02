@@ -17,7 +17,6 @@ class Restaurant extends Model
         'phone',
         'vote',
         'user_id',
-        'piva'
     ];
 
     protected $dates = ['deleted_at'];

@@ -65,6 +65,10 @@
                                 Edit
                             </a>
                             <a
+                                href="{{route('dishes-index', $restaurant->id)}}" class="btn btn-primary m-1" >
+                                Menu
+                            </a>
+                            <a
                                 href="{{route('restaurant-destroy', $restaurant->id)}}" class="btn btn-danger m-1" >
                                 Delete
                             </a>

@@ -14,9 +14,6 @@
                         <input type="text" class="form-control" name="name" placeholder="nome ristorante "required maxlength="40" >
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="piva" placeholder="partita IVA"required minlength="10" maxlength="13">
-                    </div>
-                    <div class="col">
                         <input type="text" class="form-control" name="url" placeholder="sito internet example: www.exacasample.it">
                     </div>
 

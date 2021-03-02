@@ -20,10 +20,7 @@
                         <label for="name">Nome</label>
                         <input type="text" class="form-control" name="name" value="{{$restaurant->name}}" required>
                     </div>
-                    <div class="col">
-                        <label for="name">Piva</label>
-                        <input type="text" class="form-control" name="piva" value="{{$restaurant->piva}}" required>
-                    </div>
+                   
                     <div class="col">
                         <label for="name">Sito internet</label>
                         <input type="text" class="form-control" name="url" value="{{$restaurant->url}}">
