@@ -14,6 +14,6 @@ $factory->define(Restaurant::class, function (Faker $faker) {
         'logo'=> $faker -> imageUrl,
         'phone'=> $faker -> phoneNumber,
         'vote'=>  rand(1,5),
-
-    ];
+        'piva'=>  rand(100000,10000000)
+        ];
 });

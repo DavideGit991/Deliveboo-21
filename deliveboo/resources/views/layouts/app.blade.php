@@ -14,6 +14,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
@@ -72,9 +73,9 @@
             </div>
         </nav>
 
+    </div>
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
 </body>
 </html>
