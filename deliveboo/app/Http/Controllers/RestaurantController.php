@@ -31,11 +31,6 @@ class RestaurantController extends Controller
 
     }
 
-    public function show($id)
-    {
-
-    }
-
     public function create()
     {
         return view('restaurant-create');
@@ -65,7 +60,7 @@ class RestaurantController extends Controller
         $restaurant->update($data);
 
 
-        return redirect('home')->with('status', 'Restaurant updated!');
+        return redirect('home');
     }
 
 

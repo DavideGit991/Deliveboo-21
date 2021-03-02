@@ -10,12 +10,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -75,9 +73,9 @@
             </div>
         </nav>
 
+    </div>
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
 </body>
 </html>
