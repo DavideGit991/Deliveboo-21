@@ -5,6 +5,20 @@
   {{-- Jumbotron --}}
   <div id="jumbo">
 
+    {{-- Diagonal border --}}
+    <div class='gradient gradient1'>
+      <svg viewBox='0 0 100 100' preserveAspectRatio='none' overflow="visible">
+        <polygon points="0,0 100,0 0,100" class="main" fill="#00ccbc"/>
+      </svg>
+    </div>
+
+    <div class="jumbo">
+      <h1>Ristorante a casa tua.</h1>
+    </div>
+    <div class="jumbo">
+      <img src="img/sushi.png" alt="">  
+    </div>
+
   </div>
       {{-- Elenco tipologia ristoranti --}}
       <div id="typologies">

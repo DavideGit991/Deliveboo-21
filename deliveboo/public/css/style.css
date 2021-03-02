@@ -49,7 +49,28 @@ header {
 /* HOME */
     #jumbo {
         background-color: #d0eb99;
-        height: 200px;
+        position: relative;
+        display: flex;
+    }
+        .jumbo {
+            width: 50%;
+            height: 100%;
+            position: relative;
+        }
+        #jumbo div > img {
+            max-width: 100%;
+        }
+
+    /* diagonal border */
+  .gradient {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    }
+    svg {
+      height: 100%;
+      width: 100%;
     }
 
     #typologies {
@@ -80,7 +101,7 @@ header {
         color: black;
     }
         #restContainer > div {
-            height: 350px;
+            height: 300px;
             width: 260px;
             background-color: white;
             border: 1px solid grey;
@@ -89,7 +110,7 @@ header {
         }
         #img {
             background-color: dimgray;
-            height: 50%;
+            height: 60%;
         }
 
 

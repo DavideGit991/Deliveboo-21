@@ -49644,25 +49644,25 @@ var app = new Vue({
       "name": "Dessert"
     }, {
       "color": "#FF7F50",
-      "name": "Sushi"
+      "name": "Spesa"
     }, {
       "color": "#660066",
-      "name": "Pizza"
+      "name": "Americana"
     }, {
       "color": "skyblue",
-      "name": "Hamburger"
+      "name": "Sandwich"
     }, {
       "color": "#ffcc33",
-      "name": "Messicana"
+      "name": "Kebab"
     }, {
       "color": "#6b9023",
-      "name": "Italiana"
+      "name": "Gelato"
     }, {
       "color": "salmon",
-      "name": "Cinese"
+      "name": "Healthy"
     }, {
       "color": "darkcyan",
-      "name": "Dessert"
+      "name": "Poke"
     }]
   },
   methods: {
