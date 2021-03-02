@@ -4,12 +4,17 @@
 
 @section('content')
 
-<form action="{{route('restaurant-update',$restaurant->id)}}" method="post">
-    @csrf
-    @method('post')
-    <div class="card box-form border d-flex  ">
 
-        <div class="container d-flex flex-column">
+        <div class="container">
+            <h2 class="border ">
+                Modifica le info del tuo ristorate
+            </h2>
+        </div>
+
+        <form action="{{route('restaurant-update',$restaurant->id)}}" method="post">
+            @csrf
+            @method('post')
+            <div class="container p-2 border d-flex flex-column">
                 <div class="row d-flex m-2">
                     <div class="col">
                         <label for="name">Nome</label>
@@ -47,13 +52,10 @@
                         save
                     </button>
                 </div>
-            </div>
 
+            </div>
         </form>
     @endsection
 
-     <div>
 
-
-</div>
 
