@@ -10,9 +10,15 @@ class DishController extends Controller
 {
     public function index($id)
     {   
-        $restaurantId= Restaurant::findOrFail($id);
+        $restaurant= Restaurant::findOrFail($id);
         $dishes=Dish::where('restaurant_id', $id)->orderBy('id','desc')->get();     //recuper solo i piatti con id_restaurant del ristoratore loggato
-        return view('dishes-index', compact('dishes', 'restaurantId'));
+        return view('dishes-index', compact('dishes', 'restaurant'));
+    }
+
+    public function create($id)
+    {
+        $restaurant= Restaurant::findOrFail($id);
+        return view('dish-create', compact('restaurant'));
     }
 
     public function store(Request $request)
@@ -39,12 +45,11 @@ class DishController extends Controller
         return redirect() -> route('dishes-index', $dish-> restaurant_id );
     }
 
-    public function delete(Request $request, $id)
+    public function delete(Request $request, $id)     //lo rendo non disponibile ma esiste ancora nel db
     {
         $dish=Dish::findOrFail($id);
         if ($dish-> availability==1) {
             $dish-> availability=0;
-            // dd($dish);
         } else {
             $dish-> availability=1;
         }

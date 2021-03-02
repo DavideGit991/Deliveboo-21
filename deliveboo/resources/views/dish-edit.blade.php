@@ -30,8 +30,8 @@
                             <option selected value="1">Disponibile</option>
                             <option value="0">Non disponibile</option>
                         @else
-                        <option value="1">Disponibile</option>
-                        <option selected value="0">Non disponibile</option>
+                            <option value="1">Disponibile</option>
+                            <option selected value="0">Non disponibile</option>
                         @endif
                         
                     </select>
