@@ -49621,21 +49621,41 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'hello',
     typologies: [{
-      "color": "coral",
+      "color": "#FF7F50",
       "name": "Sushi"
     }, {
-      "color": "purple",
+      "color": "#660066",
       "name": "Pizza"
     }, {
       "color": "skyblue",
       "name": "Hamburger"
     }, {
-      "color": "gold",
+      "color": "#ffcc33",
       "name": "Messicana"
     }, {
-      "color": "darkmagenta",
+      "color": "#6b9023",
+      "name": "Italiana"
+    }, {
+      "color": "salmon",
+      "name": "Cinese"
+    }, {
+      "color": "darkcyan",
+      "name": "Dessert"
+    }, {
+      "color": "#FF7F50",
+      "name": "Sushi"
+    }, {
+      "color": "#660066",
+      "name": "Pizza"
+    }, {
+      "color": "skyblue",
+      "name": "Hamburger"
+    }, {
+      "color": "#ffcc33",
+      "name": "Messicana"
+    }, {
+      "color": "#6b9023",
       "name": "Italiana"
     }, {
       "color": "salmon",
@@ -49644,6 +49664,11 @@ var app = new Vue({
       "color": "darkcyan",
       "name": "Dessert"
     }]
+  },
+  methods: {
+    ciao: function ciao() {
+      console.log('ciao');
+    }
   }
 });
 

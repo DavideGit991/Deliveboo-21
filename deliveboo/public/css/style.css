@@ -5,7 +5,12 @@
     font-family: sans-serif;
 }
 
+/* Hover */
+#typologies > div:hover{
+    cursor: pointer;
+}
 
+/* Header */
 header {
     background-color: #00ccbc;
     display: flex;
@@ -56,7 +61,6 @@ header {
         #typologies > div {
             height: 90px;
             min-width: 150px;
-            background-color: coral;
             color: white;
             border-radius: 5px;
             margin: 0 10px;

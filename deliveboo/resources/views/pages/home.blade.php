@@ -8,8 +8,8 @@
   </div>
       {{-- Elenco tipologia ristoranti --}}
       <div id="typologies">
-        <div class="" v-for="(typology, i) in typologies" >
-            <h3></h3>
+        <div class="" v-for="(typology, i) in typologies" :style="'background-color:' + typology.color">
+            <h3>@{{typology.name}}</h3>
         </div>
       </div>
       {{-- Elenco ristoranti primo piano --}}
