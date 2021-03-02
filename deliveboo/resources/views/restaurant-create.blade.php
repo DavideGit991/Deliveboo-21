@@ -1,11 +1,3 @@
-        {{-- 'name',
-        'address',
-        'city',
-        'url',
-        'logo',
-        'phone',
-        'vote',
-        'user_id' --}}
 @extends('layouts.app')
 
 <div class="container">

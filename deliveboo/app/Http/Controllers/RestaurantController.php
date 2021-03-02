@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Restaurant;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -26,6 +28,7 @@ class RestaurantController extends Controller
         $restaurant= User::find($userid)->restaurant;
 
         return view('home',compact('restaurant'));
+
     }
 
     public function show($id)
@@ -42,8 +45,8 @@ class RestaurantController extends Controller
     {
         $data=$request->all();
 
-        $nRestaurant=Restaurant::create($data);
-        return redirect()->route('home');;
+        $newRestaurant=Restaurant::create($data);
+        return redirect()->route('home');
     }
 
     public function edit($id)
@@ -63,9 +66,6 @@ class RestaurantController extends Controller
 
 
         return redirect('home')->with('status', 'Restaurant updated!');
-
-
-
     }
 
 
