@@ -13,7 +13,7 @@
     </div>
 
     <div class="jumbo">
-      <h1>Ristorante a casa tuaa.</h1>
+      <h1>Ristorante a casa tua.</h1>
     </div>
     <div class="jumbo">
       <img src="img/sushi.png" alt="">  
