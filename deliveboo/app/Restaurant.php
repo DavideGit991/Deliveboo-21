@@ -17,6 +17,8 @@ class Restaurant extends Model
         'user_id'
     ];
 
+    protected $dates = ['deleted_at'];
+
     public function typologies()
     {
         return $this->belongsToMany(Typology::class);

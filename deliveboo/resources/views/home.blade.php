@@ -14,22 +14,31 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
-
 
                 </div>
-                <div class="m-3">
-                    {{-- @dd($restaurant); --}}
+                <div class="ml-3">
+
                     @if (!$restaurant)
                         <h4>
                             non esiste nessun ristorante
                         </h4>
+                        <a href="{{route('restaurant-create')}}" class="btn btn-primary" >
+                            create
+                        </a>
                     @else
                         <h1>il tuo ristorante e':</h1>
-                        <li>
-                            {{$restaurant->name}}
-                        </li>
+                        <h4 class="ml-2">
+                                {{$restaurant->name}}
+                        </h4 class="ml-2">
+                        <a href="{{route('restaurant-edit', $restaurant->id)}}" class="btn btn-primary m-1" >
+                            Edit
+                        </a>
+                        <a href="{{route('restaurant-destroy', $restaurant->id)}}" class="btn btn-danger m-1" >
+                            Delete
+                        </a>
+
                     @endif
+
 
                 </div>
             </div>
@@ -37,3 +46,11 @@
     </div>
 </div>
 @endsection
+
+
+<script>
+
+
+
+
+</script>

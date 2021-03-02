@@ -27,6 +27,7 @@ class CreateRestaurantsTable extends Migration
             $table->integer('vote')->nullable();
 
             $table->bigInteger('user_id')->unsigned();
+            $table->softDeletes();
 
             $table->timestamps();
         });
