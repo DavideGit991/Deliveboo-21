@@ -1,5 +1,7 @@
 <header>
-    <div>LOGO</div>
+    <div>
+        <a href="{{ url('/') }}">Deliveboo</a>
+    </div>
     {{-- Search --}}
     <div id="search">
         <div>
