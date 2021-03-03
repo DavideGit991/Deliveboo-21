@@ -57,8 +57,11 @@ header {
         .jumbo {
             height: 100%;
             position: relative;
-            margin: auto;
         }
+            .jumbo:nth-child(2) {
+                margin: auto;
+                padding-top: 170px;
+            }
             .jumbo h1 {
                 font-size: 50px;
                 color: #660066;
@@ -120,4 +123,23 @@ header {
             height: 60%;
         }
 
+/* LOGIN PAGE */
+#login {
+    width: 50%;
+    margin: 50px auto;
+    border: 1px solid #00ccbc;
+    border-radius: 10px;
+}
+    #login > .card-header {
+        color: #660066;
+        text-align: center;
+        background-color: #00ccbc;
+        font-size: 30px;
+        font-weight: bold;
+        border-radius: 10px 10px 0 0;
+        padding: 10px;
+    }
+    #login > .card-body {
+        padding: 10px;
+    }
 
