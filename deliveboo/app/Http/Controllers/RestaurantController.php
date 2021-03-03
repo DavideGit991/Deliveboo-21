@@ -21,7 +21,7 @@ class RestaurantController extends Controller
     }
     public function create()
     {
-        return view('restaurant-create');
+        return view('pages.restaurant-create');
     }
     public function store(Request $request)
     {
@@ -32,7 +32,7 @@ class RestaurantController extends Controller
     public function edit($id)
     {
         $restaurant=Restaurant::findOrFail($id);
-        return view('restaurant-edit',compact('restaurant'));
+        return view('pages.restaurant-edit',compact('restaurant'));
     }
     public function update(Request $request, $id)
     {

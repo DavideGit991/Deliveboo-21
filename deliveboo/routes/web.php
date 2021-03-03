@@ -23,7 +23,7 @@ Route::post('/update/{id}', 'RestaurantController@update')->name('restaurant-upd
 
 Route::get('/destroy/{id}', 'RestaurantController@destroy')->name('restaurant-destroy');
 
-
+// Rotte Piatti
 Route::get('/home/restaurant/{id}/dishes', 'DishController@index')->name('dishes-index');
 Route::get('/home/restaurant/{id}/dish/create', 'DishController@create')->name('dish-create');
 

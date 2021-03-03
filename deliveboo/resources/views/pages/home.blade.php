@@ -14,6 +14,15 @@
 
     <div class="jumbo">
       <h1>Ristorante a casa tua.</h1>
+      <form action="">
+        <label for="citta">Scegli la tua città</label>
+        <select id="citta" name="citta">
+          <option value="roma">Roma</option>
+          <option value="milano">Milano</option>
+          <option value="messina">Messina</option>
+          <option value="napoli">Napoli</option>
+        </select>
+      </form>
     </div>
     <div class="jumbo">
       <img src="img/sushi.png" alt="">  
