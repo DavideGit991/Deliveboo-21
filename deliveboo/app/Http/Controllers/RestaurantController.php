@@ -9,10 +9,10 @@ use App\User;
 use Illuminate\Http\Request;
 class RestaurantController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     public function index()
     {
         $userid=Auth::user()->id;
@@ -46,5 +46,31 @@ class RestaurantController extends Controller
         $restaurant=Restaurant::findOrFail($id);
         $restaurant->delete();
         return redirect()->route('home');
+    }
+    public function getCity()
+    {
+        $cities=DB::table('restaurants')-> select('city')-> get();
+        return response()-> json($cities);
+    }
+    public function getRestaurantCity(Request $request)
+    {
+        $city=$request-> all();
+        $restaurants=DB::table('restaurants')->where('city','=',$city)-> get();
+        $idRestaurant=[];
+        $idTypologies=[];
+        // for ($i=0; $i < count($restaurants); $i++) { 
+        //     $id=$restaurants[$i]-> id;
+        //     $query=DB::table('restaurant_typology')
+        //     -> select('typology_id')
+        //     ->where('restaurant_id', '=', $id)
+        //     ->get();
+        //     $idTypologies[]=$query;
+        // }
+        
+        // $idRestaurant[]=$id;
+        // $idRestaurants-> id;
+        // $idRestaurant=$restaurants['id'];
+        
+        return response()-> json($restaurants);
     }
 }

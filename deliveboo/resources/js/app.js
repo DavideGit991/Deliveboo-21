@@ -74,13 +74,39 @@ function init(){
                 "color": "darkcyan",
                 "name": "Poke",
             }           
-        ]
-    },
+        ],
 
+        cities:[],
+        citta:''
+    },
+    mounted(){
+        axios.get('/cities/').then(res=>{
+            this.cities=res.data;
+            console.log(this.cities);
+            console.log(this.citta);
+        })
+    },
     methods: {
 
         ciao: function() {
             console.log('ciao');
+        },
+
+        getTyplogy: function(){
+            axios.get('/typologies/').then(res=>{
+                console.log(res);
+            })
+        },
+        selectCity: function(event){
+            this.citta=event.target.options[event.target.options.selectedIndex].text;
+            console.log(this.citta);
+            const cittaSelezionata={
+                city:this.citta,
+            };
+            console.log(cittaSelezionata);
+            axios.post('/restaurantCity', cittaSelezionata).then(res=>{
+                console.log(res);
+            })
         }
     }
 });

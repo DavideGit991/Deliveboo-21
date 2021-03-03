@@ -49874,11 +49874,38 @@ function init() {
       }, {
         "color": "darkcyan",
         "name": "Poke"
-      }]
+      }],
+      cities: [],
+      citta: ''
+    },
+    mounted: function mounted() {
+      var _this = this;
+
+      axios.get('/cities/').then(function (res) {
+        _this.cities = res.data;
+        console.log(_this.cities);
+        console.log(_this.citta);
+      });
     },
     methods: {
       ciao: function ciao() {
         console.log('ciao');
+      },
+      getTyplogy: function getTyplogy() {
+        axios.get('/typologies/').then(function (res) {
+          console.log(res);
+        });
+      },
+      selectCity: function selectCity(event) {
+        this.citta = event.target.options[event.target.options.selectedIndex].text;
+        console.log(this.citta);
+        var cittaSelezionata = {
+          city: this.citta
+        };
+        console.log(cittaSelezionata);
+        axios.post('/restaurantCity', cittaSelezionata).then(function (res) {
+          console.log(res);
+        });
       }
     }
   });
@@ -49997,8 +50024,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\esercizi_laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\esercizi_laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

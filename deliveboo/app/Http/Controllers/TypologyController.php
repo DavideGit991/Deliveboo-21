@@ -14,7 +14,7 @@ class TypologyController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
