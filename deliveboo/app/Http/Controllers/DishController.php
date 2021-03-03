@@ -12,13 +12,13 @@ class DishController extends Controller
     {   
         $restaurant= Restaurant::findOrFail($id);
         $dishes=Dish::where('restaurant_id', $id)->orderBy('id','desc')->get();     //recuper solo i piatti con id_restaurant del ristoratore loggato
-        return view('dishes-index', compact('dishes', 'restaurant'));
+        return view('pages.dishes-index', compact('dishes', 'restaurant'));
     }
 
     public function create($id)
     {
         $restaurant= Restaurant::findOrFail($id);
-        return view('dish-create', compact('restaurant'));
+        return view('pages.dish-create', compact('restaurant'));
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class DishController extends Controller
     public function edit($id)
     {
         $dish=Dish::findOrFail($id);
-        return view('dish-edit', compact('dish'));
+        return view('pages.dish-edit', compact('dish'));
     }
 
     public function update(Request $request, $id)
