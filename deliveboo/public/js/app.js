@@ -49826,14 +49826,60 @@ var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
 
 files.keys().map(function (key) {
   return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
-});
+}); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 function init() {
-  console.log('ciao');
-  new Vue({
+  var app = new Vue({
     el: '#app',
     data: {
-      showRestaurant: false
+      typologies: [{
+        "color": "#FF7F50",
+        "name": "Sushi"
+      }, {
+        "color": "#660066",
+        "name": "Pizza"
+      }, {
+        "color": "skyblue",
+        "name": "Hamburger"
+      }, {
+        "color": "#ffcc33",
+        "name": "Messicana"
+      }, {
+        "color": "#6b9023",
+        "name": "Italiana"
+      }, {
+        "color": "salmon",
+        "name": "Cinese"
+      }, {
+        "color": "darkcyan",
+        "name": "Dessert"
+      }, {
+        "color": "#FF7F50",
+        "name": "Spesa"
+      }, {
+        "color": "#660066",
+        "name": "Americana"
+      }, {
+        "color": "skyblue",
+        "name": "Sandwich"
+      }, {
+        "color": "#ffcc33",
+        "name": "Kebab"
+      }, {
+        "color": "#6b9023",
+        "name": "Gelato"
+      }, {
+        "color": "salmon",
+        "name": "Healthy"
+      }, {
+        "color": "darkcyan",
+        "name": "Poke"
+      }]
+    },
+    methods: {
+      ciao: function ciao() {
+        console.log('ciao');
+      }
     }
   });
 }
@@ -49951,8 +49997,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\esercizi_laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\esercizi_laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
