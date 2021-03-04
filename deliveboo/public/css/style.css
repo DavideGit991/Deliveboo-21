@@ -47,12 +47,6 @@ header {
   color: white;
 }
 
-/* Hover */
-
-#typologies > div:hover {
-  cursor: pointer;
-}
-
 /* HOME */
 
 #jumbo {
@@ -78,7 +72,7 @@ header {
   color: #660066;
 }
 
-#jumbo div > img {
+.jumbo img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -104,7 +98,7 @@ svg {
   overflow: auto;
 }
 
-#typologies > div {
+#typologies div {
   height: 90px;
   min-width: 150px;
   color: white;
@@ -113,13 +107,17 @@ svg {
   padding: 5px;
 }
 
+#typologies div:hover {
+  cursor: pointer;
+}
+
 #bestRated {
   background-color: #ffa280;
   padding: 20px;
   color: white;
 }
 
-#restContainer {
+#best {
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -127,7 +125,7 @@ svg {
   color: black;
 }
 
-#restContainer > div {
+#best > div {
   height: 300px;
   width: 260px;
   background-color: white;
@@ -136,7 +134,7 @@ svg {
   margin: 10px;
 }
 
-#img {
+#best > div div {
   background-color: dimgray;
   height: 60%;
 }
