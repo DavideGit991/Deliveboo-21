@@ -41,7 +41,8 @@ header {
   outline: none;
 }
 
-#links > a {
+#links > a,
+#logout {
   text-decoration: none;
   margin: 0 10px;
   color: white;
@@ -146,6 +147,7 @@ svg {
   margin: 50px auto;
   border: 1px solid #00ccbc;
   border-radius: 10px;
+  background-color: white;
 }
 
 .login-register .card-header {
@@ -181,6 +183,10 @@ svg {
 
 .login-register .card-body button:active {
   outline-color: #00ccbc;
+}
+
+.login-register .card-body button:hover {
+  cursor: pointer;
 }
 
 #email,

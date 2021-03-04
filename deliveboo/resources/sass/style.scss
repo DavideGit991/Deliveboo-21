@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 * {
     margin: 0;
     padding: 0;
@@ -13,3 +15,6 @@
 
 /* LOGIN PAGE */
 @import "partials/login-register";
+
+// Dashboard
+@import "partials/dashboard";

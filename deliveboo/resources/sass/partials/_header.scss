@@ -1,5 +1,5 @@
 header {
-    background-color: #00ccbc;
+    background-color: $main;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +34,7 @@ header {
         }
     }
         
-    #links > a {
+    #links > a, #logout {
         text-decoration: none;
         margin: 0 10px;
         color: white;

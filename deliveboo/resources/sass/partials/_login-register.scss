@@ -1,13 +1,14 @@
 .login-register {
     width: 400px;
     margin: 50px auto;
-    border: 1px solid #00ccbc;
+    border: 1px solid $main;
     border-radius: 10px;
+    background-color: white;
 
     .card-header {
         color: #660066;
         text-align: center;
-        background-color: #00ccbc;
+        background-color: $main;
         font-size: 30px;
         font-weight: bold;
         border-radius: 10px 10px 0 0;
@@ -34,7 +35,10 @@
             font-size: 16px;
 
             &:active {
-                outline-color: #00ccbc;
+                outline-color: $main;
+            }
+            &:hover {
+                cursor: pointer;
             }
         }
     }
@@ -48,7 +52,7 @@
         border-radius: 3px;
 
         &:focus {
-            outline-color: #00ccbc;
+            outline-color: $main;
         }
     }
     
