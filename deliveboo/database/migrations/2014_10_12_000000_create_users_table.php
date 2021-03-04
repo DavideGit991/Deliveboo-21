@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('piva', 11);
+            $table->string('piva', 11)->nullable();
             $table->string('business_name', 60);
 
             $table->rememberToken();
