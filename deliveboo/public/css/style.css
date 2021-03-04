@@ -117,13 +117,13 @@ svg {
   cursor: pointer;
 }
 
-#bestRated {
+.bestRated {
   background-color: #ffa280;
   padding: 20px;
   color: white;
 }
 
-#best {
+.best {
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -131,7 +131,7 @@ svg {
   color: black;
 }
 
-#best > div {
+.best > div {
   width: 260px;
   background-color: white;
   border-radius: 5px;
@@ -139,16 +139,21 @@ svg {
   box-shadow: 0px 0px 3px 1px #444444;
 }
 
-#best > div img {
+.best > div img {
   background-color: dimgray;
   width: 100%;
 }
 
-#best > div div {
+.best > div div {
   padding: 5px 15px;
 }
 
-#best > div div h4 {
+.best > div div:first-child {
+  height: 40px;
+  background-color: dimgray;
+}
+
+.best > div div h4 {
   color: #262626;
   font-size: 14px;
 }

@@ -60,20 +60,20 @@ svg {
     }
 }
 
-//Ristoranti in primo piano
-#bestRated {
+//Ristoranti 
+.bestRated {
     background-color: $mainpink;
     padding: 20px;
     color: white;
 }
-    #best {
+    .best {
         padding: 15px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         color: black;
     }
-    #best > div {
+    .best > div {
        
         width: 260px;
         background-color: white;
@@ -88,6 +88,11 @@ svg {
 
         div {
             padding: 5px 15px;
+
+            &:first-child {
+                height: 40px;
+                background-color: dimgray;
+            }
             
             h4 {
                 color: #262626;
@@ -95,5 +100,6 @@ svg {
             }
         }
     }
+
 
 
