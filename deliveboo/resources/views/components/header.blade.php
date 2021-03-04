@@ -1,13 +1,10 @@
 <header>
     <div>LOGO</div>
+
     {{-- Search --}}
-    <div id="search">
-        <div>
-            <i class="fas fa-search"></i>
-        </div>
-        <form action="">
-            <input type="text" placeholder="Piatti, Ristoranti o tipi di cucina">
-        </form>
+    <div v-show='showName'>
+
+        <input type="text"  v-model='inputName' @@keyup.enter='searchRestaurantName()' placeholder="Nome del ristorante">
     </div>
 
     {{-- Login Register --}}
@@ -17,7 +14,7 @@
                     <a href="{{ url('/home') }}">Dashboard</a>
                 @else
                     <a href="{{ route('login') }}">Login</a>
-    
+
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}">Registrati</a>
                     @endif

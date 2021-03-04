@@ -11,122 +11,131 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 function init(){
 
-     
-     
+
+
     const app = new Vue({
     el: '#app',
 
     data: {
-        // typologies: [
-        //     {
-        //         "color": "#FF7F50",
-        //         "name": "Sushi",
-        //     },
-        //     {
-        //         "color": "#660066",
-        //         "name": "Pizza",
-        //     },
-        //     {
-        //         "color": "skyblue",
-        //         "name": "Hamburger",
-        //     },
-        //     {
-        //         "color": "#ffcc33",
-        //         "name": "Messicana",
-        //     },
-        //     {
-        //         "color": "#6b9023",
-        //         "name": "Italiana",
-        //     },
-        //     {
-        //         "color": "salmon",
-        //         "name": "Cinese",
-        //     },
-        //     {
-        //         "color": "darkcyan",
-        //         "name": "Dessert",
-        //     },
-        //     {
-        //         "color": "#FF7F50",
-        //         "name": "Spesa",
-        //     },
-        //     {
-        //         "color": "#660066",
-        //         "name": "Americana",
-        //     },
-        //     {
-        //         "color": "skyblue",
-        //         "name": "Sandwich",
-        //     },
-        //     {
-        //         "color": "#ffcc33",
-        //         "name": "Kebab",
-        //     },
-        //     {
-        //         "color": "#6b9023",
-        //         "name": "Gelato",
-        //     },
-        //     {
-        //         "color": "salmon",
-        //         "name": "Healthy",
-        //     },
-        //     {
-        //         "color": "darkcyan",
-        //         "name": "Poke",
-        //     }           
-        // ],
+        showTypologies:false,
+        showBest:true,
+        showRestaurantCity:false,
+        showName:true,
+        showRestaurantSelected:false,
+
+        inputName:'',
 
         cities:[],
         citta:'',
         restaurants:[],
-        restaurantsVotes:[]
+        restaurantsVotes:[],
+        typologiesCity:[],
+        restaurantsSelected:[],
+
+        selectedTypology:'',
     },
     mounted(){
-        axios.get('/cities/').then(res=>{
-            res.data.forEach(element => {
-                if (res.data.includes(element)) {
-                    
-                }
-            });
+        //richiamo le citta' dove e' presente un ristorante
+        axios.get('/cities')
+             .then(res=>{
+                // console.log(res.data);
 
-            this.cities=res.data;
-            console.log(this.cities);
-            this.cities.forEach(element => {
-                if (this.cities.includes(this.citta)) {
-                    
-                }
+                this.cities=res.data;
+
+                // console.log(this.cities);
+
             });
             // console.log(this.cities);
             // console.log(this.citta);
-        });
 
+        //chiamata per sapere i risto piu votati
         axios.get('/votes')
              .then(res=>{
                  this.restaurantsVotes=res.data;
                 //  console.log('vote',this.restaurantsVotes);
             })
     },
+
     methods: {
 
-
-        getTyplogy: function(){
-            axios.get('/typologies/').then(res=>{
-                // console.log(res);
-            })
-        },
+        //variazione option select
         selectCity: function(event){
             this.citta=event.target.options[event.target.options.selectedIndex].text;
+
             // console.log(this.citta);
+
             const cittaSelezionata={
                 city:this.citta,
             };
-            console.log(cittaSelezionata);
-            axios.post('/restaurantCity', cittaSelezionata).then(res=>{
-                this.restaurants=res.data;
-                console.log(this.restaurants);
-            })
+
+            if (this.citta=='Seleziona Città'){
+                this.showRestaurantSelected=false;
+                this.showBest=true;
+                this.showRestaurantCity=false;
+                this.showTypologies=false;
+                this.showName=true;
+            }else{
+                this.showRestaurantSelected=false;
+                this.showBest=false;
+                this.showRestaurantCity=true;
+                this.showName=false;
+
+                console.log(cittaSelezionata);
+
+                //chiamata restituzione tipologie per città selezionata
+                        axios.post('/typologiesCity',cittaSelezionata)
+                            .then(res=>{
+                            this.showTypologies=true;
+                            this.typologiesCity=res.data;
+                            // console.log(this.typologiesCity);
+                        })
+
+                //chiamata per i ristoranti della città selezionata
+                axios.post('/restaurantCity', cittaSelezionata)
+                     .then(res=>{
+                        this.restaurants=res.data;
+                        // console.log(this.restaurants);
+                    })
+
+                // prenderle la tipologia dal bottone e la città selezionata
+                // vado dillà e faccio una query che ritorna i ristoranti con citta selezionata e tipologia selezionata
+
+
+
+            };
+
         },
+
+        selectTypology:function(name){
+            this.selectedTypology=name;
+            // console.log(this.selectedTypology);
+            const data={
+                city:this.citta,
+                name:this.selectedTypology
+            }
+            axios.post('/selectedTypology',data)
+                .then(res=>{
+
+                    this.showRestaurantCity=false;
+                    this.showRestaurantSelected=true;
+
+                    this.restaurantsSelected=res.data;
+                    console.log(this.restaurantsSelected);
+                })
+        },
+
+        searchRestaurantName(){
+            const data={
+                name:this.inputName
+            }
+            axios.post('/search',data)
+            .then(res=>{
+
+                    console.log(res);
+                })
+        }
     }
+
 });
 
 

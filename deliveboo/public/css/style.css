@@ -1,3 +1,4 @@
+@import '~bootstrap/scss/bootstrap';
 * {
     margin: 0;
     padding: 0;
@@ -89,7 +90,7 @@ header {
         #typologies > div {
             height: 90px;
             min-width: 150px;
-            color: white;
+            color: black;
             border-radius: 5px;
             margin: 0 10px;
             padding: 5px;
