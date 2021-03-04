@@ -49892,7 +49892,8 @@ function init() {
       // ],
       cities: [],
       citta: '',
-      restaurants: []
+      restaurants: [],
+      restaurantsVotes: []
     },
     mounted: function mounted() {
       var _this = this;
@@ -49909,6 +49910,9 @@ function init() {
         }); // console.log(this.cities);
         // console.log(this.citta);
 
+      });
+      axios.get('/votes').then(function (res) {
+        _this.restaurantsVotes = res.data; //  console.log('vote',this.restaurantsVotes);
       });
     },
     methods: {

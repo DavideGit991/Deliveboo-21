@@ -78,7 +78,8 @@ function init(){
 
         cities:[],
         citta:'',
-        restaurants:[]
+        restaurants:[],
+        restaurantsVotes:[]
     },
     mounted(){
         axios.get('/cities/').then(res=>{
@@ -97,7 +98,13 @@ function init(){
             });
             // console.log(this.cities);
             // console.log(this.citta);
-        })
+        });
+
+        axios.get('/votes')
+             .then(res=>{
+                 this.restaurantsVotes=res.data;
+                //  console.log('vote',this.restaurantsVotes);
+            })
     },
     methods: {
 
@@ -118,7 +125,7 @@ function init(){
                 this.restaurants=res.data;
                 console.log(this.restaurants);
             })
-        }
+        },
     }
 });
 

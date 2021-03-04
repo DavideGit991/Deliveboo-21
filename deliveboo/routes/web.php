@@ -35,3 +35,6 @@ Route::get('/home/dish/delete/{id}', 'DishController@delete')->name('dish-delete
 Route::get('/typology', 'TypologyController@getTypology')-> name('get-typology');
 Route::get('/cities', 'RestaurantController@getCity')-> name('get-city');
 Route::post('/restaurantCity', 'RestaurantController@getrestaurantCity')-> name('get-restaurant-city');
+
+//ristoranti piu' votati
+Route::get('/votes', 'RestaurantController@getRestaurantVotes');

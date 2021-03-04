@@ -37,14 +37,21 @@
       <div id="bestRated">
         <h2>I Più Votati</h2>
         <div id="restContainer">
-            <div v-for="element in 10">
+            {{-- <div v-for="element in 10">
                 <div id="img">
                 </div>
                 <h4>Nome</h4>
                 <p>voto</p>
                 <p>Tipo di cucina</p>
     
-            </div>
+            </div> --}}
+            <div v-for="element in restaurantsVotes">
+              <div id="img">
+                  <img :src="element.logo" alt="">
+              </div>
+              <h4>@{{element.name}}</h4>
+              <p>@{{element.vote}}</p>
+          </div>
         </div>
-      </div>
+        
 @endsection

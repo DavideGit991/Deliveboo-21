@@ -73,4 +73,12 @@ class RestaurantController extends Controller
         
         return response()-> json($restaurants);
     }
+    public function getRestaurantVotes()
+    {
+        $restaurantsVotes=DB::table('restaurants')
+                ->select('restaurants.name','restaurants.logo','restaurants.vote')
+                ->orderBy('vote','desc')
+                ->get();
+        return response()->json($restaurantsVotes);
+    }
 }
