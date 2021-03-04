@@ -6,7 +6,7 @@
     background-color: white;
 
     .card-header {
-        color: #660066;
+        color: $mainpurple;
         text-align: center;
         background-color: $main;
         font-size: 30px;
@@ -22,15 +22,15 @@
 
         label {
             font-size: 18px;
-            color: #660066;
+            color: $mainpurple;
         }
 
         button {
             height: 30px;
             padding: 0 10px;
-            background-color: #ffa280;
-            color: #660066;
-            border: 1px solid #660066;
+            background-color: $mainpink;
+            color: $mainpurple;
+            border: 1px solid $mainpurple;
             border-radius: 3px;
             font-size: 16px;
 
@@ -48,7 +48,7 @@
         height: 30px;
         width: 100%;
         margin-bottom: 10px;
-        border: 1px solid #660066;
+        border: 1px solid $mainpurple;
         border-radius: 3px;
 
         &:focus {

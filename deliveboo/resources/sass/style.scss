@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import "partials/variables";
 
 * {
     margin: 0;
@@ -18,3 +18,5 @@
 
 // Dashboard
 @import "partials/dashboard";
+
+@import '~@fortawesome/fontawesome-free/css/all.min.css'

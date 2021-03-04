@@ -1,6 +1,6 @@
 // Jumbotron
 #jumbo {
-    background-color: #d0eb99;
+    background-color: $maingreen;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -17,7 +17,7 @@
 
         h1 {
             font-size: 50px;
-            color: #660066;
+            color: $mainpurple;
         }
 
         img {
@@ -61,7 +61,7 @@ svg {
 
 //Ristoranti in primo piano
 #bestRated {
-    background-color: #ffa280;
+    background-color: $mainpink;
     padding: 20px;
     color: white;
 }
