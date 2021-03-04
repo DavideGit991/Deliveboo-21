@@ -17,7 +17,7 @@ class RestaurantController extends Controller
     {
         $userid=Auth::user()->id;
         $restaurant= User::find($userid)->restaurant;
-        return view('home',compact('restaurant'));
+        return view('pages.home',compact('restaurant'));
     }
     public function create()
     {

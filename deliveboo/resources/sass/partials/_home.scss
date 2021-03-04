@@ -1,0 +1,88 @@
+// Jumbotron
+#jumbo {
+    background-color: $maingreen;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 400px;
+}
+    .jumbo {
+        height: 100%;
+        position: relative;
+
+        &:nth-child(2) {
+            margin: auto;
+            padding-top: 170px;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: $mainpurple;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+        
+/* diagonal border */
+.gradient {
+width: 100%;
+height: 200px;
+position: absolute;
+top: 0;
+}
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+//Tipologie
+#typologies {
+    background-color: white;
+    display: flex;
+    padding: 15px;
+    overflow: auto;
+
+    div {
+        height: 90px;
+        min-width: 150px;
+        color: white;
+        border-radius: 5px;
+        margin: 0 10px;
+        padding: 5px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+//Ristoranti in primo piano
+#bestRated {
+    background-color: $mainpink;
+    padding: 20px;
+    color: white;
+}
+    #best {
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        color: black;
+    }
+    #best > div {
+        height: 300px;
+        width: 260px;
+        background-color: white;
+        border: 1px solid grey;
+        border-radius: 5px;
+        margin: 10px;
+
+        div {
+            background-color: dimgray;
+            height: 60%;
+        }
+    }
+

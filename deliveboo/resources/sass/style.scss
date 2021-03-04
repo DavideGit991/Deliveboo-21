@@ -1,0 +1,22 @@
+@import "partials/variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Header */
+@import "partials/header";
+
+/* HOME */
+@import "partials/home";
+
+/* LOGIN PAGE */
+@import "partials/login-register";
+
+// Dashboard
+@import "partials/dashboard";
+
+@import '~@fortawesome/fontawesome-free/css/all.min.css'
