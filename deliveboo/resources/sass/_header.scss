@@ -1,0 +1,41 @@
+header {
+    background-color: #00ccbc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 15px 20px;
+}
+    #search {
+        background-color: white;
+        height: 40px;
+        width: 600px;
+        display: flex;
+        border-radius: 5px;
+
+        div {
+            width: 40px;
+            margin: auto;
+            text-align: center;
+        }
+
+        form {
+
+            input {
+                height: 100%;
+                width: 560px;
+                border: none;
+                border-radius: 5px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+        
+    #links > a {
+        text-decoration: none;
+        margin: 0 10px;
+        color: white;
+    }
