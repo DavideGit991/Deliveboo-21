@@ -33,6 +33,20 @@ function init(){
         restaurantsSelected:[],
 
         selectedTypology:'',
+
+        // quadratini colorati
+        typologyColors: [
+            "coral",
+            "#660066",
+            "skyblue",
+            "#ffcc33",
+            "#6b9023",
+            "salmon",
+            "darkCyan",
+            "#660066",
+            "#ffcc33",
+            "salmon",
+        ]
     },
     mounted(){
         //richiamo le citta' dove e' presente un ristorante

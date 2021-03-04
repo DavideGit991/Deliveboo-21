@@ -28,8 +28,8 @@
 
   {{-- Elenco tipologia ristoranti --}}
   <div id="typologies" v-show='showTypologies'>
-      <div v-for="(typology, i) in typologiesCity" @@click="selectTypology(typology.name)" :value='typology.name' :key='typology.name'>
-        @{{typology.name}}   
+      <div v-for="(typology, i) in typologiesCity" @@click="selectTypology(typology.name)" :value='typology.name' :key='typology.name' :style="'background-color:' + typologyColors[i]">
+        @{{typology.name}}  
       </div>
   </div>
 
