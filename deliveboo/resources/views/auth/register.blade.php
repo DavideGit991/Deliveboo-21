@@ -1,7 +1,7 @@
 @extends('layouts.main-layout')
 
 @section('content')
-<div id="register" class="container">
+<div id="register" class="login-register">
     
             <div class="card-header">Registrati</div>
 

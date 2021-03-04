@@ -6,56 +6,10 @@
 }
 
 /* Header */
-@import "./header";
+@import "partials/header";
 
 /* HOME */
-@import "./home";
+@import "partials/home";
 
 /* LOGIN PAGE */
-#login, #register {
-    width: 400px;
-    margin: 50px auto;
-    border: 1px solid #00ccbc;
-    border-radius: 10px;
-}
-    #login > .card-header, #register > .card-header {
-        color: #660066;
-        text-align: center;
-        background-color: #00ccbc;
-        font-size: 30px;
-        font-weight: bold;
-        border-radius: 10px 10px 0 0;
-        padding: 10px;
-    }
-    #login > .card-body, #register > .card-body {
-        padding: 20px 10px;
-        width: 60%;
-        margin: auto;
-    }
-    .form-group.row  label {
-        font-size: 18px;
-        color: #660066;
-    }
-    #email, #password, #register input {
-        height: 30px;
-        width: 100%;
-        margin-bottom: 10px;
-        border: 1px solid #660066;
-        border-radius: 3px;
-    }
-    #login input:focus, #register input:focus, button:active{
-        outline-color: #00ccbc;
-    }
-    #remember, #forgot-p {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-    #login button, #register button {
-        height: 30px;
-        padding: 0 10px;
-        background-color: #ffa280;
-        color: #660066;
-        border: 1px solid #660066;
-        border-radius: 3px;
-        font-size: 16px;
-    }
+@import "partials/login-register";

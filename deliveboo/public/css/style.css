@@ -141,16 +141,14 @@ svg {
 
 /* LOGIN PAGE */
 
-#login,
-#register {
+.login-register {
   width: 400px;
   margin: 50px auto;
   border: 1px solid #00ccbc;
   border-radius: 10px;
 }
 
-#login > .card-header,
-#register > .card-header {
+.login-register .card-header {
   color: #660066;
   text-align: center;
   background-color: #00ccbc;
@@ -160,16 +158,29 @@ svg {
   padding: 10px;
 }
 
-#login > .card-body,
-#register > .card-body {
+.login-register .card-body {
   padding: 20px 10px;
   width: 60%;
   margin: auto;
 }
 
-.form-group.row label {
+.login-register .card-body label {
   font-size: 18px;
   color: #660066;
+}
+
+.login-register .card-body button {
+  height: 30px;
+  padding: 0 10px;
+  background-color: #ffa280;
+  color: #660066;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.login-register .card-body button:active {
+  outline-color: #00ccbc;
 }
 
 #email,
@@ -182,9 +193,9 @@ svg {
   border-radius: 3px;
 }
 
-#login input:focus,
-#register input:focus,
-button:active {
+#email:focus,
+#password:focus,
+#register input:focus {
   outline-color: #00ccbc;
 }
 
@@ -192,16 +203,5 @@ button:active {
 #forgot-p {
   font-size: 14px;
   margin-bottom: 10px;
-}
-
-#login button,
-#register button {
-  height: 30px;
-  padding: 0 10px;
-  background-color: #ffa280;
-  color: #660066;
-  border: 1px solid #660066;
-  border-radius: 3px;
-  font-size: 16px;
 }
 
