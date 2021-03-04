@@ -28,10 +28,8 @@
 
   {{-- Elenco tipologia ristoranti --}}
   <div id="typologies" v-show='showTypologies'>
-      <div v-for="typology in typologiesCity">
-          <button  @@click="selectTypology(typology.name)" :value='typology.name' :key='typology.name' >
-              @{{typology.name}}
-          </button>
+      <div v-for="(typology, i) in typologiesCity" @@click="selectTypology(typology.name)" :value='typology.name' :key='typology.name'>
+        @{{typology.name}}   
       </div>
   </div>
 
@@ -61,11 +59,13 @@
     {{-- Elenco ristoranti primo piano --}}
     <div id="bestRated" v-show='showBest'>
         <h2>I Più Votati</h2>
-        <div id="restContainer">
-            <div class='d-flex'v-for="element in restaurantsVotes">
-                <img :src="element.logo" alt=""   >
+        <div id="best">
+            <div v-for="element in restaurantsVotes">
+              <img :src="element.logo" alt="">
+              <div>
                 <h4>@{{element.name}}</h4>
                 <p>@{{element.vote}}</p>
+              </div>
             </div>
         </div>
     </div>

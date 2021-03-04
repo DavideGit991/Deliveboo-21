@@ -52,6 +52,7 @@ svg {
         border-radius: 5px;
         margin: 0 10px;
         padding: 5px;
+        background-color: coral;
 
         &:hover {
             cursor: pointer;
@@ -73,16 +74,26 @@ svg {
         color: black;
     }
     #best > div {
-        height: 300px;
+       
         width: 260px;
         background-color: white;
-        border: 1px solid grey;
         border-radius: 5px;
         margin: 10px;
+        box-shadow: 0px 0px 3px 1px rgb(68, 68, 68);
+
+        img {
+            background-color: dimgray;
+            width: 100%;
+        }
 
         div {
-            background-color: dimgray;
-            height: 60%;
+            padding: 5px 15px;
+            
+            h4 {
+                color: #262626;
+                font-size: 14px;
+            }
         }
     }
+
 

@@ -110,6 +110,7 @@ svg {
   border-radius: 5px;
   margin: 0 10px;
   padding: 5px;
+  background-color: coral;
 }
 
 #typologies div:hover {
@@ -131,17 +132,25 @@ svg {
 }
 
 #best > div {
-  height: 300px;
   width: 260px;
   background-color: white;
-  border: 1px solid grey;
   border-radius: 5px;
   margin: 10px;
+  box-shadow: 0px 0px 3px 1px #444444;
+}
+
+#best > div img {
+  background-color: dimgray;
+  width: 100%;
 }
 
 #best > div div {
-  background-color: dimgray;
-  height: 60%;
+  padding: 5px 15px;
+}
+
+#best > div div h4 {
+  color: #262626;
+  font-size: 14px;
 }
 
 /* LOGIN PAGE */
