@@ -49832,53 +49832,103 @@ function init() {
   var app = new Vue({
     el: '#app',
     data: {
-      typologies: [{
-        "color": "#FF7F50",
-        "name": "Sushi"
-      }, {
-        "color": "#660066",
-        "name": "Pizza"
-      }, {
-        "color": "skyblue",
-        "name": "Hamburger"
-      }, {
-        "color": "#ffcc33",
-        "name": "Messicana"
-      }, {
-        "color": "#6b9023",
-        "name": "Italiana"
-      }, {
-        "color": "salmon",
-        "name": "Cinese"
-      }, {
-        "color": "darkcyan",
-        "name": "Dessert"
-      }, {
-        "color": "#FF7F50",
-        "name": "Spesa"
-      }, {
-        "color": "#660066",
-        "name": "Americana"
-      }, {
-        "color": "skyblue",
-        "name": "Sandwich"
-      }, {
-        "color": "#ffcc33",
-        "name": "Kebab"
-      }, {
-        "color": "#6b9023",
-        "name": "Gelato"
-      }, {
-        "color": "salmon",
-        "name": "Healthy"
-      }, {
-        "color": "darkcyan",
-        "name": "Poke"
-      }]
+      // typologies: [
+      //     {
+      //         "color": "#FF7F50",
+      //         "name": "Sushi",
+      //     },
+      //     {
+      //         "color": "#660066",
+      //         "name": "Pizza",
+      //     },
+      //     {
+      //         "color": "skyblue",
+      //         "name": "Hamburger",
+      //     },
+      //     {
+      //         "color": "#ffcc33",
+      //         "name": "Messicana",
+      //     },
+      //     {
+      //         "color": "#6b9023",
+      //         "name": "Italiana",
+      //     },
+      //     {
+      //         "color": "salmon",
+      //         "name": "Cinese",
+      //     },
+      //     {
+      //         "color": "darkcyan",
+      //         "name": "Dessert",
+      //     },
+      //     {
+      //         "color": "#FF7F50",
+      //         "name": "Spesa",
+      //     },
+      //     {
+      //         "color": "#660066",
+      //         "name": "Americana",
+      //     },
+      //     {
+      //         "color": "skyblue",
+      //         "name": "Sandwich",
+      //     },
+      //     {
+      //         "color": "#ffcc33",
+      //         "name": "Kebab",
+      //     },
+      //     {
+      //         "color": "#6b9023",
+      //         "name": "Gelato",
+      //     },
+      //     {
+      //         "color": "salmon",
+      //         "name": "Healthy",
+      //     },
+      //     {
+      //         "color": "darkcyan",
+      //         "name": "Poke",
+      //     }           
+      // ],
+      cities: [],
+      citta: '',
+      restaurants: []
+    },
+    mounted: function mounted() {
+      var _this = this;
+
+      axios.get('/cities/').then(function (res) {
+        res.data.forEach(function (element) {
+          if (res.data.includes(element)) {}
+        });
+        _this.cities = res.data;
+        console.log(_this.cities);
+
+        _this.cities.forEach(function (element) {
+          if (_this.cities.includes(_this.citta)) {}
+        }); // console.log(this.cities);
+        // console.log(this.citta);
+
+      });
     },
     methods: {
-      ciao: function ciao() {
-        console.log('ciao');
+      getTyplogy: function getTyplogy() {
+        axios.get('/typologies/').then(function (res) {// console.log(res);
+        });
+      },
+      selectCity: function selectCity(event) {
+        var _this2 = this;
+
+        this.citta = event.target.options[event.target.options.selectedIndex].text; // console.log(this.citta);
+
+        var cittaSelezionata = {
+          city: this.citta
+        };
+        console.log(cittaSelezionata);
+        axios.post('/restaurantCity', cittaSelezionata).then(function (res) {
+          _this2.restaurants = res.data;
+          console.log(_this2.restaurants);
+        });
       }
     }
   });
@@ -49997,8 +50047,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\esercizi_laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\esercizi_laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -16,12 +16,10 @@
       <h1>Ristorante a casa tua.</h1>
       <form action="">
         <label for="citta">Scegli la tua città</label>
-        <select id="citta" name="citta">
-          <option value="roma">Roma</option>
-          <option value="milano">Milano</option>
-          <option value="messina">Messina</option>
-          <option value="napoli">Napoli</option>
+        <select @@change="selectCity($event)" id="citta" name="citta">
+          <option  :key="city.city" :value="city.city" v-for="city in cities" >@{{city.city}}</option>
         </select>
+
       </form>
     </div>
     <div class="jumbo">
@@ -31,8 +29,8 @@
   </div>
       {{-- Elenco tipologia ristoranti --}}
       <div id="typologies">
-        <div class="" v-for="(typology, i) in typologies" :style="'background-color:' + typology.color">
-            <h3>@{{typology.name}}</h3>
+        <div class="" v-for="(restaurant, i) in restaurants">
+            <h3>@{{restaurant.name}}</h3>
         </div>
       </div>
       {{-- Elenco ristoranti primo piano --}}

@@ -15,7 +15,7 @@
                
                 <div class="col-md-8">
                     @foreach ($dishes as $dish)
-
+                        
                         @if ($dish-> availability==0)
                             <div class="card my-5">
                                 <div><span>NAME:</span> {{$dish-> name}}</div>
