@@ -5,37 +5,40 @@ header {
     align-items: center;
     height: 70px;
     padding: 15px 20px;
+
+    a {
+        text-decoration: none;
+        margin: 0 10px;
+        color: white; 
+        font-weight: bold;
+    }
+
+    #logo {
+        font-size: 20px;
+    }
 }
     #search {
         background-color: white;
         height: 40px;
-        width: 600px;
+        width: 40%;
         display: flex;
-        border-radius: 5px;
+        border-radius: 3px;
 
-        div {
+        i {
             width: 40px;
             margin: auto;
             text-align: center;
+            color: dimgray;
         }
 
-        form {
-
-            input {
-                height: 100%;
-                width: 560px;
-                border: none;
-                border-radius: 5px;
-
-                &:focus {
-                    outline: none;
-                }
+        input {
+            height: 100%;
+            width: 560px;
+            border: none;
+            border-radius: 5px;
+            &:focus {
+                outline: none;
             }
         }
     }
-        
-    #links > a, #logout {
-        text-decoration: none;
-        margin: 0 10px;
-        color: white;
-    }
+    

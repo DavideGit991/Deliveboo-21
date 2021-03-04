@@ -1,11 +1,11 @@
 <header>
     <div>
-        <a href="{{ url('/') }}">Deliveboo</a>
+        <a id="logo" href="{{ url('/') }}">Deliveboo</a>
     </div>
 
     {{-- Search --}}
-    <div v-show='showName'>
-
+    <div v-show='showName' id="search">
+        <i class="fas fa-search"></i>
         <input type="text"  v-model='inputName' @@keyup.enter='searchRestaurantName()' placeholder="Nome del ristorante">
     </div>
 

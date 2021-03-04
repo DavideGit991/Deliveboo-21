@@ -20,36 +20,41 @@ header {
   padding: 15px 20px;
 }
 
+header a {
+  text-decoration: none;
+  margin: 0 10px;
+  color: white;
+  font-weight: bold;
+}
+
+header #logo {
+  font-size: 20px;
+}
+
 #search {
   background-color: white;
   height: 40px;
-  width: 600px;
+  width: 40%;
   display: flex;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
-#search div {
+#search i {
   width: 40px;
   margin: auto;
   text-align: center;
+  color: dimgray;
 }
 
-#search form input {
+#search input {
   height: 100%;
   width: 560px;
   border: none;
   border-radius: 5px;
 }
 
-#search form input:focus {
+#search input:focus {
   outline: none;
-}
-
-#links > a,
-#logout {
-  text-decoration: none;
-  margin: 0 10px;
-  color: white;
 }
 
 /* HOME */
@@ -121,6 +126,7 @@ svg {
   background-color: #ffa280;
   padding: 20px;
   color: white;
+  min-height: 400px;
 }
 
 .best {
