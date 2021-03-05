@@ -1,4 +1,4 @@
-#restaurant-edit {
+.edit {
     
     .card {
         width: 55%;
@@ -17,5 +17,9 @@
 
     label {
         font-weight: bold;
+    }
+
+    .select {
+        margin-bottom: 20px;
     }
 }

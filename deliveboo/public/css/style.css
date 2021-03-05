@@ -339,16 +339,16 @@ svg {
   font-size: 1.3rem;
 }
 
-#restaurant-edit .card {
-  width: 55%;
-  border-color: #ffcc33;
+.create .card {
+  border-color: #660066;
 }
 
-#restaurant-edit .card-header {
-  background-color: #fddb75;
+.create .card-header {
+  background-color: #660066;
+  color: white;
 }
 
-#restaurant-edit input {
+.create input {
   height: 30px;
   width: 100%;
   margin-bottom: 10px;
@@ -357,12 +357,38 @@ svg {
   padding-left: 7px;
 }
 
-#restaurant-edit input:focus {
+.create input:focus {
+  outline-color: #00ccbc;
+}
+
+.edit .card {
+  width: 55%;
+  border-color: #ffcc33;
+}
+
+.edit .card-header {
+  background-color: #fddb75;
+}
+
+.edit input {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  padding-left: 7px;
+}
+
+.edit input:focus {
   outline-color: #ffcc33;
 }
 
-#restaurant-edit label {
+.edit label {
   font-weight: bold;
+}
+
+.edit .select {
+  margin-bottom: 20px;
 }
 
 #dishes-index .card {
