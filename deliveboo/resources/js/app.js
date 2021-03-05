@@ -17,6 +17,7 @@ function init(){
     el: '#app',
 
     data: {
+        //dati della homepage
         showTypologies:false,
         showBest:true,
         showRestaurantCity:false,
@@ -35,6 +36,11 @@ function init(){
         restaurantsSelected:[],
 
         selectedTypology:'',
+        selectedIndex:'',
+
+        // dati del carrello
+
+
 
         // quadratini colorati
         typologyColors: [
@@ -123,6 +129,18 @@ function init(){
 
         },
 
+        // funzione per passare pagina menu dai piu' votati
+        GoToMenu:function (id) {
+            const param={
+                id:id
+            };
+
+            axios.get('/show/restaurant/menu/'+id,param)
+                .then(res=>{
+                    location.replace("/show/restaurant/menu/"+id)
+                })
+        },
+
         selectTypology:function(name){
             this.selectedTypology=name;
             // console.log(this.selectedTypology);
@@ -150,7 +168,7 @@ function init(){
               console.log(res);
             })
         },
-        
+
         //funzione per far apparire alert
         alert(){
           this.showAlert=true;
