@@ -22,6 +22,8 @@ function init(){
         showRestaurantCity:false,
         showName:true,
         showRestaurantSelected:false,
+        showAlert: false,
+        showDetail:false,
 
         inputName:'',
 
@@ -108,7 +110,8 @@ function init(){
                 axios.post('/restaurantCity', cittaSelezionata)
                      .then(res=>{
                         this.restaurants=res.data;
-                        // console.log(this.restaurants);
+
+                        console.log(this.restaurants);
                     })
 
                 // prenderle la tipologia dal bottone e la città selezionata
@@ -144,10 +147,31 @@ function init(){
             }
             axios.post('/search',data)
             .then(res=>{
+              console.log(res);
+            })
+        },
+        
+        //funzione per far apparire alert
+        alert(){
+          this.showAlert=true;
 
-                    console.log(res);
-                })
-        }
+        },
+
+        //funzione per vedere dettagli ristoratore
+        showDetails(){
+          const element = document.getElementById("box-det");
+          const icon = document.getElementById('icon');
+          if (icon.classList.contains('fa-sort-down')) {
+              this.showDetail=true;
+              icon.classList.remove('fa-sort-down');
+              icon.classList.add('fa-sort-up');
+          } else {
+            this.showDetail=false;
+              icon.classList.remove('fa-sort-up');
+              icon.classList.add('fa-sort-down');
+          }
+        },
+
     }
 
 });
