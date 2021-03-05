@@ -49837,6 +49837,8 @@ function init() {
       showRestaurantCity: false,
       showName: true,
       showRestaurantSelected: false,
+      showAlert: false,
+      showDetail: false,
       inputName: '',
       cities: [],
       citta: '',
@@ -49923,6 +49925,25 @@ function init() {
         axios.post('/search', data).then(function (res) {
           console.log(res);
         });
+      },
+      //funzione per far apparire alert
+      alert: function alert() {
+        this.showAlert = true;
+      },
+      //funzione per vedere dettagli ristoratore
+      showDetails: function showDetails() {
+        var element = document.getElementById("box-det");
+        var icon = document.getElementById('icon');
+
+        if (icon.classList.contains('fa-sort-down')) {
+          this.showDetail = true;
+          icon.classList.remove('fa-sort-down');
+          icon.classList.add('fa-sort-up');
+        } else {
+          this.showDetail = false;
+          icon.classList.remove('fa-sort-up');
+          icon.classList.add('fa-sort-down');
+        }
       }
     }
   });
@@ -50053,7 +50074,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/sass/style.scss */"./resources/sass/style.scss");
 
 
 /***/ })
