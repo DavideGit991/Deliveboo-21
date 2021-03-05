@@ -21,3 +21,45 @@ $main: #00ccbc;
 $maingreen: #d0eb99;
 $mainpurple: #660066;
 $mainpink: #ffa280;
+$mainyellow: #ffcc33;
+$darkgreen: #6b9023;
+
+//Mixines
+@mixin buttonStyle($background, $color){
+    height: 30px;
+    padding: 0 10px;
+    background-color: $background;
+    color: $color;
+    border: 1px solid $mainpurple;
+    border-radius: 3px;
+    font-size: 16px;
+    text-decoration: none;
+
+    &:active {
+        outline-color: $main;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin linkButtonStyle($background, $color){
+    height: 30px;
+    padding: 5px 10px;
+    background-color: $background;
+    color: $color;
+    border: 1px solid $mainpurple;
+    border-radius: 3px;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 7px;
+
+    &:active {
+        border-color: $main;
+        border-width: 2px;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+
+}
