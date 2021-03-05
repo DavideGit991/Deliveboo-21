@@ -53,27 +53,20 @@
 
 
 
-                <div class="button my-3 d-flex justify-content-around">
+                <div class="">
                     <a href="{{route('restaurant-edit', $restaurant->id)}}" class="button" >
                         Edit
                     </a>
                     <a href="{{route('dishes-index', $restaurant->id)}}" class="button" >
                         Menu
                     </a>
-                    <a  @@click="alert()">
+                    <a  @@click="alert()" class="button">
                         Delete
                     </a>
-
                     <a href="" class="button">
                         Stats
                     </a>
                 </div>
-
-                <div>
-
-                </div>
-
-
 
                 <div class="description-overlay" v-show='showAlert' >
                   <div class="description-full-screen">
