@@ -256,87 +256,79 @@ svg {
   margin-bottom: 10px;
 }
 
-#dashboard .button:first-child {
+#dashboard #dashboard-buttons a:first-child button {
   height: 30px;
-  padding: 5px 10px;
+  padding: 0 10px;
   background-color: #fddb75;
   color: #660066;
   border: 1px solid #660066;
   border-radius: 3px;
   font-size: 16px;
   text-decoration: none;
-  margin: 7px;
 }
 
-#dashboard .button:first-child:active {
-  border-color: #00ccbc;
-  border-width: 2px;
+#dashboard #dashboard-buttons a:first-child button:active {
+  outline-color: #00ccbc;
 }
 
-#dashboard .button:first-child:hover {
+#dashboard #dashboard-buttons a:first-child button:hover {
   cursor: pointer;
 }
 
-#dashboard .button:nth-child(2) {
+#dashboard #dashboard-buttons a:nth-child(2) button {
   height: 30px;
-  padding: 5px 10px;
+  padding: 0 10px;
   background-color: #d0eb99;
   color: #660066;
   border: 1px solid #660066;
   border-radius: 3px;
   font-size: 16px;
   text-decoration: none;
-  margin: 7px;
 }
 
-#dashboard .button:nth-child(2):active {
-  border-color: #00ccbc;
-  border-width: 2px;
+#dashboard #dashboard-buttons a:nth-child(2) button:active {
+  outline-color: #00ccbc;
 }
 
-#dashboard .button:nth-child(2):hover {
+#dashboard #dashboard-buttons a:nth-child(2) button:hover {
   cursor: pointer;
 }
 
-#dashboard .button:nth-child(3) {
+#dashboard #dashboard-buttons button.alert {
   height: 30px;
-  padding: 5px 10px;
+  padding: 0 10px;
   background-color: #ff3535;
   color: white;
   border: 1px solid #660066;
   border-radius: 3px;
   font-size: 16px;
   text-decoration: none;
-  margin: 7px;
 }
 
-#dashboard .button:nth-child(3):active {
-  border-color: #00ccbc;
-  border-width: 2px;
+#dashboard #dashboard-buttons button.alert:active {
+  outline-color: #00ccbc;
 }
 
-#dashboard .button:nth-child(3):hover {
+#dashboard #dashboard-buttons button.alert:hover {
   cursor: pointer;
 }
 
-#dashboard .button:last-child {
+#dashboard #dashboard-buttons a:last-child button {
   height: 30px;
-  padding: 5px 10px;
+  padding: 0 10px;
   background-color: #ffa280;
   color: #660066;
   border: 1px solid #660066;
   border-radius: 3px;
   font-size: 16px;
   text-decoration: none;
-  margin: 7px;
 }
 
-#dashboard .button:last-child:active {
-  border-color: #00ccbc;
-  border-width: 2px;
+#dashboard #dashboard-buttons a:last-child button:active {
+  outline-color: #00ccbc;
 }
 
-#dashboard .button:last-child:hover {
+#dashboard #dashboard-buttons a:last-child button:hover {
   cursor: pointer;
 }
 
@@ -373,5 +365,136 @@ svg {
 
 .description-wrapper {
   font-size: 1.3rem;
+}
+
+#restaurant-edit {
+  width: 55%;
+  border-color: #ffcc33;
+}
+
+#restaurant-edit .card-header {
+  background-color: #ffcc33;
+}
+
+#restaurant-edit input {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #660066;
+  border-radius: 3px;
+}
+
+#restaurant-edit input:focus {
+  outline-color: #ffcc33;
+}
+
+#dishes-index {
+  width: 60%;
+}
+
+#dishes-index .add {
+  margin: 30px;
+  padding: 10px;
+}
+
+#dishes-index .add a {
+  color: #660066;
+  font-size: 25px;
+  background-color: #d0eb99;
+  border: 1px solid #6b9023;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+#dishes-index .add a:hover {
+  text-decoration: underline;
+}
+
+#dishes-index .add a i {
+  font-size: 18px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+#dishes-index .dish-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#dishes-index .dish-container .dish {
+  width: 250px;
+  margin: 10px;
+  border: 1px solid #6b9023;
+  border-radius: 5px;
+}
+
+#dishes-index .dish-container .dish div:last-child {
+  padding: 10px;
+}
+
+#dishes-index .dish-container .dish button {
+  height: 30px;
+  padding: 0 10px;
+  background-color: #fddb75;
+  color: #660066;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+#dishes-index .dish-container .dish button:active {
+  outline-color: #00ccbc;
+}
+
+#dishes-index .dish-container .dish button:hover {
+  cursor: pointer;
+}
+
+#dishes-index .dish-container .dish button.alert {
+  height: 30px;
+  padding: 0 10px;
+  background-color: #ff3535;
+  color: white;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+#dishes-index .dish-container .dish button.alert:active {
+  outline-color: #00ccbc;
+}
+
+#dishes-index .dish-container .dish button.alert:hover {
+  cursor: pointer;
+}
+
+#dishes-index .dish-container .dish div > div {
+  margin-bottom: 10px;
+}
+
+#dishes-index .dish-container .dish span {
+  color: #660066;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+#dishes-index .dish-container .card-header {
+  border-radius: 5px 5px 0 0;
+  font-size: 18px;
+  background-color: #d0eb99;
+}
+
+#dishes-index .dish-container .card-header.expired {
+  background-color: #b1b0b0;
+}
+
+footer {
+  height: 150px;
+  background-color: #006666;
 }
 

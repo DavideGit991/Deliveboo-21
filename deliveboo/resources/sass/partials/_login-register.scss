@@ -32,15 +32,7 @@
 }
     
     #email, #password, #register input {
-        height: 30px;
-        width: 100%;
-        margin-bottom: 10px;
-        border: 1px solid $mainpurple;
-        border-radius: 3px;
-
-        &:focus {
-            outline-color: $main;
-        }
+        @include inputStyle($main);
     }
     
     #remember, #forgot-p {

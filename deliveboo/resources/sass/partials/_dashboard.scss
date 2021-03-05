@@ -15,18 +15,34 @@
         display: inline-block;
         margin-bottom: 10px;
     }
-    .button:first-child {
-        @include linkButtonStyle(#fddb75, $mainpurple); 
-        
-    }
-    .button:nth-child(2) {
-        @include linkButtonStyle($maingreen, $mainpurple); 
-    }
-    .button:nth-child(3) {
-        @include linkButtonStyle(#ff3535, white); 
-    }
-    .button:last-child {
-        @include linkButtonStyle($mainpink, $mainpurple); 
+    
+    
+    #dashboard-buttons {
+
+        a:first-child {
+
+            button {
+                @include buttonStyle($lightyellow, $mainpurple); 
+            }
+        }
+
+        a:nth-child(2) {
+
+            button {
+                @include buttonStyle($maingreen, $mainpurple);  
+            }
+        }
+
+        button.alert {
+            @include buttonStyle(#ff3535, white);
+        }
+
+        a:last-child {
+
+            button {
+                @include buttonStyle($mainpink, $mainpurple);
+            }
+        }
     }
 }
 

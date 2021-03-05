@@ -53,18 +53,26 @@
 
 
 
-                <div class="">
-                    <a href="{{route('restaurant-edit', $restaurant->id)}}" class="button" >
-                        Edit
+                <div id="dashboard-buttons">
+                    <a href="{{route('restaurant-edit', $restaurant->id)}}">
+                        <button>
+                            Edit  
+                        </button>
                     </a>
-                    <a href="{{route('dishes-index', $restaurant->id)}}" class="button" >
-                        Menu
+                    <a href="{{route('dishes-index', $restaurant->id)}}">
+                        <button>
+                            Menu   
+                        </button>
                     </a>
-                    <a  @@click="alert()" class="button">
-                        Delete
+                    <a  @@click="alert()">
+                        <button class="alert">
+                            Delete    
+                        </button>
                     </a>
-                    <a href="" class="button">
-                        Stats
+                    <a href="">
+                        <button>
+                            Stats  
+                        </button>
                     </a>
                 </div>
 
@@ -77,8 +85,8 @@
 
                       <br>
 
-                      <a href="{{route('restaurant-destroy', $restaurant->id)}}" class="button">conferma</a>
-                      <a @@click="showAlert = false"> Annulla</a>
+                      <a href="{{route('restaurant-destroy', $restaurant->id)}}" class="button alert">conferma</a>
+                      <a @@click="showAlert = false" class="button"> Annulla</a>
 
                     </div>
                   </div>

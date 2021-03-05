@@ -18,6 +18,10 @@
                 <a href="{{ route('register') }}">Registrati</a>
             @endif
             @else
+                <a href="{{ route('home') }}">
+                    Dashboard
+                </a>
+
                 <a id="logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </a>

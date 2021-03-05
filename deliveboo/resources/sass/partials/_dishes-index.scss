@@ -1,0 +1,74 @@
+#dishes-index {
+    width: 60%;
+
+    .add {
+        margin: 30px;
+        padding: 10px;
+        
+        a {
+            color: $mainpurple;
+            font-size: 25px;
+            background-color: $maingreen;
+            border: 1px solid $darkgreen;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+    
+            &:hover {
+                text-decoration: underline;
+            }
+    
+            i {
+                font-size: 18px;
+                margin-left: 10px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .dish-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .dish {
+            width: 250px;
+            margin: 10px;
+            border: 1px solid $darkgreen;
+            border-radius: 5px;
+
+            div:last-child {
+                padding: 10px;
+            }
+
+            button {
+                @include buttonStyle($lightyellow, $mainpurple)
+            }
+
+            button.alert {
+                @include buttonStyle(#ff3535, white);
+            }
+
+            div > div {
+                margin-bottom: 10px;
+            }
+
+            span {
+                color: $mainpurple;
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+        }
+
+        .card-header {
+            border-radius: 5px 5px 0 0;
+            font-size: 18px;
+            background-color: $maingreen;  
+        }
+
+        .card-header.expired {
+            background-color: rgb(177, 176, 176);
+        }
+    }
+}

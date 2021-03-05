@@ -19,10 +19,12 @@ $teal: #4dc0b5;
 $cyan: #6cb2eb;
 $main: #00ccbc;
 $maingreen: #d0eb99;
+$darkgreen: #6b9023;
 $mainpurple: #660066;
 $mainpink: #ffa280;
 $mainyellow: #ffcc33;
-$darkgreen: #6b9023;
+$lightyellow: #fddb75;
+$mainblack: #262626;
 
 //Mixines
 @mixin buttonStyle($background, $color){
@@ -43,23 +45,14 @@ $darkgreen: #6b9023;
     }
 }
 
-@mixin linkButtonStyle($background, $color){
+@mixin inputStyle($outlineColor){
     height: 30px;
-    padding: 5px 10px;
-    background-color: $background;
-    color: $color;
+    width: 100%;
+    margin-bottom: 10px;
     border: 1px solid $mainpurple;
     border-radius: 3px;
-    font-size: 16px;
-    text-decoration: none;
-    margin: 7px;
 
-    &:active {
-        border-color: $main;
-        border-width: 2px;
+    &:focus {
+        outline-color: $outlineColor;
     }
-    &:hover {
-        cursor: pointer;
-    }
-
 }

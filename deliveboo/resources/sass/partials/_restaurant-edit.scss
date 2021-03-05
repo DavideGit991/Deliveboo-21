@@ -1,0 +1,12 @@
+#restaurant-edit {
+    width: 55%;
+    border-color: $mainyellow;
+
+    .card-header {
+        background-color: $mainyellow;
+    }
+
+    input {
+        @include inputStyle($mainyellow);
+    }
+}
