@@ -8,8 +8,8 @@
             <div class="card-header">
                 Dashboard di <b>{{Auth::user()->name}}</b>
             </div>
-            
-            <div class="card-body"> 
+
+            <div class="card-body">
                 @if (!$restaurant)
                 <h3>
                     Non esiste nessun ristorante associato
@@ -21,10 +21,10 @@
                 <div>
                     <h3>
                         {{$restaurant->name}}
-                        <i id='icon' class="fas fa-sort-down" onclick="show()"></i>
+                        <i id='icon' class="fas fa-sort-down" @@click="showDetails()"></i>
                     </h3>
                 </div>
-                <div  id="box-det" class="hide">
+                <div  id="box-det" v-show="showDetail">
                     <div>
                         <h4>
                             Via:
@@ -47,12 +47,12 @@
                         <h4>
                             Phone:
                         </h4>
-                        <span>{{$restaurant->phone}}</span>   
+                        <span>{{$restaurant->phone}}</span>
                     </div>
                 </div>
-                
-                
-                
+
+
+
                 <div class="button my-3 d-flex justify-content-around">
                     <a href="{{route('restaurant-edit', $restaurant->id)}}" class="button" >
                         Edit
@@ -60,37 +60,40 @@
                     <a href="{{route('dishes-index', $restaurant->id)}}" class="button" >
                         Menu
                     </a>
-                    <a href="{{route('restaurant-destroy', $restaurant->id)}}" class="button" >
+                    <a  @@click="alert()">
                         Delete
                     </a>
-                            
+
                     <a href="" class="button">
                         Stats
                     </a>
                 </div>
-                        
+
+                <div>
+
+                </div>
+
+
+
+                <div class="description-overlay" v-show='showAlert' >
+                  <div class="description-full-screen">
+
+                    <div class="description-wrapper">
+
+                      Sei sicuro di voler eliminare il ristorante?
+
+                      <br>
+
+                      <a href="{{route('restaurant-destroy', $restaurant->id)}}" class="button">conferma</a>
+                      <a @@click="showAlert = false"> Annulla</a>
+
+                    </div>
+                  </div>
+                </div>
+
                 @endif
             </div>
         </div>
     </div>
-                    
-                    
-    <script>
-        function show() {
-            const element = document.getElementById("box-det");
-            const icon = document.getElementById('icon');
-            element.classList.toggle("hide");
-            if (icon.classList.contains('fa-sort-down')) {
-                icon.classList.remove('fa-sort-down');
-                icon.classList.add('fa-sort-up');
-            } else {
-                icon.classList.remove('fa-sort-up');
-                icon.classList.add('fa-sort-down');
-            }
-
-    }
-
-
-    </script>
 
 @endsection
