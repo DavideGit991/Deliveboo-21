@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -7,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('pages.home');
+    return view('pages.main-home');
 });
 
 Auth::routes();
@@ -32,9 +33,13 @@ Route::get('/home/dish/edit/{id}', 'DishController@edit')->name('dish-edit');
 Route::post('/home/dish/update/{id}', 'DishController@update')->name('dish-update');
 Route::get('/home/dish/delete/{id}', 'DishController@delete')->name('dish-delete');
 
-Route::get('/typology', 'TypologyController@getTypology')-> name('get-typology');
+Route::post('/typologiesCity', 'RestaurantController@getTypologiesCity')-> name('get-typologyCity');
 Route::get('/cities', 'RestaurantController@getCity')-> name('get-city');
 Route::post('/restaurantCity', 'RestaurantController@getrestaurantCity')-> name('get-restaurant-city');
 
 //ristoranti piu' votati
 Route::get('/votes', 'RestaurantController@getRestaurantVotes');
+//ricerca ristoranti per nome
+Route::post('/search','RestaurantController@searchRestaurant');
+//restituisce ristoranti della cita per tipologia
+Route::post('/selectedTypology','RestaurantController@getRestaurantTypologies');
