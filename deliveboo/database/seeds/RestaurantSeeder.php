@@ -13,7 +13,7 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
-      factory(Restaurant::class, 10)
+      factory(Restaurant::class, 20)
           -> make()
           -> each(function($restaurant){
 

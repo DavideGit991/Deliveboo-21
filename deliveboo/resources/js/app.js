@@ -108,7 +108,8 @@ function init(){
                 axios.post('/restaurantCity', cittaSelezionata)
                      .then(res=>{
                         this.restaurants=res.data;
-                        // console.log(this.restaurants);
+
+                        console.log(this.restaurants);
                     })
 
                 // prenderle la tipologia dal bottone e la città selezionata

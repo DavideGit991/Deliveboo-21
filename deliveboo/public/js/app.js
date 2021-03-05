@@ -49893,7 +49893,8 @@ function init() {
           }); //chiamata per i ristoranti della città selezionata
 
           axios.post('/restaurantCity', cittaSelezionata).then(function (res) {
-            _this2.restaurants = res.data; // console.log(this.restaurants);
+            _this2.restaurants = res.data;
+            console.log(_this2.restaurants);
           }); // prenderle la tipologia dal bottone e la città selezionata
           // vado dillà e faccio una query che ritorna i ristoranti con citta selezionata e tipologia selezionata
         }
@@ -50052,9 +50053,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

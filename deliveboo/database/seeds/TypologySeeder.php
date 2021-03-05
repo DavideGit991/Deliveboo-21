@@ -17,7 +17,7 @@ class TypologySeeder extends Seeder
           -> create()
           -> each(function($typology) {
 
-              $restaurant = Restaurant::inRandomOrder() -> limit(5) -> get();
+              $restaurant = Restaurant::inRandomOrder()->limit(rand(5,6)) -> get();
               $typology -> restaurants() -> attach($restaurant);
           });
     }
