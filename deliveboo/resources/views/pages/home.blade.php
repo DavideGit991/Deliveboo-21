@@ -4,7 +4,7 @@
 @section('content')
 
     <div id="dashboard" class="login-register">
-        <div>
+        <div class="card">
             <div class="card-header">
                 Dashboard di <b>{{Auth::user()->name}}</b>
             </div>

@@ -167,7 +167,11 @@ svg {
 /* LOGIN PAGE */
 
 .login-register {
-  width: 400px;
+  height: calc(100vh - 100px);
+}
+
+.login-register .card {
+  width: 35%;
   margin: 50px auto;
   border: 1px solid #00ccbc;
   border-radius: 10px;
@@ -237,7 +241,13 @@ svg {
 }
 
 #dashboard {
+  height: calc(100vh - 100px);
+}
+
+#dashboard .card {
   width: 55%;
+  border: 1px solid #00ccbc;
+  border-radius: 10px;
 }
 
 #dashboard h3 {
@@ -275,25 +285,6 @@ svg {
   cursor: pointer;
 }
 
-#dashboard #dashboard-buttons a:nth-child(2) button {
-  height: 30px;
-  padding: 0 10px;
-  background-color: #d0eb99;
-  color: #660066;
-  border: 1px solid #660066;
-  border-radius: 3px;
-  font-size: 16px;
-  text-decoration: none;
-}
-
-#dashboard #dashboard-buttons a:nth-child(2) button:active {
-  outline-color: #00ccbc;
-}
-
-#dashboard #dashboard-buttons a:nth-child(2) button:hover {
-  cursor: pointer;
-}
-
 #dashboard #dashboard-buttons button.alert {
   height: 30px;
   padding: 0 10px;
@@ -310,25 +301,6 @@ svg {
 }
 
 #dashboard #dashboard-buttons button.alert:hover {
-  cursor: pointer;
-}
-
-#dashboard #dashboard-buttons a:last-child button {
-  height: 30px;
-  padding: 0 10px;
-  background-color: #ffa280;
-  color: #660066;
-  border: 1px solid #660066;
-  border-radius: 3px;
-  font-size: 16px;
-  text-decoration: none;
-}
-
-#dashboard #dashboard-buttons a:last-child button:active {
-  outline-color: #00ccbc;
-}
-
-#dashboard #dashboard-buttons a:last-child button:hover {
   cursor: pointer;
 }
 
@@ -367,13 +339,13 @@ svg {
   font-size: 1.3rem;
 }
 
-#restaurant-edit {
+#restaurant-edit .card {
   width: 55%;
   border-color: #ffcc33;
 }
 
 #restaurant-edit .card-header {
-  background-color: #ffcc33;
+  background-color: #fddb75;
 }
 
 #restaurant-edit input {
@@ -382,13 +354,18 @@ svg {
   margin-bottom: 10px;
   border: 1px solid #660066;
   border-radius: 3px;
+  padding-left: 7px;
 }
 
 #restaurant-edit input:focus {
   outline-color: #ffcc33;
 }
 
-#dishes-index {
+#restaurant-edit label {
+  font-weight: bold;
+}
+
+#dishes-index .card {
   width: 60%;
 }
 
@@ -401,7 +378,6 @@ svg {
   color: #660066;
   font-size: 25px;
   background-color: #d0eb99;
-  border: 1px solid #6b9023;
   font-weight: bold;
   text-decoration: none;
   border-radius: 5px;

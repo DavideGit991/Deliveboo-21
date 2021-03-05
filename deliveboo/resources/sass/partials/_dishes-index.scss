@@ -1,5 +1,8 @@
 #dishes-index {
-    width: 60%;
+    .card {
+        width: 60%;
+
+    }
 
     .add {
         margin: 30px;
@@ -9,7 +12,6 @@
             color: $mainpurple;
             font-size: 25px;
             background-color: $maingreen;
-            border: 1px solid $darkgreen;
             font-weight: bold;
             text-decoration: none;
             border-radius: 5px;

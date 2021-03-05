@@ -4,10 +4,10 @@
 
 @section('content')
 
-
     <div id="restaurant-edit" class="login-register">
+        <div class="card">
             <div class="card-header">
-                Modifica le info del tuo ristorate
+                Modifica le informazioni del tuo ristorate
             </div>
             
             <div class="card-body">
@@ -55,6 +55,7 @@
                 </form>
             </div>
         </div>
+    </div>
 @endsection
         
             
