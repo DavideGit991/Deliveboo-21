@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DishController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RestaurantController;
 use App\Restaurant;
 use Illuminate\Support\Facades\Auth;
@@ -49,3 +50,10 @@ Route::post('/selectedTypology','RestaurantController@getRestaurantTypologies');
 
 //restituisce pagina menu per il ristorante
 Route::get('/show/restaurant/menu/{id}', 'DishController@showMenu') ->name('show-menu');
+
+//piatti per menu singolo ristornate
+Route::get('/dishes/{id}', 'DishController@getDishes');
+
+//passaggio al checkout con prezzo totale
+Route::post('/checkout', 'OrderController@checkout');
+
