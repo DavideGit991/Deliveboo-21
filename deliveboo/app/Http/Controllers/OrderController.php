@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    // public function checkout(Request $req)
+    // {
+
+    //     $data =  json_decode($req->data);
+
+    //     return view('pages.checkout')->json($data);
+    // }
+
+
+
     public function index()
     {
         //

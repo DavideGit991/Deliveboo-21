@@ -67,4 +67,12 @@ class DishController extends Controller
 
         return view('pages.menu', compact('restaurant'));
     }
+
+    public function getDishes($id)
+    {
+
+        $dishes=Dish::where('restaurant_id', $id)->get();     //recuper solo i piatti con id_restaurant del ristoratore loggato
+
+        return response()->json($dishes);
+    }
 }

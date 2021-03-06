@@ -3,21 +3,11 @@
 @section('content')
 
 
-
-    @foreach ($restaurant->dishes as $dish)
-
         <menu-component
+            :id='{{$restaurant->id}}'
+        >
 
-            :img="'{{$dish->img}}'"
-            :id="{{$dish->id}}"
-            :name="'{{$dish->name}}'"
-            :price="'{{$dish->price}}'"
-            :availability="{{$dish->availability}}"
-
-        ></menu-component>
-
-
-    @endforeach
+        </menu-component>
 
 
 

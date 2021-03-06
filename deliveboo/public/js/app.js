@@ -2000,28 +2000,86 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    'cart-component': __webpack_require__(/*! ./CartComponent.vue */ "./resources/js/components/CartComponent.vue")
-  },
   data: function data() {
     return {
       count: 0,
-      selectedOption: 'ciao'
+      dishes: [],
+      dishesOrdered: [],
+      totPrice: 0,
+      showpayment: true
     };
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/dishes/' + this.id).then(function (res) {
+      _this.dishes = res.data;
+    });
+  },
   methods: {
-    addCart: function addCart(id, count, price, name) {
-      var totPrice = count * price;
-      console.log(totPrice);
+    DeletePrice: function DeletePrice(price, i) {
+      if (this.totPrice - price >= 0) {
+        console.log(i);
+        this.totPrice -= price;
+        this.dishesOrdered.splice(i, 1);
+      }
+
+      console.log('prezzo totale', this.totPrice);
+    },
+    AddPrice: function AddPrice(price, name, id) {
+      console.log(name);
+      this.totPrice += price;
+      this.dishesOrdered.push({
+        name: name,
+        price: price
+      });
+      console.log(this.dishesOrdered);
+      console.log('prezzo totale', this.totPrice);
+    },
+    GoToCheckout: function GoToCheckout() {
+      this.showpayment = false; // const data=this.dishesOrdered
+      // let formdata = new FormData();
+      // formdata.append('data',JSON.stringify(data));
+      //  axios.post('/checkout',formdata)
+      //     .then(res=>{
+      //         // location.replace('/checkout')
+      //         console.log(res);
+      //         //  console.log(res);
+      //      })
     }
   },
   props: {
-    availability: Number,
-    img: String,
-    id: Number,
-    name: String,
-    price: Number
+    id: Number
   }
 });
 
@@ -37750,89 +37808,179 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      (_vm.availability = 1)
-        ? _c("ul", [
-            _c("img", { attrs: { src: _vm.img, alt: "", height: "100" } }),
-            _vm._v(" "),
-            _c("li", [
-              _vm._v("\n                " + _vm._s(_vm.id) + "\n            ")
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _vm._v("\n                " + _vm._s(_vm.name) + "\n            ")
-            ]),
+  return _c("div", [
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.showpayment,
+            expression: "showpayment"
+          }
+        ],
+        staticClass: "ordine"
+      },
+      [
+        _vm._l(_vm.dishes, function(dish) {
+          return _c("ul", { key: dish.message }, [
+            _c("img", { attrs: { src: dish.img, alt: "", height: "100" } }),
             _vm._v(" "),
             _c("li", [
               _vm._v(
-                "\n                " + _vm._s(_vm.price) + "\n            "
+                "\n                    [" +
+                  _vm._s(dish.id) +
+                  "]\n                "
               )
             ]),
             _vm._v(" "),
             _c("li", [
               _vm._v(
-                "\n                " +
-                  _vm._s(_vm.availability) +
-                  "\n            "
+                "\n                    " +
+                  _vm._s(dish.name) +
+                  "\n                "
               )
             ]),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(_vm.count))]),
+            _c("li", [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(dish.price) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(dish.availability) +
+                  "\n                "
+              )
+            ]),
             _vm._v(" "),
             _c(
               "button",
               {
                 on: {
                   click: function($event) {
-                    _vm.count++
+                    return _vm.AddPrice(dish.price, dish.name, dish.id)
                   }
                 }
               },
               [_vm._v("+")]
-            ),
-            _vm._v(" "),
-            _vm.count > 0
-              ? _c(
-                  "button",
-                  {
-                    on: {
-                      click: function($event) {
-                        _vm.count--
-                      }
-                    }
-                  },
-                  [_vm._v("-")]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.count > 0
-              ? _c(
-                  "button",
-                  {
-                    attrs: { value: _vm.id },
-                    on: {
-                      click: function($event) {
-                        return _vm.addCart(
-                          _vm.id,
-                          _vm.count,
-                          _vm.price,
-                          _vm.name
-                        )
-                      }
-                    }
-                  },
-                  [_vm._v("Add")]
-                )
-              : _vm._e()
+            )
           ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("cart-component", { attrs: { selectedOption: _vm.selectedOption } })
-    ],
-    1
-  )
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.dishesOrdered.length > 0,
+                expression: "dishesOrdered.length>0"
+              }
+            ],
+            staticClass: "cart"
+          },
+          [
+            _c("h1", [_vm._v("Sono il tuo carrello")]),
+            _vm._v(" "),
+            _vm._l(_vm.dishesOrdered, function(dishOrdered, i) {
+              return _c("ul", { key: dishOrdered.message }, [
+                _c("li", [
+                  _vm._v(
+                    "\n                    " + _vm._s(i) + "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(dishOrdered.id) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(dishOrdered.name) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(dishOrdered.price) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm.totPrice > 0
+                    ? _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              return _vm.DeletePrice(dishOrdered.price, i)
+                            }
+                          }
+                        },
+                        [_vm._v("-")]
+                      )
+                    : _vm._e()
+                ])
+              ])
+            }),
+            _vm._v(" "),
+            _c("h2", [
+              _vm._v(
+                "\n                prezzo totale :" +
+                  _vm._s(_vm.totPrice) +
+                  "\n            "
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    return _vm.GoToCheckout(_vm.totPrice)
+                  }
+                }
+              },
+              [_vm._v("\n                Checkout\n            ")]
+            )
+          ],
+          2
+        )
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.showpayment,
+            expression: "!showpayment"
+          }
+        ],
+        staticClass: "pagamento"
+      },
+      [_c("h1", [_vm._v("sono il pagamento")])]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50451,9 +50599,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })
