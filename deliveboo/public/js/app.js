@@ -2024,11 +2024,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37808,7 +37803,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { attrs: { id: "menu" } }, [
     _c(
       "div",
       {
@@ -37823,55 +37818,60 @@ var render = function() {
         staticClass: "ordine"
       },
       [
-        _vm._l(_vm.dishes, function(dish) {
-          return _c("ul", { key: dish.message }, [
-            _c("img", { attrs: { src: dish.img, alt: "", height: "100" } }),
-            _vm._v(" "),
-            _c("li", [
-              _vm._v(
-                "\n                    [" +
-                  _vm._s(dish.id) +
-                  "]\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(dish.name) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(dish.price) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(dish.availability) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                on: {
-                  click: function($event) {
-                    return _vm.AddPrice(dish.price, dish.name, dish.id)
+        _c(
+          "div",
+          { staticClass: "dish-card-container" },
+          _vm._l(_vm.dishes, function(dish) {
+            return _c("ul", { key: dish.message, staticClass: "dish-card" }, [
+              _c("img", { attrs: { src: dish.img, alt: "", height: "100" } }),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "\n                    [" +
+                    _vm._s(dish.id) +
+                    "]\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(dish.name) +
+                    "\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(dish.price) +
+                    "\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(dish.availability) +
+                    "\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.AddPrice(dish.price, dish.name, dish.id)
+                    }
                   }
-                }
-              },
-              [_vm._v("+")]
-            )
-          ])
-        }),
+                },
+                [_vm._v("+")]
+              )
+            ])
+          }),
+          0
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -37961,8 +37961,7 @@ var render = function() {
           ],
           2
         )
-      ],
-      2
+      ]
     ),
     _vm._v(" "),
     _c(

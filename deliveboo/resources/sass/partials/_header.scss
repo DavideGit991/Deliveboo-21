@@ -23,17 +23,22 @@ header {
         width: 40%;
         display: flex;
         border-radius: 3px;
+        
+        &:focus-within {
+            border: 2px solid $maingreen;
+        }
 
         i {
-            width: 40px;
-            margin: auto;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px; 
             color: dimgray;
         }
 
         input {
             height: 100%;
-            width: 560px;
+            width: 100%;
             border: none;
             border-radius: 5px;
             &:focus {

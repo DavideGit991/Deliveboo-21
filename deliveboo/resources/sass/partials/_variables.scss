@@ -56,3 +56,11 @@ $mainblack: #262626;
         outline-color: $outlineColor;
     }
 }
+
+@mixin cardStyle {
+    width: 260px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0px 0px 3px 1px rgb(68, 68, 68);
+}

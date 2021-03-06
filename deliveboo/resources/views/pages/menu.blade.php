@@ -3,15 +3,9 @@
 @section('content')
 
 
-        <menu-component
-            :id='{{$restaurant->id}}'
-        >
-
-        </menu-component>
-
-
-
-
+    <menu-component :id='{{$restaurant->id}}'>
+    
+    </menu-component>
 
 
 @endsection

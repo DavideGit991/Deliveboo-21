@@ -1,0 +1,18 @@
+#menu {
+    background-color: $maingreen;
+    height: 100vh;
+
+    .ordine {
+        padding: 50px;
+        
+        .dish-card-container {
+            display: flex;
+        }
+
+        .dish-card {
+            @include cardStyle;
+            list-style: none;
+            padding: 10px;
+        }
+    }
+}

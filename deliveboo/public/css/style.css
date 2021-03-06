@@ -39,16 +39,21 @@ header #logo {
   border-radius: 3px;
 }
 
+#search:focus-within {
+  border: 2px solid #d0eb99;
+}
+
 #search i {
-  width: 40px;
-  margin: auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
   color: dimgray;
 }
 
 #search input {
   height: 100%;
-  width: 560px;
+  width: 100%;
   border: none;
   border-radius: 5px;
 }
@@ -493,6 +498,29 @@ svg {
 
 #dishes-index .dish-container .card-header.expired {
   background-color: #b1b0b0;
+}
+
+#menu {
+  background-color: #d0eb99;
+  height: 100vh;
+}
+
+#menu .ordine {
+  padding: 50px;
+}
+
+#menu .ordine .dish-card-container {
+  display: flex;
+}
+
+#menu .ordine .dish-card {
+  width: 260px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0px 0px 3px 1px #444444;
+  list-style: none;
+  padding: 10px;
 }
 
 footer {
