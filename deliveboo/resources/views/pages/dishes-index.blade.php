@@ -1,43 +1,49 @@
-@extends('layouts.app')
+@extends('layouts.main-layout')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h1>Menù di: {{$restaurant-> name}}</h1>
-                    <br>
-                    <h2>Crete new dish</h2>
-                    <a href="{{route('dish-create', $restaurant-> id)}}"><button class="btn btn-primary">CREATE</button></a>
-                    
-                </div>
-
-               
-                <div class="col-md-8">
-                    @foreach ($dishes as $dish)
-                        
-                        @if ($dish-> availability==0)
-                            <div class="card my-5">
-                                <div><span>NAME:</span> {{$dish-> name}}</div>
-                                <span>non disponibile</span>
-                                <a href="{{route('dish-edit', $dish-> id)}}"> <button class="btn btn-primary">EDIT</button> </a>
-                            </div>
-                        @else
-                            <div class="card my-5">
-                                <div><span>NAME:</span> {{$dish-> name}}</div>
-                                <div><span>DESCRIPTION:</span> {{$dish-> description}}</div>
-                                <div><span>PRICE:</span> {{$dish-> price}} €</div>
-                                <a href="{{route('dish-edit', $dish-> id)}}"><button class="btn btn-primary">EDIT</button></a>
-                                <a href="{{route('dish-delete', $dish-> id)}}"><button class="btn btn-danger">DELETE</button></a>
-                            </div>
-                        @endif
-                        
-                            
-                    @endforeach
-                </div>
-                
-            </div>
+<div id="dishes-index" class="login-register">
+    
+    <div class="card">
+        <div class="card-header">
+            Menù di: {{$restaurant-> name}} 
         </div>
-    </div>
+
+        <div>
+            <div class="add">
+                <a href="{{route('dish-create', $restaurant-> id)}}">Aggiungi un piatto<i class="fas fa-plus"></i></a>
+            </div>
+            <div class="dish-container">
+                @foreach ($dishes as $dish) 
+                <div class="dish">
+                    @if ($dish-> availability==0)
+                        <div class="card-header expired">
+                            {{$dish-> name}}
+                        </div>
+                        <div>
+                            <div>
+                                <span>Non Disponibile</span> 
+                            </div>
+                            <a href="{{route('dish-edit', $dish-> id)}}"> <button class="btn btn-primary">Modifica</button> </a>
+                        </div>
+                    @else
+        
+                        <div class="card-header">
+                            {{$dish-> name}}
+                        </div>
+                        <div>
+                            <div>
+                                <span>Descrizione: </span> {{$dish-> description}} 
+                            </div>
+                            <div>
+                                <span>Prezzo: </span> {{$dish-> price}} € 
+                            </div>
+                            <a href="{{route('dish-edit', $dish-> id)}}"><button>Modifica</button></a>
+                            <a href="{{route('dish-delete', $dish-> id)}}"><button class="alert">Elimina</button></a>
+                        </div>
+                    @endif        
+                </div>
+                @endforeach
+            </div>
+        </div>  
+    </div>    
 </div>
 @endsection

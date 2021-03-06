@@ -1,4 +1,4 @@
-  
+
 @extends('layouts.main-layout')
 
 @section('content')
@@ -21,14 +21,14 @@
         </select>
     </div>
     <div class="jumbo">
-      <img src="img/sushi.png" alt="">  
+      <img src="img/sushi.png" alt="">
     </div>
   </div>
-    
+
   {{-- Elenco tipologia ristoranti --}}
   <div id="typologies" v-show='showTypologies'>
       <div v-for="(typology, i) in typologiesCity" @@click="selectTypology(typology.name)" :value='typology.name' :key='typology.name' :style="'background-color:' + typologyColors[i]">
-        @{{typology.name}}  
+        @{{typology.name}}
       </div>
   </div>
 
@@ -53,7 +53,7 @@
       <div class="best">
         <div v-for='element in restaurantsSelected'>
           <div>
-            
+
           </div>
           <div>
             <h4>@{{element.name}}</h4>
@@ -61,19 +61,22 @@
         </div>
       </div>
   </div>
-    
+
   {{-- Elenco ristoranti primo piano --}}
   <div class="bestRated" v-show='showBest'>
       <h2>I Più Votati</h2>
       <div class="best">
+
           <div v-for="element in restaurantsVotes">
             <img :src="element.logo" alt="">
             <div>
               <h4>@{{element.name}}</h4>
               <p>@{{element.vote}}</p>
+              <a @@click='GoToMenu(element.id)' >Menu</a>
             </div>
           </div>
-      </div>
+
+        </div>
   </div>
-    
+
 @endsection

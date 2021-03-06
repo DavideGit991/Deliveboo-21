@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class DishController extends Controller
 {
     public function index($id)
-    {   
+    {
         $restaurant= Restaurant::findOrFail($id);
         $dishes=Dish::where('restaurant_id', $id)->orderBy('id','desc')->get();     //recuper solo i piatti con id_restaurant del ristoratore loggato
         return view('pages.dishes-index', compact('dishes', 'restaurant'));
@@ -25,7 +25,7 @@ class DishController extends Controller
     {
         $data=$request-> all();
         // $idRest=$request
-        $dish = Dish::make($request -> all());      
+        $dish = Dish::make($request -> all());
         $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
         $dish -> restaurant() -> associate($restaurant);
         $dish -> save();
@@ -39,7 +39,7 @@ class DishController extends Controller
     }
 
     public function update(Request $request, $id)
-    {   
+    {
         $dish=Dish::findOrFail($id);
         $dish->update($request -> all());
         return redirect() -> route('dishes-index', $dish-> restaurant_id );
@@ -55,7 +55,16 @@ class DishController extends Controller
         }
 
         $dish->update($request -> all());
-        
+
         return redirect() -> route('dishes-index', $dish-> restaurant_id );
+    }
+
+    public function showMenu($id)
+    {
+
+        $restaurant=Restaurant::findOrFail($id);
+
+
+        return view('pages.menu', compact('restaurant'));
     }
 }

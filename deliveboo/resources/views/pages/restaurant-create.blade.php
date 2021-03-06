@@ -1,50 +1,55 @@
-@extends('layouts.app')
-
-
+@extends('layouts.main-layout')
 
 @section('content')
 
-        <form action="{{route('restaurant-store')}}" method="post">
-            @csrf
-            @method('post')
-            <div class="container d-flex flex-column">
-
-                <div class="row m-2">
-                    <div class="col">
-                        <input type="text" class="form-control" name="name" placeholder="nome ristorante "required maxlength="40" >
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="url" placeholder="sito internet example: www.exacasample.it">
-                    </div>
-
-                </div>
-
-                <div class="row m-2" >
-                    <div class="col">
-                        <input type="text" class="form-control" name="address" placeholder="indirizzo"required >
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="city" placeholder="città"required>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="phone" placeholder="numero di telefono"required >
-                    </div>
-
-                </div >
-
-                <input type="text" hidden name="user_id" value="{{Auth::user()->id}}">
-
-                <div class='row ml-4'>
-                    <button type="submit" class="btn btn-primary">
-                        save
-                    </button>
-                </div>
+    <div class="login-register create">
+        <div class="card">
+            <div class="card-header">
+                Nuovo Ristorante
             </div>
-        </form>
+                    
+            <div class="card-body">
+
+                <form action="{{route('restaurant-store')}}" method="post">
+                    @csrf
+                    @method('post')
+
+                    <div>
+                        <label for="name">Nome Ristorante*</label>
+                        <input type="text" class="form-control" name="name" required maxlength="40" >
+                    </div>
+                    <div>
+                        <label for="name">Sito internet</label>
+                        <input type="text" class="form-control" name="url">
+                    </div>
+                    <div>
+                        <label for="name">Indirizzo*</label>
+                        <input type="text" class="form-control" name="address" required >
+                    </div>
+                    <div>
+                        <label for="name">Città*</label>
+                        <input type="text" class="form-control" name="city" required>
+                    </div>
+                    <div>
+                        <label for="name">Telefono*</label>
+                        <input type="text" class="form-control" name="phone" required >
+                    </div>
+                    
+                    <input type="text" hidden name="user_id" value="{{Auth::user()->id}}">
+                    
+                    <div>
+                        <button type="submit" class="btn btn-primary">
+                            Salva
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>  
 @endsection
 
 
-
+        
 
 
 

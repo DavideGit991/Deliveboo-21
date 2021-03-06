@@ -1,9 +1,14 @@
 .login-register {
-    width: 400px;
-    margin: 50px auto;
-    border: 1px solid $main;
-    border-radius: 10px;
-    background-color: white;
+    height: calc(100vh - 100px);
+    
+    .card {
+        width: 35%;
+        margin: 50px auto;
+        border: 1px solid $main;
+        border-radius: 10px;
+        background-color: white;
+
+    }
 
     .card-header {
         color: $mainpurple;
@@ -32,15 +37,7 @@
 }
     
     #email, #password, #register input {
-        height: 30px;
-        width: 100%;
-        margin-bottom: 10px;
-        border: 1px solid $mainpurple;
-        border-radius: 3px;
-
-        &:focus {
-            outline-color: $main;
-        }
+        @include inputStyle($main);
     }
     
     #remember, #forgot-p {

@@ -1,0 +1,16 @@
+.create {
+
+    .card {
+        border-color: $mainpurple;
+    }
+
+    .card-header {
+        background-color: $mainpurple;
+        color: white;
+    }
+
+    input {
+        @include inputStyle($main);
+        padding-left: 7px;
+    }
+}

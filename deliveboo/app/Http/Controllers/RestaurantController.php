@@ -63,7 +63,7 @@ class RestaurantController extends Controller
     public function getRestaurantVotes()
     {
         $restaurantsVotes=DB::table('restaurants')
-                ->select('restaurants.name','restaurants.logo','restaurants.vote')
+                ->select('restaurants.id','restaurants.name','restaurants.logo','restaurants.vote')
                 ->limit(5)
                 ->orderBy('vote','desc')
                 ->get();

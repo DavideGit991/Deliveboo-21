@@ -1,5 +1,11 @@
 #dashboard {
-    width: 55%;
+    height: calc(100vh - 100px);
+    
+    .card {
+        width: 55%;
+        border: 1px solid $main;
+        border-radius: 10px;
+    }
 
     h3 {
         color: $mainpurple;
@@ -15,18 +21,21 @@
         display: inline-block;
         margin-bottom: 10px;
     }
-    .button:first-child {
-        @include linkButtonStyle(#fddb75, $mainpurple); 
-        
-    }
-    .button:nth-child(2) {
-        @include linkButtonStyle($maingreen, $mainpurple); 
-    }
-    .button:nth-child(3) {
-        @include linkButtonStyle(#ff3535, white); 
-    }
-    .button:last-child {
-        @include linkButtonStyle($mainpink, $mainpurple); 
+    
+    
+    #dashboard-buttons {
+
+        a:first-child {
+
+            button {
+                @include buttonStyle($lightyellow, $mainpurple); 
+            }
+        }
+
+        button.alert {
+            @include buttonStyle(#ff3535, white);
+        }
+
     }
 }
 

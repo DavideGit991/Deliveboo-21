@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DishController;
 use App\Http\Controllers\RestaurantController;
+use App\Restaurant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -8,7 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('pages.main-home');
+    $restaurant=Restaurant::all();
+    return view('pages.main-home',compact('restaurant'));
 });
 
 Auth::routes();
@@ -43,3 +46,6 @@ Route::get('/votes', 'RestaurantController@getRestaurantVotes');
 Route::post('/search','RestaurantController@searchRestaurant');
 //restituisce ristoranti della cita per tipologia
 Route::post('/selectedTypology','RestaurantController@getRestaurantTypologies');
+
+//restituisce pagina menu per il ristorante
+Route::get('/show/restaurant/menu/{id}', 'DishController@showMenu') ->name('show-menu');
