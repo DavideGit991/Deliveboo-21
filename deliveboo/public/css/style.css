@@ -173,12 +173,13 @@ svg {
 /* LOGIN PAGE */
 
 .login-register {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 180px);
+  padding: 50px;
 }
 
 .login-register .card {
   width: 35%;
-  margin: 50px auto;
+  margin: auto;
   border: 1px solid #00ccbc;
   border-radius: 10px;
   background-color: white;
@@ -247,7 +248,7 @@ svg {
 }
 
 #dashboard {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 180px);
 }
 
 #dashboard .card {
@@ -397,8 +398,19 @@ svg {
   margin-bottom: 20px;
 }
 
+#dishes-index {
+  margin: -10px 0;
+  height: calc(100vh - 160px);
+}
+
 #dishes-index .card {
-  width: 60%;
+  width: 70%;
+  height: 100%;
+}
+
+#dishes-index .card-bottom {
+  height: calc(100% - 60px);
+  overflow: auto;
 }
 
 #dishes-index .add {
@@ -503,12 +515,14 @@ svg {
 
 #menu {
   background-color: #d0eb99;
-  height: 100vh;
+  height: calc(100vh - 180px);
+  overflow: auto;
 }
 
 #menu .ordine {
   display: flex;
   justify-content: space-between;
+  height: 100%;
 }
 
 #menu .ordine #dish-card-container {
@@ -541,21 +555,57 @@ svg {
 #menu .ordine #cart-container div:first-child {
   background-color: #ffa280;
   color: white;
-  padding-bottom: 7px;
   text-align: center;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #menu .ordine #cart-container div:first-child h3 {
+  margin-right: 5px;
+}
+
+#menu .ordine #cart-container .cart {
+  height: calc(100% - 120px);
   padding: 5px;
-  display: inline-block;
+  overflow: auto;
 }
 
 #menu .ordine #cart-container .cart ul {
   list-style: none;
 }
 
+#menu .ordine #cart-container div:last-child {
+  height: 70px;
+  border-top: 1px solid black;
+  padding: 10px;
+}
+
+#menu .ordine #cart-container div:last-child h2 {
+  color: #262626;
+  margin-bottom: 10px;
+}
+
 footer {
-  height: 150px;
+  height: 110px;
   background-color: #006666;
+  color: white;
+  padding: 20px 25px;
+}
+
+footer div:last-child {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+footer div:last-child a {
+  color: lightgray;
+  text-decoration: none;
+}
+
+footer div:last-child a:hover {
+  color: white;
 }
 

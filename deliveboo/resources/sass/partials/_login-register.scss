@@ -1,9 +1,10 @@
 .login-register {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 180px);
+    padding: 50px;
     
     .card {
         width: 35%;
-        margin: 50px auto;
+        margin: auto;
         border: 1px solid $main;
         border-radius: 10px;
         background-color: white;

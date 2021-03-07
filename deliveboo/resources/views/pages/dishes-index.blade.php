@@ -7,7 +7,7 @@
             Menù di: {{$restaurant-> name}} 
         </div>
 
-        <div>
+        <div class="card-bottom">
             <div class="add">
                 <a href="{{route('dish-create', $restaurant-> id)}}">Aggiungi un piatto<i class="fas fa-plus"></i></a>
             </div>

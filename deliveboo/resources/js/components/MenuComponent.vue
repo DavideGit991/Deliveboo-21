@@ -31,7 +31,7 @@
                     </h3>
                     <i class="fas fa-shopping-cart"></i>
                 </div>
-                <div class="cart" v-show="dishesOrdered.length>0">
+                <div class="cart">
                     <ul v-for='(dishOrdered,i) in dishesOrdered' :key='dishOrdered.message'>
                         <li>
                             {{i}}
@@ -49,10 +49,13 @@
                             <button  v-if='totPrice>0' @click='DeletePrice(dishOrdered.price,i)'>-</button>
                         </li>
                     </ul>
+                </div>
+
+                <div>
                     <h2>
-                        prezzo totale :{{totPrice}}
+                        Totale: {{totPrice}}&#8364;
                     </h2>
-                    <button @click="GoToCheckout(totPrice)">
+                    <button @click="GoToCheckout(totPrice)" v-show="dishesOrdered.length>0">
                         Checkout
                     </button>
                 </div>

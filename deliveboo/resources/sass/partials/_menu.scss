@@ -1,10 +1,12 @@
 #menu {
     background-color: $maingreen;
-    height: 100vh;
+    height: calc(100vh - 180px);
+    overflow: auto;
 
     .ordine {
         display: flex;
         justify-content: space-between;
+        height: 100%;
         
         #dish-card-container {
             display: flex;
@@ -26,21 +28,37 @@
                 
                 background-color: $mainpink;
                 color: white;
-                padding-bottom: 7px;
                 text-align: center;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 h3 {
-
-                    padding: 5px;
-                    display: inline-block;
+                    margin-right: 5px;
                 }
-
+                
             }
-
+            
             .cart {
+                height: calc(100% - 120px);
+                padding: 5px;
+                overflow: auto;
 
                 ul {
                     list-style: none;
+                }
+            }
+
+            div:last-child {
+
+                height: 70px;
+                border-top: 1px solid black;
+                padding: 10px;
+
+                h2 {
+                    color: $mainblack;
+                    margin-bottom: 10px;
                 }
             }
         }

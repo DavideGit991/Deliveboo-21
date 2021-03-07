@@ -1,7 +1,18 @@
 #dishes-index {
-    .card {
-        width: 60%;
+    
+    margin: -10px 0;
 
+    height: calc(100vh - 160px);
+
+    .card {
+        width: 70%;
+        height: 100%;
+
+    }
+
+    .card-bottom {
+        height: calc(100% - 60px);
+        overflow: auto;
     }
 
     .add {
@@ -33,7 +44,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-
+       
         .dish {
             width: 250px;
             margin: 10px;
