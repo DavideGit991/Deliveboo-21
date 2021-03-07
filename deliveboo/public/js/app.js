@@ -2024,6 +2024,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37818,41 +37827,136 @@ var render = function() {
         staticClass: "ordine"
       },
       [
-        _c(
-          "div",
-          { staticClass: "dish-card-container" },
-          _vm._l(_vm.dishes, function(dish) {
-            return _c("ul", { key: dish.message, staticClass: "dish-card" }, [
-              _c("img", { attrs: { src: dish.img, alt: "", height: "100" } }),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "\n                    [" +
-                    _vm._s(dish.id) +
-                    "]\n                "
+        _c("div", [
+          _c(
+            "div",
+            { attrs: { id: "dish-card-container" } },
+            _vm._l(_vm.dishes, function(dish) {
+              return _c("ul", { key: dish.message, staticClass: "dish-card" }, [
+                _c("img", { attrs: { src: dish.img, alt: "", height: "100" } }),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v(
+                    "\n                        [" +
+                      _vm._s(dish.id) +
+                      "]\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(dish.name) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(dish.price) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(dish.availability) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.AddPrice(dish.price, dish.name, dish.id)
+                      }
+                    }
+                  },
+                  [_vm._v("+")]
                 )
-              ]),
+              ])
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "cart-container" } }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.dishesOrdered.length > 0,
+                  expression: "dishesOrdered.length>0"
+                }
+              ],
+              staticClass: "cart"
+            },
+            [
+              _vm._l(_vm.dishesOrdered, function(dishOrdered, i) {
+                return _c("ul", { key: dishOrdered.message }, [
+                  _c("li", [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(i) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(dishOrdered.id) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(dishOrdered.name) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(dishOrdered.price) +
+                        "\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm.totPrice > 0
+                      ? _c(
+                          "button",
+                          {
+                            on: {
+                              click: function($event) {
+                                return _vm.DeletePrice(dishOrdered.price, i)
+                              }
+                            }
+                          },
+                          [_vm._v("-")]
+                        )
+                      : _vm._e()
+                  ])
+                ])
+              }),
               _vm._v(" "),
-              _c("li", [
+              _c("h2", [
                 _vm._v(
-                  "\n                    " +
-                    _vm._s(dish.name) +
-                    "\n                "
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(dish.price) +
-                    "\n                "
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(dish.availability) +
+                  "\n                    prezzo totale :" +
+                    _vm._s(_vm.totPrice) +
                     "\n                "
                 )
               ]),
@@ -37862,105 +37966,16 @@ var render = function() {
                 {
                   on: {
                     click: function($event) {
-                      return _vm.AddPrice(dish.price, dish.name, dish.id)
+                      return _vm.GoToCheckout(_vm.totPrice)
                     }
                   }
                 },
-                [_vm._v("+")]
+                [_vm._v("\n                    Checkout\n                ")]
               )
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.dishesOrdered.length > 0,
-                expression: "dishesOrdered.length>0"
-              }
             ],
-            staticClass: "cart"
-          },
-          [
-            _c("h1", [_vm._v("Sono il tuo carrello")]),
-            _vm._v(" "),
-            _vm._l(_vm.dishesOrdered, function(dishOrdered, i) {
-              return _c("ul", { key: dishOrdered.message }, [
-                _c("li", [
-                  _vm._v(
-                    "\n                    " + _vm._s(i) + "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(dishOrdered.id) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(dishOrdered.name) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(dishOrdered.price) +
-                      "\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _vm.totPrice > 0
-                    ? _c(
-                        "button",
-                        {
-                          on: {
-                            click: function($event) {
-                              return _vm.DeletePrice(dishOrdered.price, i)
-                            }
-                          }
-                        },
-                        [_vm._v("-")]
-                      )
-                    : _vm._e()
-                ])
-              ])
-            }),
-            _vm._v(" "),
-            _c("h2", [
-              _vm._v(
-                "\n                prezzo totale :" +
-                  _vm._s(_vm.totPrice) +
-                  "\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                on: {
-                  click: function($event) {
-                    return _vm.GoToCheckout(_vm.totPrice)
-                  }
-                }
-              },
-              [_vm._v("\n                Checkout\n            ")]
-            )
-          ],
-          2
-        )
+            2
+          )
+        ])
       ]
     ),
     _vm._v(" "),
@@ -37981,7 +37996,18 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h3", [_vm._v("\n                    Carrello \n                ")]),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-shopping-cart" })
+    ])
+  }
+]
 render._withStripped = true
 
 

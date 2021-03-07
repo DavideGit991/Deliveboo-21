@@ -3,50 +3,59 @@
     <div id="menu">
         <div v-show="showpayment" class="ordine">
 
-            <div class="dish-card-container">
-                <ul class="dish-card" v-for="dish in dishes" :key="dish.message">
-                    <img :src="dish.img" alt="" height="100">
-                    <li>
-                        [{{dish.id}}]
-                    </li>
-                    <li>
-                        {{dish.name}}
-                    </li>
-                    <li>
-                        {{dish.price}}
-                    </li>
-                    <li>
-                        {{dish.availability}}
-                    </li>
-                    <button @click="AddPrice(dish.price,dish.name,dish.id)">+</button>
-                </ul>
+            <div>
+                <div id="dish-card-container">
+                    <ul class="dish-card" v-for="dish in dishes" :key="dish.message">
+                        <img :src="dish.img" alt="" height="100">
+                        <li>
+                            [{{dish.id}}]
+                        </li>
+                        <li>
+                            {{dish.name}}
+                        </li>
+                        <li>
+                            {{dish.price}}
+                        </li>
+                        <li>
+                            {{dish.availability}}
+                        </li>
+                        <button @click="AddPrice(dish.price,dish.name,dish.id)">+</button>
+                    </ul>
+                </div>
             </div>
 
-            <div class="cart" v-show="dishesOrdered.length>0">
-                <h1>Sono il tuo carrello</h1>
-                <ul v-for='(dishOrdered,i) in dishesOrdered' :key='dishOrdered.message'>
-                    <li>
-                        {{i}}
-                    </li>
-                    <li>
-                        {{dishOrdered.id}}
-                    </li>
-                    <li>
-                        {{dishOrdered.name}}
-                    </li>
-                    <li>
-                        {{dishOrdered.price}}
-                    </li>
-                    <li>
-                        <button  v-if='totPrice>0' @click='DeletePrice(dishOrdered.price,i)'>-</button>
-                    </li>
-                </ul>
-                <h2>
-                    prezzo totale :{{totPrice}}
-                </h2>
-                <button @click="GoToCheckout(totPrice)">
-                    Checkout
-                </button>
+            <div id="cart-container">
+                <div>
+                    <h3>
+                        Carrello 
+                    </h3>
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="cart" v-show="dishesOrdered.length>0">
+                    <ul v-for='(dishOrdered,i) in dishesOrdered' :key='dishOrdered.message'>
+                        <li>
+                            {{i}}
+                        </li>
+                        <li>
+                            {{dishOrdered.id}}
+                        </li>
+                        <li>
+                            {{dishOrdered.name}}
+                        </li>
+                        <li>
+                            {{dishOrdered.price}}
+                        </li>
+                        <li>
+                            <button  v-if='totPrice>0' @click='DeletePrice(dishOrdered.price,i)'>-</button>
+                        </li>
+                    </ul>
+                    <h2>
+                        prezzo totale :{{totPrice}}
+                    </h2>
+                    <button @click="GoToCheckout(totPrice)">
+                        Checkout
+                    </button>
+                </div>
             </div>
         </div>
 

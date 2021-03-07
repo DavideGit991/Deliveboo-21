@@ -148,6 +148,7 @@ svg {
   border-radius: 5px;
   margin: 10px;
   box-shadow: 0px 0px 3px 1px #444444;
+  list-style: none;
 }
 
 .best > div img {
@@ -506,14 +507,16 @@ svg {
 }
 
 #menu .ordine {
-  padding: 50px;
-}
-
-#menu .ordine .dish-card-container {
   display: flex;
+  justify-content: space-between;
 }
 
-#menu .ordine .dish-card {
+#menu .ordine #dish-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#menu .ordine #dish-card-container .dish-card {
   width: 260px;
   background-color: white;
   border-radius: 5px;
@@ -521,6 +524,34 @@ svg {
   box-shadow: 0px 0px 3px 1px #444444;
   list-style: none;
   padding: 10px;
+}
+
+#menu .ordine #cart-container {
+  width: 260px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0px 0px 3px 1px #ffa280;
+  list-style: none;
+  box-shadow: none;
+  border: 3px solid #ffa280;
+  padding: 5px;
+}
+
+#menu .ordine #cart-container div:first-child {
+  background-color: #ffa280;
+  color: white;
+  padding-bottom: 7px;
+  text-align: center;
+}
+
+#menu .ordine #cart-container div:first-child h3 {
+  padding: 5px;
+  display: inline-block;
+}
+
+#menu .ordine #cart-container .cart ul {
+  list-style: none;
 }
 
 footer {

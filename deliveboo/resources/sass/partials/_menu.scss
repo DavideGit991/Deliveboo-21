@@ -3,16 +3,47 @@
     height: 100vh;
 
     .ordine {
-        padding: 50px;
+        display: flex;
+        justify-content: space-between;
         
-        .dish-card-container {
+        #dish-card-container {
             display: flex;
+            flex-wrap: wrap;
+
+            .dish-card {
+                @include cardStyle($mainshadow);
+                padding: 10px;
+            }
         }
 
-        .dish-card {
-            @include cardStyle;
-            list-style: none;
-            padding: 10px;
+        #cart-container {
+            @include cardStyle($mainpink);
+            box-shadow: none;
+            border: 3px solid $mainpink;
+            padding: 5px;
+            
+            div:first-child {
+                
+                background-color: $mainpink;
+                color: white;
+                padding-bottom: 7px;
+                text-align: center;
+
+                h3 {
+
+                    padding: 5px;
+                    display: inline-block;
+                }
+
+            }
+
+            .cart {
+
+                ul {
+                    list-style: none;
+                }
+            }
         }
+
     }
 }

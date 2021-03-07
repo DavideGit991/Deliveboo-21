@@ -76,7 +76,7 @@ svg {
     }
     .best > div {
        
-        @include cardStyle;
+        @include cardStyle($mainshadow);
 
         img {
             background-color: dimgray;
