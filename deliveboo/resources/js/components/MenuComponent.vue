@@ -75,11 +75,10 @@
 
             <!-- Sezione pagamento -->
                 <div id="dropin-container"></div>
-                <button  id="submit-button" >immetti metodo pagamento</button>
-            </div>
+     </div>
 
-                <!-- sezione form-->
-            <form @submit.prevent="submit" v-show="showform">
+           <!-- sezione form-->
+            <form @submit.prevent="submit" v-show="!showform">
                 <div>
 
                     <label for="name">Nome:</label>
@@ -100,7 +99,9 @@
                     <label for="phone">N° telefono</label>
                     <input type="tel" name="phone" required v-model="phone" >
                 </div>
-                <button type="submit"></button>
+
+
+                <button  id="submit-button" type="submit" disabled>Paga</button>
 
             </form>
         </div>
@@ -143,18 +144,26 @@ export default {
             .then(res=>{
                 this.dishes=res.data
             });
-        var button = document.querySelector('#submit-button');
 
-        braintree.dropin.create({
-          authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
-          selector: '#dropin-container'
-        }, function (err, instance) {
-          button.addEventListener('click', function () {
-            instance.requestPaymentMethod(function (err, payload) {
-
-            });
-          })
-        });
+            var submitButton = document.querySelector('#submit-button');
+            braintree.dropin.create({
+                 authorization: 'sandbox_38hnk6mp_bwgnshmvsxrqb88w',
+                 container: '#dropin-container',
+             }, function (err, dropinInstance) {
+                 if (err) {
+                 // Handle any errors that might've occurred when creating Drop-in
+                 console.error(err);
+                 return;
+                 }
+                 submitButton.addEventListener('click', function () {
+                 dropinInstance.requestPaymentMethod(function (err, payload) {
+                     if (err) {
+                     // Handle errors in requesting payment method
+                     }
+                     // Send payload.nonce to your server
+                 });
+                 });
+             });
     },
 
     methods:{
