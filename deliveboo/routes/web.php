@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $restaurant=Restaurant::all();
     return view('pages.main-home',compact('restaurant'));
-});
+})->name('main');
 
 Auth::routes();
 

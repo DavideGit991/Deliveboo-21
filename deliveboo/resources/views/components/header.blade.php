@@ -4,10 +4,13 @@
     </div>
 
     {{-- Search --}}
-    <div v-show='showName' id="search">
-        <i class="fas fa-search"></i>
-        <input type="text"  v-model='inputName' @@keyup.enter='searchRestaurantName()' placeholder="Nome del ristorante">
-    </div>
+  
+        @if (Route::currentRouteName()  === 'main')
+            <div v-show='showName' id="search">
+                <i class="fas fa-search"></i>
+                <input type="text"  v-model='inputName' @@keyup.enter='searchRestaurantName()' placeholder="Nome del ristorante">
+            </div>    
+        @endif
 
     {{-- Login Register --}}
         
