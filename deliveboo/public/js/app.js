@@ -2075,6 +2075,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2099,13 +2100,23 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/dishes/' + this.id).then(function (res) {
       _this.dishes = res.data;
     });
-    var button = document.querySelector('#submit-button');
+    var submitButton = document.querySelector('#submit-button');
     braintree.dropin.create({
-      authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
-      selector: '#dropin-container'
-    }, function (err, instance) {
-      button.addEventListener('click', function () {
-        instance.requestPaymentMethod(function (err, payload) {});
+      authorization: 'sandbox_38hnk6mp_bwgnshmvsxrqb88w',
+      container: '#dropin-container'
+    }, function (err, dropinInstance) {
+      if (err) {
+        // Handle any errors that might've occurred when creating Drop-in
+        console.error(err);
+        return;
+      }
+
+      submitButton.addEventListener('click', function () {
+        dropinInstance.requestPaymentMethod(function (err, payload) {
+          if (err) {// Handle errors in requesting payment method
+          } // Send payload.nonce to your server
+
+        });
       });
     });
   },
@@ -38122,8 +38133,8 @@ var render = function() {
               {
                 name: "show",
                 rawName: "v-show",
-                value: _vm.showform,
-                expression: "showform"
+                value: !_vm.showform,
+                expression: "!showform"
               }
             ],
             on: {
@@ -38234,7 +38245,11 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("button", { attrs: { type: "submit" } })
+            _c(
+              "button",
+              { attrs: { id: "submit-button", type: "submit", disabled: "" } },
+              [_vm._v("Paga")]
+            )
           ]
         )
       ]
@@ -38257,11 +38272,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "carta di credito" }, [
-      _c("div", { attrs: { id: "dropin-container" } }),
-      _vm._v(" "),
-      _c("button", { attrs: { id: "submit-button" } }, [
-        _vm._v("immetti metodo pagamento")
-      ])
+      _c("div", { attrs: { id: "dropin-container" } })
     ])
   }
 ]
