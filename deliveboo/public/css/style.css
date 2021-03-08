@@ -133,7 +133,7 @@ svg {
   color: white;
 }
 
-.best {
+.bestRated .best {
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -141,7 +141,7 @@ svg {
   color: black;
 }
 
-.best > div {
+.bestRated .best > div {
   width: 260px;
   background-color: white;
   border-radius: 5px;
@@ -151,28 +151,39 @@ svg {
   transition: 0.3s;
 }
 
-.best > div:hover {
+.bestRated .best > div:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
-.best > div img {
+.bestRated .best > div .img-container {
   background-color: dimgray;
+  background-image: url(/images/generic.jpg?f3c2a94a7113d6b2e4f51de14fe711a8);
+  background-size: cover;
+  width: 100%;
+  height: 138px;
+  padding: initial;
+}
+
+.bestRated .best > div .img-container img {
   width: 100%;
 }
 
-.best > div div {
+.bestRated .best > div div {
   padding: 5px 15px;
 }
 
-.best > div div:first-child {
-  height: 40px;
-  background-color: dimgray;
-}
-
-.best > div div h4 {
+.bestRated .best > div div h4 {
   color: #262626;
   font-size: 14px;
+}
+
+.bestRated .noRes {
+  text-align: center;
+}
+
+.bestRated .stars {
+  color: #ffcc33;
 }
 
 #search-results {

@@ -65,7 +65,7 @@ svg {
     background-color: $mainpink;
     padding: 20px;
     color: white;
-}
+
     .best {
         padding: 15px;
         display: flex;
@@ -73,29 +73,33 @@ svg {
         justify-content: center;
         color: black;
     }
+
     .best > div {
        
         @include cardStyle($mainshadow);
         transition: 0.3s;
-
+        
         &:hover {
-
+            
             cursor: pointer;
             transform: scale(1.1);
         }
-
-        img {
+        
+        .img-container {
             background-color: dimgray;
+            background-image: url(../img/generic.jpg);
+            background-size: cover;
             width: 100%;
-        }
+            height: 138px;
+            padding: initial;
 
+            img {
+                width: 100%;
+            }
+        }
+        
         div {
             padding: 5px 15px;
-
-            &:first-child {
-                height: 40px;
-                background-color: dimgray;
-            }
             
             h4 {
                 color: #262626;
@@ -103,6 +107,15 @@ svg {
             }
         }
     }
+
+    .noRes {
+        text-align: center;
+    }
+    
+    .stars {
+        color: $mainyellow;
+    }
+}
 
 //Risultati ricerca 
 #search-results {

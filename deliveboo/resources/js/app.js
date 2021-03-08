@@ -70,14 +70,11 @@ function init(){
                 // console.log(this.cities);
 
             });
-            // console.log(this.cities);
-            // console.log(this.citta);
 
         //chiamata per sapere i risto piu votati
         axios.get('/votes')
              .then(res=>{
                  this.restaurantsVotes=res.data;
-                //  console.log('vote',this.restaurantsVotes);
             })
     },
 

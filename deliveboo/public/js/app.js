@@ -50530,12 +50530,10 @@ function init() {
       axios.get('/cities').then(function (res) {
         // console.log(res.data);
         _this.cities = res.data; // console.log(this.cities);
-      }); // console.log(this.cities);
-      // console.log(this.citta);
-      //chiamata per sapere i risto piu votati
+      }); //chiamata per sapere i risto piu votati
 
       axios.get('/votes').then(function (res) {
-        _this.restaurantsVotes = res.data; //  console.log('vote',this.restaurantsVotes);
+        _this.restaurantsVotes = res.data;
       });
     },
     methods: {

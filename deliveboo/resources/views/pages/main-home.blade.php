@@ -35,16 +35,19 @@
   {{-- Risultato ricerca --}}
   <div id="search-results" v-show="showSearchResult" class="bestRated">
     <h2>
-      Risultati Ricerca per: '@{{ inputName }}' 
-
+      Risultati Ricerca per '@{{ inputName }}':
     </h2>
+    <div v-if="searchResults.length===0" class="noRes">
+      <h3>Nessun risultato</h3>
+    </div>
     <div class="best">
-      <div v-for="result in searchResults" @@click='GoToMenu(result.id)'>
-        <div>
-
+      <div v-for="element in searchResults" @@click='GoToMenu(result.id)'>
+        <div class="img-container">
+          <img src="" alt="">
         </div>
         <div>
-          <h4>@{{result.name}}</h4>
+          <h4>@{{element.name}}</h4>
+          <p class="stars"><i class="fas fa-star" v-for="star in element.vote "></i><i class="far fa-star" v-for="star in 5 - (element.vote)"></i></p>
         </div>
       </div>
     </div>
@@ -55,11 +58,12 @@
     <h2>Ristoranti di @{{citta}}</h2>
       <div class="best">
         <div v-for='element in restaurants' @@click='GoToMenu(element.id)'>
-          <div>
-
+          <div class="img-container">
+            <img src="" alt="">
           </div>
           <div>
             <h4>@{{element.name}}</h4>
+            <p class="stars"><i class="fas fa-star" v-for="star in element.vote "></i><i class="far fa-star" v-for="star in 5 - (element.vote)"></i></p>
           </div>
         </div>
       </div>
@@ -70,11 +74,12 @@
     <h2>@{{selectedTypology}} a @{{citta}}</h2>
       <div class="best">
         <div v-for='element in restaurantsSelected' @@click='GoToMenu(element.id)'>
-          <div>
-
+          <div class="img-container">
+            <img src="" alt="">
           </div>
           <div>
             <h4>@{{element.name}}</h4>
+            <p class="stars"><i class="fas fa-star" v-for="star in element.vote "></i><i class="far fa-star" v-for="star in 5 - (element.vote)"></i></p>
           </div>
         </div>
       </div>
@@ -86,11 +91,13 @@
       <div class="best">
 
           <div v-for="element in restaurantsVotes" @@click='GoToMenu(element.id)'>
-            <img :src="element.logo" alt="">
+            <div class="img-container">
+              <img :src="element.logo" alt="">
+            </div>
             <div>
               <h4>@{{element.name}}</h4>
-              <p>@{{element.vote}}</p>
-              <a  >Menu</a>
+              <p class="stars"><i class="fas fa-star" v-for="star in element.vote "></i><i class="far fa-star" v-for="star in 5 - (element.vote)"></i></p>
+              <a>Menu</a>
             </div>
           </div>
 
