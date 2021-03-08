@@ -106,7 +106,7 @@ class RestaurantController extends Controller
         $city=$req->city;
         $typology=$req->name;
         $restaurants=DB::table('restaurants')
-        ->select( 'restaurants.name','restaurants.vote','restaurants.address','restaurants.logo')
+        ->select( 'restaurants.id','restaurants.name','restaurants.vote','restaurants.address','restaurants.logo')
             ->join('restaurant_typology','restaurants.id', '=', 'restaurant_typology.restaurant_id')
             ->join('typologies','restaurant_typology.typology_id','=','typologies.id')
             ->where('restaurants.city','=',$city)
