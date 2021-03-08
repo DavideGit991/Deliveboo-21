@@ -16,15 +16,15 @@
                         
                     <div>
                         <label for="name">Nome Piatto: </label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" required>
                     </div>
                     <div>
                         <label for="description">Descrizione: </label>
-                        <input type="text" name="description">
+                        <input type="text" name="description" minlength="5" required >
                     </div>
                     <div>
                         <label for="price">Prezzo: </label>
-                        <input type="text" name="price">
+                        <input type="number" name="price" required>
                     </div>
                     <div>
                         <label for="img">Imagine: </label>

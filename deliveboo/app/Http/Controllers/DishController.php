@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Dish;
 use App\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DishController extends Controller
 {
@@ -24,7 +25,11 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $data=$request-> all();
-        // $idRest=$request
+        Validator::make($data,[          //validazione
+            'name'=>'required',
+            'description'=>'required|min:5',
+            'price'=>'required|numeric',
+        ])-> validate();
         $dish = Dish::make($request -> all());
         $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
         $dish -> restaurant() -> associate($restaurant);
@@ -41,7 +46,13 @@ class DishController extends Controller
     public function update(Request $request, $id)
     {
         $dish=Dish::findOrFail($id);
-        $dish->update($request -> all());
+        $data=$request-> all();
+        Validator::make($data,[          //validazione
+            'name'=>'required',
+            'description'=>'required|min:5',
+            'price'=>'required|numeric',
+        ])-> validate();
+        $dish->update($data);
         return redirect() -> route('dishes-index', $dish-> restaurant_id );
     }
 
