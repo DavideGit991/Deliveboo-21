@@ -5,6 +5,7 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use App\User;
 use Illuminate\Http\Request;
 class RestaurantController extends Controller
@@ -26,6 +27,12 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         $data=$request->all();
+        Validator::make($data,[          //validazione
+            'name'=>'required|max:40',
+            'address'=>'required',
+            'city'=>'required',
+            'phone'=>'required',
+        ])-> validate();
         $newRestaurant=Restaurant::create($data);
         return redirect()->route('home');
     }
@@ -37,6 +44,12 @@ class RestaurantController extends Controller
     public function update(Request $request, $id)
     {
         $data=$request->all();
+        Validator::make($data,[          //validazione
+            'name'=>'required|max:40',
+            'address'=>'required',
+            'city'=>'required',
+            'phone'=>'required',
+        ])-> validate();
         $restaurant=Restaurant::findOrFail($id);
         $restaurant->update($data);
         return redirect('home');

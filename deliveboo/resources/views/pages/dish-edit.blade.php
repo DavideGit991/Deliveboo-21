@@ -12,15 +12,15 @@
                     @csrf
                     <div>
                         <label for="name">Nome: </label>
-                        <input type="text" name="name" value="{{$dish-> name}}">
+                        <input type="text" name="name" value="{{$dish-> name}}" required>
                     </div>
                     <div>
                         <label for="description">Descrizione: </label>
-                        <input type="text" name="description" value="{{$dish-> description}}">
+                        <input type="text" name="description" value="{{$dish-> description}}" required minlength="5">
                     </div>
                     <div>
                         <label for="price">Prezzo: </label>
-                        <input type="text" name="price" value="{{$dish-> price}}">
+                        <input type="text" name="price" value="{{$dish-> price}}" required>
                     </div>
                     <div>
                         <label for="img">Immagine: </label>

@@ -23,22 +23,22 @@
                             </div>
                             
                             <div class="col">
-                                <label for="name">Sito internet</label>
+                                <label for="url">Sito internet</label>
                                 <input type="text" class="form-control" name="url" value="{{$restaurant->url}}">
                             </div>
                             
                         </div >
                         <div class="row d-flex m-2">
                             <div class="col">
-                                <label for="name">Indirizzo*</label>
+                                <label for="address">Indirizzo*</label>
                                 <input type="text" class="form-control" name="address" value="{{$restaurant->address}}" required>
                             </div>
                             <div class="col">
-                                <label for="name">Città*</label>
+                                <label for="city">Città*</label>
                                 <input type="text" class="form-control" name="city" value="{{$restaurant->city}}" required>
                             </div>
                             <div class="col">
-                                <label for="name">Numero di telefono*</label>
+                                <label for="phone">Numero di telefono*</label>
                                 <input type="text" class="form-control" name="phone" value="{{$restaurant->phone}}" required>
                             </div>
                         </div >

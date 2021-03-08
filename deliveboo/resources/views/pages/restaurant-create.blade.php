@@ -19,20 +19,20 @@
                         <input type="text" class="form-control" name="name" required maxlength="40" >
                     </div>
                     <div>
-                        <label for="name">Sito internet</label>
+                        <label for="url">Sito internet</label>
                         <input type="text" class="form-control" name="url">
                     </div>
                     <div>
-                        <label for="name">Indirizzo*</label>
+                        <label for="address">Indirizzo*</label>
                         <input type="text" class="form-control" name="address" required >
                     </div>
                     <div>
-                        <label for="name">Città*</label>
+                        <label for="city">Città*</label>
                         <input type="text" class="form-control" name="city" required>
                     </div>
                     <div>
-                        <label for="name">Telefono*</label>
-                        <input type="text" class="form-control" name="phone" required >
+                        <label for="phone">Telefono*</label>
+                        <input type="tel" class="form-control" name="phone" required>
                     </div>
                     
                     <input type="text" hidden name="user_id" value="{{Auth::user()->id}}">
