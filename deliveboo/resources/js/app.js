@@ -122,11 +122,7 @@ function init(){
 
                 // prenderle la tipologia dal bottone e la città selezionata
                 // vado dillà e faccio una query che ritorna i ristoranti con citta selezionata e tipologia selezionata
-
-
-
             };
-
         },
 
         // funzione per passare pagina menu dai piu' votati
