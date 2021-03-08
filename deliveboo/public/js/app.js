@@ -2036,6 +2036,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2043,7 +2082,15 @@ __webpack_require__.r(__webpack_exports__);
       dishes: [],
       dishesOrdered: [],
       totPrice: 0,
-      showpayment: true
+      showform: false,
+      checkout: true,
+      deleteDish: true,
+      showdishes: false,
+      showpayment: true,
+      name: '',
+      lastname: '',
+      address: '',
+      phone: ''
     };
   },
   mounted: function mounted() {
@@ -2051,6 +2098,15 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/dishes/' + this.id).then(function (res) {
       _this.dishes = res.data;
+    });
+    var button = document.querySelector('#submit-button');
+    braintree.dropin.create({
+      authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+      selector: '#dropin-container'
+    }, function (err, instance) {
+      button.addEventListener('click', function () {
+        instance.requestPaymentMethod(function (err, payload) {});
+      });
     });
   },
   methods: {
@@ -2074,15 +2130,38 @@ __webpack_require__.r(__webpack_exports__);
       console.log('prezzo totale', this.totPrice);
     },
     GoToCheckout: function GoToCheckout() {
-      this.showpayment = false; // const data=this.dishesOrdered
-      // let formdata = new FormData();
-      // formdata.append('data',JSON.stringify(data));
-      //  axios.post('/checkout',formdata)
-      //     .then(res=>{
-      //         // location.replace('/checkout')
-      //         console.log(res);
-      //         //  console.log(res);
-      //      })
+      this.deleteDish = false;
+      this.showdishes = true;
+      this.showpayment = false;
+      this.checkout = false;
+    },
+    goBack: function goBack() {
+      this.deleteDish = true;
+      this.showdishes = false;
+      this.showpayment = true;
+      this.checkout = true;
+    },
+    submit: function submit() {
+      var _this2 = this;
+
+      this.errors = {};
+      var data = new Date();
+      var mese = data.getMonth() + 1;
+      var fields = {
+        tot_price: this.totPrice,
+        status: 1,
+        name: this.name,
+        month: mese,
+        lastname: this.lastname,
+        address: this.address,
+        phone: this.phone
+      };
+      console.log(fields);
+      axios.post('/payment', fields).then(function (response) {})["catch"](function (error) {
+        if (error.response.status === 422) {
+          _this2.errors = error.response.data.errors || {};
+        }
+      });
     }
   },
   props: {
@@ -37816,21 +37895,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "menu" } }, [
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.showpayment,
-            expression: "showpayment"
-          }
-        ],
-        staticClass: "ordine"
-      },
-      [
-        _c("div", [
+    _c("div", { staticClass: "ordine" }, [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showpayment,
+              expression: "showpayment"
+            }
+          ]
+        },
+        [
           _c(
             "div",
             { attrs: { id: "dish-card-container" } },
@@ -37885,9 +37963,23 @@ var render = function() {
             }),
             0
           )
-        ]),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "cart-container" } }, [
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.dishesOrdered.length > 0,
+              expression: "dishesOrdered.length>0"
+            }
+          ],
+          attrs: { id: "cart-container" }
+        },
+        [
           _vm._m(0),
           _vm._v(" "),
           _c(
@@ -37932,6 +38024,14 @@ var render = function() {
                     ? _c(
                         "button",
                         {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.deleteDish,
+                              expression: "deleteDish"
+                            }
+                          ],
                           on: {
                             click: function($event) {
                               return _vm.DeletePrice(dishOrdered.price, i)
@@ -37963,8 +38063,8 @@ var render = function() {
                   {
                     name: "show",
                     rawName: "v-show",
-                    value: _vm.dishesOrdered.length > 0,
-                    expression: "dishesOrdered.length>0"
+                    value: _vm.dishesOrdered.length > 0 && _vm.checkout,
+                    expression: "dishesOrdered.length>0 && checkout"
                   }
                 ],
                 on: {
@@ -37974,11 +38074,28 @@ var render = function() {
                 }
               },
               [_vm._v("\n                    Checkout\n                ")]
-            )
+            ),
+            _vm._v(" "),
+            _c("i", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.showdishes,
+                  expression: "showdishes"
+                }
+              ],
+              staticClass: "fas fa-arrow-left",
+              on: {
+                click: function($event) {
+                  return _vm.goBack()
+                }
+              }
+            })
           ])
-        ])
-      ]
-    ),
+        ]
+      )
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -37993,7 +38110,134 @@ var render = function() {
         ],
         staticClass: "pagamento"
       },
-      [_c("h1", [_vm._v("sono il pagamento")])]
+      [
+        _c("h1", [_vm._v("sono il pagamento")]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.showform,
+                expression: "showform"
+              }
+            ],
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
+            }
+          },
+          [
+            _c("div", [
+              _c("label", { attrs: { for: "name" } }, [_vm._v("Nome:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name,
+                    expression: "name"
+                  }
+                ],
+                attrs: { type: "text", name: "name", required: "" },
+                domProps: { value: _vm.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.name = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("label", { attrs: { for: "lastname" } }, [_vm._v("Cognome")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.lastname,
+                    expression: "lastname"
+                  }
+                ],
+                attrs: { type: "text", name: "lastname", required: "" },
+                domProps: { value: _vm.lastname },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.lastname = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("label", { attrs: { for: "address" } }, [_vm._v("Indirizzo")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.address,
+                    expression: "address"
+                  }
+                ],
+                attrs: { type: "text", name: "address", required: "" },
+                domProps: { value: _vm.address },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.address = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("label", { attrs: { for: "phone" } }, [_vm._v("N° telefono")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.phone,
+                    expression: "phone"
+                  }
+                ],
+                attrs: { type: "tel", name: "phone", required: "" },
+                domProps: { value: _vm.phone },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.phone = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("button", { attrs: { type: "submit" } })
+          ]
+        )
+      ]
     )
   ])
 }
@@ -38003,9 +38247,21 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h3", [_vm._v("\n                    Carrello \n                ")]),
+      _c("h3", [_vm._v("\n                    Carrello\n                ")]),
       _vm._v(" "),
       _c("i", { staticClass: "fas fa-shopping-cart" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "carta di credito" }, [
+      _c("div", { attrs: { id: "dropin-container" } }),
+      _vm._v(" "),
+      _c("button", { attrs: { id: "submit-button" } }, [
+        _vm._v("immetti metodo pagamento")
+      ])
     ])
   }
 ]
@@ -50625,9 +50881,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })
