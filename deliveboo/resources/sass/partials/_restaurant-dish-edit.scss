@@ -18,8 +18,71 @@
     label {
         font-weight: bold;
     }
+}
+.select {
+    margin-bottom: 20px;
+}
 
-    .select {
-        margin-bottom: 20px;
+//Media query
+
+@media all and (max-width: 991px) {
+
+    .login-register {
+
+        height: 100%;
+
+        .card {
+
+            width: 70%;
+
+            .card-header {
+                font-size: 28px;
+            }
+
+            .card-body {
+
+                width: 60%;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 767px) {
+
+    .login-register {
+
+        .card {
+
+            width: 80%;
+
+            .card-header {
+                font-size: 25px;
+            }
+            
+            .card-body {
+
+                width: 70%;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 479px) {
+
+    .login-register {
+
+        .card {
+
+            width: 95%;
+
+            .card-header {
+                font-size: 20px;
+            }
+
+            .card-body {
+
+                width: 80%;
+            }
+        }
     }
 }

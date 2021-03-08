@@ -1,9 +1,11 @@
 .login-register {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 180px);
+    padding: 50px;
+    overflow: auto;
     
     .card {
         width: 35%;
-        margin: 50px auto;
+        margin: auto;
         border: 1px solid $main;
         border-radius: 10px;
         background-color: white;
@@ -35,6 +37,16 @@
         }
     }
 }
+
+#register {
+    margin: -10px 0 -8px;
+    height: 100%;
+
+    .card {
+
+        width: 45%;
+    }
+}
     
     #email, #password, #register input {
         @include inputStyle($main);
@@ -45,3 +57,56 @@
         margin-bottom: 10px;
     }
     
+
+//Media query
+
+@media all and (max-width: 991px) {
+
+    .login-register {
+
+        height: 100%;
+
+        .card {
+
+            width: 60%;
+        }
+    }
+
+    #register {
+
+        .card {
+
+            width: 70%;
+        }
+    }
+}
+
+@media all and (max-width: 767px) {
+
+    .login-register {
+
+        .card {
+
+            width: 75%;
+        }
+    }
+
+    #register {
+
+        .card {
+
+            width: 80%;
+        }
+    }
+}
+
+@media all and (max-width: 479px) {
+
+    .login-register {
+
+        .card {
+
+            width: 95%;
+        }
+    }
+}

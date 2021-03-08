@@ -32,11 +32,29 @@
       </div>
   </div>
 
+  {{-- Risultato ricerca --}}
+  <div id="search-results" v-show="showSearchResult" class="bestRated">
+    <h2>
+      Risultati Ricerca per: '@{{ inputName }}' 
+
+    </h2>
+    <div class="best">
+      <div v-for="result in searchResults" @@click='GoToMenu(result.id)'>
+        <div>
+
+        </div>
+        <div>
+          <h4>@{{result.name}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
   {{-- elenco ristoranti per città --}}
   <div v-show='showRestaurantCity' class="bestRated">
     <h2>Ristoranti di @{{citta}}</h2>
       <div class="best">
-        <div v-for='element in restaurants'>
+        <div v-for='element in restaurants' @@click='GoToMenu(element.id)'>
           <div>
 
           </div>
@@ -51,7 +69,7 @@
   <div v-show='showRestaurantSelected' class="bestRated">
     <h2>@{{selectedTypology}} a @{{citta}}</h2>
       <div class="best">
-        <div v-for='element in restaurantsSelected'>
+        <div v-for='element in restaurantsSelected' @@click='GoToMenu(element.id)'>
           <div>
 
           </div>
@@ -67,12 +85,12 @@
       <h2>I Più Votati</h2>
       <div class="best">
 
-          <div v-for="element in restaurantsVotes">
+          <div v-for="element in restaurantsVotes" @@click='GoToMenu(element.id)'>
             <img :src="element.logo" alt="">
             <div>
               <h4>@{{element.name}}</h4>
               <p>@{{element.vote}}</p>
-              <a @@click='GoToMenu(element.id)' >Menu</a>
+              <a  >Menu</a>
             </div>
           </div>
 

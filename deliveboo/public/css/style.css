@@ -39,16 +39,21 @@ header #logo {
   border-radius: 3px;
 }
 
+#search:focus-within {
+  box-shadow: 0px 0px 2px 4px #7cf1e8;
+}
+
 #search i {
-  width: 40px;
-  margin: auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
   color: dimgray;
 }
 
 #search input {
   height: 100%;
-  width: 560px;
+  width: 100%;
   border: none;
   border-radius: 5px;
 }
@@ -126,7 +131,6 @@ svg {
   background-color: #ffa280;
   padding: 20px;
   color: white;
-  min-height: 400px;
 }
 
 .best {
@@ -143,6 +147,13 @@ svg {
   border-radius: 5px;
   margin: 10px;
   box-shadow: 0px 0px 3px 1px #444444;
+  list-style: none;
+  transition: 0.3s;
+}
+
+.best > div:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .best > div img {
@@ -164,15 +175,22 @@ svg {
   font-size: 14px;
 }
 
+#search-results {
+  background-color: white;
+  color: #660066;
+}
+
 /* LOGIN PAGE */
 
 .login-register {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 180px);
+  padding: 50px;
+  overflow: auto;
 }
 
 .login-register .card {
   width: 35%;
-  margin: 50px auto;
+  margin: auto;
   border: 1px solid #00ccbc;
   border-radius: 10px;
   background-color: white;
@@ -218,6 +236,15 @@ svg {
   cursor: pointer;
 }
 
+#register {
+  margin: -10px 0 -8px;
+  height: 100%;
+}
+
+#register .card {
+  width: 45%;
+}
+
 #email,
 #password,
 #register input {
@@ -240,12 +267,42 @@ svg {
   margin-bottom: 10px;
 }
 
+@media all and (max-width: 991px) {
+  .login-register {
+    height: 100%;
+  }
+
+  .login-register .card {
+    width: 60%;
+  }
+
+  #register .card {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .login-register .card {
+    width: 75%;
+  }
+
+  #register .card {
+    width: 80%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .login-register .card {
+    width: 95%;
+  }
+}
+
 #dashboard {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 180px);
 }
 
 #dashboard .card {
-  width: 55%;
+  width: 60%;
   border: 1px solid #00ccbc;
   border-radius: 10px;
 }
@@ -266,6 +323,11 @@ svg {
   margin-bottom: 10px;
 }
 
+#dashboard #dashboard-buttons button {
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
 #dashboard #dashboard-buttons a:first-child button {
   height: 30px;
   padding: 0 10px;
@@ -275,6 +337,7 @@ svg {
   border-radius: 3px;
   font-size: 16px;
   text-decoration: none;
+  margin-left: 0;
 }
 
 #dashboard #dashboard-buttons a:first-child button:active {
@@ -339,8 +402,51 @@ svg {
   font-size: 1.3rem;
 }
 
+@media all and (max-width: 991px) {
+  #dashboard {
+    height: 100%;
+  }
+
+  #dashboard .card {
+    width: 70%;
+  }
+
+  #dashboard .card .card-header {
+    font-size: 25px;
+  }
+
+  #dashboard .card .card-body {
+    width: 60%;
+  }
+
+  #dashboard #dashboard-buttons a:first-child {
+    margin-left: 10px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #dashboard .card {
+    width: 80%;
+  }
+
+  #dashboard .card .card-header {
+    font-size: 20px;
+  }
+
+  #dashboard .card .card-body {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  #dashboard .card {
+    width: 99%;
+  }
+}
+
 .create .card {
   border-color: #660066;
+  width: 50%;
 }
 
 .create .card-header {
@@ -387,12 +493,62 @@ svg {
   font-weight: bold;
 }
 
-.edit .select {
+.select {
   margin-bottom: 20px;
 }
 
+@media all and (max-width: 991px) {
+  .login-register {
+    height: 100%;
+  }
+
+  .login-register .card {
+    width: 70%;
+  }
+
+  .login-register .card .card-header {
+    font-size: 28px;
+  }
+
+  .login-register .card .card-body {
+    width: 60%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .login-register .card {
+    width: 80%;
+  }
+
+  .login-register .card .card-header {
+    font-size: 25px;
+  }
+
+  .login-register .card .card-body {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .login-register .card {
+    width: 95%;
+  }
+
+  .login-register .card .card-header {
+    font-size: 20px;
+  }
+
+  .login-register .card .card-body {
+    width: 80%;
+  }
+}
+
+#dishes-index {
+  height: 100%;
+}
+
 #dishes-index .card {
-  width: 60%;
+  width: 70%;
 }
 
 #dishes-index .add {
@@ -424,6 +580,7 @@ svg {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: 20px;
 }
 
 #dishes-index .dish-container .dish {
@@ -495,8 +652,126 @@ svg {
   background-color: #b1b0b0;
 }
 
+@media all and (max-width: 991px) {
+  #dishes-index .card {
+    width: 75%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #dishes-index .add {
+    margin: 10px;
+  }
+
+  #dishes-index .add a {
+    font-size: 20px;
+  }
+
+  #dishes-index .card {
+    width: 85%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  #dishes-index .card {
+    width: 99%;
+  }
+}
+
+#menu {
+  background-color: #d0eb99;
+  height: calc(100vh - 180px);
+  overflow: auto;
+}
+
+#menu .ordine {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+#menu .ordine #dish-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100vw - 260px);
+}
+
+#menu .ordine #dish-card-container .dish-card {
+  width: 260px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0px 0px 3px 1px #444444;
+  list-style: none;
+  padding: 10px;
+}
+
+#menu .ordine #cart-container {
+  width: 260px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0px 0px 3px 1px #ffa280;
+  list-style: none;
+  box-shadow: none;
+  border: 3px solid #ffa280;
+  padding: 5px;
+}
+
+#menu .ordine #cart-container div:first-child {
+  background-color: #ffa280;
+  color: white;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu .ordine #cart-container div:first-child h3 {
+  margin-right: 5px;
+}
+
+#menu .ordine #cart-container .cart {
+  height: calc(100% - 120px);
+  padding: 5px;
+  overflow: auto;
+}
+
+#menu .ordine #cart-container .cart ul {
+  list-style: none;
+}
+
+#menu .ordine #cart-container div:last-child {
+  height: 70px;
+  border-top: 1px solid black;
+  padding: 10px;
+}
+
+#menu .ordine #cart-container div:last-child h2 {
+  color: #262626;
+  margin-bottom: 10px;
+}
+
 footer {
-  height: 150px;
+  height: 110px;
   background-color: #006666;
+  color: white;
+  padding: 20px 25px;
+}
+
+footer div:last-child {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+footer div:last-child a {
+  color: lightgray;
+  text-decoration: none;
+}
+
+footer div:last-child a:hover {
+  color: white;
 }
 

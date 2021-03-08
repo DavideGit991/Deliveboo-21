@@ -65,7 +65,6 @@ svg {
     background-color: $mainpink;
     padding: 20px;
     color: white;
-    min-height: 400px;
 }
     .best {
         padding: 15px;
@@ -76,11 +75,14 @@ svg {
     }
     .best > div {
        
-        width: 260px;
-        background-color: white;
-        border-radius: 5px;
-        margin: 10px;
-        box-shadow: 0px 0px 3px 1px rgb(68, 68, 68);
+        @include cardStyle($mainshadow);
+        transition: 0.3s;
+
+        &:hover {
+
+            cursor: pointer;
+            transform: scale(1.1);
+        }
 
         img {
             background-color: dimgray;
@@ -102,5 +104,9 @@ svg {
         }
     }
 
-
+//Risultati ricerca 
+#search-results {
+    background-color: white;
+    color: $mainpurple;
+}
 

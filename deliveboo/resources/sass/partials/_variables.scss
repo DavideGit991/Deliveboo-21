@@ -25,6 +25,7 @@ $mainpink: #ffa280;
 $mainyellow: #ffcc33;
 $lightyellow: #fddb75;
 $mainblack: #262626;
+$mainshadow: rgb(68, 68, 68);
 
 //Mixines
 @mixin buttonStyle($background, $color){
@@ -55,4 +56,13 @@ $mainblack: #262626;
     &:focus {
         outline-color: $outlineColor;
     }
+}
+
+@mixin cardStyle($shadowcolor) {
+    width: 260px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0px 0px 3px 1px $shadowcolor;
+    list-style: none;
 }

@@ -1,42 +1,52 @@
-@extends('layouts.app')
+@extends('layouts.main-layout')
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+
+    <div class="login-register create">
+
+        <div class="card">
+            <div class="card-header">
+                Nuovo Piatto
+            </div>
+
+            <div class="card-body">
                 <form action="{{route('dish-store')}}" method="post">
-                    <h2>Add new dish</h2>
                     @method('post')
                     @csrf
-
-
-                    <label for="name">Name: </label>
-                    <input type="text" name="name">
-                    <br>
-                    <label for="description">Description: </label>
-                    <input type="text" name="description">
-                    <br>
-                    <label for="price">Price: </label>
-                    <input type="text" name="price">
-                    <br>
-                    <label for="availability">Availability: </label>
-                    <select name="availability">
-                        <option value="1">Disponibile</option>
-                        <option value="0">Non disponibile</option>
-                    </select>
-                    <br>
-                    <label for="img">Img: </label>
-                    <input type="text" name="img">
+                        
+                    <div>
+                        <label for="name">Nome Piatto: </label>
+                        <input type="text" name="name">
+                    </div>
+                    <div>
+                        <label for="description">Descrizione: </label>
+                        <input type="text" name="description">
+                    </div>
+                    <div>
+                        <label for="price">Prezzo: </label>
+                        <input type="text" name="price">
+                    </div>
+                    <div>
+                        <label for="img">Imagine: </label>
+                        <input type="text" name="img">
+                    </div>
+                    <div class="select">
+                        <label for="availability">Disponibilità: </label>
+                        <select name="availability">
+                            <option value="1">Disponibile</option>
+                            <option value="0">Non Disponibile</option>
+                        </select>
+                    </div>
 
                     <input type="text" hidden name="restaurant_id" value="{{$restaurant-> id}}">
-
-                    <br><br>
-                    <input type="submit" value="SALVA">
-                
-                </form>
-               
+                        
+                    <div>
+                        <button type="submit">
+                            Salva
+                        </button>
+                    </div>       
+                </form>      
             </div>
         </div>
     </div>
-</div>
 @endsection

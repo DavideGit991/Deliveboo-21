@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $restaurant=Restaurant::all();
     return view('pages.main-home',compact('restaurant'));
-});
+})->name('main');
 
 Auth::routes();
 
@@ -54,6 +54,5 @@ Route::get('/show/restaurant/menu/{id}', 'DishController@showMenu') ->name('show
 //piatti per menu singolo ristornate
 Route::get('/dishes/{id}', 'DishController@getDishes');
 
-//passaggio al checkout con prezzo totale
-Route::post('/checkout', 'OrderController@checkout');
-
+//pagamento
+Route::post('/payment', 'OrderController@payment');

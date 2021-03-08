@@ -8,14 +8,23 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
 
-    // public function checkout(Request $req)
-    // {
+   public function payment(Request $req)
+   {
+       $data=$req->all();
 
-    //     $data =  json_decode($req->data);
+       Order::create([
+           'name'=>$data['name'],
+           'lastname'=> $data['lastname'],
+           'tot_price'=>$data['tot_price'],
+           'month'=>$data['month'],
+           'address'=>$data['address'],
+           'status'=>$data['status'],
+           'phone'=>$data['phone'],
 
-    //     return view('pages.checkout')->json($data);
-    // }
+       ]);
 
+       return response()->json($data,200) ;
+   }
 
 
     public function index()

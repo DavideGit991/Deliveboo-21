@@ -1,10 +1,11 @@
 #dashboard {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 180px);
     
     .card {
-        width: 55%;
+        width: 60%;
         border: 1px solid $main;
         border-radius: 10px;
+
     }
 
     h3 {
@@ -22,20 +23,24 @@
         margin-bottom: 10px;
     }
     
-    
     #dashboard-buttons {
+
+        button {
+            margin-left: 10px;
+            margin-top: 15px;
+        }
 
         a:first-child {
 
             button {
                 @include buttonStyle($lightyellow, $mainpurple); 
+                margin-left: 0;
             }
         }
 
         button.alert {
             @include buttonStyle(#ff3535, white);
         }
-
     }
 }
 
@@ -72,4 +77,67 @@
 
 .description-wrapper {
   font-size: 1.3rem;
+}
+
+//Media query
+
+@media all and (max-width: 991px) {
+
+    #dashboard {
+
+        height: 100%;
+
+        .card {
+
+            width: 70%;
+
+            .card-header {
+                font-size: 25px;
+            }
+
+            .card-body {
+                width: 60%;
+            }
+        }
+
+        #dashboard-buttons {
+
+            a:first-child {
+    
+                margin-left: 10px;
+            
+            }
+        }
+    }
+}
+
+@media all and (max-width: 767px) {
+
+    #dashboard {
+
+        .card {
+
+            width: 80%;
+
+            .card-header {
+                font-size: 20px;
+            }
+
+            .card-body {
+                width: 70%;
+            }
+        }
+
+    }
+}
+
+@media all and (max-width: 479px) {
+
+    #dashboard {
+
+        .card {
+
+            width: 99%;
+        }
+    }
 }

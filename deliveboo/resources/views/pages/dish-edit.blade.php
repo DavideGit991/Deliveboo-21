@@ -23,19 +23,19 @@
                         <input type="text" name="price" value="{{$dish-> price}}">
                     </div>
                     <div>
-                        <label for="img">Img: </label>
+                        <label for="img">Immagine: </label>
                         <input type="text" name="img" value="{{$dish-> img}}">
 
                     </div>
                     <div class="select">
-                        <label for="availability">Availability: </label>
+                        <label for="availability">Disponibilità: </label>
                         <select name="availability">
                             @if ($dish-> availability==1)
                                 <option selected value="1">Disponibile</option>
-                                <option value="0">Non disponibile</option>
+                                <option value="0">Non Disponibile</option>
                             @else
                                 <option value="1">Disponibile</option>
-                                <option selected value="0">Non disponibile</option>
+                                <option selected value="0">Non Disponibile</option>
                             @endif
                         </select>
                     </div>

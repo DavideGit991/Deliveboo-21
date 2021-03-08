@@ -1,7 +1,8 @@
 #dishes-index {
-    .card {
-        width: 60%;
+    height: 100%;
 
+    .card {
+        width: 70%;
     }
 
     .add {
@@ -33,7 +34,8 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-
+        padding-bottom: 20px;
+       
         .dish {
             width: 250px;
             margin: 10px;
@@ -71,6 +73,50 @@
 
         .card-header.expired {
             background-color: rgb(177, 176, 176);
+        }
+    }
+}
+
+//Media query
+
+@media all and (max-width: 991px) {
+
+    #dishes-index {
+
+        .card {
+
+            width: 75%;
+        }
+    }
+}
+
+@media all and (max-width: 767px) {
+
+    #dishes-index {
+
+        .add {
+
+            margin: 10px;
+
+            a {
+                font-size: 20px;
+            }
+        }
+
+        .card {
+
+            width: 85%;
+        }
+    }
+}
+
+@media all and (max-width: 479px) {
+
+    #dishes-index {
+
+        .card {
+
+            width: 99%;
         }
     }
 }
