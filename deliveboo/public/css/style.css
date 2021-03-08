@@ -175,6 +175,7 @@ svg {
 .login-register {
   height: calc(100vh - 180px);
   padding: 50px;
+  overflow: auto;
 }
 
 .login-register .card {
@@ -225,6 +226,15 @@ svg {
   cursor: pointer;
 }
 
+#register {
+  margin: -10px 0 -8px;
+  height: 100%;
+}
+
+#register .card {
+  width: 45%;
+}
+
 #email,
 #password,
 #register input {
@@ -247,12 +257,42 @@ svg {
   margin-bottom: 10px;
 }
 
+@media all and (max-width: 991px) {
+  .login-register {
+    height: 100%;
+  }
+
+  .login-register .card {
+    width: 60%;
+  }
+
+  #register .card {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .login-register .card {
+    width: 75%;
+  }
+
+  #register .card {
+    width: 80%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .login-register .card {
+    width: 95%;
+  }
+}
+
 #dashboard {
   height: calc(100vh - 180px);
 }
 
 #dashboard .card {
-  width: 55%;
+  width: 60%;
   border: 1px solid #00ccbc;
   border-radius: 10px;
 }
@@ -273,6 +313,11 @@ svg {
   margin-bottom: 10px;
 }
 
+#dashboard #dashboard-buttons button {
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
 #dashboard #dashboard-buttons a:first-child button {
   height: 30px;
   padding: 0 10px;
@@ -282,6 +327,7 @@ svg {
   border-radius: 3px;
   font-size: 16px;
   text-decoration: none;
+  margin-left: 0;
 }
 
 #dashboard #dashboard-buttons a:first-child button:active {
@@ -346,8 +392,51 @@ svg {
   font-size: 1.3rem;
 }
 
+@media all and (max-width: 991px) {
+  #dashboard {
+    height: 100%;
+  }
+
+  #dashboard .card {
+    width: 70%;
+  }
+
+  #dashboard .card .card-header {
+    font-size: 25px;
+  }
+
+  #dashboard .card .card-body {
+    width: 60%;
+  }
+
+  #dashboard #dashboard-buttons a:first-child {
+    margin-left: 10px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #dashboard .card {
+    width: 80%;
+  }
+
+  #dashboard .card .card-header {
+    font-size: 20px;
+  }
+
+  #dashboard .card .card-body {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  #dashboard .card {
+    width: 99%;
+  }
+}
+
 .create .card {
   border-color: #660066;
+  width: 50%;
 }
 
 .create .card-header {
@@ -398,19 +487,58 @@ svg {
   margin-bottom: 20px;
 }
 
+@media all and (max-width: 991px) {
+  .login-register {
+    height: 100%;
+  }
+
+  .login-register .card {
+    width: 70%;
+  }
+
+  .login-register .card .card-header {
+    font-size: 28px;
+  }
+
+  .login-register .card .card-body {
+    width: 60%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .login-register .card {
+    width: 80%;
+  }
+
+  .login-register .card .card-header {
+    font-size: 25px;
+  }
+
+  .login-register .card .card-body {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .login-register .card {
+    width: 95%;
+  }
+
+  .login-register .card .card-header {
+    font-size: 20px;
+  }
+
+  .login-register .card .card-body {
+    width: 80%;
+  }
+}
+
 #dishes-index {
-  margin: -10px 0;
-  height: calc(100vh - 160px);
+  height: 100%;
 }
 
 #dishes-index .card {
   width: 70%;
-  height: 100%;
-}
-
-#dishes-index .card-bottom {
-  height: calc(100% - 60px);
-  overflow: auto;
 }
 
 #dishes-index .add {
@@ -442,6 +570,7 @@ svg {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: 20px;
 }
 
 #dishes-index .dish-container .dish {
@@ -511,6 +640,32 @@ svg {
 
 #dishes-index .dish-container .card-header.expired {
   background-color: #b1b0b0;
+}
+
+@media all and (max-width: 991px) {
+  #dishes-index .card {
+    width: 75%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #dishes-index .add {
+    margin: 10px;
+  }
+
+  #dishes-index .add a {
+    font-size: 20px;
+  }
+
+  #dishes-index .card {
+    width: 85%;
+  }
+}
+
+@media all and (max-width: 479px) {
+  #dishes-index .card {
+    width: 99%;
+  }
 }
 
 #menu {

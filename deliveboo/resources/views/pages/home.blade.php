@@ -15,7 +15,9 @@
                     Non esiste nessun ristorante associato
                 </h3>
                 <a href="{{route('restaurant-create')}}">
-                    Aggiungi ristorante
+                    <button>
+                        Aggiungi ristorante 
+                    </button>
                 </a>
                 @else
                 <div>
