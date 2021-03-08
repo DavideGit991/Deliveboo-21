@@ -25,6 +25,7 @@ function init(){
         showRestaurantSelected:false,
         showAlert: false,
         showDetail:false,
+        showSearchResult:false,
 
         inputName:'',
 
@@ -37,6 +38,8 @@ function init(){
 
         selectedTypology:'',
         selectedIndex:'',
+
+        searchResults: [],
 
         // dati del carrello
 
@@ -96,11 +99,14 @@ function init(){
                 this.showRestaurantCity=false;
                 this.showTypologies=false;
                 this.showName=true;
+                this.showSearchResult=false;
+                this.inputName='';
             }else{
                 this.showRestaurantSelected=false;
                 this.showBest=false;
                 this.showRestaurantCity=true;
                 this.showName=false;
+                this.showSearchResult=false;
 
                 console.log(cittaSelezionata);
 
@@ -161,7 +167,9 @@ function init(){
             }
             axios.post('/search',data)
             .then(res=>{
-              console.log(res);
+
+                this.showSearchResult=true;
+                this.searchResults=res.data;
             })
         },
 

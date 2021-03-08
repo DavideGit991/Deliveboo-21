@@ -50497,6 +50497,7 @@ function init() {
       showRestaurantSelected: false,
       showAlert: false,
       showDetail: false,
+      showSearchResult: false,
       inputName: '',
       cities: [],
       citta: '',
@@ -50506,6 +50507,7 @@ function init() {
       restaurantsSelected: [],
       selectedTypology: '',
       selectedIndex: '',
+      searchResults: [],
       // dati del carrello
       // quadratini colorati
       typologyColors: ["coral", "#660066", "skyblue", "#ffcc33", "#6b9023", "salmon", "darkCyan", "#660066", "#ffcc33", "salmon"]
@@ -50542,11 +50544,14 @@ function init() {
           this.showRestaurantCity = false;
           this.showTypologies = false;
           this.showName = true;
+          this.showSearchResult = false;
+          this.inputName = '';
         } else {
           this.showRestaurantSelected = false;
           this.showBest = false;
           this.showRestaurantCity = true;
           this.showName = false;
+          this.showSearchResult = false;
           console.log(cittaSelezionata); //chiamata restituzione tipologie per città selezionata
 
           axios.post('/typologiesCity', cittaSelezionata).then(function (res) {
@@ -50589,11 +50594,14 @@ function init() {
         });
       },
       searchRestaurantName: function searchRestaurantName() {
+        var _this4 = this;
+
         var data = {
           name: this.inputName
         };
         axios.post('/search', data).then(function (res) {
-          console.log(res);
+          _this4.showSearchResult = true;
+          _this4.searchResults = res.data;
         });
       },
       //funzione per far apparire alert
@@ -50881,9 +50889,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

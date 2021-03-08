@@ -11,6 +11,7 @@
         #dish-card-container {
             display: flex;
             flex-wrap: wrap;
+            width: calc(100vw - 260px);
 
             .dish-card {
                 @include cardStyle($mainshadow);

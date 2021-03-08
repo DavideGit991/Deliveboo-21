@@ -32,6 +32,24 @@
       </div>
   </div>
 
+  {{-- Risultato ricerca --}}
+  <div id="search-results" v-show="showSearchResult" class="bestRated">
+    <h2>
+      Risultati Ricerca per: '@{{ inputName }}' 
+
+    </h2>
+    <div class="best">
+      <div v-for="result in searchResults" @@click='GoToMenu(result.id)'>
+        <div>
+
+        </div>
+        <div>
+          <h4>@{{result.name}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
   {{-- elenco ristoranti per città --}}
   <div v-show='showRestaurantCity' class="bestRated">
     <h2>Ristoranti di @{{citta}}</h2>

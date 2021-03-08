@@ -40,7 +40,7 @@ header #logo {
 }
 
 #search:focus-within {
-  border: 2px solid #d0eb99;
+  box-shadow: 0px 0px 2px 4px #7cf1e8;
 }
 
 #search i {
@@ -131,7 +131,6 @@ svg {
   background-color: #ffa280;
   padding: 20px;
   color: white;
-  min-height: 400px;
 }
 
 .best {
@@ -149,6 +148,12 @@ svg {
   margin: 10px;
   box-shadow: 0px 0px 3px 1px #444444;
   list-style: none;
+  transition: 0.3s;
+}
+
+.best > div:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .best > div img {
@@ -168,6 +173,11 @@ svg {
 .best > div div h4 {
   color: #262626;
   font-size: 14px;
+}
+
+#search-results {
+  background-color: white;
+  color: #660066;
 }
 
 /* LOGIN PAGE */
@@ -683,6 +693,7 @@ svg {
 #menu .ordine #dish-card-container {
   display: flex;
   flex-wrap: wrap;
+  width: calc(100vw - 260px);
 }
 
 #menu .ordine #dish-card-container .dish-card {
