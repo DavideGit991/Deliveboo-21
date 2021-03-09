@@ -10,10 +10,11 @@ use App\User;
 use Illuminate\Http\Request;
 class RestaurantController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    //  public function __construct()
+    //  {
+    //      $this->middleware('auth');
+    //  }
+
     public function index()
     {
         $userid=Auth::user()->id;
@@ -146,6 +147,7 @@ class RestaurantController extends Controller
     //    WHERE restaurants.id=1
     //    GROUP BY orders.month
     $restaurant=Restaurant::findOrFail($id);
+    $id=Auth::user()->id;
 
     $stats=DB::table('restaurants')
     ->select( DB::raw('orders.month, count(orders.month) as ordineMese'))
@@ -157,6 +159,6 @@ class RestaurantController extends Controller
         ->orderBy('orders.month')
 
         ->get();
-        return view('pages.stats', compact('stats','restaurant'));
+        return view('pages.stats', compact('stats','restaurant','id'));
     }
 }

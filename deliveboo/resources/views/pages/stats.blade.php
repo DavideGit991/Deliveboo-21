@@ -1,18 +1,22 @@
 @extends('layouts.main-layout')
-
-@section('content')
-    <h1>
-        pagina statistiche
-    </h1>
-
-    {{-- @dd($stats); --}}
-
-    <stats-component
-        :stats='{{$stats}}'
-    >
-
-    </stats-component>
+@if (Auth::user($id))
 
 
+    @section('content')
+        <h1>
+            pagina statistiche
+        </h1>
 
-@endsection
+
+        <stats-component
+            :stats='{{$stats}}'
+        >
+
+        </stats-component>
+
+
+
+    @endsection
+@else
+    <h1>Non sei nela tua pagina biricchino</h1>
+@endif

@@ -10,7 +10,7 @@ export default {
           labels: ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
       datasets: [
           {
-              label: 'Data One',
+              label: 'Ordini per mese',
           backgroundColor: '#f87979',
           data: []
         }
@@ -44,8 +44,7 @@ export default {
 
   },
     props:{
-      stats:Array,
-    //   orders:Array,
+      stats:Array
   }
 
 }
