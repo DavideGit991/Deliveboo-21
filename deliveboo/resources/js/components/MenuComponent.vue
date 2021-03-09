@@ -48,12 +48,12 @@
                             <div>
                                 <div class="cart-element" v-for='(dishOrdered,i) in dishesOrdered' :key='dishOrdered.message'>
                                     <div>
-                                        <p>
+                                        <span>
                                             {{i}}. {{dishOrdered.name}}
-                                            <span>
-                                                {{dishOrdered.price}} &euro;
-                                            </span>
-                                        </p>  
+                                        </span>  
+                                        <p>
+                                            {{dishOrdered.price}}&euro;
+                                        </p>
                                     </div>
                                     <div>
                                         <i class="fas fa-minus-circle" v-show='deleteDish' v-if='totPrice>0' @click='DeletePrice(dishOrdered.price,i)'></i>
@@ -73,52 +73,43 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- pagamento -->
-            <div v-show="!showpayment" class="pagamento">
-                <h1>sono il pagamento</h1>
+                <!-- pagamento -->
+                <div v-show="!showpayment" class="pagamento">
 
+                    <div class="carta-di-credito" >
 
-                <div class="carta di credito" >
+                    <!-- Sezione pagamento -->
+                        <div id="dropin-container"></div>
+                        <button  id="submit-button" >Inserisci la tua carta</button>
+                    </div>
 
-                <!-- Sezione pagamento -->
-                    <div id="dropin-container"></div>
-                    <button  id="submit-button" >Inserisci la tua carta</button>
+                    <!-- sezione form-->
+                    <form id='form' hidden @submit.prevent="submit">
+                        <h2>Inserisci i tuoi dati</h2>
+                        <div class="form-container">
+                            <div>
+                                <label for="name">Nome:</label>
+                                <input type="text" name="name" required v-model="name">
+                            </div>
+                            <div>
+                                <label for="lastname">Cognome:</label>
+                                <input type="text" name="lastname" required v-model="lastname">
+                            </div>
+                            <div>
+                                <label for="address">Indirizzo:</label>
+                                <input type="text" name="address" required v-model="address">
+                            </div>
+                            <div>
+                                <label for="phone">N° Telefono</label>
+                                <input type="tel" name="phone" required v-model="phone" >
+                            </div>
+                        </div>
+
+                        <button type="submit">Completa Pagamento</button>
+                    </form>
                 </div>
-
-
-            <!-- sezione form-->
-                <form id='form' hidden @submit.prevent="submit" >
-                    <div>
-
-                        <label for="name">Nome:</label>
-                        <input type="text" name="name" required v-model="name">
-                    </div>
-                    <div>
-
-                        <label for="lastname">Cognome</label>
-                        <input type="text" name="lastname" required v-model="lastname">
-                    </div>
-                    <div>
-
-                        <label for="address">Indirizzo</label>
-                        <input type="text" name="address" required v-model="address">
-                    </div>
-                    <div>
-
-                        <label for="phone">N° telefono</label>
-                        <input type="tel" name="phone" required v-model="phone" >
-                    </div>
-
-                    <button type="submit">Completa il tuo pagamento</button>
-
-
-                </form>
-
             </div>
-
-
         </div>
         <!-- messaggio pagamento completato -->
         <div class="message" v-show="showmessage">

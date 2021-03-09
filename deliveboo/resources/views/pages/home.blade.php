@@ -82,13 +82,10 @@
                   <div class="description-full-screen">
 
                     <div class="description-wrapper">
+                        <h2>Sei sicuro di voler eliminare il ristorante?</h2>
 
-                      Sei sicuro di voler eliminare il ristorante?
-
-                      <br>
-
-                      <a href="{{route('restaurant-destroy', $restaurant->id)}}" class="button alert">conferma</a>
-                      <a @@click="showAlert = false" class="button"> Annulla</a>
+                        <a href="{{route('restaurant-destroy', $restaurant->id)}}"><button class="alert">Conferma</button></a>
+                        <a @@click="showAlert = false"><button>Annulla</button></a>
 
                     </div>
                   </div>

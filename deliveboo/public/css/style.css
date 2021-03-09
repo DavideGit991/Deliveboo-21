@@ -220,7 +220,7 @@ svg {
 }
 
 .login-register .card {
-  width: 35%;
+  width: 480px;
   margin: auto;
   border: 1px solid #00ccbc;
   border-radius: 10px;
@@ -298,10 +298,6 @@ svg {
 }
 
 @media all and (max-width: 991px) {
-  .login-register {
-    height: 100%;
-  }
-
   .login-register .card {
     width: 60%;
   }
@@ -420,23 +416,49 @@ svg {
   z-index: 1;
 }
 
+.description-overlay button.alert {
+  height: 30px;
+  padding: 0 10px;
+  background-color: #ff3535;
+  color: white;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.description-overlay button.alert:active {
+  outline-color: #00ccbc;
+}
+
+.description-overlay button.alert:hover {
+  cursor: pointer;
+}
+
 .description-full-screen {
   display: flex;
   align-items: center;
   padding: 70px;
-  box-shadow: 0 0 10px #f9f9f9;
-  background-color: #00ccbc;
+  border: 2px solid #00ccbc;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .description-wrapper {
-  font-size: 1.3rem;
+  text-align: center;
+}
+
+.description-wrapper h2 {
+  font-size: 25px;
+  color: #660066;
+  margin-bottom: 10px;
+}
+
+.description-wrapper a {
+  margin: 5px;
 }
 
 @media all and (max-width: 991px) {
-  #dashboard {
-    height: 100%;
-  }
-
   #dashboard .card {
     width: 70%;
   }
@@ -528,10 +550,6 @@ svg {
 }
 
 @media all and (max-width: 991px) {
-  .login-register {
-    height: 100%;
-  }
-
   .login-register .card {
     width: 70%;
   }
@@ -574,7 +592,8 @@ svg {
 }
 
 #dishes-index {
-  height: 100%;
+  height: calc(100vh - 180px);
+  padding: 30px 0;
 }
 
 #dishes-index .card {
@@ -804,9 +823,9 @@ svg {
   padding: 10px 5px;
 }
 
-#menu .ordine #cart-container .cart .cart-element span {
-  margin: 0 5px;
+#menu .ordine #cart-container .cart .cart-element p {
   color: #00ccbc;
+  margin: 5px 0 0 18px;
 }
 
 #menu .ordine #cart-container .cart .cart-element i {
@@ -835,6 +854,82 @@ svg {
 #menu .ordine #cart-container .cart > div:last-child h2 {
   color: #262626;
   margin-bottom: 10px;
+}
+
+#menu .ordine .pagamento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+  width: calc(100vw - 280px);
+}
+
+#menu .ordine .pagamento .carta-di-credito {
+  width: 800px;
+}
+
+#menu .ordine .pagamento .carta-di-credito svg {
+  max-width: 40px;
+}
+
+#menu .ordine .pagamento #form {
+  background-color: white;
+  padding: 10px;
+  margin: 20px 20px 20px 0;
+  border: 1px solid gray;
+  border-radius: 3px;
+  width: 800px;
+}
+
+#menu .ordine .pagamento #form h2 {
+  color: #660066;
+}
+
+#menu .ordine .pagamento #form .form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+#menu .ordine .pagamento #form .form-container label {
+  font-size: 18px;
+  color: #660066;
+}
+
+#menu .ordine .pagamento #form .form-container input {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  border-color: gray;
+  width: 350px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+#menu .ordine .pagamento #form .form-container input:focus {
+  outline-color: #00ccbc;
+}
+
+#menu .ordine .pagamento #form button {
+  height: 30px;
+  padding: 0 10px;
+  background-color: #fddb75;
+  color: #660066;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+#menu .ordine .pagamento #form button:active {
+  outline-color: #00ccbc;
+}
+
+#menu .ordine .pagamento #form button:hover {
+  cursor: pointer;
 }
 
 footer {

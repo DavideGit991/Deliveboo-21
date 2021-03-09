@@ -65,18 +65,35 @@
   height: 100%;
   background-color: rgba(0, 0, 0, .9);
   z-index: 1;
+
+    button.alert {
+    @include buttonStyle(#ff3535, white);
+    }
+
 }
 
 .description-full-screen {
-  display: flex;
-  align-items: center;
-  padding: 70px;
-  box-shadow: 0 0 10px #f9f9f9;
-  background-color: #00ccbc;
+    display: flex;
+    align-items: center;
+    padding: 70px;
+    border: 2px solid $main;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .description-wrapper {
-  font-size: 1.3rem;
+
+    text-align: center;
+  
+    h2 {
+        font-size: 25px;
+        color: $mainpurple;
+        margin-bottom: 10px;
+    }
+
+    a {
+        margin: 5px;
+    }
 }
 
 //Media query
@@ -84,8 +101,6 @@
 @media all and (max-width: 991px) {
 
     #dashboard {
-
-        height: 100%;
 
         .card {
 

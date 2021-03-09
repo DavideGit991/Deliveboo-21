@@ -2085,15 +2085,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38068,21 +38059,22 @@ var render = function() {
                         },
                         [
                           _c("div", [
-                            _c("p", [
+                            _c("span", [
                               _vm._v(
                                 "\n                                        " +
                                   _vm._s(i) +
                                   ". " +
                                   _vm._s(dishOrdered.name) +
-                                  "\n                                        "
-                              ),
-                              _c("span", [
-                                _vm._v(
-                                  "\n                                            " +
-                                    _vm._s(dishOrdered.price) +
-                                    " €\n                                        "
-                                )
-                              ])
+                                  "\n                                    "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(dishOrdered.price) +
+                                  "€\n                                    "
+                              )
                             ])
                           ]),
                           _vm._v(" "),
@@ -38168,152 +38160,156 @@ var render = function() {
                 ]
               )
             ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.showpayment,
-                expression: "!showpayment"
-              }
-            ],
-            staticClass: "pagamento"
-          },
-          [
-            _c("h1", [_vm._v("sono il pagamento")]),
-            _vm._v(" "),
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "form",
-              {
-                attrs: { id: "form", hidden: "" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.submit($event)
-                  }
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.showpayment,
+                  expression: "!showpayment"
                 }
-              },
-              [
-                _c("div", [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Nome:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.name,
-                        expression: "name"
-                      }
-                    ],
-                    attrs: { type: "text", name: "name", required: "" },
-                    domProps: { value: _vm.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.name = $event.target.value
-                      }
+              ],
+              staticClass: "pagamento"
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  attrs: { id: "form", hidden: "" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.submit($event)
                     }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("label", { attrs: { for: "lastname" } }, [
-                    _vm._v("Cognome")
+                  }
+                },
+                [
+                  _c("h2", [_vm._v("Inserisci i tuoi dati")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-container" }, [
+                    _c("div", [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Nome:")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.name,
+                            expression: "name"
+                          }
+                        ],
+                        attrs: { type: "text", name: "name", required: "" },
+                        domProps: { value: _vm.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.name = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("label", { attrs: { for: "lastname" } }, [
+                        _vm._v("Cognome:")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.lastname,
+                            expression: "lastname"
+                          }
+                        ],
+                        attrs: { type: "text", name: "lastname", required: "" },
+                        domProps: { value: _vm.lastname },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.lastname = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("label", { attrs: { for: "address" } }, [
+                        _vm._v("Indirizzo:")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.address,
+                            expression: "address"
+                          }
+                        ],
+                        attrs: { type: "text", name: "address", required: "" },
+                        domProps: { value: _vm.address },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.address = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("label", { attrs: { for: "phone" } }, [
+                        _vm._v("N° Telefono")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.phone,
+                            expression: "phone"
+                          }
+                        ],
+                        attrs: { type: "tel", name: "phone", required: "" },
+                        domProps: { value: _vm.phone },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.phone = $event.target.value
+                          }
+                        }
+                      })
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.lastname,
-                        expression: "lastname"
-                      }
-                    ],
-                    attrs: { type: "text", name: "lastname", required: "" },
-                    domProps: { value: _vm.lastname },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.lastname = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("label", { attrs: { for: "address" } }, [
-                    _vm._v("Indirizzo")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.address,
-                        expression: "address"
-                      }
-                    ],
-                    attrs: { type: "text", name: "address", required: "" },
-                    domProps: { value: _vm.address },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.address = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("label", { attrs: { for: "phone" } }, [
-                    _vm._v("N° telefono")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.phone,
-                        expression: "phone"
-                      }
-                    ],
-                    attrs: { type: "tel", name: "phone", required: "" },
-                    domProps: { value: _vm.phone },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.phone = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("button", { attrs: { type: "submit" } }, [
-                  _vm._v("Completa il tuo pagamento")
-                ])
-              ]
-            )
-          ]
-        )
+                  _c("button", { attrs: { type: "submit" } }, [
+                    _vm._v("Completa Pagamento")
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
       ]
     ),
     _vm._v(" "),
@@ -38345,7 +38341,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "carta di credito" }, [
+    return _c("div", { staticClass: "carta-di-credito" }, [
       _c("div", { attrs: { id: "dropin-container" } }),
       _vm._v(" "),
       _c("button", { attrs: { id: "submit-button" } }, [

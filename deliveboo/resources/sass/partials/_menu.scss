@@ -82,9 +82,9 @@
                     border-bottom: 1px solid gray;
                     padding: 10px 5px;
 
-                    span {
-                        margin: 0 5px;
+                    p {
                         color: $main;
+                        margin: 5px 0 0 18px;
                     }
 
                     i {
@@ -120,5 +120,65 @@
 
         }
 
+        .pagamento {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+            width: calc(100vw - 280px);
+
+
+            .carta-di-credito {
+                width: 800px;
+    
+                svg {
+                    max-width: 40px;
+                }
+                
+            }
+    
+            #form {
+    
+                background-color: white;
+                padding: 10px;
+                margin: 20px 20px 20px 0;
+                border: 1px solid gray;
+                border-radius: 3px;
+                width: 800px;
+                
+                h2 {
+                    color: $mainpurple;
+                }
+    
+                .form-container{
+    
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    padding: 10px;
+    
+                    label {
+                        font-size: 18px;
+                        color: $mainpurple;
+                    }
+        
+                    input {
+                        
+                        @include inputStyle($main);
+                        border-color: gray;
+                        width: 350px;
+                        height: 30px;
+                        margin-right: 10px;
+                    }
+    
+                }
+                button {
+    
+                    @include buttonStyle($lightyellow, $mainpurple);
+                }
+                
+            }
+        }
     }
 }
