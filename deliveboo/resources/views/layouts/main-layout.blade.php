@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <script src="https://js.braintreegateway.com/web/dropin/1.26.1/js/dropin.js"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
     <title>Document</title>
@@ -22,6 +23,5 @@
 
     </div>
 
-    <script src="{{ asset('/js/app.js') }}"></script>
 </body>
 </html>

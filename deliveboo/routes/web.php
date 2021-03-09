@@ -56,3 +56,6 @@ Route::get('/dishes/{id}', 'DishController@getDishes');
 
 //pagamento
 Route::post('/payment', 'OrderController@payment');
+
+//stats
+Route::get('/stats/{id}','RestaurantController@getstats')->name('stats');

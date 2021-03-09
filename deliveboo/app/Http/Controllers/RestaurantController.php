@@ -135,4 +135,26 @@ class RestaurantController extends Controller
 
         return response()->json($restaurants);
     }
+
+    public function getStats($id)
+    {
+    //     SELECT orders.month,COUNT(orders.month),restaurants.id, restaurants.name
+    // FROM restaurants
+    //     JOIN dishes ON dishes.restaurant_id=restaurants.id
+    //     JOIN dish_order on dishes.id=dish_order.dish_id
+    //     JOIN orders on orders.id =dish_order.order_id
+    //    WHERE restaurants.id=1
+    //    GROUP BY orders.month
+    $restaurant=Restaurant::findOrFail($id);
+
+    $stats=DB::table('restaurants')
+    ->select( DB::raw('orders.month, count(orders.month) as ordineMese'))
+        ->join('dishes','dishes.restaurant_id', '=', 'restaurants.id')
+        ->join('dish_order','dishes.id','=','dish_order.dish_id')
+        ->join('orders','orders.id','=','dish_order.order_id')
+        ->where('restaurants.id','=',$id)
+        ->groupBy('orders.month')
+        ->get();
+        return view('pages.stats', compact('stats','restaurant'));
+    }
 }

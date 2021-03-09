@@ -16,7 +16,7 @@
                 </h3>
                 <a href="{{route('restaurant-create')}}">
                     <button>
-                        Aggiungi ristorante 
+                        Aggiungi ristorante
                     </button>
                 </a>
                 @else
@@ -58,22 +58,22 @@
                 <div id="dashboard-buttons">
                     <a href="{{route('restaurant-edit', $restaurant->id)}}">
                         <button>
-                            Edit  
+                            Edit
                         </button>
                     </a>
                     <a href="{{route('dishes-index', $restaurant->id)}}">
                         <button>
-                            Menu   
+                            Menu
                         </button>
                     </a>
                     <a  @@click="alert()">
                         <button class="alert">
-                            Delete    
+                            Delete
                         </button>
                     </a>
-                    <a href="">
+                    <a href=" {{route('stats',$restaurant->id)}}">
                         <button>
-                            Stats  
+                            Stats
                         </button>
                     </a>
                 </div>
