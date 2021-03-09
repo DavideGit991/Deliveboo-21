@@ -50528,7 +50528,11 @@ function init() {
 
       //richiamo le citta' dove e' presente un ristorante
       axios.get('/cities').then(function (res) {
-        _this.cities = res.data;
+        _this.cities = res.data; //Rendo prima lettera maiuscola
+
+        for (var i = 0; i < _this.cities.length; i++) {
+          _this.cities[i].city = _this.capitalizeFirstLetter(_this.cities[i].city);
+        }
       }); //chiamata per sapere i risto piu votati
 
       axios.get('/votes').then(function (res) {
@@ -50632,7 +50636,7 @@ function init() {
           icon.classList.add('fa-sort-down');
         }
       },
-      //Rende la prima lettera maiuscola
+      //Rende la prima lettera maiuscola in stringa
       capitalizeFirstLetter: function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
       }

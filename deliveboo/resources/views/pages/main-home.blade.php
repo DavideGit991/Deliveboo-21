@@ -14,7 +14,7 @@
 
     <div class="jumbo">
       <h1>Ristorante a casa tua.</h1>
-      <label for="citta">Scegli la tua città</label>
+      <label for="citta">Scegli la tua città</label> 
         <select @@change="selectCity($event)" id="citta" name="citta">
             <option disable selected>Seleziona Città</option>
             <option  :key="city.city" :value="city.city" v-for="city in cities" >@{{city.city}}</option>
@@ -41,7 +41,7 @@
       <h3>Nessun risultato</h3>
     </div>
     <div class="best">
-      <div v-for="element in searchResults" @@click='GoToMenu(result.id)'>
+      <div v-for="element in searchResults" @@click='GoToMenu(element.id)'>
         <div class="img-container">
           <img src="" alt="">
         </div>

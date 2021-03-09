@@ -63,6 +63,11 @@ function init(){
                 .then(res=>{
 
                     this.cities=res.data;
+
+                    //Rendo prima lettera maiuscola
+                    for(var i = 0 ; i < this.cities.length ; i++){
+                        this.cities[i].city = this.capitalizeFirstLetter(this.cities[i].city);
+                    }   
                 });
 
             //chiamata per sapere i risto piu votati
@@ -187,10 +192,11 @@ function init(){
             }
             },
 
-            //Rende la prima lettera maiuscola
+            //Rende la prima lettera maiuscola in stringa
             capitalizeFirstLetter(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
             },
+            
         }
 
     });
