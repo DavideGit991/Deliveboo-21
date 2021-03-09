@@ -5,7 +5,14 @@
         pagina statistiche
     </h1>
 
-    @dd($stats, $restaurant);
+    {{-- @dd($stats); --}}
+
+    <stats-component
+        :stats='{{$stats}}'
+    >
+
+    </stats-component>
+
 
 
 @endsection

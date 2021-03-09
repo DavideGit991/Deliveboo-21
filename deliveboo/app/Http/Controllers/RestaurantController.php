@@ -154,6 +154,8 @@ class RestaurantController extends Controller
         ->join('orders','orders.id','=','dish_order.order_id')
         ->where('restaurants.id','=',$id)
         ->groupBy('orders.month')
+        ->orderBy('orders.month')
+
         ->get();
         return view('pages.stats', compact('stats','restaurant'));
     }
