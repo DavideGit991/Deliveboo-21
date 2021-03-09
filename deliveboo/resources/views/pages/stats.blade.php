@@ -1,5 +1,5 @@
 @extends('layouts.main-layout')
-@if (Auth::user($id))
+
 
 
     @section('content')
@@ -14,9 +14,8 @@
 
         </stats-component>
 
+        @endsection
 
 
-    @endsection
-@else
-    <h1>Non sei nela tua pagina biricchino</h1>
-@endif
+
+

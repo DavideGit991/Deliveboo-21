@@ -147,7 +147,7 @@ class RestaurantController extends Controller
     //    WHERE restaurants.id=1
     //    GROUP BY orders.month
     $restaurant=Restaurant::findOrFail($id);
-    $id=Auth::user()->id;
+    $idUser=Auth::user()->id;
 
     $stats=DB::table('restaurants')
     ->select( DB::raw('orders.month, count(orders.month) as ordineMese'))
@@ -159,6 +159,6 @@ class RestaurantController extends Controller
         ->orderBy('orders.month')
 
         ->get();
-        return view('pages.stats', compact('stats','restaurant','id'));
+        return view('pages.stats', compact('stats','restaurant','idUser'));
     }
 }
