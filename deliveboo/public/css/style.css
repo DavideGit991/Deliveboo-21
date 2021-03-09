@@ -207,7 +207,7 @@ svg {
 }
 
 #search-results {
-  background-color: white;
+  background-color: #fde290;
   color: #660066;
 }
 
@@ -265,11 +265,6 @@ svg {
 
 .login-register .card-body button:hover {
   cursor: pointer;
-}
-
-#register {
-  margin: -10px 0 -8px;
-  height: 100%;
 }
 
 #register .card {
@@ -721,10 +716,17 @@ svg {
   height: 100%;
 }
 
+#menu .ordine .title {
+  color: #660066;
+  margin-top: 15px;
+  text-align: center;
+}
+
 #menu .ordine #dish-card-container {
   display: flex;
   flex-wrap: wrap;
-  width: calc(100vw - 260px);
+  padding: 20px;
+  width: calc(100vw - 280px);
 }
 
 #menu .ordine #dish-card-container .dish-card {
@@ -735,6 +737,27 @@ svg {
   box-shadow: 0px 0px 3px 1px #444444;
   list-style: none;
   padding: 10px;
+}
+
+#menu .ordine #dish-card-container .dish-card div {
+  text-align: center;
+}
+
+#menu .ordine #dish-card-container .dish-card div:last-child {
+  color: #ffcc33;
+}
+
+#menu .ordine #dish-card-container .dish-card div:last-child i {
+  color: #00ccbc;
+  font-size: 25px;
+}
+
+#menu .ordine #dish-card-container .dish-card div:last-child i:hover {
+  cursor: pointer;
+}
+
+#menu .ordine #dish-card-container .dish-card div:last-child i:active {
+  color: #660066;
 }
 
 #menu .ordine #cart-container {
@@ -749,7 +772,7 @@ svg {
   padding: 5px;
 }
 
-#menu .ordine #cart-container div:first-child {
+#menu .ordine #cart-container .cart-header {
   background-color: #ffa280;
   color: white;
   text-align: center;
@@ -759,27 +782,43 @@ svg {
   align-items: center;
 }
 
-#menu .ordine #cart-container div:first-child h3 {
-  margin-right: 5px;
+#menu .ordine #cart-container .cart-header i {
+  margin: 0 5px;
 }
 
 #menu .ordine #cart-container .cart {
-  height: calc(100% - 120px);
+  height: calc(100vh - 256px);
   padding: 5px;
-  overflow: auto;
 }
 
 #menu .ordine #cart-container .cart ul {
   list-style: none;
 }
 
-#menu .ordine #cart-container div:last-child {
+#menu .ordine #cart-container .cart ul i {
+  color: #ffa280;
+}
+
+#menu .ordine #cart-container .cart ul i:hover {
+  cursor: pointer;
+}
+
+#menu .ordine #cart-container .cart ul i:active {
+  color: #660066;
+}
+
+#menu .ordine #cart-container .cart div:first-child {
+  height: calc(100% - 70px);
+  overflow: auto;
+}
+
+#menu .ordine #cart-container .cart div:last-child {
   height: 70px;
   border-top: 1px solid black;
   padding: 10px;
 }
 
-#menu .ordine #cart-container div:last-child h2 {
+#menu .ordine #cart-container .cart div:last-child h2 {
   color: #262626;
   margin-bottom: 10px;
 }
