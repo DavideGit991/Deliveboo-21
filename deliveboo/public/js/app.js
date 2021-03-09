@@ -38344,9 +38344,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "carta-di-credito" }, [
       _c("div", { attrs: { id: "dropin-container" } }),
       _vm._v(" "),
-      _c("button", { attrs: { id: "submit-button" } }, [
-        _vm._v("Inserisci la tua carta")
-      ])
+      _c("button", { attrs: { id: "submit-button" } }, [_vm._v("Avanti")])
     ])
   }
 ]

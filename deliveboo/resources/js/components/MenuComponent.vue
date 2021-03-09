@@ -80,8 +80,8 @@
                     <div class="carta-di-credito" >
 
                     <!-- Sezione pagamento -->
-                        <div id="dropin-container"></div>
-                        <button  id="submit-button" >Inserisci la tua carta</button>
+                    <div id="dropin-container"></div>
+                        <button  id="submit-button" >Avanti</button>
                     </div>
 
                     <!-- sezione form-->

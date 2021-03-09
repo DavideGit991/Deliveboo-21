@@ -840,13 +840,33 @@ svg {
   color: #660066;
 }
 
+#menu .ordine #cart-container .cart button {
+  height: 30px;
+  padding: 0 10px;
+  background-color: #ffa280;
+  color: #262626;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+  border-color: #262626;
+}
+
+#menu .ordine #cart-container .cart button:active {
+  outline-color: #00ccbc;
+}
+
+#menu .ordine #cart-container .cart button:hover {
+  cursor: pointer;
+}
+
 #menu .ordine #cart-container .cart > div:first-child {
-  height: calc(100% - 70px);
+  height: calc(100% - 80px);
   overflow: auto;
 }
 
 #menu .ordine #cart-container .cart > div:last-child {
-  height: 70px;
+  height: 80px;
   border-top: 1px solid black;
   padding: 10px;
 }
@@ -864,6 +884,26 @@ svg {
   width: calc(100vw - 280px);
 }
 
+#menu .ordine .pagamento button {
+  height: 30px;
+  padding: 0 10px;
+  background-color: #fddb75;
+  color: #660066;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#menu .ordine .pagamento button:active {
+  outline-color: #00ccbc;
+}
+
+#menu .ordine .pagamento button:hover {
+  cursor: pointer;
+}
+
 #menu .ordine .pagamento .carta-di-credito {
   width: 800px;
 }
@@ -875,10 +915,10 @@ svg {
 #menu .ordine .pagamento #form {
   background-color: white;
   padding: 10px;
-  margin: 20px 20px 20px 0;
+  margin: 20px;
   border: 1px solid gray;
   border-radius: 3px;
-  width: 800px;
+  width: 850px;
 }
 
 #menu .ordine .pagamento #form h2 {
@@ -888,7 +928,6 @@ svg {
 #menu .ordine .pagamento #form .form-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   padding: 10px;
 }
 
@@ -904,32 +943,13 @@ svg {
   border: 1px solid #660066;
   border-radius: 3px;
   border-color: gray;
-  width: 350px;
+  width: 300px;
   height: 30px;
   margin-right: 10px;
 }
 
 #menu .ordine .pagamento #form .form-container input:focus {
   outline-color: #00ccbc;
-}
-
-#menu .ordine .pagamento #form button {
-  height: 30px;
-  padding: 0 10px;
-  background-color: #fddb75;
-  color: #660066;
-  border: 1px solid #660066;
-  border-radius: 3px;
-  font-size: 16px;
-  text-decoration: none;
-}
-
-#menu .ordine .pagamento #form button:active {
-  outline-color: #00ccbc;
-}
-
-#menu .ordine .pagamento #form button:hover {
-  cursor: pointer;
 }
 
 footer {

@@ -99,16 +99,21 @@
                     }
                 }
 
+                button {
+    
+                    @include buttonStyle($mainpink, $mainblack);
+                    border-color: $mainblack;
+                }
             }
             .cart > div:first-child {
 
-                height: calc(100% - 70px);
+                height: calc(100% - 80px);
                 overflow: auto;
             }
 
             .cart > div:last-child {
 
-                height: 70px;
+                height: 80px;
                 border-top: 1px solid black;
                 padding: 10px;
 
@@ -128,6 +133,11 @@
             margin: 0 20px;
             width: calc(100vw - 280px);
 
+            button {
+    
+                @include buttonStyle($lightyellow, $mainpurple);
+                font-weight: bold;
+            }
 
             .carta-di-credito {
                 width: 800px;
@@ -142,10 +152,10 @@
     
                 background-color: white;
                 padding: 10px;
-                margin: 20px 20px 20px 0;
+                margin: 20px;
                 border: 1px solid gray;
                 border-radius: 3px;
-                width: 800px;
+                width: 850px;
                 
                 h2 {
                     color: $mainpurple;
@@ -155,7 +165,7 @@
     
                     display: flex;
                     flex-wrap: wrap;
-                    justify-content: space-around;
+                    
                     padding: 10px;
     
                     label {
@@ -167,15 +177,11 @@
                         
                         @include inputStyle($main);
                         border-color: gray;
-                        width: 350px;
+                        width: 300px;
                         height: 30px;
                         margin-right: 10px;
                     }
     
-                }
-                button {
-    
-                    @include buttonStyle($lightyellow, $mainpurple);
                 }
                 
             }
