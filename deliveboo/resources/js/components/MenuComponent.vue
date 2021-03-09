@@ -45,25 +45,20 @@
                             
                         </div>
                         <div class="cart" v-show="dishesOrdered.length>0">
-                            <div >
-                                <ul v-for='(dishOrdered,i) in dishesOrdered' :key='dishOrdered.message'>
-                                    <li>
-                                        {{i}}
-                                    </li>
-                                    <li>
-                                        {{dishOrdered.id}}
-                                    </li>
-                                    <li>
-                                        {{dishOrdered.name}}
-                                    </li>
-                                    <li>
-                                        {{dishOrdered.price}}
-                                    </li>
-                                    <li>
+                            <div>
+                                <div class="cart-element" v-for='(dishOrdered,i) in dishesOrdered' :key='dishOrdered.message'>
+                                    <div>
+                                        <p>
+                                            {{i}}. {{dishOrdered.name}}
+                                            <span>
+                                                {{dishOrdered.price}} &euro;
+                                            </span>
+                                        </p>  
+                                    </div>
+                                    <div>
                                         <i class="fas fa-minus-circle" v-show='deleteDish' v-if='totPrice>0' @click='DeletePrice(dishOrdered.price,i)'></i>
-                                    </li>
-
-                                </ul>
+                                    </div>
+                                </div>
                             </div>
 
                             <div>

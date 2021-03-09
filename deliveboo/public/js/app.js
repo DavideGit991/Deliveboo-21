@@ -2094,11 +2094,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38065,60 +38060,57 @@ var render = function() {
                   _c(
                     "div",
                     _vm._l(_vm.dishesOrdered, function(dishOrdered, i) {
-                      return _c("ul", { key: dishOrdered.message }, [
-                        _c("li", [
-                          _vm._v(
-                            "\n                                    " +
-                              _vm._s(i) +
-                              "\n                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _vm._v(
-                            "\n                                    " +
-                              _vm._s(dishOrdered.id) +
-                              "\n                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _vm._v(
-                            "\n                                    " +
-                              _vm._s(dishOrdered.name) +
-                              "\n                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _vm._v(
-                            "\n                                    " +
-                              _vm._s(dishOrdered.price) +
-                              "\n                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _vm.totPrice > 0
-                            ? _c("i", {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value: _vm.deleteDish,
-                                    expression: "deleteDish"
+                      return _c(
+                        "div",
+                        {
+                          key: dishOrdered.message,
+                          staticClass: "cart-element"
+                        },
+                        [
+                          _c("div", [
+                            _c("p", [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(i) +
+                                  ". " +
+                                  _vm._s(dishOrdered.name) +
+                                  "\n                                        "
+                              ),
+                              _c("span", [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(dishOrdered.price) +
+                                    " €\n                                        "
+                                )
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm.totPrice > 0
+                              ? _c("i", {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.deleteDish,
+                                      expression: "deleteDish"
+                                    }
+                                  ],
+                                  staticClass: "fas fa-minus-circle",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.DeletePrice(
+                                        dishOrdered.price,
+                                        i
+                                      )
+                                    }
                                   }
-                                ],
-                                staticClass: "fas fa-minus-circle",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.DeletePrice(dishOrdered.price, i)
-                                  }
-                                }
-                              })
-                            : _vm._e()
-                        ])
-                      ])
+                                })
+                              : _vm._e()
+                          ])
+                        ]
+                      )
                     }),
                     0
                   ),

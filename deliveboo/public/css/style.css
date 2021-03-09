@@ -267,6 +267,10 @@ svg {
   cursor: pointer;
 }
 
+#register {
+  padding-top: 30px;
+}
+
 #register .card {
   width: 45%;
 }
@@ -791,34 +795,44 @@ svg {
   padding: 5px;
 }
 
-#menu .ordine #cart-container .cart ul {
+#menu .ordine #cart-container .cart .cart-element {
   list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gray;
+  padding: 10px 5px;
 }
 
-#menu .ordine #cart-container .cart ul i {
+#menu .ordine #cart-container .cart .cart-element span {
+  margin: 0 5px;
+  color: #00ccbc;
+}
+
+#menu .ordine #cart-container .cart .cart-element i {
   color: #ffa280;
 }
 
-#menu .ordine #cart-container .cart ul i:hover {
+#menu .ordine #cart-container .cart .cart-element i:hover {
   cursor: pointer;
 }
 
-#menu .ordine #cart-container .cart ul i:active {
+#menu .ordine #cart-container .cart .cart-element i:active {
   color: #660066;
 }
 
-#menu .ordine #cart-container .cart div:first-child {
+#menu .ordine #cart-container .cart > div:first-child {
   height: calc(100% - 70px);
   overflow: auto;
 }
 
-#menu .ordine #cart-container .cart div:last-child {
+#menu .ordine #cart-container .cart > div:last-child {
   height: 70px;
   border-top: 1px solid black;
   padding: 10px;
 }
 
-#menu .ordine #cart-container .cart div:last-child h2 {
+#menu .ordine #cart-container .cart > div:last-child h2 {
   color: #262626;
   margin-bottom: 10px;
 }

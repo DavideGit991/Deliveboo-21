@@ -74,8 +74,18 @@
                 height: calc(100vh - 256px);
                 padding: 5px;
 
-                ul {
+                .cart-element {
                     list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid gray;
+                    padding: 10px 5px;
+
+                    span {
+                        margin: 0 5px;
+                        color: $main;
+                    }
 
                     i {
                         color: $mainpink;
@@ -89,21 +99,22 @@
                     }
                 }
 
-                div:first-child {
-                    height: calc(100% - 70px);
-                    overflow: auto;
-                }
+            }
+            .cart > div:first-child {
 
-                div:last-child {
-    
-                    height: 70px;
-                    border-top: 1px solid black;
-                    padding: 10px;
-    
-                    h2 {
-                        color: $mainblack;
-                        margin-bottom: 10px;
-                    }
+                height: calc(100% - 70px);
+                overflow: auto;
+            }
+
+            .cart > div:last-child {
+
+                height: 70px;
+                border-top: 1px solid black;
+                padding: 10px;
+
+                h2 {
+                    color: $mainblack;
+                    margin-bottom: 10px;
                 }
             }
 
