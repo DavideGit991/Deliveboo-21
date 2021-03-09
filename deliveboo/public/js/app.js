@@ -50582,8 +50582,11 @@ function init() {
 
       //richiamo le citta' dove e' presente un ristorante
       axios.get('/cities').then(function (res) {
-        // console.log(res.data);
-        _this.cities = res.data; // console.log(this.cities);
+        _this.cities = res.data; //Rendo prima lettera maiuscola
+
+        for (var i = 0; i < _this.cities.length; i++) {
+          _this.cities[i].city = _this.capitalizeFirstLetter(_this.cities[i].city);
+        }
       }); //chiamata per sapere i risto piu votati
 
       axios.get('/votes').then(function (res) {
@@ -50619,7 +50622,7 @@ function init() {
 
           axios.post('/typologiesCity', cittaSelezionata).then(function (res) {
             _this2.showTypologies = true;
-            _this2.typologiesCity = res.data; // console.log(this.typologiesCity);
+            _this2.typologiesCity = res.data;
           }); //chiamata per i ristoranti della città selezionata
 
           axios.post('/restaurantCity', cittaSelezionata).then(function (res) {
@@ -50643,8 +50646,7 @@ function init() {
       selectTypology: function selectTypology(name) {
         var _this3 = this;
 
-        this.selectedTypology = name; // console.log(this.selectedTypology);
-
+        this.selectedTypology = name;
         var data = {
           city: this.citta,
           name: this.selectedTypology
@@ -50656,9 +50658,11 @@ function init() {
           console.log(_this3.restaurantsSelected);
         });
       },
+      //Ricerca ristoranti per nome
       searchRestaurantName: function searchRestaurantName() {
         var _this4 = this;
 
+        this.inputName = this.capitalizeFirstLetter(this.inputName);
         var data = {
           name: this.inputName
         };
@@ -50685,6 +50689,10 @@ function init() {
           icon.classList.remove('fa-sort-up');
           icon.classList.add('fa-sort-down');
         }
+      },
+      //Rende la prima lettera maiuscola in stringa
+      capitalizeFirstLetter: function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
       }
     }
   });

@@ -11,191 +11,195 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 function init(){
 
-
-
     const app = new Vue({
-    el: '#app',
+        el: '#app',
 
-    data: {
-        //dati della homepage
-        showTypologies:false,
-        showBest:true,
-        showRestaurantCity:false,
-        showName:true,
-        showRestaurantSelected:false,
-        showAlert: false,
-        showDetail:false,
-        showSearchResult:false,
+        data: {
+            //dati della homepage
+            showTypologies:false,
+            showBest:true,
+            showRestaurantCity:false,
+            showName:true,
+            showRestaurantSelected:false,
+            showAlert: false,
+            showDetail:false,
+            showSearchResult:false,
 
-        inputName:'',
+            inputName:'',
 
-        cities:[],
-        citta:'',
-        restaurants:[],
-        restaurantsVotes:[],
-        typologiesCity:[],
-        restaurantsSelected:[],
+            cities:[],
+            citta:'',
+            restaurants:[],
+            restaurantsVotes:[],
+            typologiesCity:[],
+            restaurantsSelected:[],
 
-        selectedTypology:'',
-        selectedIndex:'',
+            selectedTypology:'',
+            selectedIndex:'',
 
-        searchResults: [],
+            searchResults: [],
 
-        // dati del carrello
+            // dati del carrello
 
 
 
-        // quadratini colorati
-        typologyColors: [
-            "coral",
-            "#660066",
-            "skyblue",
-            "#ffcc33",
-            "#6b9023",
-            "salmon",
-            "darkCyan",
-            "#660066",
-            "#ffcc33",
-            "salmon",
-        ]
-    },
-    mounted(){
-        //richiamo le citta' dove e' presente un ristorante
-        axios.get('/cities')
-             .then(res=>{
-                // console.log(res.data);
+            // quadratini colorati
+            typologyColors: [
+                "coral",
+                "#660066",
+                "skyblue",
+                "#ffcc33",
+                "#6b9023",
+                "salmon",
+                "darkCyan",
+                "#660066",
+                "#ffcc33",
+                "salmon",
+            ]
+        },
+        mounted(){
+            //richiamo le citta' dove e' presente un ristorante
+            axios.get('/cities')
+                .then(res=>{
 
-                this.cities=res.data;
+                    this.cities=res.data;
 
-                // console.log(this.cities);
+                    //Rendo prima lettera maiuscola
+                    for(var i = 0 ; i < this.cities.length ; i++){
+                        this.cities[i].city = this.capitalizeFirstLetter(this.cities[i].city);
+                    }   
+                });
 
-            });
+            //chiamata per sapere i risto piu votati
+            axios.get('/votes')
+                .then(res=>{
+                    this.restaurantsVotes=res.data;
+                })
+        },
 
-        //chiamata per sapere i risto piu votati
-        axios.get('/votes')
-             .then(res=>{
-                 this.restaurantsVotes=res.data;
-            })
-    },
+        methods: {
 
-    methods: {
+            //variazione option select
+            selectCity: function(event){
+                this.citta=event.target.options[event.target.options.selectedIndex].text;
 
-        //variazione option select
-        selectCity: function(event){
-            this.citta=event.target.options[event.target.options.selectedIndex].text;
+                // console.log(this.citta);
 
-            // console.log(this.citta);
+                const cittaSelezionata={
+                    city:this.citta,
+                };
 
-            const cittaSelezionata={
-                city:this.citta,
-            };
+                if (this.citta=='Seleziona Città'){
+                    this.showRestaurantSelected=false;
+                    this.showBest=true;
+                    this.showRestaurantCity=false;
+                    this.showTypologies=false;
+                    this.showName=true;
+                    this.showSearchResult=false;
+                    this.inputName='';
+                }else{
+                    this.showRestaurantSelected=false;
+                    this.showBest=false;
+                    this.showRestaurantCity=true;
+                    this.showName=false;
+                    this.showSearchResult=false;
 
-            if (this.citta=='Seleziona Città'){
-                this.showRestaurantSelected=false;
-                this.showBest=true;
-                this.showRestaurantCity=false;
-                this.showTypologies=false;
-                this.showName=true;
-                this.showSearchResult=false;
-                this.inputName='';
-            }else{
-                this.showRestaurantSelected=false;
-                this.showBest=false;
-                this.showRestaurantCity=true;
-                this.showName=false;
-                this.showSearchResult=false;
+                    console.log(cittaSelezionata);
 
-                console.log(cittaSelezionata);
-
-                //chiamata restituzione tipologie per città selezionata
-                        axios.post('/typologiesCity',cittaSelezionata)
-                            .then(res=>{
-                            this.showTypologies=true;
-                            this.typologiesCity=res.data;
-                            // console.log(this.typologiesCity);
-                        })
-
-                //chiamata per i ristoranti della città selezionata
-                axios.post('/restaurantCity', cittaSelezionata)
-                     .then(res=>{
-                        this.restaurants=res.data;
-
-                        console.log(this.restaurants);
+                    //chiamata restituzione tipologie per città selezionata
+                    axios.post('/typologiesCity',cittaSelezionata)
+                        .then(res=>{
+                        this.showTypologies=true;
+                        this.typologiesCity=res.data;
                     })
 
-                // prenderle la tipologia dal bottone e la città selezionata
-                // vado dillà e faccio una query che ritorna i ristoranti con citta selezionata e tipologia selezionata
-            };
-        },
+                    //chiamata per i ristoranti della città selezionata
+                    axios.post('/restaurantCity', cittaSelezionata)
+                        .then(res=>{
+                            this.restaurants=res.data;
 
-        // funzione per passare pagina menu dai piu' votati
-        GoToMenu:function (id) {
-            const param={
-                id:id
-            };
+                            console.log(this.restaurants);
+                        })
 
-            axios.get('/show/restaurant/menu/'+id,param)
+                    // prenderle la tipologia dal bottone e la città selezionata
+                    // vado dillà e faccio una query che ritorna i ristoranti con citta selezionata e tipologia selezionata
+                };
+            },
+
+            // funzione per passare pagina menu dai piu' votati
+            GoToMenu:function (id) {
+                const param={
+                    id:id
+                };
+
+                axios.get('/show/restaurant/menu/'+id,param)
+                    .then(res=>{
+                        location.replace("/show/restaurant/menu/"+id)
+                    })
+            },
+
+            selectTypology:function(name){
+                this.selectedTypology=name;
+
+                const data={
+                    city:this.citta,
+                    name:this.selectedTypology
+                }
+                axios.post('/selectedTypology',data)
+                    .then(res=>{
+
+                        this.showRestaurantCity=false;
+                        this.showRestaurantSelected=true;
+
+                        this.restaurantsSelected=res.data;
+                        console.log(this.restaurantsSelected);
+                    })
+            },
+
+            //Ricerca ristoranti per nome
+            searchRestaurantName(){
+                this.inputName=this.capitalizeFirstLetter(this.inputName);
+                
+                const data={
+                    name:this.inputName
+                }
+                axios.post('/search',data)
                 .then(res=>{
-                    location.replace("/show/restaurant/menu/"+id)
+                    
+                    this.showSearchResult=true;
+                    this.searchResults=res.data;
                 })
-        },
+            },
 
-        selectTypology:function(name){
-            this.selectedTypology=name;
-            // console.log(this.selectedTypology);
-            const data={
-                city:this.citta,
-                name:this.selectedTypology
+            //funzione per far apparire alert
+            alert(){
+            this.showAlert=true;
+
+            },
+
+            //funzione per vedere dettagli ristoratore
+            showDetails(){
+            const element = document.getElementById("box-det");
+            const icon = document.getElementById('icon');
+            if (icon.classList.contains('fa-sort-down')) {
+                this.showDetail=true;
+                icon.classList.remove('fa-sort-down');
+                icon.classList.add('fa-sort-up');
+            } else {
+                this.showDetail=false;
+                icon.classList.remove('fa-sort-up');
+                icon.classList.add('fa-sort-down');
             }
-            axios.post('/selectedTypology',data)
-                .then(res=>{
+            },
 
-                    this.showRestaurantCity=false;
-                    this.showRestaurantSelected=true;
+            //Rende la prima lettera maiuscola in stringa
+            capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            },
+            
+        }
 
-                    this.restaurantsSelected=res.data;
-                    console.log(this.restaurantsSelected);
-                })
-        },
-
-        searchRestaurantName(){
-            const data={
-                name:this.inputName
-            }
-            axios.post('/search',data)
-            .then(res=>{
-
-                this.showSearchResult=true;
-                this.searchResults=res.data;
-            })
-        },
-
-        //funzione per far apparire alert
-        alert(){
-          this.showAlert=true;
-
-        },
-
-        //funzione per vedere dettagli ristoratore
-        showDetails(){
-          const element = document.getElementById("box-det");
-          const icon = document.getElementById('icon');
-          if (icon.classList.contains('fa-sort-down')) {
-              this.showDetail=true;
-              icon.classList.remove('fa-sort-down');
-              icon.classList.add('fa-sort-up');
-          } else {
-            this.showDetail=false;
-              icon.classList.remove('fa-sort-up');
-              icon.classList.add('fa-sort-down');
-          }
-        },
-
-    }
-
-});
-
-
+    });
 };
 
 
