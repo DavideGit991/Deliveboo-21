@@ -67,7 +67,7 @@ function init(){
                     //Rendo prima lettera maiuscola
                     for(var i = 0 ; i < this.cities.length ; i++){
                         this.cities[i].city = this.capitalizeFirstLetter(this.cities[i].city);
-                    }   
+                    }
                 });
 
             //chiamata per sapere i risto piu votati
@@ -159,13 +159,13 @@ function init(){
             //Ricerca ristoranti per nome
             searchRestaurantName(){
                 this.inputName=this.capitalizeFirstLetter(this.inputName);
-                
+
                 const data={
                     name:this.inputName
                 }
                 axios.post('/search',data)
                 .then(res=>{
-                    
+
                     this.showSearchResult=true;
                     this.searchResults=res.data;
                 })
@@ -174,7 +174,6 @@ function init(){
             //funzione per far apparire alert
             alert(){
             this.showAlert=true;
-
             },
 
             //funzione per vedere dettagli ristoratore
@@ -196,7 +195,7 @@ function init(){
             capitalizeFirstLetter(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
             },
-            
+
         }
 
     });

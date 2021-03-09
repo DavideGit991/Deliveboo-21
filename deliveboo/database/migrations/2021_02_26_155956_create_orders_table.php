@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table -> string('lastname',60) -> nullable();
             $table -> string('address',60) -> nullable();
             $table -> integer('tot_price') -> nullable();
-            $table -> string('month') -> nullable();
+            $table -> integer('month') -> nullable();
             $table -> string('phone',20) -> nullable();
             $table -> boolean('status') -> nullable();
 
