@@ -2085,8 +2085,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -76054,55 +76052,219 @@ var render = function() {
                 }
               ]
             },
-            _vm._l(_vm.dishes, function(dish) {
-              return _c(
-                "ul",
-                { key: dish.message, attrs: { id: "dish-card-container" } },
-                [
-                  dish.availability == 1
-                    ? _c("div", { staticClass: "dish-card" }, [
-                        _c("img", {
-                          attrs: { src: dish.img, alt: "", height: "100" }
-                        }),
-                        _vm._v(" "),
-                        _c("li", [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(dish.name) +
-                              "\n                            "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(dish.price) +
-                              " Euro\n                            "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            on: {
-                              click: function($event) {
-                                return _vm.AddPrice(
-                                  dish.price,
-                                  dish.name,
-                                  dish.id
-                                )
-                              }
-                            }
-                          },
-                          [_vm._v("+")]
+            [
+              _c("h2", { staticClass: "title" }, [_vm._v("Menu Ristorante")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { attrs: { id: "dish-card-container" } },
+                _vm._l(_vm.dishes, function(dish) {
+                  return _c(
+                    "div",
+                    { key: dish.message, staticClass: "dish-card" },
+                    [
+                      _c("img", {
+                        attrs: { src: dish.img, alt: "", height: "100" }
+                      }),
+                      _vm._v(" "),
+                      _c("h4", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(dish.name) +
+                            "\n                        "
                         )
-                      ])
-                    : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(dish.price) +
+                            " €\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      dish.availability == 1
+                        ? _c("div", [
+                            _c("i", {
+                              staticClass: "fas fa-plus-circle",
+                              on: {
+                                click: function($event) {
+                                  return _vm.AddPrice(
+                                    dish.price,
+                                    dish.name,
+                                    dish.id
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      dish.availability == 0
+                        ? _c("div", [_c("p", [_vm._v("Non Disponibile.")])])
+                        : _vm._e()
+                    ]
+                  )
+                }),
+                0
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", [
+            _c("div", { attrs: { id: "cart-container" } }, [
+              _c("div", { staticClass: "cart-header" }, [
+                _c("h3", [
+                  _vm._v(
+                    "\n                            Carrello\n                        "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("i", { staticClass: "fas fa-shopping-cart" }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.dishesOrdered.length == 0,
+                        expression: "dishesOrdered.length==0"
+                      }
+                    ]
+                  },
+                  [_vm._v(" 0")]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.dishesOrdered.length > 0,
+                      expression: "dishesOrdered.length>0"
+                    }
+                  ],
+                  staticClass: "cart"
+                },
+                [
+                  _c(
+                    "div",
+                    _vm._l(_vm.dishesOrdered, function(dishOrdered, i) {
+                      return _c(
+                        "div",
+                        {
+                          key: dishOrdered.message,
+                          staticClass: "cart-element"
+                        },
+                        [
+                          _c("div", [
+                            _c("span", [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(i) +
+                                  ". " +
+                                  _vm._s(dishOrdered.name) +
+                                  "\n                                    "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(dishOrdered.price) +
+                                  "€\n                                    "
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm.totPrice > 0
+                              ? _c("i", {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.deleteDish,
+                                      expression: "deleteDish"
+                                    }
+                                  ],
+                                  staticClass: "fas fa-minus-circle",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.DeletePrice(
+                                        dishOrdered.price,
+                                        i
+                                      )
+                                    }
+                                  }
+                                })
+                              : _vm._e()
+                          ])
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("h2", [
+                      _vm._v(
+                        "\n                                Totale: " +
+                          _vm._s(_vm.totPrice) +
+                          "€\n                            "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.dishesOrdered.length > 0 && _vm.checkout,
+                            expression: "dishesOrdered.length>0 && checkout"
+                          }
+                        ],
+                        on: {
+                          click: function($event) {
+                            return _vm.GoToCheckout(_vm.totPrice)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Checkout\n                            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("i", {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.showdishes,
+                          expression: "showdishes"
+                        }
+                      ],
+                      staticClass: "fas fa-arrow-left",
+                      on: {
+                        click: function($event) {
+                          return _vm.goBack()
+                        }
+                      }
+                    })
+                  ])
                 ]
               )
-            }),
-            0
-          ),
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -76111,277 +76273,147 @@ var render = function() {
                 {
                   name: "show",
                   rawName: "v-show",
-                  value: _vm.dishesOrdered.length > 0,
-                  expression: "dishesOrdered.length>0"
+                  value: !_vm.showpayment,
+                  expression: "!showpayment"
                 }
               ],
-              attrs: { id: "cart-container" }
+              staticClass: "pagamento"
             },
             [
               _vm._m(0),
               _vm._v(" "),
               _c(
-                "div",
-                { staticClass: "cart" },
-                _vm._l(_vm.dishesOrdered, function(dishOrdered, i) {
-                  return _c("ul", { key: dishOrdered.message }, [
-                    _c("li", [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(i) +
-                          "\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(dishOrdered.id) +
-                          "\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(dishOrdered.name) +
-                          "\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(dishOrdered.price) +
-                          "\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _vm.totPrice > 0
-                        ? _c(
-                            "button",
-                            {
-                              directives: [
-                                {
-                                  name: "show",
-                                  rawName: "v-show",
-                                  value: _vm.deleteDish,
-                                  expression: "deleteDish"
-                                }
-                              ],
-                              on: {
-                                click: function($event) {
-                                  return _vm.DeletePrice(dishOrdered.price, i)
-                                }
-                              }
-                            },
-                            [_vm._v("-")]
-                          )
-                        : _vm._e()
-                    ])
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("div", [
-                _c("h2", [
-                  _vm._v(
-                    "\n                        Totale: " +
-                      _vm._s(_vm.totPrice) +
-                      "€\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.dishesOrdered.length > 0 && _vm.checkout,
-                        expression: "dishesOrdered.length>0 && checkout"
-                      }
-                    ],
-                    on: {
-                      click: function($event) {
-                        return _vm.GoToCheckout(_vm.totPrice)
-                      }
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        Checkout\n                    "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("i", {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.showdishes,
-                      expression: "showdishes"
-                    }
-                  ],
-                  staticClass: "fas fa-arrow-left",
+                "form",
+                {
+                  attrs: { id: "form", hidden: "" },
                   on: {
-                    click: function($event) {
-                      return _vm.goBack()
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.submit($event)
                     }
                   }
-                })
-              ])
+                },
+                [
+                  _c("h2", [_vm._v("Inserisci i tuoi dati")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-container" }, [
+                    _c("div", [
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v("Nome:")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.name,
+                            expression: "name"
+                          }
+                        ],
+                        attrs: { type: "text", name: "name", required: "" },
+                        domProps: { value: _vm.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.name = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("label", { attrs: { for: "lastname" } }, [
+                        _vm._v("Cognome:")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.lastname,
+                            expression: "lastname"
+                          }
+                        ],
+                        attrs: { type: "text", name: "lastname", required: "" },
+                        domProps: { value: _vm.lastname },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.lastname = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("label", { attrs: { for: "address" } }, [
+                        _vm._v("Indirizzo:")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.address,
+                            expression: "address"
+                          }
+                        ],
+                        attrs: { type: "text", name: "address", required: "" },
+                        domProps: { value: _vm.address },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.address = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("label", { attrs: { for: "phone" } }, [
+                        _vm._v("N° Telefono")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.phone,
+                            expression: "phone"
+                          }
+                        ],
+                        attrs: { type: "tel", name: "phone", required: "" },
+                        domProps: { value: _vm.phone },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.phone = $event.target.value
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("button", { attrs: { type: "submit" } }, [
+                    _vm._v("Completa Pagamento")
+                  ])
+                ]
+              )
             ]
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.showpayment,
-                expression: "!showpayment"
-              }
-            ],
-            staticClass: "pagamento"
-          },
-          [
-            _c("h1", [_vm._v("sono il pagamento")]),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c(
-              "form",
-              {
-                attrs: { id: "form", hidden: "" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.submit($event)
-                  }
-                }
-              },
-              [
-                _c("div", [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Nome:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.name,
-                        expression: "name"
-                      }
-                    ],
-                    attrs: { type: "text", name: "name", required: "" },
-                    domProps: { value: _vm.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.name = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("label", { attrs: { for: "lastname" } }, [
-                    _vm._v("Cognome")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.lastname,
-                        expression: "lastname"
-                      }
-                    ],
-                    attrs: { type: "text", name: "lastname", required: "" },
-                    domProps: { value: _vm.lastname },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.lastname = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("label", { attrs: { for: "address" } }, [
-                    _vm._v("Indirizzo")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.address,
-                        expression: "address"
-                      }
-                    ],
-                    attrs: { type: "text", name: "address", required: "" },
-                    domProps: { value: _vm.address },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.address = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c("label", { attrs: { for: "phone" } }, [
-                    _vm._v("N° telefono")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.phone,
-                        expression: "phone"
-                      }
-                    ],
-                    attrs: { type: "tel", name: "phone", required: "" },
-                    domProps: { value: _vm.phone },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.phone = $event.target.value
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("button", { attrs: { type: "submit" } }, [
-                  _vm._v("Completa il tuo pagamento")
-                ])
-              ]
-            )
-          ]
-        )
+        ])
       ]
     ),
     _vm._v(" "),
@@ -76413,19 +76445,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h3", [
-        _vm._v("\n                        Carrello\n                    ")
-      ]),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-shopping-cart" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "carta di credito" }, [
+    return _c("div", { staticClass: "carta-di-credito" }, [
       _c("div", { attrs: { id: "dropin-container" } }),
       _vm._v(" "),
       _c("button", { attrs: { id: "submit-button" } }, [
@@ -89115,9 +89135,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

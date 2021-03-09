@@ -7,15 +7,43 @@
         display: flex;
         justify-content: space-between;
         height: 100%;
+
+        .title {
+            color: $mainpurple;
+            margin-top: 15px;
+            text-align: center;
+        }
         
         #dish-card-container {
             display: flex;
             flex-wrap: wrap;
-            width: calc(100vw - 260px);
+            padding: 20px;
+            width: calc(100vw - 280px);
 
             .dish-card {
                 @include cardStyle($mainshadow);
                 padding: 10px;
+
+                div {
+                    text-align: center;
+                }
+
+                div:last-child {
+                    color: $mainyellow;
+
+                    i {
+                        color: $main;
+                        font-size: 25px;
+
+                        &:hover {
+
+                            cursor: pointer
+                        }
+                        &:active {
+                            color: $mainpurple;
+                        }
+                    }
+                }
             }
         }
 
@@ -24,8 +52,9 @@
             box-shadow: none;
             border: 3px solid $mainpink;
             padding: 5px;
+            // height: calc(100vh - 200px);
             
-            div:first-child {
+            .cart-header {
                 
                 background-color: $mainpink;
                 color: white;
@@ -35,23 +64,49 @@
                 justify-content: center;
                 align-items: center;
 
-                h3 {
-                    margin-right: 5px;
+                i {
+                    margin: 0 5px;
                 }
                 
             }
             
             .cart {
-                height: calc(100% - 120px);
+                height: calc(100vh - 256px);
                 padding: 5px;
-                overflow: auto;
 
-                ul {
+                .cart-element {
                     list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid gray;
+                    padding: 10px 5px;
+
+                    p {
+                        color: $main;
+                        margin: 5px 0 0 18px;
+                    }
+
+                    i {
+                        color: $mainpink;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                        &:active {
+                            color: $mainpurple;
+                        }
+                    }
                 }
+
+            }
+            .cart > div:first-child {
+
+                height: calc(100% - 70px);
+                overflow: auto;
             }
 
-            div:last-child {
+            .cart > div:last-child {
 
                 height: 70px;
                 border-top: 1px solid black;
@@ -62,7 +117,68 @@
                     margin-bottom: 10px;
                 }
             }
+
         }
 
+        .pagamento {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+            width: calc(100vw - 280px);
+
+
+            .carta-di-credito {
+                width: 800px;
+    
+                svg {
+                    max-width: 40px;
+                }
+                
+            }
+    
+            #form {
+    
+                background-color: white;
+                padding: 10px;
+                margin: 20px 20px 20px 0;
+                border: 1px solid gray;
+                border-radius: 3px;
+                width: 800px;
+                
+                h2 {
+                    color: $mainpurple;
+                }
+    
+                .form-container{
+    
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    padding: 10px;
+    
+                    label {
+                        font-size: 18px;
+                        color: $mainpurple;
+                    }
+        
+                    input {
+                        
+                        @include inputStyle($main);
+                        border-color: gray;
+                        width: 350px;
+                        height: 30px;
+                        margin-right: 10px;
+                    }
+    
+                }
+                button {
+    
+                    @include buttonStyle($lightyellow, $mainpurple);
+                }
+                
+            }
+        }
     }
 }

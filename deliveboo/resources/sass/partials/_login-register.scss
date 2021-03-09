@@ -4,7 +4,7 @@
     overflow: auto;
     
     .card {
-        width: 35%;
+        width: 480px;
         margin: auto;
         border: 1px solid $main;
         border-radius: 10px;
@@ -39,8 +39,7 @@
 }
 
 #register {
-    margin: -10px 0 -8px;
-    height: 100%;
+    padding-top: 30px;
 
     .card {
 
@@ -63,8 +62,6 @@
 @media all and (max-width: 991px) {
 
     .login-register {
-
-        height: 100%;
 
         .card {
 

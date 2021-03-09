@@ -1,5 +1,6 @@
 #dishes-index {
-    height: 100%;
+    height: calc(100vh - 180px);
+    padding: 30px 0;
 
     .card {
         width: 70%;
