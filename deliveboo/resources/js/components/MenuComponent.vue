@@ -11,8 +11,9 @@
                     <h2 class="title">Menu Ristorante</h2>
                     <div id="dish-card-container">
                         <div class="dish-card" v-for="dish in dishes" :key="dish.message">
-
-                            <img :src="dish.img" alt="" height="100">
+                            <div class="img-container">
+                                <img :src="dish.img" alt="" >
+                            </div>
 
                             <h4>
                                 {{dish.name}}
@@ -49,7 +50,7 @@
                                 <div class="cart-element" v-for='(dishOrdered,i) in dishesOrdered' :key='dishOrdered.message'>
                                     <div>
                                         <span>
-                                            {{i}}. {{dishOrdered.name}}
+                                            {{i + 1}}. {{dishOrdered.name}}
                                         </span>  
                                         <p>
                                             {{dishOrdered.price}}&euro;

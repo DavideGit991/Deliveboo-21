@@ -141,10 +141,12 @@ svg {
   margin: 0 10px;
   padding: 5px;
   background-color: #00ccbc;
+  transition: 0.3s;
 }
 
 #typologies div:hover {
   cursor: pointer;
+  box-shadow: 0px 3px 10px 1px #a5a5a5;
 }
 
 .bestRated {
@@ -178,7 +180,7 @@ svg {
 
 .bestRated .best > div .img-container {
   background-color: dimgray;
-  background-image: url(/images/generic.jpg?f3c2a94a7113d6b2e4f51de14fe711a8);
+  background-image: url(/images/generic.jpg?29b1ffa3a9893269870537a7ca513eb6);
   background-size: cover;
   width: 100%;
   height: 138px;
@@ -217,6 +219,10 @@ svg {
   height: calc(100vh - 180px);
   padding: 50px;
   overflow: auto;
+}
+
+.login-register h1 {
+  color: #262626;
 }
 
 .login-register .card {
@@ -333,6 +339,10 @@ svg {
   border-radius: 10px;
 }
 
+#dashboard .card .resto-name {
+  text-align: center;
+}
+
 #dashboard h3 {
   color: #660066;
   font-size: 18px;
@@ -347,6 +357,10 @@ svg {
   color: #660066;
   display: inline-block;
   margin-bottom: 10px;
+}
+
+#dashboard #dashboard-buttons {
+  text-align: center;
 }
 
 #dashboard #dashboard-buttons button {
@@ -395,6 +409,7 @@ svg {
 
 #box-det {
   margin-bottom: 10px;
+  padding-left: 40px;
 }
 
 .hide {
@@ -759,14 +774,28 @@ svg {
   margin: 10px;
   box-shadow: 0px 0px 3px 1px #444444;
   list-style: none;
-  padding: 10px;
+  padding: 10px 15px;
+}
+
+#menu .ordine #dish-card-container .dish-card .img-container {
+  background-image: url(/images/food.jpg?f1573d3b1ff4cbe449954c83d50803fe);
+  background-size: cover;
+  background-position: left;
+  width: 230px;
+  height: 104px;
+}
+
+#menu .ordine #dish-card-container .dish-card .img-container img {
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #menu .ordine #dish-card-container .dish-card div {
   text-align: center;
 }
 
-#menu .ordine #dish-card-container .dish-card div:last-child {
+#menu .ordine #dish-card-container .dish-card div:last-child p {
   color: #ffcc33;
 }
 
@@ -953,7 +982,7 @@ svg {
 }
 
 footer {
-  height: 110px;
+  min-height: 110px;
   background-color: #006666;
   color: white;
   padding: 20px 25px;
@@ -962,12 +991,14 @@ footer {
 footer div:last-child {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin-top: 15px;
 }
 
 footer div:last-child a {
   color: lightgray;
   text-decoration: none;
+  margin-top: 10px;
 }
 
 footer div:last-child a:hover {

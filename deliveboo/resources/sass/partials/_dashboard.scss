@@ -6,6 +6,11 @@
         border: 1px solid $main;
         border-radius: 10px;
 
+        .resto-name {
+
+            text-align: center;
+        }
+
     }
 
     h3 {
@@ -24,6 +29,7 @@
     }
     
     #dashboard-buttons {
+        text-align: center;
 
         button {
             margin-left: 10px;
@@ -46,6 +52,7 @@
 
 #box-det {
     margin-bottom: 10px;
+    padding-left: 40px;
 }
 
 .hide {
