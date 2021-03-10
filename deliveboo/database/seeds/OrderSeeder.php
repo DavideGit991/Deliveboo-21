@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 
 use App\Order;
 use App\Dish;
+use App\Restaurant;
+
 
 class OrderSeeder extends Seeder
 {
@@ -14,10 +16,11 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        factory(Order::class, 150)
+        factory(Order::class, 250)
             -> create()
             -> each(function($order) {
-                $dish = Dish::inRandomOrder() -> limit(5) -> get();
+                $restaurant=Restaurant::inRandomOrder()->first();
+                $dish = $restaurant->dishes()->inRandomOrder()->limit(rand(5,8))->get();
                 $order -> dishes() -> attach($dish);
             });
       }

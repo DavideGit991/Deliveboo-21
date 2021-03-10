@@ -13,12 +13,14 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
-      factory(Restaurant::class, 20)
-          -> make()
-          -> each(function($restaurant){
+      factory(Restaurant::class, 35)
+        -> make()
 
-            $user=User::inRandomOrder() -> first();
+        -> each(function($restaurant){
+
+            $user=User::inRandomOrder()->first();
+
             $restaurant->user() -> associate($user) -> save();
         });
-}
+    }
 }

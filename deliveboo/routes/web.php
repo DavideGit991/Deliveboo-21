@@ -59,3 +59,6 @@ Route::post('/payment', 'OrderController@payment');
 
 //stats
 Route::get('/stats/{id}','RestaurantController@getstats')->name('stats');
+
+// //ordini del ristorante
+ Route::get('/orders/{id}','OrderController@getOrders')->name('get-orders');
