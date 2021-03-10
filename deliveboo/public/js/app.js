@@ -2085,6 +2085,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -76101,9 +76102,9 @@ var render = function() {
                     "div",
                     { key: dish.message, staticClass: "dish-card" },
                     [
-                      _c("img", {
-                        attrs: { src: dish.img, alt: "", height: "100" }
-                      }),
+                      _c("div", { staticClass: "img-container" }, [
+                        _c("img", { attrs: { src: dish.img, alt: "" } })
+                      ]),
                       _vm._v(" "),
                       _c("h4", [
                         _vm._v(
@@ -76204,7 +76205,7 @@ var render = function() {
                             _c("span", [
                               _vm._v(
                                 "\n                                        " +
-                                  _vm._s(i) +
+                                  _vm._s(i + 1) +
                                   ". " +
                                   _vm._s(dishOrdered.name) +
                                   "\n                                    "

@@ -3,18 +3,19 @@
 
 
     @section('content')
-        <h1>
-            pagina statistiche
-        </h1>
-
-
-        <stats-component
-            :stats='{{$stats}}'
-        >
-
-        </stats-component>
-
-        @endsection
+        <div class="login-register">
+            <h1>
+                Statistiche degli ordini
+            </h1>
+    
+    
+            <stats-component
+                :stats='{{$stats}}'
+            >
+    
+            </stats-component>
+        </div>
+    @endsection
 
 
 

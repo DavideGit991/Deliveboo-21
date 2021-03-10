@@ -1,5 +1,5 @@
 footer {
-    height: 110px;
+    min-height: 110px;
     background-color: #006666;
     color: white;
     padding: 20px 25px;
@@ -8,11 +8,13 @@ footer {
 
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
         margin-top: 15px;
 
         a {
             color: rgb(211, 211, 211);
             text-decoration: none;
+            margin-top: 10px;
 
             &:hover {
                 color: white;

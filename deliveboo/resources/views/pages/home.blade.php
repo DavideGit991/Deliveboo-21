@@ -10,8 +10,18 @@
                     Dashboard di <b>{{Auth::user()->name}}</b>
                 </div>
 
-                <div class="card-body">
-                    @if (!$restaurant)
+            <div class="card-body">
+                @if (!$restaurant)
+                <h3>
+                    Non esiste nessun ristorante associato
+                </h3>
+                <a href="{{route('restaurant-create')}}">
+                    <button>
+                        Aggiungi ristorante
+                    </button>
+                </a>
+                @else
+                <div class="resto-name">
                     <h3>
                         Non esiste nessun ristorante associato
                     </h3>
