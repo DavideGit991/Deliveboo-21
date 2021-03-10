@@ -311,6 +311,7 @@ svg {
   font-weight: bold;
   border-radius: 10px 10px 0 0;
   padding: 10px;
+  margin: -1px -1px 0 -1px;
 }
 
 .login-register .card-body {
@@ -401,12 +402,14 @@ svg {
 
 #dashboard {
   height: calc(100vh - 180px);
+  padding: 30px;
 }
 
 #dashboard .card {
   width: 60%;
   border: 1px solid #00ccbc;
   border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 #dashboard .card .resto-name {
