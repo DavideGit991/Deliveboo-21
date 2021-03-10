@@ -42,7 +42,7 @@
                             </h3>
                             <i class="fas fa-shopping-cart"></i>
                             <span v-show="dishesOrdered.length==0"> 0</span>
-                            
+
                         </div>
                         <div class="cart" v-show="dishesOrdered.length>0">
                             <div>
@@ -50,7 +50,7 @@
                                     <div>
                                         <span>
                                             {{i}}. {{dishOrdered.name}}
-                                        </span>  
+                                        </span>
                                         <p>
                                             {{dishOrdered.price}}&euro;
                                         </p>
@@ -130,6 +130,7 @@ export default {
             count:0,
             dishes:[],
             dishesOrdered:[],
+            iddishes:[],
             totPrice:0,
 
             showform:false,
@@ -197,7 +198,9 @@ export default {
             this.dishesOrdered.push({
                 name:name,
                 price:price
-            })
+            });
+
+            this.iddishes.push(id);
             // console.log(this.dishesOrdered);
             // console.log('prezzo totale',this.totPrice);
         },
@@ -231,14 +234,16 @@ export default {
                     address:this.address,
                     phone:this.phone,
 
-            }
+                    id:this.iddishes
+                }
+
 
                    axios.post('/payment', fields)
                     .then(res => {
                        console.log(res);
                         this.showpage=false;
                         this.showmessage=true;
-                        this.redirectTo();
+                        // this.redirectTo();
 
                    })
 

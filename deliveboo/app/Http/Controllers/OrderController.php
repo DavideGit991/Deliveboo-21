@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Dish;
 use App\Order;
+use App\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -12,7 +15,7 @@ class OrderController extends Controller
    {
        $data=$req->all();
 
-       Order::create([
+       $order=Order::make([
            'name'=>$data['name'],
            'lastname'=> $data['lastname'],
            'tot_price'=>$data['tot_price'],
@@ -20,13 +23,39 @@ class OrderController extends Controller
            'address'=>$data['address'],
            'status'=>$data['status'],
            'phone'=>$data['phone'],
+           ]);
 
-       ]);
+
+        $order->save();
+
+        $idplate=Dish::find($data['id']);
+
+        $order->dishes()->attach($idplate);
+
 
        return response()->json($data,200) ;
    }
 
-
+     public function getOrders($id)
+     {
+         $restaurant=Restaurant::findOrFail($id);
+         //         SELECT orders.id as 'ordine' ,dishes.id as 'piatto',restaurants.id as 'restaurant'
+         // FROM restaurants
+         //     join dishes on dishes.restaurant_id=restaurants.id
+         //     join dish_order on dish_order.dish_id=dishes.id
+         //     join orders on orders.id= dish_order.order_id
+         // WHERE restaurants.id=5
+         // ORDER BY `ordine` DESC
+         $orders=DB::table('restaurants')
+         ->select('orders.id as ordine' ,'dishes.id as piatto','restaurants.id as restaurant')
+         ->join('dishes','dishes.restaurant_id','=','restaurants.id')
+         ->join('dish_order','dishes.id','=','dish_order.dish_id')
+         ->join('orders','orders.id','=','dish_order.order_id')
+         ->where('restaurants.id','=',$restaurant)
+         ->orderBy('orders.id','desc')
+         ->get();
+         return response()->json($orders);
+     }
     public function index()
     {
         //
