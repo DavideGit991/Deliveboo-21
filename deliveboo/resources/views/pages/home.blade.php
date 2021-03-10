@@ -79,14 +79,13 @@
                 </div>
 
                 <div class="description-overlay" v-show='showAlert' >
-                  <div class="description-full-screen">
-
-                    <div class="description-wrapper">
-                        <h2>Sei sicuro di voler eliminare il ristorante?</h2>
-
+                  <div id="card-warning">
+                    <div class="card-header">
+                        <h4>Sei sicuro di voler eliminare il ristorante?</h4>
+                    </div>
+                    <div class="card-body">
                         <a href="{{route('restaurant-destroy', $restaurant->id)}}"><button class="alert">Conferma</button></a>
                         <a @@click="showAlert = false"><button>Annulla</button></a>
-
                     </div>
                   </div>
                 </div>

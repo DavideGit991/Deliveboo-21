@@ -39,6 +39,9 @@ function init(){
 
             searchResults: [],
 
+            menu: false,
+            openMenu: true,
+
             // dati del carrello
 
 
@@ -158,7 +161,7 @@ function init(){
 
             //Ricerca ristoranti per nome
             searchRestaurantName(){
-                this.inputName=this.capitalizeFirstLetter(this.inputName);
+                // this.inputName=this.capitalizeFirstLetter(this.inputName);
 
                 const data={
                     name:this.inputName
@@ -194,6 +197,13 @@ function init(){
             //Rende la prima lettera maiuscola in stringa
             capitalizeFirstLetter(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
+            },
+
+            //Burger menu
+            shMenu: function () {
+                this.openMenu===true?this.openMenu=false:this.openMenu=true;
+                this.menu = !this.openMenu;
+                // this.showName = !this.menu
             },
 
         }

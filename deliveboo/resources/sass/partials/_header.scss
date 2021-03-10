@@ -5,16 +5,25 @@ header {
     align-items: center;
     height: 70px;
     padding: 15px 20px;
+    color: white;
 
     a {
         text-decoration: none;
         margin: 0 10px;
         color: white; 
-        font-weight: bold;
+        font-weight: bold;   
     }
 
     #logo {
-        font-size: 20px;
+
+        a {
+
+            font-size: 25px;
+            i {
+                font-size: 18px;
+                margin: 1px;
+            }
+        }
     }
 }
     #search {
@@ -47,3 +56,84 @@ header {
         }
     }
     
+    #burger-links {
+        display: inline-block;
+        display: none;
+        font-size: 20px;
+        margin-right: 10px;
+
+        &:active {
+
+            color: $mainpurple;
+        }
+    }
+
+    //Burger Menu
+    .burger-menu {
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 120px;
+        height: 100px;
+        background-color: $main;
+        z-index: 1;
+        border: 1px solid white;
+        display: none;
+
+        a {
+
+            text-decoration: none;
+            color: white;
+            margin: 7px 0;
+    
+            &:active {
+                color: $mainpurple;
+            }
+        }
+    }
+
+
+//Media query
+@media all and (max-width: 991px) {
+
+    #burger-links {
+        display: block;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+    
+    #links {
+        display: none;
+    }
+    
+}
+
+@media all and (max-width: 767px) {
+    
+    
+    
+}
+
+@media all and (max-width: 479px) {
+
+    #logo {
+        a {
+            font-size: 18px !important;
+            i {
+                font-size: 14px !important;
+            }
+        }
+    }
+
+    #search {
+
+        width: 175px;
+    }
+    
+}

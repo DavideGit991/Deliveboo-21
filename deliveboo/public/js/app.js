@@ -2086,6 +2086,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -76429,15 +76433,9 @@ var render = function() {
             expression: "showmessage"
           }
         ],
-        staticClass: "message"
+        staticClass: "description-overlay"
       },
-      [
-        _c("h1", [
-          _vm._v(
-            "\n            grazie!! il tuo ordine e' in lavorazione\n        "
-          )
-        ])
-      ]
+      [_vm._m(1)]
     )
   ])
 }
@@ -76450,6 +76448,19 @@ var staticRenderFns = [
       _c("div", { attrs: { id: "dropin-container" } }),
       _vm._v(" "),
       _c("button", { attrs: { id: "submit-button" } }, [_vm._v("Avanti")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c("h1", [_vm._v("Grazie!")]),
+      _vm._v(" "),
+      _c("h2", [
+        _vm._v("Il tuo ordine è in lavorazione "),
+        _c("i", { staticClass: "fas fa-paper-plane" })
+      ])
     ])
   }
 ]
@@ -88697,6 +88708,8 @@ function init() {
       selectedTypology: '',
       selectedIndex: '',
       searchResults: [],
+      menu: false,
+      openMenu: true,
       // dati del carrello
       // quadratini colorati
       typologyColors: ["coral", "#660066", "skyblue", "#ffcc33", "#6b9023", "salmon", "darkCyan", "#660066", "#ffcc33", "salmon"]
@@ -88786,7 +88799,7 @@ function init() {
       searchRestaurantName: function searchRestaurantName() {
         var _this4 = this;
 
-        this.inputName = this.capitalizeFirstLetter(this.inputName);
+        // this.inputName=this.capitalizeFirstLetter(this.inputName);
         var data = {
           name: this.inputName
         };
@@ -88817,6 +88830,11 @@ function init() {
       //Rende la prima lettera maiuscola in stringa
       capitalizeFirstLetter: function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+      },
+      //Burger menu
+      shMenu: function shMenu() {
+        this.openMenu === true ? this.openMenu = false : this.openMenu = true;
+        this.menu = !this.openMenu; // this.showName = !this.menu
       }
     }
   });

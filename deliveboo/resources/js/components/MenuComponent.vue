@@ -113,11 +113,15 @@
             </div>
         </div>
         <!-- messaggio pagamento completato -->
-        <div class="message" v-show="showmessage">
-            <h1>
-                grazie!! il tuo ordine e' in lavorazione
-            </h1>
+        <div class="description-overlay" v-show="showmessage">
+            <div class="card">
+                
+                    <h1>Grazie!</h1>
+                    <h2>Il tuo ordine è in lavorazione <i class="fas fa-paper-plane"></i></h2>
+                
+            </div>
         </div>
+
     </div>
 </template>
 

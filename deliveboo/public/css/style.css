@@ -18,6 +18,7 @@ header {
   align-items: center;
   height: 70px;
   padding: 15px 20px;
+  color: white;
 }
 
 header a {
@@ -27,8 +28,13 @@ header a {
   font-weight: bold;
 }
 
-header #logo {
-  font-size: 20px;
+header #logo a {
+  font-size: 25px;
+}
+
+header #logo a i {
+  font-size: 18px;
+  margin: 1px;
 }
 
 #search {
@@ -60,6 +66,70 @@ header #logo {
 
 #search input:focus {
   outline: none;
+}
+
+#burger-links {
+  display: inline-block;
+  display: none;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+#burger-links:active {
+  color: #660066;
+}
+
+.burger-menu {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 120px;
+  height: 100px;
+  background-color: #00ccbc;
+  z-index: 1;
+  border: 1px solid white;
+  display: none;
+}
+
+.burger-menu a {
+  text-decoration: none;
+  color: white;
+  margin: 7px 0;
+}
+
+.burger-menu a:active {
+  color: #660066;
+}
+
+@media all and (max-width: 991px) {
+  #burger-links {
+    display: block;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  #links {
+    display: none;
+  }
+}
+
+@media all and (max-width: 479px) {
+  #logo a {
+    font-size: 18px !important;
+  }
+
+  #logo a i {
+    font-size: 14px !important;
+  }
+
+  #search {
+    width: 175px;
+  }
 }
 
 /* HOME */
@@ -146,7 +216,7 @@ svg {
 
 #typologies div:hover {
   cursor: pointer;
-  box-shadow: 0px 3px 10px 1px #a5a5a5;
+  box-shadow: 0px 3px 10px 1px #bdbdbd;
 }
 
 .bestRated {
@@ -421,7 +491,6 @@ svg {
 .description-overlay {
   display: flex;
   justify-content: center;
-  align-items: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -450,27 +519,32 @@ svg {
   cursor: pointer;
 }
 
-.description-full-screen {
-  display: flex;
-  align-items: center;
-  padding: 70px;
-  border: 2px solid #00ccbc;
+.description-overlay #card-warning {
+  height: 150px;
+  width: 450px;
+  margin-top: 100px;
   background-color: white;
+  border: 2px solid #ffa280;
   border-radius: 5px;
 }
 
-.description-wrapper {
-  text-align: center;
+.description-overlay #card-warning .card-header {
+  background-color: #ffa280;
+  font-size: 20px;
+  border-radius: 5px 5px 0 0;
+  margin-top: -2px;
 }
 
-.description-wrapper h2 {
-  font-size: 25px;
-  color: #660066;
-  margin-bottom: 10px;
+.description-overlay #card-warning .card-header h4 {
+  margin-bottom: 0;
 }
 
-.description-wrapper a {
-  margin: 5px;
+.description-overlay #card-warning .card-body {
+  height: calc(100% - 53px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 @media all and (max-width: 991px) {
@@ -777,6 +851,10 @@ svg {
   padding: 10px 15px;
 }
 
+#menu .ordine #dish-card-container .dish-card:hover {
+  box-shadow: 0px 0px 10px 1px #444444;
+}
+
 #menu .ordine #dish-card-container .dish-card .img-container {
   background-image: url(/images/food.jpg?f1573d3b1ff4cbe449954c83d50803fe);
   background-size: cover;
@@ -981,6 +1059,26 @@ svg {
   outline-color: #00ccbc;
 }
 
+#menu .description-overlay .card {
+  height: 150px;
+  width: 450px;
+  margin-top: 200px;
+  background-image: url(/images/food.jpg?f1573d3b1ff4cbe449954c83d50803fe);
+  background-size: contain;
+  border-radius: 5px;
+  color: #00ccbc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu .description-overlay .card h1,
+#menu .description-overlay .card h2 {
+  background-color: rgba(255, 255, 255, 0.959);
+  box-shadow: 0px 0px 7px 4px white;
+}
+
 footer {
   min-height: 110px;
   background-color: #006666;
@@ -998,7 +1096,7 @@ footer div:last-child {
 footer div:last-child a {
   color: lightgray;
   text-decoration: none;
-  margin-top: 10px;
+  margin: 10px 0 0 10px;
 }
 
 footer div:last-child a:hover {
