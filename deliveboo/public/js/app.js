@@ -2090,6 +2090,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2184,7 +2188,9 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/payment', fields).then(function (res) {
         console.log(res);
         _this2.showpage = false;
-        _this2.showmessage = true; // this.redirectTo();
+        _this2.showmessage = true;
+
+        _this2.redirectTo();
       })["catch"](function (error) {
         if (error.response.status === 422) {
           _this2.errors = error.response.data.errors || {};
@@ -2213,18 +2219,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -76233,42 +76227,48 @@ var render = function() {
                         _c("img", { attrs: { src: dish.img, alt: "" } })
                       ]),
                       _vm._v(" "),
-                      _c("h4", [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(dish.name) +
-                            "\n                        "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(dish.price) +
-                            " €\n                        "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      dish.availability == 1
-                        ? _c("div", [
-                            _c("i", {
-                              staticClass: "fas fa-plus-circle",
-                              on: {
-                                click: function($event) {
-                                  return _vm.AddPrice(
-                                    dish.price,
-                                    dish.name,
-                                    dish.id
-                                  )
-                                }
-                              }
-                            })
+                      _c("div", { staticClass: "food-body" }, [
+                        _c("div", [
+                          _c("h3", [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(dish.name) +
+                                " \n                                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(dish.price) +
+                                " €\n                                "
+                            )
                           ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      dish.availability == 0
-                        ? _c("div", [_c("p", [_vm._v("Non Disponibile.")])])
-                        : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        dish.availability == 1
+                          ? _c("div", { staticClass: "plus" }, [
+                              _c("i", {
+                                staticClass: "fas fa-plus-circle",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.AddPrice(
+                                      dish.price,
+                                      dish.name,
+                                      dish.id
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        dish.availability == 0
+                          ? _c("div", { staticClass: "plus" }, [
+                              _c("p", [_vm._v("Non Disponibile.")])
+                            ])
+                          : _vm._e()
+                      ])
                     ]
                   )
                 }),
@@ -76651,132 +76651,147 @@ var render = function() {
       _vm._v("\n        Ordini\n    ")
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _c("div"),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          on: {
-            click: function($event) {
-              return _vm.getLastOrder()
+    _c("div", [
+      _c("div", { staticClass: "resto-name" }, [
+        _c(
+          "button",
+          {
+            on: {
+              click: function($event) {
+                return _vm.getLastOrder()
+              }
             }
-          }
+          },
+          [_vm._v("\n                Visualizza la tua comanda\n            ")]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.dropdown,
+              expression: "dropdown"
+            }
+          ],
+          staticClass: "orders-container"
         },
-        [_vm._v("\n            Visualizza la tua comanda\n        ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "ultimoOrdine" },
-        _vm._l(_vm.lastOrder, function(item, i) {
-          return _c(
+        [
+          _c(
             "div",
-            { key: item.message, attrs: { ":key": i.message } },
-            [
-              _c("div", { staticClass: "cliente" }, [
-                i < 1
-                  ? _c("div", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.uname) +
-                          "\n\n                        " +
-                          _vm._s(item.lastname) +
-                          "\n                        "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.address) +
-                          "\n                        "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.phone) +
-                          "\n                    "
-                      )
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ordine" }, [
-                _vm._v(
-                  "\n\n                    " +
-                    _vm._s(item.name) +
-                    "\n\n                "
-                )
-              ])
-            ]
-          )
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "ordini" },
-        _vm._l(_vm.ultimi5ordini, function(item, i) {
-          return _c(
-            "div",
-            { key: item.message, attrs: { ":key": i.message } },
-            [
+            { staticClass: "ultimoOrdine" },
+            _vm._l(_vm.lastOrder, function(item, i) {
+              return _c(
+                "div",
+                { key: item.message, attrs: { ":key": i.message } },
+                [
+                  i < 1
+                    ? _c("div", [
+                        _c("div", [
+                          _c("h4", [_vm._v("Nome:")]),
+                          _vm._v(
+                            " " +
+                              _vm._s(item.uname) +
+                              " " +
+                              _vm._s(item.lastname) +
+                              "\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c("h4", [_vm._v("Indirizzo:")]),
+                          _vm._v(
+                            " " +
+                              _vm._s(item.address) +
+                              "\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c("h4", [_vm._v("Telefono:")]),
+                          _vm._v(
+                            " " +
+                              _vm._s(item.phone) +
+                              "\n                        "
+                          )
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ordine" }, [
+                    _c("h4", [_vm._v("Ordine:")]),
+                    _vm._v(" "),
+                    _c("ol", [_c("li", [_vm._v(_vm._s(item.name))])])
+                  ])
+                ]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.ultimi5ordini, function(item, i) {
+            return _c(
+              "div",
+              {
+                key: item.message,
+                staticClass: "ordini",
+                attrs: { ":key": i.message }
+              },
               _vm._l(_vm.ultimi5ordini[i], function(item, a) {
                 return _c(
                   "div",
                   { key: item.message, attrs: { ":key": a.message } },
                   [
-                    _c("div", { staticClass: "cliente" }, [
-                      a < 1
-                        ? _c("div", [
+                    a < 1
+                      ? _c("div", [
+                          _c("div", [
+                            _c("h4", [_vm._v("Nome:")]),
                             _vm._v(
-                              "\n                            " +
+                              " " +
                                 _vm._s(item.uname) +
-                                "\n\n                            " +
+                                " " +
                                 _vm._s(item.lastname) +
-                                "\n                            "
-                            ),
-                            _c("br"),
+                                "\n                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c("h4", [_vm._v("Indirizzo:")]),
                             _vm._v(
-                              "\n                            " +
+                              " " +
                                 _vm._s(item.address) +
-                                "\n                            "
-                            ),
-                            _c("br"),
+                                "\n                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c("h4", [_vm._v("Telefono:")]),
                             _vm._v(
-                              "\n                            " +
+                              " " +
                                 _vm._s(item.phone) +
                                 "\n                        "
                             )
                           ])
-                        : _vm._e()
-                    ]),
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "ordine" }, [
-                      _vm._v(
-                        "\n\n                        " +
-                          _vm._s(item.name) +
-                          "\n\n                    "
-                      )
+                      _c("h4", [_vm._v("Ordine:")]),
+                      _vm._v(" "),
+                      _c("ol", [_c("li", [_vm._v(_vm._s(item.name))])])
                     ])
                   ]
                 )
               }),
-              _vm._v(" "),
-              _c("br"),
-              _c("br")
-            ],
-            2
-          )
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _c("br")
+              0
+            )
+          })
+        ],
+        2
+      )
     ])
   ])
 }
@@ -89539,9 +89554,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

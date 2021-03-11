@@ -61,6 +61,37 @@
     display: none;
 }
 
+//Ordini
+.resto-name {
+    button {
+        @include buttonStyle($mainpink, $mainpurple);
+        margin: 15px 0;
+    
+    }
+}
+.orders-container {
+
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .ultimoOrdine, .ordini {
+
+        @include cardStyle($mainshadow);
+        padding: 5px;
+        height: 200px;
+        overflow: auto;
+
+        .ordine {
+
+            ol {
+                padding-left: 30px;
+            }
+        }
+    }
+}
+
 /* Overlay */
 
 .description-overlay {

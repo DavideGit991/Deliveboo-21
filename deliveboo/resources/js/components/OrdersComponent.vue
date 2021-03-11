@@ -3,76 +3,64 @@
         <div class="card-header">
             Ordini
         </div>
-        <div class="card-body">
-            <div>
-
+        <div>
+            <div class="resto-name">
+                <button @click='getLastOrder()'>
+                    Visualizza la tua comanda
+                </button>
             </div>
-            <button @click='getLastOrder()'>
-                Visualizza la tua comanda
-            </button>
+            
+            <div class="orders-container" v-show="dropdown">
 
-
-
-            <!-- comanda ultimo ordine -->
-            <div class="ultimoOrdine">
-                <div v-for="(item,i) in lastOrder " :key="item.message" ::key="i.message">
-                    <div class="cliente">
-
+                <!-- comanda ultimo ordine -->
+                <div class="ultimoOrdine">
+                    <div v-for="(item,i) in lastOrder " :key="item.message" ::key="i.message">
                         <div v-if="i<1">
-                            {{item.uname}}
-
-                            {{item.lastname}}
-                            <br>
-                            {{item.address}}
-                            <br>
-                            {{item.phone}}
-                        </div>
-
-                    </div>
-
-                    <div class="ordine">
-
-                        {{item.name}}
-
-                    </div>
-
-
-                </div>
-            </div>
-            <br><br>
-
-            <!-- ultimi 5-1 ordini -->
-            <div class="ordini">
-                <div v-for="(item,i) in ultimi5ordini " :key="item.message" ::key="i.message">
-                    <div v-for="(item,a) in ultimi5ordini[i]" :key='item.message' ::key='a.message'>
-
-                        <div class="cliente" >
-
-                            <div v-if="a<1">
-                                {{item.uname}}
-
-                                {{item.lastname}}
-                                <br>
-                                {{item.address}}
-                                <br>
-                                {{item.phone}}
+                            <div>
+                                <h4>Nome:</h4> {{item.uname}} {{item.lastname}}
                             </div>
-
+                            <div>
+                                <h4>Indirizzo:</h4> {{item.address}}
+                            </div>
+                            <div>
+                                <h4>Telefono:</h4> {{item.phone}}
+                            </div>
                         </div>
-
+                        
                         <div class="ordine">
-
-                            {{item.name}}
-
+                            <h4>Ordine:</h4>
+                            <ol>
+                                <li>{{item.name}}</li>    
+                            </ol>
                         </div>
-
                     </div>
-                    <br><br>
+                </div>
 
+                <!-- ultimi 5-1 ordini -->
+                
+                <div class="ordini" v-for="(item,i) in ultimi5ordini " :key="item.message" ::key="i.message">
+                    <div v-for="(item,a) in ultimi5ordini[i]" :key='item.message' ::key='a.message'> 
+                        <div v-if="a<1">
+                            <div>
+                                <h4>Nome:</h4> {{item.uname}} {{item.lastname}}
+                            </div>
+                            <div>
+                                <h4>Indirizzo:</h4> {{item.address}}
+                            </div>
+                            <div>
+                                <h4>Telefono:</h4> {{item.phone}}
+                            </div>
+                        </div>
+                          
+                        <div class="ordine">
+                            <h4>Ordine:</h4>
+                            <ol>
+                                <li>{{item.name}}</li>    
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <br><br>
         </div>
     </div>
 </template>
