@@ -19,9 +19,18 @@ header {
         a {
 
             font-size: 25px;
+
+            @media all and (max-width: 479px){
+                font-size: 18px 
+            }
+
             i {
                 font-size: 18px;
                 margin: 1px;
+
+                @media all and (max-width: 479px){
+                    font-size: 14px 
+                }
             }
         }
     }
@@ -115,21 +124,10 @@ header {
 }
 
 @media all and (max-width: 767px) {
-    
-    
-    
+      
 }
 
 @media all and (max-width: 479px) {
-
-    #logo {
-        a {
-            font-size: 18px !important;
-            i {
-                font-size: 14px !important;
-            }
-        }
-    }
 
     #search {
 

@@ -9,7 +9,7 @@
 
                 <div v-show="showpayment" >
                     <h2 class="title">Menu Ristorante</h2>
-                    <div id="dish-card-container">
+                    <div id="dish-card-container" class="dish-card-container">
                         <div class="dish-card" v-for="dish in dishes" :key="dish.message">
                             <div class="img-container">
                                 <img :src="dish.img" alt="" >
@@ -36,7 +36,7 @@
 
                 <!-- Carrello -->
                 <div>
-                    <div id="cart-container">
+                    <div class="cart-container">
                         <div class="cart-header">
                             <h3>
                                 Carrello
