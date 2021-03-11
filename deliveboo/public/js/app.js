@@ -2224,18 +2224,138 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     id: Number
   },
   data: function data() {
-    return {};
+    return {
+      orders: [],
+      lastOrder: [],
+      dropdown: false,
+      ultimi5ordini: []
+    };
   },
   mounted: function mounted() {
-    console.log(this.id);
-    axios.get('/orders/' + this.id).then(function (res) {
-      console.log(res);
+    var _this = this;
+
+    axios.get('orders/' + this.id).then(function (res) {
+      _this.orders = res.data; // console.log(this.orders);
     });
+  },
+  methods: {
+    getLastOrder: function getLastOrder() {
+      var _this2 = this;
+
+      this.dropdown = !this.dropdown;
+
+      if (this.dropdown == true) {
+        // comanda ultimo ordine
+        var comanda = this.orders[0].ordine;
+        this.orders.forEach(function (element) {
+          if (element.ordine == comanda) {
+            _this2.lastOrder.push(element);
+          }
+        }); //ultimi 5 ordini
+
+        var uOrdine = [];
+        var count = 0;
+        this.orders.forEach(function (element, i) {
+          if (!uOrdine.includes(element.ordine) && count <= 4) {
+            count++;
+            uOrdine.push(element.ordine);
+          }
+        });
+
+        var _loop = function _loop(index) {
+          var idOrdine = uOrdine[index];
+          var arr = [];
+
+          _this2.orders.forEach(function (element) {
+            if (element.ordine == idOrdine) {
+              arr.push(element);
+            }
+          });
+
+          _this2.ultimi5ordini.push(arr);
+        };
+
+        for (var index = 1; index < uOrdine.length; index++) {
+          _loop(index);
+        }
+      } else {
+        this.ultimi5ordini = [];
+        this.lastOrder = [];
+      }
+    }
   }
 });
 
@@ -76529,7 +76649,131 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
-      _vm._v("\n        " + _vm._s(_vm.id) + "\n    ")
+      _c("div"),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          on: {
+            click: function($event) {
+              return _vm.getLastOrder()
+            }
+          }
+        },
+        [_vm._v("\n            Visualizza la tua comanda\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "ultimoOrdine" },
+        _vm._l(_vm.lastOrder, function(item, i) {
+          return _c(
+            "div",
+            { key: item.message, attrs: { ":key": i.message } },
+            [
+              _c("div", { staticClass: "cliente" }, [
+                i < 1
+                  ? _c("div", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.uname) +
+                          "\n\n                        " +
+                          _vm._s(item.lastname) +
+                          "\n                        "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.address) +
+                          "\n                        "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.phone) +
+                          "\n                    "
+                      )
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ordine" }, [
+                _vm._v(
+                  "\n\n                    " +
+                    _vm._s(item.name) +
+                    "\n\n                "
+                )
+              ])
+            ]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "ordini" },
+        _vm._l(_vm.ultimi5ordini, function(item, i) {
+          return _c(
+            "div",
+            { key: item.message, attrs: { ":key": i.message } },
+            [
+              _vm._l(_vm.ultimi5ordini[i], function(item, a) {
+                return _c(
+                  "div",
+                  { key: item.message, attrs: { ":key": a.message } },
+                  [
+                    _c("div", { staticClass: "cliente" }, [
+                      a < 1
+                        ? _c("div", [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(item.uname) +
+                                "\n\n                            " +
+                                _vm._s(item.lastname) +
+                                "\n                            "
+                            ),
+                            _c("br"),
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(item.address) +
+                                "\n                            "
+                            ),
+                            _c("br"),
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(item.phone) +
+                                "\n                        "
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ordine" }, [
+                      _vm._v(
+                        "\n\n                        " +
+                          _vm._s(item.name) +
+                          "\n\n                    "
+                      )
+                    ])
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _c("br"),
+              _c("br")
+            ],
+            2
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _c("br")
     ])
   ])
 }
@@ -89292,9 +89536,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

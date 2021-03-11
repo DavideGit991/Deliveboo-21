@@ -77,14 +77,16 @@
                             Stats
                         </button>
                     </a>
-                </div>   
+                </div>
             </div>
         </div>
 
             {{-- componente ordine --}}
             <div class="card">
 
-                <orders-component :id="{{$restaurant->id}}">
+                <orders-component
+                    :id="{{$restaurant->id}}"
+                >
                 </orders-component>
 
             </div>
@@ -101,6 +103,6 @@
                 </div>
             </div>
         @endif
-    </div>    
+    </div>
 </section>
 @endsection
