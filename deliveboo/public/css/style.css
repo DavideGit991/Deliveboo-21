@@ -32,9 +32,21 @@ header #logo a {
   font-size: 25px;
 }
 
+@media all and (max-width: 479px) {
+  header #logo a {
+    font-size: 18px;
+  }
+}
+
 header #logo a i {
   font-size: 18px;
   margin: 1px;
+}
+
+@media all and (max-width: 479px) {
+  header #logo a i {
+    font-size: 14px;
+  }
 }
 
 #search {
@@ -119,14 +131,6 @@ header #logo a i {
 }
 
 @media all and (max-width: 479px) {
-  #logo a {
-    font-size: 18px !important;
-  }
-
-  #logo a i {
-    font-size: 14px !important;
-  }
-
   #search {
     width: 175px;
   }
@@ -827,8 +831,7 @@ svg {
 
 #menu .ordine {
   display: flex;
-  justify-content: space-between;
-  height: 100%;
+  flex-wrap: wrap;
 }
 
 #menu .ordine .title {
@@ -837,14 +840,16 @@ svg {
   text-align: center;
 }
 
-#menu .ordine #dish-card-container {
+#menu .ordine .dish-card-container {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
-  width: calc(100vw - 280px);
+  width: calc(100vw - 300px);
+  height: calc(100vh - 220px);
+  overflow: auto;
 }
 
-#menu .ordine #dish-card-container .dish-card {
+#menu .ordine .dish-card-container .dish-card {
   width: 260px;
   background-color: white;
   border-radius: 5px;
@@ -852,13 +857,14 @@ svg {
   box-shadow: 0px 0px 3px 1px #444444;
   list-style: none;
   padding: 10px 15px;
+  height: 187px;
 }
 
-#menu .ordine #dish-card-container .dish-card:hover {
+#menu .ordine .dish-card-container .dish-card:hover {
   box-shadow: 0px 0px 10px 1px #444444;
 }
 
-#menu .ordine #dish-card-container .dish-card .img-container {
+#menu .ordine .dish-card-container .dish-card .img-container {
   background-image: url(/images/food.jpg?f1573d3b1ff4cbe449954c83d50803fe);
   background-size: cover;
   background-position: left;
@@ -866,34 +872,34 @@ svg {
   height: 104px;
 }
 
-#menu .ordine #dish-card-container .dish-card .img-container img {
+#menu .ordine .dish-card-container .dish-card .img-container img {
   margin: auto;
   max-width: 100%;
   max-height: 100%;
 }
 
-#menu .ordine #dish-card-container .dish-card div {
+#menu .ordine .dish-card-container .dish-card div {
   text-align: center;
 }
 
-#menu .ordine #dish-card-container .dish-card div:last-child p {
+#menu .ordine .dish-card-container .dish-card div:last-child p {
   color: #ffcc33;
 }
 
-#menu .ordine #dish-card-container .dish-card div:last-child i {
+#menu .ordine .dish-card-container .dish-card div:last-child i {
   color: #00ccbc;
   font-size: 25px;
 }
 
-#menu .ordine #dish-card-container .dish-card div:last-child i:hover {
+#menu .ordine .dish-card-container .dish-card div:last-child i:hover {
   cursor: pointer;
 }
 
-#menu .ordine #dish-card-container .dish-card div:last-child i:active {
+#menu .ordine .dish-card-container .dish-card div:last-child i:active {
   color: #660066;
 }
 
-#menu .ordine #cart-container {
+#menu .ordine .cart-container {
   width: 260px;
   background-color: white;
   border-radius: 5px;
@@ -905,7 +911,7 @@ svg {
   padding: 5px;
 }
 
-#menu .ordine #cart-container .cart-header {
+#menu .ordine .cart-container .cart-header {
   background-color: #ffa280;
   color: white;
   text-align: center;
@@ -915,16 +921,16 @@ svg {
   align-items: center;
 }
 
-#menu .ordine #cart-container .cart-header i {
+#menu .ordine .cart-container .cart-header i {
   margin: 0 5px;
 }
 
-#menu .ordine #cart-container .cart {
+#menu .ordine .cart-container .cart {
   height: calc(100vh - 256px);
   padding: 5px;
 }
 
-#menu .ordine #cart-container .cart .cart-element {
+#menu .ordine .cart-container .cart .cart-element {
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -933,24 +939,24 @@ svg {
   padding: 10px 5px;
 }
 
-#menu .ordine #cart-container .cart .cart-element p {
+#menu .ordine .cart-container .cart .cart-element p {
   color: #00ccbc;
   margin: 5px 0 0 18px;
 }
 
-#menu .ordine #cart-container .cart .cart-element i {
+#menu .ordine .cart-container .cart .cart-element i {
   color: #ffa280;
 }
 
-#menu .ordine #cart-container .cart .cart-element i:hover {
+#menu .ordine .cart-container .cart .cart-element i:hover {
   cursor: pointer;
 }
 
-#menu .ordine #cart-container .cart .cart-element i:active {
+#menu .ordine .cart-container .cart .cart-element i:active {
   color: #660066;
 }
 
-#menu .ordine #cart-container .cart button {
+#menu .ordine .cart-container .cart button {
   height: 30px;
   padding: 0 10px;
   background-color: #ffa280;
@@ -962,26 +968,26 @@ svg {
   border-color: #262626;
 }
 
-#menu .ordine #cart-container .cart button:active {
+#menu .ordine .cart-container .cart button:active {
   outline-color: #00ccbc;
 }
 
-#menu .ordine #cart-container .cart button:hover {
+#menu .ordine .cart-container .cart button:hover {
   cursor: pointer;
 }
 
-#menu .ordine #cart-container .cart > div:first-child {
+#menu .ordine .cart-container .cart > div:first-child {
   height: calc(100% - 80px);
   overflow: auto;
 }
 
-#menu .ordine #cart-container .cart > div:last-child {
+#menu .ordine .cart-container .cart > div:last-child {
   height: 80px;
   border-top: 1px solid black;
   padding: 10px;
 }
 
-#menu .ordine #cart-container .cart > div:last-child h2 {
+#menu .ordine .cart-container .cart > div:last-child h2 {
   color: #262626;
   margin-bottom: 10px;
 }
@@ -989,9 +995,15 @@ svg {
 #menu .ordine .pagamento {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 20px;
-  width: calc(100vw - 280px);
+  align-items: baseline;
+  margin: 0 40px;
+  width: calc(100vw - 380px);
+}
+
+@media all and (max-width: 767px) {
+  #menu .ordine .pagamento {
+    width: 100vw;
+  }
 }
 
 #menu .ordine .pagamento button {
@@ -1014,21 +1026,21 @@ svg {
   cursor: pointer;
 }
 
-#menu .ordine .pagamento .carta-di-credito {
-  width: 800px;
-}
-
 #menu .ordine .pagamento .carta-di-credito svg {
   max-width: 40px;
+}
+
+#menu .ordine .pagamento .carta-di-credito .braintree-dropin.braintree-loaded {
+  margin: 20px 0;
 }
 
 #menu .ordine .pagamento #form {
   background-color: white;
   padding: 10px;
-  margin: 20px;
+  margin-top: 20px;
   border: 1px solid gray;
   border-radius: 3px;
-  width: 850px;
+  width: 80%;
 }
 
 #menu .ordine .pagamento #form h2 {
@@ -1062,6 +1074,12 @@ svg {
   outline-color: #00ccbc;
 }
 
+@media all and (max-width: 991px) {
+  #menu .ordine .pagamento #form .form-container input {
+    width: 100%;
+  }
+}
+
 #menu .description-overlay .card {
   height: 150px;
   width: 450px;
@@ -1079,7 +1097,17 @@ svg {
 #menu .description-overlay .card h1,
 #menu .description-overlay .card h2 {
   background-color: rgba(255, 255, 255, 0.959);
-  box-shadow: 0px 0px 7px 4px white;
+  border-radius: 10px;
+}
+
+@media all and (max-width: 767px) {
+  #menu #dish-card-container {
+    width: calc(100vw - 30px);
+  }
+
+  #menu .cart-container {
+    width: 100vw;
+  }
 }
 
 footer {

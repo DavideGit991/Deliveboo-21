@@ -76100,7 +76100,10 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { attrs: { id: "dish-card-container" } },
+                {
+                  staticClass: "dish-card-container",
+                  attrs: { id: "dish-card-container" }
+                },
                 _vm._l(_vm.dishes, function(dish) {
                   return _c(
                     "div",
@@ -76155,7 +76158,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", [
-            _c("div", { attrs: { id: "cart-container" } }, [
+            _c("div", { staticClass: "cart-container" }, [
               _c("div", { staticClass: "cart-header" }, [
                 _c("h3", [
                   _vm._v(

@@ -5,8 +5,7 @@
 
     .ordine {
         display: flex;
-        justify-content: space-between;
-        height: 100%;
+        flex-wrap: wrap;
 
         .title {
             color: $mainpurple;
@@ -14,15 +13,18 @@
             text-align: center;
         }
         
-        #dish-card-container {
+        .dish-card-container {
             display: flex;
             flex-wrap: wrap;
             padding: 20px;
-            width: calc(100vw - 280px);
+            width: calc(100vw - 300px);
+            height: calc(100vh - 220px);
+            overflow: auto;
 
             .dish-card {
                 @include cardStyle($mainshadow);
                 padding: 10px 15px;
+                height: 187px;
 
                 &:hover {
                     box-shadow: 0px 0px 10px 1px $mainshadow;
@@ -71,7 +73,7 @@
             }
         }
 
-        #cart-container {
+        .cart-container {
             @include cardStyle($mainpink);
             box-shadow: none;
             border: 3px solid $mainpink;
@@ -153,9 +155,13 @@
 
             display: flex;
             flex-direction: column;
-            align-items: center;
-            margin: 0 20px;
-            width: calc(100vw - 280px);
+            align-items: baseline;
+            margin: 0 40px;
+            width: calc(100vw - 380px);
+
+            @media all and (max-width: 767px) {
+                width: 100vw;
+            }
 
             button {
     
@@ -164,10 +170,13 @@
             }
 
             .carta-di-credito {
-                width: 800px;
     
                 svg {
                     max-width: 40px;
+                }
+
+                .braintree-dropin.braintree-loaded {
+                    margin: 20px 0;
                 }
                 
             }
@@ -176,10 +185,10 @@
     
                 background-color: white;
                 padding: 10px;
-                margin: 20px;
+                margin-top: 20px;
                 border: 1px solid gray;
                 border-radius: 3px;
-                width: 850px;
+                width: 80%;
                 
                 h2 {
                     color: $mainpurple;
@@ -204,6 +213,12 @@
                         width: 300px;
                         height: 30px;
                         margin-right: 10px;
+
+                        @media all and (max-width: 991px) {
+                            
+                            width: 100% ;
+                             
+                        }
                     }
     
                 }
@@ -231,11 +246,38 @@
             h1, h2 {
 
                 background-color: rgba(255, 255, 255, 0.959);
-                box-shadow: 0px 0px 7px 4px white;
+                // box-shadow: 0px 0px 3px 3px white;
+                border-radius: 10px;
 
             }
     
         }   
+    }
+
+    //Media query
+    
+    @media all and (max-width: 991px) {
+    
+        
+    }
+    
+    @media all and (max-width: 767px) {
+    
+        #dish-card-container {
+
+            width: calc(100vw - 30px) ;
+        }
+
+        .cart-container {
+
+            width: 100vw;
+        }
+        
+    }
+    
+    @media all and (max-width: 479px) {
+    
+       
     }
 
 }
