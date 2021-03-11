@@ -2090,6 +2090,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -76223,42 +76227,48 @@ var render = function() {
                         _c("img", { attrs: { src: dish.img, alt: "" } })
                       ]),
                       _vm._v(" "),
-                      _c("h4", [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(dish.name) +
-                            "\n                        "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(dish.price) +
-                            " €\n                        "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      dish.availability == 1
-                        ? _c("div", [
-                            _c("i", {
-                              staticClass: "fas fa-plus-circle",
-                              on: {
-                                click: function($event) {
-                                  return _vm.AddPrice(
-                                    dish.price,
-                                    dish.name,
-                                    dish.id
-                                  )
-                                }
-                              }
-                            })
+                      _c("div", { staticClass: "food-body" }, [
+                        _c("div", [
+                          _c("h3", [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(dish.name) +
+                                " \n                                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(dish.price) +
+                                " €\n                                "
+                            )
                           ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      dish.availability == 0
-                        ? _c("div", [_c("p", [_vm._v("Non Disponibile.")])])
-                        : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        dish.availability == 1
+                          ? _c("div", { staticClass: "plus" }, [
+                              _c("i", {
+                                staticClass: "fas fa-plus-circle",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.AddPrice(
+                                      dish.price,
+                                      dish.name,
+                                      dish.id
+                                    )
+                                  }
+                                }
+                              })
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        dish.availability == 0
+                          ? _c("div", { staticClass: "plus" }, [
+                              _c("p", [_vm._v("Non Disponibile.")])
+                            ])
+                          : _vm._e()
+                      ])
                     ]
                   )
                 }),

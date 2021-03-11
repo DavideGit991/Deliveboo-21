@@ -15,20 +15,24 @@
                                 <img :src="dish.img" alt="" >
                             </div>
 
-                            <h4>
-                                {{dish.name}}
-                            </h4>
-                            <p>
-                                {{dish.price}} &euro;
-                            </p>
+                            <div class="food-body">
+                                <div>
+                                    <h3>
+                                        {{dish.name}} 
+                                    </h3>
+                                    <span>
+                                        {{dish.price}} &euro;
+                                    </span>
+                                </div>
 
-                            <div v-if="dish.availability== 1">
-                                <i class="fas fa-plus-circle" @click="AddPrice(dish.price,dish.name,dish.id)"></i>
+                                <div class="plus" v-if="dish.availability== 1">
+                                    <i class="fas fa-plus-circle" @click="AddPrice(dish.price,dish.name,dish.id)"></i>
+                                </div>
+                                <div class="plus" v-if="dish.availability== 0">
+                                    <p>Non Disponibile.</p>
+                                </div>
                             </div>
 
-                            <div v-if="dish.availability== 0">
-                                 <p>Non Disponibile.</p>
-                            </div>
 
                         </div>
                     </div>
