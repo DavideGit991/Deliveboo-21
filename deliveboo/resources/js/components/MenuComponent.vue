@@ -248,7 +248,7 @@ export default {
                        console.log(res);
                         this.showpage=false;
                         this.showmessage=true;
-                        // this.redirectTo();
+                        this.redirectTo();
 
                    })
 

@@ -23,7 +23,7 @@
                     </a>
                 </div>
                 @else
-                <div>
+                <div class="resto-name">
                     <h3>
                         {{$restaurant->name}}
                         <i id='icon' class="fas fa-sort-down" @@click="showDetails()"></i>

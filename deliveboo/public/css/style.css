@@ -493,6 +493,51 @@ svg {
   display: none;
 }
 
+.resto-name button {
+  height: 30px;
+  padding: 0 10px;
+  background-color: #ffa280;
+  color: #660066;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.resto-name button:active {
+  outline-color: #00ccbc;
+}
+
+.resto-name button:hover {
+  cursor: pointer;
+}
+
+.orders-container {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.orders-container .ultimoOrdine,
+.orders-container .ordini {
+  width: 260px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0px 0px 3px 1px #444444;
+  list-style: none;
+  padding: 5px;
+  height: 200px;
+  overflow: auto;
+}
+
+.orders-container .ultimoOrdine .ordine ol,
+.orders-container .ordini .ordine ol {
+  padding-left: 30px;
+}
+
 /* Overlay */
 
 .description-overlay {
