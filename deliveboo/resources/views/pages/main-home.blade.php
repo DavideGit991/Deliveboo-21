@@ -14,7 +14,7 @@
 
     <div class="jumbo">
       <h1>Ristorante a casa tua.</h1>
-      <label for="citta">Scegli la tua città</label> 
+      <label for="citta">Scegli la tua città</label>
         <select @@change="selectCity($event)" id="citta" name="citta">
             <option disable selected>Seleziona Città</option>
             <option  :key="city.city" :value="city.city" v-for="city in cities" >@{{city.city}}</option>
@@ -94,7 +94,7 @@
 
           <div v-for="element in restaurantsVotes" @@click='GoToMenu(element.id)'>
             <div class="img-container">
-              <img :src="element.logo" alt="">
+              <img :src="'storage/avatar/'+ element.logo" alt="">
             </div>
             <div>
               <h4>@{{element.name}}</h4>

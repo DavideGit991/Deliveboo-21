@@ -9,6 +9,18 @@
             <div class="card-header">
                 Dashboard di <b>{{Auth::user()->name}}</b>
             </div>
+            <div>
+                {{-- @dd($restaurant->logo); --}}
+
+                {{$restaurant->id}}
+
+                @if ($restaurant->logo)
+                    <img class='rounded ' src="{{asset('storage/avatar/'.$restaurant->logo)}}" height='50'>
+                @else
+                {{-- logo default --}}
+                    <img class='rounded' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.A-Iz4F74iibUzjTjBpKljQHaE7%26pid%3DApi&f=1" height='50'>
+                @endif
+            </div>
 
             <div class="card-body">
                 @if (!$restaurant)
@@ -54,6 +66,26 @@
                         </h4>
                         <span>{{$restaurant->phone}}</span>
                     </div>
+
+                    {{-- upload img ristorante --}}
+                    <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
+
+                        <input name='iconUser' type="file" >
+
+                        <input type="submit" value="Invia">
+                    </form>
+
+                    {{-- delete img --}}
+                    <a href="{{route('delete-avatar')}}">
+                        Reset Icon
+                    </a>
+
+
+
+
+
                 </div>
 
                 <div id="dashboard-buttons">

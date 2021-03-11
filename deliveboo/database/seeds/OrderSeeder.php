@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 
 use App\Order;
-use App\Dish;
 use App\Restaurant;
 
 
@@ -20,7 +19,7 @@ class OrderSeeder extends Seeder
             -> create()
             -> each(function($order) {
                 $restaurant=Restaurant::inRandomOrder()->first();
-                $dish = $restaurant->dishes()->inRandomOrder()->limit(rand(5,8))->get();
+                $dish = $restaurant->dishes()->inRandomOrder()->limit(rand(1,8))->get();
                 $order -> dishes() -> attach($dish);
             });
       }

@@ -1,13 +1,19 @@
 <?php
 namespace App\Http\Controllers;
 use App\Restaurant;
-use Illuminate\Contracts\Session\Session;
+
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
+
+
+
+
 class RestaurantController extends Controller
 {
     //  public function __construct()
@@ -161,4 +167,60 @@ class RestaurantController extends Controller
         ->get();
         return view('pages.stats', compact('stats','restaurant','idUser'));
     }
+
+    // upload img
+    public function upload(Request $req)
+    {
+
+        $req->validate([
+               'iconUser'=> 'required|image|max:2048'
+         ]);
+
+        $this->deleteFile();
+
+        $image = $req ->file ('iconUser');
+
+        $ext= $image->getClientOriginalExtension();
+        $nameimg=rand(100000,999999) . '_' . time();
+
+
+        $fullname=$nameimg . '.' . $ext;
+
+        $image->storeAs('avatar',$fullname,'public');
+
+        $userid=Auth::user()->id;
+
+        $restaurant=Restaurant::where('user_id','=',$userid)->first();
+        // dd($restaurant);
+
+        $restaurant->logo = $fullname;
+
+        $restaurant->save();
+
+
+        return redirect()->back();
+
+
+    }
+     //serve per eliminare il campo del nome file nel Db
+     public function deleteDb()
+     {
+         $this->deleteFile();
+         $userid=Auth::user()->id;
+         $restaurant=Restaurant::where('user_id','=',$userid)->first();
+         if($restaurant->logo){
+             $restaurant->logo = null;
+             $restaurant->save();
+         };
+         return redirect()->back();
+     }
+
+         //serve per eliminare i file nella cartella di riferimento in storage
+        private function deleteFile(){
+         $userid=Auth::user()->id;
+         $restaurant=Restaurant::where('user_id','=',$userid)->first();
+         $filename=$restaurant->logo;
+         $file= storage_path('app/public/avatar/'. $filename);
+         File::delete($file);
+     }
 }
