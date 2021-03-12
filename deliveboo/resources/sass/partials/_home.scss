@@ -14,7 +14,7 @@
     .jumbo {
         height: 100%;
         position: relative;
-        
+
         label {
             font-size: 20px;
             color: $mainpurple;
@@ -50,7 +50,7 @@
             max-height: 100%;
         }
     }
-        
+
 /* diagonal border */
 .gradient {
 width: 100%;
@@ -87,7 +87,7 @@ svg {
     }
 }
 
-//Ristoranti 
+//Ristoranti
 .bestRated {
     background-color: $mainpink;
     padding: 20px;
@@ -102,16 +102,16 @@ svg {
     }
 
     .best > div {
-       
+
         @include cardStyle($mainshadow);
         transition: 0.3s;
-        
+
         &:hover {
-            
+
             cursor: pointer;
             transform: scale(1.1);
         }
-        
+
         .img-container {
             background-color: dimgray;
             background-image: url(../img/generic.jpg);
@@ -124,10 +124,10 @@ svg {
                 width: 100%;
             }
         }
-        
+
         div {
             padding: 5px 15px;
-            
+
             h4 {
                 color: #262626;
                 font-size: 14px;
@@ -138,7 +138,7 @@ svg {
     .noRes {
         text-align: center;
     }
-    
+
     .stars {
         color: $mainyellow;
     }

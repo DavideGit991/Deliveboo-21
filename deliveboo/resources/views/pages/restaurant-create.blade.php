@@ -8,6 +8,7 @@
                 Nuovo Ristorante
             </div>
 
+
             <div class="card-body">
 
                 <form action="{{route('restaurant-store')}}" method="post">
@@ -30,10 +31,27 @@
                         <label for="phone">Telefono*</label>
                         <input type="tel" class="form-control" name="phone" required maxlength="15" minlength="10">
                     </div>
+                    <div>
+                        <label for="typologies[]">Tipologie*</label>
+                        @foreach ($typologies as $typology)
+
+                        <input type="checkbox" class="form-control" name="typologies[]" value="{{$typology->id}}" > {{$typology->name}}
+                        @endforeach
+                    </div>
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
                     <input type="text" hidden name="user_id" value="{{Auth::user()->id}}">
 
                     <div>
+
                         <button type="submit" class="btn btn-primary">
                             Salva
                         </button>
