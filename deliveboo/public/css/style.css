@@ -179,10 +179,6 @@ header #logo a i {
 
 /* HOME */
 
-body {
-  background-color: #006666;
-}
-
 #jumbo {
   background-color: #d0eb99;
   position: relative;
@@ -217,18 +213,36 @@ body {
 }
 
 .jumbo:nth-child(2) {
-  margin: auto;
-  padding-top: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100%/2);
 }
 
-.jumbo h1 {
+@media all and (max-width: 767px) {
+  .jumbo:nth-child(2) {
+    width: 100%;
+  }
+}
+
+.jumbo:nth-child(2) div {
+  padding: 55px 15px 15px;
+}
+
+.jumbo:nth-child(2) div h1 {
   font-size: 50px;
   color: #660066;
 }
 
-.jumbo img {
-  max-width: 100%;
+@media all and (max-width: 767px) {
+  .jumbo:last-child {
+    display: none;
+  }
+}
+
+.jumbo:last-child img {
   max-height: 100%;
+  max-width: 100%;
 }
 
 /* diagonal border */
@@ -327,12 +341,23 @@ svg {
   color: #ffcc33;
 }
 
+.msric {
+  background-color: #006666;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -999;
+}
+
 /* LOGIN PAGE */
 
 .login-register {
   height: calc(100vh - 180px);
   padding: 50px;
   overflow: auto;
+  background-color: white;
 }
 
 .login-register h1 {
@@ -529,6 +554,52 @@ svg {
   padding-left: 40px;
 }
 
+#box-det .img-avatar-container {
+  margin-left: -40px;
+}
+
+#box-det .img-avatar-container form {
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+@media all and (max-width: 479px) {
+  #box-det .img-avatar-container form {
+    border: none;
+  }
+}
+
+#box-det .img-avatar-container form div:last-child {
+  margin-top: 15px;
+}
+
+#box-det .img-avatar-container form div:last-child button {
+  margin: 0 5px;
+}
+
+#box-det .img-avatar-container form div:last-child button.alert {
+  height: 30px;
+  padding: 0 10px;
+  background-color: #ff3535;
+  color: white;
+  border: 1px solid #660066;
+  border-radius: 3px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+#box-det .img-avatar-container form div:last-child button.alert:active {
+  outline-color: #00ccbc;
+}
+
+#box-det .img-avatar-container form div:last-child button.alert:hover {
+  cursor: pointer;
+}
+
 .hide {
   display: none;
 }
@@ -583,13 +654,13 @@ svg {
   line-height: 7px;
 }
 
-.orders-container .ultimoOrdine .ordine ol,
-.orders-container .ordini .ordine ol {
+.orders-container .ultimoOrdine .ordine ul,
+.orders-container .ordini .ordine ul {
   padding-left: 30px;
 }
 
-.orders-container .ultimoOrdine .ordine ol li,
-.orders-container .ordini .ordine ol li {
+.orders-container .ultimoOrdine .ordine ul li,
+.orders-container .ordini .ordine ul li {
   margin-bottom: 5px;
 }
 

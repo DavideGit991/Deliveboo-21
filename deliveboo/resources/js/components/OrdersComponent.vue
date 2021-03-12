@@ -30,9 +30,9 @@
                         
                     <div class="ordine">
                         <h4>Ordine:</h4>
-                        <ol>
+                        <ul>
                             <li v-for="(item,i) in lastOrder " :key="item.message" ::key="i.message">{{item.name}}</li>    
-                        </ol>
+                        </ul>
                     </div>
                 </div>
 
@@ -55,9 +55,9 @@
                           
                     <div class="ordine">
                         <h4>Ordine:</h4>
-                        <ol>
+                        <ul>
                             <li v-for="(item,a) in ultimi5ordini[i]" :key='item.message' ::key='a.message'>{{item.name}}</li>    
-                        </ol>
+                        </ul>
                     </div>
                 </div>
             </div>
