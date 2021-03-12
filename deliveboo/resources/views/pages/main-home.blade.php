@@ -14,12 +14,14 @@
     </div>
 
     <div class="jumbo">
-      <h1>Ristorante a casa tua.</h1>
-      <label for="citta">Scegli la tua città</label>
-        <select @@change="selectCity($event)" id="citta" name="citta">
-            <option disable selected>Seleziona Città</option>
-            <option  :key="city.city" :value="city.city" v-for="city in cities" >@{{city.city}}</option>
-        </select>
+      <div>
+        <h1>Ristorante a casa tua.</h1>
+        <label for="citta">Scegli la tua città</label>
+          <select @@change="selectCity($event)" id="citta" name="citta">
+              <option disable selected>Seleziona Città</option>
+              <option  :key="city.city" :value="city.city" v-for="city in cities" >@{{city.city}}</option>
+          </select>
+      </div>
     </div>
     <div class="jumbo">
       <img src="img/sushi.png" alt="">

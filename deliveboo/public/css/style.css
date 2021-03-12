@@ -217,18 +217,36 @@ body {
 }
 
 .jumbo:nth-child(2) {
-  margin: auto;
-  padding-top: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100%/2);
 }
 
-.jumbo h1 {
+@media all and (max-width: 767px) {
+  .jumbo:nth-child(2) {
+    width: 100%;
+  }
+}
+
+.jumbo:nth-child(2) div {
+  padding: 50px 15px 15px;
+}
+
+.jumbo:nth-child(2) div h1 {
   font-size: 50px;
   color: #660066;
 }
 
-.jumbo img {
-  max-width: 100%;
+@media all and (max-width: 767px) {
+  .jumbo:last-child {
+    display: none;
+  }
+}
+
+.jumbo:last-child img {
   max-height: 100%;
+  max-width: 100%;
 }
 
 /* diagonal border */
