@@ -9,21 +9,21 @@
             <div class="card-header">
                 Dashboard di <b>{{Auth::user()->name}}</b>
             </div>
-            <div>
-                {{-- @dd($restaurant->logo); --}}
 
-                {{$restaurant->id}}
+            {{-- <div>
+
+
 
                 @if ($restaurant->logo)
                     <img class='rounded ' src="{{asset('storage/avatar/'.$restaurant->logo)}}" height='50'>
                 @else
-                {{-- logo default --}}
                     <img class='rounded' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.A-Iz4F74iibUzjTjBpKljQHaE7%26pid%3DApi&f=1" height='50'>
                 @endif
-            </div>
+            </div> --}}
 
             <div class="card-body">
                 @if (!$restaurant)
+
                 <div class="resto-name">
                     <h3>
                         Non esiste nessun ristorante associato

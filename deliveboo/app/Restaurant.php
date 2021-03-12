@@ -12,7 +12,6 @@ class Restaurant extends Model
         'name',
         'address',
         'city',
-        'url',
         'logo',
         'phone',
         'vote',

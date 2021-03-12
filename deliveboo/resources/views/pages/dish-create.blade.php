@@ -24,7 +24,7 @@
                     </div>
                     <div>
                         <label for="price">Prezzo: </label>
-                        <input type="number" name="price" required>
+                        <input type="number" step="0.01" name="price" required>
                     </div>
 
                     <div class="select">

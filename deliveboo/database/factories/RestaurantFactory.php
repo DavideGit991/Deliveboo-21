@@ -16,7 +16,6 @@ $factory->define(Restaurant::class, function (Faker $faker) {
             'Messina',
             'Monza'
         )),
-        'url'     => $faker -> url,
         'logo'    => null,
         'phone'   => $faker -> e164PhoneNumber,
         'vote'    =>           rand(1,5)
