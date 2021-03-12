@@ -77,6 +77,10 @@ function init(){
             axios.get('/votes')
                 .then(res=>{
                     this.restaurantsVotes=res.data;
+
+                    for(var i = 0 ; i < this.restaurantsVotes.length ; i++){
+                        this.restaurantsVotes[i].name = this.capitalizeFirstLetter(this.restaurantsVotes[i].name );
+                    }
                 })
         },
 
@@ -121,7 +125,9 @@ function init(){
                         .then(res=>{
                             this.restaurants=res.data;
 
-                            console.log(this.restaurants);
+                            for(var i = 0 ; i < this.restaurants.length ; i++){
+                                this.restaurants[i].name = this.capitalizeFirstLetter(this.restaurants[i].name );
+                            }
                         })
 
                     // prenderle la tipologia dal bottone e la città selezionata
@@ -156,6 +162,10 @@ function init(){
 
                         this.restaurantsSelected=res.data;
                         console.log(this.restaurantsSelected);
+
+                        for(var i = 0 ; i < this.restaurantsSelected.length ; i++){
+                            this.restaurantsSelected[i].name = this.capitalizeFirstLetter(this.restaurantsSelected[i].name );
+                        }
                     })
             },
 
@@ -176,6 +186,10 @@ function init(){
                         this.showSearchResult=true;
                     }else {
                         this.showSearchResult=false;
+                    }
+
+                    for(var i = 0 ; i < this.searchResults.length ; i++){
+                        this.searchResults[i].name = this.capitalizeFirstLetter(this.searchResults[i].name );
                     }
                 })
             },

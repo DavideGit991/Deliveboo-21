@@ -2187,6 +2187,7 @@ __webpack_require__.r(__webpack_exports__);
         phone: this.phone,
         id: this.iddishes
       };
+      console.log(fields);
       axios.post('/payment', fields).then(function (res) {
         console.log(res);
         _this2.showpage = false;
@@ -76753,7 +76754,7 @@ var render = function() {
                 _c("h4", [_vm._v("Ordine:")]),
                 _vm._v(" "),
                 _c(
-                  "ol",
+                  "ul",
                   _vm._l(_vm.lastOrder, function(item, i) {
                     return _c(
                       "li",
@@ -76822,7 +76823,7 @@ var render = function() {
                   _c("h4", [_vm._v("Ordine:")]),
                   _vm._v(" "),
                   _c(
-                    "ol",
+                    "ul",
                     _vm._l(_vm.ultimi5ordini[i], function(item, a) {
                       return _c(
                         "li",
@@ -89109,6 +89110,10 @@ function init() {
 
       axios.get('/votes').then(function (res) {
         _this.restaurantsVotes = res.data;
+
+        for (var i = 0; i < _this.restaurantsVotes.length; i++) {
+          _this.restaurantsVotes[i].name = _this.capitalizeFirstLetter(_this.restaurantsVotes[i].name);
+        }
       });
     },
     methods: {
@@ -89145,7 +89150,10 @@ function init() {
 
           axios.post('/restaurantCity', cittaSelezionata).then(function (res) {
             _this2.restaurants = res.data;
-            console.log(_this2.restaurants);
+
+            for (var i = 0; i < _this2.restaurants.length; i++) {
+              _this2.restaurants[i].name = _this2.capitalizeFirstLetter(_this2.restaurants[i].name);
+            }
           }); // prenderle la tipologia dal bottone e la città selezionata
           // vado dillà e faccio una query che ritorna i ristoranti con citta selezionata e tipologia selezionata
         }
@@ -89174,6 +89182,10 @@ function init() {
           _this3.showRestaurantSelected = true;
           _this3.restaurantsSelected = res.data;
           console.log(_this3.restaurantsSelected);
+
+          for (var i = 0; i < _this3.restaurantsSelected.length; i++) {
+            _this3.restaurantsSelected[i].name = _this3.capitalizeFirstLetter(_this3.restaurantsSelected[i].name);
+          }
         });
       },
       //Ricerca ristoranti per nome
@@ -89191,6 +89203,10 @@ function init() {
             _this4.showSearchResult = true;
           } else {
             _this4.showSearchResult = false;
+          }
+
+          for (var i = 0; i < _this4.searchResults.length; i++) {
+            _this4.searchResults[i].name = _this4.capitalizeFirstLetter(_this4.searchResults[i].name);
           }
         });
       },

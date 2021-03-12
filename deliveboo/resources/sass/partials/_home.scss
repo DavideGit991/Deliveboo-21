@@ -1,6 +1,3 @@
-body {
-    background-color: #006666;
-}
 
 // Jumbotron
 #jumbo {
@@ -8,12 +5,13 @@ body {
     position: relative;
     display: flex;
     justify-content: space-between;
+   
     height: 400px;
 }
     .jumbo {
         height: 100%;
         position: relative;
-        
+ 
         label {
             font-size: 20px;
             color: $mainpurple;
@@ -35,21 +33,40 @@ body {
         }
 
         &:nth-child(2) {
-            margin: auto;
-            padding-top: 170px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: calc(100%/2);
+
+            @media all and (max-width: 767px) {
+                width: 100%;
+            }
+
+            div {
+
+                padding: 55px 15px 15px;
+
+                h1 {
+                    font-size: 50px;
+                    color: $mainpurple;
+                }
+            }
         }
 
-        h1 {
-            font-size: 50px;
-            color: $mainpurple;
-        }
 
-        img {
-            max-width: 100%;
-            max-height: 100%;
+        &:last-child {
+
+            @media all and (max-width: 767px) {
+                display: none;
+            }
+
+            img {
+                max-height: 100%;
+                max-width: 100%;
+            }
         }
     }
-        
+
 /* diagonal border */
 .gradient {
 width: 100%;
@@ -86,7 +103,7 @@ svg {
     }
 }
 
-//Ristoranti 
+//Ristoranti
 .bestRated {
     background-color: $mainpink;
     padding: 20px 20px 50px;
@@ -101,16 +118,16 @@ svg {
     }
 
     .best > div {
-       
+
         @include cardStyle($mainshadow);
         transition: 0.3s;
-        
+
         &:hover {
-            
+
             cursor: pointer;
             transform: scale(1.1);
         }
-        
+
         .img-container {
             background-color: dimgray;
             background-image: url(../img/generic.jpg);
@@ -123,10 +140,10 @@ svg {
                 width: 100%;
             }
         }
-        
+
         div {
             padding: 5px 15px;
-            
+
             h4 {
                 color: #262626;
                 font-size: 14px;
@@ -137,11 +154,22 @@ svg {
     .noRes {
         text-align: center;
     }
-    
+
     .stars {
         color: $mainyellow;
     }
 }
 
+
+.msric {
+    
+    background-color: #006666;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999;
+}
 
 
