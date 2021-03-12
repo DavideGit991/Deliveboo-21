@@ -3,11 +3,11 @@
     <div class="login-register edit">
         <div class="card">
             <div class="card-header">
-                Modifica le informazioni del piatto  
+                Modifica le informazioni del piatto
             </div>
 
             <div class="card-body">
-                <form action="{{route('dish-update', $dish-> id)}}" method="post">
+                <form action="{{route('dish-update', $dish-> id)}}" method="post" >
                     @method('post')
                     @csrf
                     <div>
@@ -22,11 +22,6 @@
                         <label for="price">Prezzo: </label>
                         <input type="text" name="price" value="{{$dish-> price}}" required>
                     </div>
-                    <div>
-                        <label for="img">Immagine: </label>
-                        <input type="text" name="img" value="{{$dish-> img}}">
-
-                    </div>
                     <div class="select">
                         <label for="availability">Disponibilità: </label>
                         <select name="availability">
@@ -39,8 +34,7 @@
                             @endif
                         </select>
                     </div>
-                    {{-- <input type="text" name="availability" value="{{$dish-> availability}}"> --}}
-                    
+
                     <input type="text" hidden name="restaurant_id" value="{{$dish-> restaurant_id}}">
                     <div>
                         <button type="submit">

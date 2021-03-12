@@ -18,6 +18,7 @@ class OrderSeeder extends Seeder
         factory(Order::class, 250)
             -> create()
             -> each(function($order) {
+
                 $restaurant=Restaurant::inRandomOrder()->first();
                 $dish = $restaurant->dishes()->inRandomOrder()->limit(rand(1,8))->get();
                 $order -> dishes() -> attach($dish);

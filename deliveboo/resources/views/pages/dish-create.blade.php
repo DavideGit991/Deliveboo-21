@@ -13,7 +13,7 @@
                 <form action="{{route('dish-store')}}" method="post">
                     @method('post')
                     @csrf
-                        
+
                     <div>
                         <label for="name">Nome Piatto: </label>
                         <input type="text" name="name" required>
@@ -26,10 +26,7 @@
                         <label for="price">Prezzo: </label>
                         <input type="number" name="price" required>
                     </div>
-                    <div>
-                        <label for="img">Imagine: </label>
-                        <input type="text" name="img">
-                    </div>
+
                     <div class="select">
                         <label for="availability">Disponibilità: </label>
                         <select name="availability">
@@ -39,13 +36,13 @@
                     </div>
 
                     <input type="text" hidden name="restaurant_id" value="{{$restaurant-> id}}">
-                        
+
                     <div>
                         <button type="submit">
                             Salva
                         </button>
-                    </div>       
-                </form>      
+                    </div>
+                </form>
             </div>
         </div>
     </div>

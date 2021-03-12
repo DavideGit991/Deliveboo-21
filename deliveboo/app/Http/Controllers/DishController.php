@@ -29,11 +29,15 @@ class DishController extends Controller
             'name'=>'required',
             'description'=>'required|min:5',
             'price'=>'required|numeric',
+
         ])-> validate();
         $dish = Dish::make($request -> all());
+
         $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
         $dish -> restaurant() -> associate($restaurant);
         $dish -> save();
+
+
         return redirect() -> route('dishes-index', $restaurant-> id);
     }
 
@@ -52,6 +56,7 @@ class DishController extends Controller
             'description'=>'required|min:5',
             'price'=>'required|numeric',
         ])-> validate();
+
         $dish->update($data);
         return redirect() -> route('dishes-index', $dish-> restaurant_id );
     }
