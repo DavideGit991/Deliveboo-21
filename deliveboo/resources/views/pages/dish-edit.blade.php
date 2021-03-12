@@ -20,7 +20,7 @@
                     </div>
                     <div>
                         <label for="price">Prezzo: </label>
-                        <input type="text" name="price" value="{{$dish-> price}}" required>
+                        <input type="number" step="0.01" name="price" value="{{$dish-> price}}" required>
                     </div>
                     <div class="select">
                         <label for="availability">Disponibilità: </label>

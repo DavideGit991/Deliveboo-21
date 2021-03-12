@@ -18,7 +18,7 @@ class CreateDishesTable extends Migration
 
             $table->string('name',60);
             $table->text('description');
-            $table->integer('price');
+            $table->float('price');
             $table->boolean('availability');
             $table->string('img')->nullable();
 

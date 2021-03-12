@@ -2141,15 +2141,17 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     DeletePrice: function DeletePrice(price, i) {
       if (this.totPrice - price >= 0) {
-        console.log(i);
-        this.totPrice -= price;
+        // console.log(i);
+        this.totPrice -= price; // this.totPrice.toFixed(1);
+
         this.dishesOrdered.splice(i, 1);
       } // console.log('prezzo totale',this.totPrice);
 
     },
     AddPrice: function AddPrice(price, name, id) {
-      console.log(name);
-      this.totPrice += price;
+      // console.log(name);
+      this.totPrice += price; // this.totPrice.toFixed(1);
+
       this.dishesOrdered.push({
         name: name,
         price: price
@@ -2176,7 +2178,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = new Date();
       var mese = data.getMonth() + 1;
       var fields = {
-        tot_price: this.totPrice,
+        tot_price: this.totPrice.toFixed(2),
         status: 1,
         name: this.name,
         month: mese,
@@ -76233,7 +76235,7 @@ var render = function() {
                             _vm._v(
                               "\n                                    " +
                                 _vm._s(dish.name) +
-                                " \n                                "
+                                "\n                                "
                             )
                           ]),
                           _vm._v(" "),
@@ -76381,7 +76383,7 @@ var render = function() {
                     _c("h2", [
                       _vm._v(
                         "\n                                Totale: " +
-                          _vm._s(_vm.totPrice) +
+                          _vm._s(_vm.totPrice.toFixed(2)) +
                           "€\n                            "
                       )
                     ]),

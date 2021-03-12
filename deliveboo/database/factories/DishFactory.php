@@ -11,8 +11,8 @@ $factory->define(Dish::class, function (Faker $faker) {
     return [
         'name'         => $foodfaker -> foodName(),
         'description'  => $faker -> sentence,
-        'price'        =>           rand(10,100),
-        'availability' =>           rand(0, 1),
+        'price'        => $faker ->randomFloat($nbMaxDecimals = 1, $min = 5, $max = 20),
+        'availability' =>          rand(0, 1),
         'img'          => null,
     ];
 });

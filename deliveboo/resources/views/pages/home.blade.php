@@ -54,12 +54,7 @@
                         </h4>
                         <span>{{$restaurant->city}}</span>
                     </div>
-                    <div>
-                        <h4>
-                            Piva:
-                        </h4>
-                        <span>{{$restaurant->piva}}</span>
-                    </div>
+
                     <div>
                         <h4>
                             Phone:

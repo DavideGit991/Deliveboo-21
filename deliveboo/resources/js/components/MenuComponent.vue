@@ -18,7 +18,7 @@
                             <div class="food-body">
                                 <div>
                                     <h3>
-                                        {{dish.name}} 
+                                        {{dish.name}}
                                     </h3>
                                     <span>
                                         {{dish.price}} &euro;
@@ -55,7 +55,7 @@
                                     <div>
                                         <span>
                                             {{i + 1}}. {{dishOrdered.name}}
-                                        </span>  
+                                        </span>
                                         <p>
                                             {{dishOrdered.price}}&euro;
                                         </p>
@@ -68,7 +68,7 @@
 
                             <div>
                                 <h2>
-                                    Totale: {{totPrice}}&#8364;
+                                    Totale: {{totPrice.toFixed(2)}}&#8364;
                                 </h2>
                                 <button @click="GoToCheckout(totPrice)" v-show="dishesOrdered.length>0 && checkout">
                                     Checkout
@@ -119,10 +119,10 @@
         <!-- messaggio pagamento completato -->
         <div class="description-overlay" v-show="showmessage">
             <div class="card">
-                
+
                     <h1>Grazie!</h1>
                     <h2>Il tuo ordine è in lavorazione <i class="fas fa-paper-plane"></i></h2>
-                
+
             </div>
         </div>
 
@@ -193,8 +193,9 @@ export default {
 
         DeletePrice(price,i){
             if(this.totPrice-price>=0){
-                console.log(i);
-                this.totPrice-=price;
+                // console.log(i);
+                this.totPrice-= price;
+                // this.totPrice.toFixed(1);
                 this.dishesOrdered.splice(i,1);
             }
             // console.log('prezzo totale',this.totPrice);
@@ -202,8 +203,9 @@ export default {
 
         AddPrice(price,name,id){
 
-            console.log(name);
+            // console.log(name);
             this.totPrice += price;
+            // this.totPrice.toFixed(1);
             this.dishesOrdered.push({
                 name:name,
                 price:price
@@ -235,7 +237,7 @@ export default {
                 let mese= data.getMonth() + 1 ;
 
                  const fields= {
-                    tot_price: this.totPrice,
+                    tot_price: this.totPrice.toFixed(2),
                     status:1,
                     name:this.name,
                     month:mese,
