@@ -41,9 +41,10 @@
   <div v-show='showRestaurantCity' class="bestRated">
     <h2>Ristoranti di @{{citta}}</h2>
       <div class="best">
-        <div v-for='element in restaurants' @@click='GoToMenu(element.id)'>
+        <div v-for='(element, i) in restaurants' @@click='GoToMenu(element.id)'>
           <div class="img-container">
-            <img src="" alt="">
+            <img v-if="element.logo===null" :src="'img/' + randomAvatars[i]" alt="">
+            <img v-else :src="'storage/avatar/'+ element.logo" alt="">
           </div>
           <div>
             <h4>@{{element.name}}</h4>
@@ -57,9 +58,10 @@
   <div v-show='showRestaurantSelected' class="bestRated">
     <h2>@{{selectedTypology}} a @{{citta}}</h2>
       <div class="best">
-        <div v-for='element in restaurantsSelected' @@click='GoToMenu(element.id)'>
+        <div v-for='(element, i) in restaurantsSelected' @@click='GoToMenu(element.id)'>
           <div class="img-container">
-            <img src="" alt="">
+            <img v-if="element.logo===null" :src="'img/' + randomAvatars[i]" alt="">
+            <img v-else :src="'storage/avatar/'+ element.logo" alt="">
           </div>
           <div>
             <h4>@{{element.name}}</h4>
@@ -74,9 +76,10 @@
       <h2>I Più Votati</h2>
       <div class="best">
 
-          <div v-for="element in restaurantsVotes" @@click='GoToMenu(element.id)'>
+          <div v-for="(element, i) in restaurantsVotes" @@click='GoToMenu(element.id)'>
             <div class="img-container">
-              <img :src="'storage/avatar/'+ element.logo" alt="">
+              <img v-if="element.logo===null" :src="'img/' + randomAvatars[i]" alt="">
+              <img v-else :src="'storage/avatar/'+ element.logo" alt="">
             </div>
             <div>
               <h4>@{{element.name}}</h4>

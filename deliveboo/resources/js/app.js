@@ -58,6 +58,16 @@ function init(){
                 "#660066",
                 "#ffcc33",
                 "salmon",
+            ],
+
+            randomAvatars: [
+                "ateneo-zozzerie.jpg",
+                "pizza.jpg",
+                "birreria.jpg",
+                "panini.jpg",
+                "sushi2.jpg",
+                "fragola.jpg",
+                "bbq.jpg"
             ]
         },
         mounted(){
