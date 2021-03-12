@@ -12,15 +12,10 @@ class DishSeeder extends Seeder
      * @return void
      */
 
-
-    public $a=1;
-
     public function run()
     {
 
-
-
-        factory(Dish::class, 100)
+        factory(Dish::class, 200)
         -> make()
         ->each(function($dish){
 
