@@ -62,12 +62,12 @@ function init(){
 
             randomAvatars: [
                 "ateneo-zozzerie.jpg",
-                "pizza.jpg",
                 "birreria.jpg",
+                "bbq.jpg",
                 "panini.jpg",
                 "sushi2.jpg",
-                "fragola.jpg",
-                "bbq.jpg"
+                "pizza.jpg",
+                "fragola.jpg"
             ]
         },
         mounted(){
