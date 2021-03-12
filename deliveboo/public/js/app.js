@@ -76683,71 +76683,15 @@ var render = function() {
           _c(
             "div",
             { staticClass: "ultimoOrdine" },
-            _vm._l(_vm.lastOrder, function(item, i) {
-              return _c(
-                "div",
-                { key: item.message, attrs: { ":key": i.message } },
-                [
-                  i < 1
-                    ? _c("div", [
-                        _c("div", [
-                          _c("h4", [_vm._v("Nome:")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(item.uname) +
-                              " " +
-                              _vm._s(item.lastname) +
-                              "\n                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("h4", [_vm._v("Indirizzo:")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(item.address) +
-                              "\n                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("h4", [_vm._v("Telefono:")]),
-                          _vm._v(
-                            " " +
-                              _vm._s(item.phone) +
-                              "\n                        "
-                          )
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "ordine" }, [
-                    _c("h4", [_vm._v("Ordine:")]),
-                    _vm._v(" "),
-                    _c("ol", [_c("li", [_vm._v(_vm._s(item.name))])])
-                  ])
-                ]
-              )
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _vm._l(_vm.ultimi5ordini, function(item, i) {
-            return _c(
-              "div",
-              {
-                key: item.message,
-                staticClass: "ordini",
-                attrs: { ":key": i.message }
-              },
-              _vm._l(_vm.ultimi5ordini[i], function(item, a) {
+            [
+              _vm._l(_vm.lastOrder, function(item, i) {
                 return _c(
                   "div",
-                  { key: item.message, attrs: { ":key": a.message } },
+                  { key: item.message, attrs: { ":key": i.message } },
                   [
-                    a < 1
+                    i < 1
                       ? _c("div", [
-                          _c("div", [
+                          _c("div", { staticClass: "utente" }, [
                             _c("h4", [_vm._v("Nome:")]),
                             _vm._v(
                               " " +
@@ -76758,7 +76702,7 @@ var render = function() {
                             )
                           ]),
                           _vm._v(" "),
-                          _c("div", [
+                          _c("div", { staticClass: "utente" }, [
                             _c("h4", [_vm._v("Indirizzo:")]),
                             _vm._v(
                               " " +
@@ -76767,7 +76711,7 @@ var render = function() {
                             )
                           ]),
                           _vm._v(" "),
-                          _c("div", [
+                          _c("div", { staticClass: "utente" }, [
                             _c("h4", [_vm._v("Telefono:")]),
                             _vm._v(
                               " " +
@@ -76776,17 +76720,97 @@ var render = function() {
                             )
                           ])
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "ordine" }, [
-                      _c("h4", [_vm._v("Ordine:")]),
-                      _vm._v(" "),
-                      _c("ol", [_c("li", [_vm._v(_vm._s(item.name))])])
-                    ])
+                      : _vm._e()
                   ]
                 )
               }),
-              0
+              _vm._v(" "),
+              _c("div", { staticClass: "ordine" }, [
+                _c("h4", [_vm._v("Ordine:")]),
+                _vm._v(" "),
+                _c(
+                  "ol",
+                  _vm._l(_vm.lastOrder, function(item, i) {
+                    return _c(
+                      "li",
+                      { key: item.message, attrs: { ":key": i.message } },
+                      [_vm._v(_vm._s(item.name))]
+                    )
+                  }),
+                  0
+                )
+              ])
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.ultimi5ordini, function(item, i) {
+            return _c(
+              "div",
+              {
+                key: item.message,
+                staticClass: "ordini",
+                attrs: { ":key": i.message }
+              },
+              [
+                _vm._l(_vm.ultimi5ordini[i], function(item, a) {
+                  return _c(
+                    "div",
+                    { key: item.message, attrs: { ":key": a.message } },
+                    [
+                      a < 1
+                        ? _c("div", [
+                            _c("div", { staticClass: "utente" }, [
+                              _c("h4", [_vm._v("Nome:")]),
+                              _vm._v(
+                                " " +
+                                  _vm._s(item.uname) +
+                                  " " +
+                                  _vm._s(item.lastname) +
+                                  "\n                        "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "utente" }, [
+                              _c("h4", [_vm._v("Indirizzo:")]),
+                              _vm._v(
+                                " " +
+                                  _vm._s(item.address) +
+                                  "\n                        "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "utente" }, [
+                              _c("h4", [_vm._v("Telefono:")]),
+                              _vm._v(
+                                " " +
+                                  _vm._s(item.phone) +
+                                  "\n                        "
+                              )
+                            ])
+                          ])
+                        : _vm._e()
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "ordine" }, [
+                  _c("h4", [_vm._v("Ordine:")]),
+                  _vm._v(" "),
+                  _c(
+                    "ol",
+                    _vm._l(_vm.ultimi5ordini[i], function(item, a) {
+                      return _c(
+                        "li",
+                        { key: item.message, attrs: { ":key": a.message } },
+                        [_vm._v(_vm._s(item.name))]
+                      )
+                    }),
+                    0
+                  )
+                ])
+              ],
+              2
             )
           })
         ],

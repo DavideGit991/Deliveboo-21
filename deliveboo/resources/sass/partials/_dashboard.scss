@@ -79,14 +79,29 @@
     .ultimoOrdine, .ordini {
 
         @include cardStyle($mainshadow);
-        padding: 5px;
-        height: 200px;
+        padding: 10px;
+        height: 220px;
         overflow: auto;
+        
+        .utente {
+            
+            margin-bottom: 10px;
+            
+            &:nth-child(2) {
+                line-height: 7px;
+
+            }
+        }
 
         .ordine {
 
             ol {
+
                 padding-left: 30px;
+                li {
+
+                    margin-bottom: 5px;
+                }
             }
         }
     }
