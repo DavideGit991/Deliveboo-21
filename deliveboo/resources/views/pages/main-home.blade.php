@@ -41,7 +41,7 @@
       <div class="best">
         <div v-for='element in restaurants' @@click='GoToMenu(element.id)'>
           <div class="img-container">
-            <img src="" alt="">
+            <img :src="'storage/avatar/'+ element.logo" alt="">
           </div>
           <div>
             <h4>@{{element.name}}</h4>
@@ -57,7 +57,7 @@
       <div class="best">
         <div v-for='element in restaurantsSelected' @@click='GoToMenu(element.id)'>
           <div class="img-container">
-            <img src="" alt="">
+            <img :src="'storage/avatar/'+ element.logo" alt="">
           </div>
           <div>
             <h4>@{{element.name}}</h4>
@@ -79,7 +79,6 @@
             <div>
               <h4>@{{element.name}}</h4>
               <p class="stars"><i class="fas fa-star" v-for="star in element.vote "></i><i class="far fa-star" v-for="star in 5 - (element.vote)"></i></p>
-              <a>Menu</a>
             </div>
           </div>
 

@@ -2388,19 +2388,32 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    var arr = [];
+    console.log(this.stats);
+    var arr = []; // let mesi=[];
+    // for (let index = 1; index <=12; index++) {
+    //     mesi.push(index);
+    // }
+    // mesi.forEach((element,i) => {
+    //     this.stats.forEach(item => {
+    //        if (!mesi.includes(item.month)) {
+    //             this.stats.push({
+    //                month:i,
+    //                ordineMese:0
+    //           })
+    //         }
+    //    });
+    // });
 
     for (var index = 0; index <= 11; index++) {
-      console.log(this.stats[index].month);
-
       if (this.stats[index].month != index + 1) {
         this.stats.splice(index, 0, {
           month: index,
           ordineMese: 0
         });
       }
-    } // inserisce ordine mesi nell'array di chart.js
+    }
 
+    console.log('aggiornamento', this.stats); // inserisce ordine mesi nell'array di chart.js
 
     this.stats.forEach(function (element, i) {
       arr.push(element['ordineMese']);
@@ -89136,8 +89149,8 @@ function init() {
           this.showBest = false;
           this.showRestaurantCity = true;
           this.showName = false;
-          this.showSearchResult = false;
-          console.log(cittaSelezionata); //chiamata restituzione tipologie per città selezionata
+          this.showSearchResult = false; // console.log(cittaSelezionata);
+          //chiamata restituzione tipologie per città selezionata
 
           axios.post('/typologiesCity', cittaSelezionata).then(function (res) {
             _this2.showTypologies = true;
@@ -89145,8 +89158,7 @@ function init() {
           }); //chiamata per i ristoranti della città selezionata
 
           axios.post('/restaurantCity', cittaSelezionata).then(function (res) {
-            _this2.restaurants = res.data;
-            console.log(_this2.restaurants);
+            _this2.restaurants = res.data; // console.log(this.restaurants);
           }); // prenderle la tipologia dal bottone e la città selezionata
           // vado dillà e faccio una query che ritorna i ristoranti con citta selezionata e tipologia selezionata
         }
@@ -89173,8 +89185,7 @@ function init() {
         axios.post('/selectedTypology', data).then(function (res) {
           _this3.showRestaurantCity = false;
           _this3.showRestaurantSelected = true;
-          _this3.restaurantsSelected = res.data;
-          console.log(_this3.restaurantsSelected);
+          _this3.restaurantsSelected = res.data; // console.log(this.restaurantsSelected);
         });
       },
       //Ricerca ristoranti per nome
@@ -89608,9 +89619,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

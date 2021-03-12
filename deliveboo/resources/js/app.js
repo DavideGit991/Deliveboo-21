@@ -107,7 +107,7 @@ function init(){
                     this.showName=false;
                     this.showSearchResult=false;
 
-                    console.log(cittaSelezionata);
+                    // console.log(cittaSelezionata);
 
                     //chiamata restituzione tipologie per città selezionata
                     axios.post('/typologiesCity',cittaSelezionata)
@@ -121,7 +121,7 @@ function init(){
                         .then(res=>{
                             this.restaurants=res.data;
 
-                            console.log(this.restaurants);
+                            // console.log(this.restaurants);
                         })
 
                     // prenderle la tipologia dal bottone e la città selezionata
@@ -155,7 +155,7 @@ function init(){
                         this.showRestaurantSelected=true;
 
                         this.restaurantsSelected=res.data;
-                        console.log(this.restaurantsSelected);
+                        // console.log(this.restaurantsSelected);
                     })
             },
 
@@ -172,7 +172,7 @@ function init(){
                     this.searchResults=res.data;
 
                     if(this.inputName !== '') {
-                        
+
                         this.showSearchResult=true;
                     }else {
                         this.showSearchResult=false;
