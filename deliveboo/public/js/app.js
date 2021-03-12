@@ -2388,21 +2388,36 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     var arr = [];
+    var arrayCopia = [];
 
-    for (var index = 0; index <= 11; index++) {
-      console.log(this.stats[index].month);
+    var _loop = function _loop(index) {
+      var trovato = false;
 
-      if (this.stats[index].month != index + 1) {
-        this.stats.splice(index, 0, {
+      _this.stats.forEach(function (item) {
+        if (index == item.month && trovato == false) {
+          arrayCopia.push(item);
+          trovato = true;
+        }
+      });
+
+      if (trovato == false) {
+        arrayCopia.push({
           month: index,
           ordineMese: 0
         });
       }
-    } // inserisce ordine mesi nell'array di chart.js
+    };
 
+    for (var index = 1; index <= 12; index++) {
+      _loop(index);
+    }
 
-    this.stats.forEach(function (element, i) {
+    console.log('copia', arrayCopia); // inserisce ordine mesi nell'array di chart.js
+
+    arrayCopia.forEach(function (element, i) {
       arr.push(element['ordineMese']);
     });
     this.chartdata.datasets[0].data = arr;
