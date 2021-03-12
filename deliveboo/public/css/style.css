@@ -528,14 +528,29 @@ svg {
   margin: 10px;
   box-shadow: 0px 0px 3px 1px #444444;
   list-style: none;
-  padding: 5px;
-  height: 200px;
+  padding: 10px;
+  height: 220px;
   overflow: auto;
+}
+
+.orders-container .ultimoOrdine .utente,
+.orders-container .ordini .utente {
+  margin-bottom: 10px;
+}
+
+.orders-container .ultimoOrdine .utente:nth-child(2),
+.orders-container .ordini .utente:nth-child(2) {
+  line-height: 7px;
 }
 
 .orders-container .ultimoOrdine .ordine ol,
 .orders-container .ordini .ordine ol {
   padding-left: 30px;
+}
+
+.orders-container .ultimoOrdine .ordine ol li,
+.orders-container .ordini .ordine ol li {
+  margin-bottom: 5px;
 }
 
 /* Overlay */

@@ -16,23 +16,23 @@
                 <div class="ultimoOrdine">
                     <div v-for="(item,i) in lastOrder " :key="item.message" ::key="i.message">
                         <div v-if="i<1">
-                            <div>
+                            <div class="utente">
                                 <h4>Nome:</h4> {{item.uname}} {{item.lastname}}
                             </div>
-                            <div>
+                            <div class="utente">
                                 <h4>Indirizzo:</h4> {{item.address}}
                             </div>
-                            <div>
+                            <div class="utente">
                                 <h4>Telefono:</h4> {{item.phone}}
                             </div>
                         </div>
+                    </div>
                         
-                        <div class="ordine">
-                            <h4>Ordine:</h4>
-                            <ol>
-                                <li>{{item.name}}</li>    
-                            </ol>
-                        </div>
+                    <div class="ordine">
+                        <h4>Ordine:</h4>
+                        <ol>
+                            <li v-for="(item,i) in lastOrder " :key="item.message" ::key="i.message">{{item.name}}</li>    
+                        </ol>
                     </div>
                 </div>
 
@@ -41,23 +41,23 @@
                 <div class="ordini" v-for="(item,i) in ultimi5ordini " :key="item.message" ::key="i.message">
                     <div v-for="(item,a) in ultimi5ordini[i]" :key='item.message' ::key='a.message'> 
                         <div v-if="a<1">
-                            <div>
+                            <div class="utente">
                                 <h4>Nome:</h4> {{item.uname}} {{item.lastname}}
                             </div>
-                            <div>
+                            <div class="utente">
                                 <h4>Indirizzo:</h4> {{item.address}}
                             </div>
-                            <div>
+                            <div class="utente">
                                 <h4>Telefono:</h4> {{item.phone}}
                             </div>
                         </div>
+                    </div>
                           
-                        <div class="ordine">
-                            <h4>Ordine:</h4>
-                            <ol>
-                                <li>{{item.name}}</li>    
-                            </ol>
-                        </div>
+                    <div class="ordine">
+                        <h4>Ordine:</h4>
+                        <ol>
+                            <li v-for="(item,a) in ultimi5ordini[i]" :key='item.message' ::key='a.message'>{{item.name}}</li>    
+                        </ol>
                     </div>
                 </div>
             </div>
