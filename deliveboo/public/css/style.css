@@ -333,6 +333,7 @@ svg {
   height: calc(100vh - 180px);
   padding: 50px;
   overflow: auto;
+  background-color: white;
 }
 
 .login-register h1 {
