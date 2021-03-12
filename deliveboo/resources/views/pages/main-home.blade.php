@@ -2,7 +2,7 @@
 @extends('layouts.main-layout')
 
 @section('content')
-<div class="Home-page">
+
   {{-- Jumbotron --}}
   <div id="jumbo">
 
@@ -87,5 +87,6 @@
 
         </div>
   </div>
-</div>
+
+  <div class="msric"></div>
 @endsection

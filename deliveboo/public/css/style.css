@@ -179,10 +179,6 @@ header #logo a i {
 
 /* HOME */
 
-body {
-  background-color: #006666;
-}
-
 #jumbo {
   background-color: #d0eb99;
   position: relative;
@@ -230,7 +226,7 @@ body {
 }
 
 .jumbo:nth-child(2) div {
-  padding: 50px 15px 15px;
+  padding: 55px 15px 15px;
 }
 
 .jumbo:nth-child(2) div h1 {
@@ -343,6 +339,16 @@ svg {
 
 .bestRated .stars {
   color: #ffcc33;
+}
+
+.msric {
+  background-color: #006666;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -999;
 }
 
 /* LOGIN PAGE */

@@ -1,6 +1,3 @@
-body {
-    background-color: #006666;
-}
 
 // Jumbotron
 #jumbo {
@@ -47,7 +44,7 @@ body {
 
             div {
 
-                padding: 50px 15px 15px;
+                padding: 55px 15px 15px;
 
                 h1 {
                     font-size: 50px;
@@ -163,5 +160,16 @@ svg {
     }
 }
 
+
+.msric {
+    
+    background-color: #006666;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999;
+}
 
 
