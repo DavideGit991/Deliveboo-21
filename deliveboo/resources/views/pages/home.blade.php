@@ -12,8 +12,6 @@
 
             {{-- <div>
 
-
-
                 @if ($restaurant->logo)
                     <img class='rounded ' src="{{asset('storage/avatar/'.$restaurant->logo)}}" height='50'>
                 @else
@@ -61,32 +59,37 @@
                         </h4>
                         <span>{{$restaurant->phone}}</span>
                     </div>
-
-                    {{-- upload img ristorante --}}
-                    <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('POST')
-
-                        <input name='iconUser' type="file" >
-
-                        <input type="submit" value="Invia">
-                    </form>
-
-                    {{-- delete img --}}
-                    <a href="{{route('delete-avatar')}}">
-                        Reset Icon
-                    </a>
-
-
-
-
-
+                    
+                    <div> 
+                        <h4>Aggiungi Immagine Ristorante:</h4>
+                        {{-- upload img ristorante --}}
+                        <div class="img-avatar-container">
+                            <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('POST')
+                                
+                                <div>
+                                    <input name='iconUser' type="file" >
+                                </div>
+                                
+                                <div>
+                                    <button type="submit" value="Invia">Invia</button>
+                                    {{-- delete img --}}
+                                    <a href="{{route('delete-avatar')}}">
+                                        <button class="alert">
+                                            Resetta Immagine
+                                        </button>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
+                
                 <div id="dashboard-buttons">
                     <a href="{{route('restaurant-edit', $restaurant->id)}}">
                         <button>
-                            Edit
+                            Modifica
                         </button>
                     </a>
                     <a href="{{route('dishes-index', $restaurant->id)}}">
@@ -105,6 +108,7 @@
                         </button>
                     </a>
                 </div>
+
             </div>
         </div>
 

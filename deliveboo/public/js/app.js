@@ -76754,7 +76754,7 @@ var render = function() {
                 _c("h4", [_vm._v("Ordine:")]),
                 _vm._v(" "),
                 _c(
-                  "ol",
+                  "ul",
                   _vm._l(_vm.lastOrder, function(item, i) {
                     return _c(
                       "li",
@@ -76823,7 +76823,7 @@ var render = function() {
                   _c("h4", [_vm._v("Ordine:")]),
                   _vm._v(" "),
                   _c(
-                    "ol",
+                    "ul",
                     _vm._l(_vm.ultimi5ordini[i], function(item, a) {
                       return _c(
                         "li",
