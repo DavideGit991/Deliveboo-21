@@ -95,19 +95,19 @@
                         <div class="form-container">
                             <div>
                                 <label for="name">Nome:</label>
-                                <input type="text" name="name" required v-model="name">
+                                <input type="text" name="name" v-model="name" required  minlength="2" maxlength="60">
                             </div>
                             <div>
                                 <label for="lastname">Cognome:</label>
-                                <input type="text" name="lastname" required v-model="lastname">
+                                <input type="text" name="lastname"  v-model="lastname" required  minlength="2" maxlength="60">
                             </div>
                             <div>
                                 <label for="address">Indirizzo:</label>
-                                <input type="text" name="address" required v-model="address">
+                                <input type="text" name="address"  v-model="address" required  minlength="5" maxlength="60">
                             </div>
                             <div>
                                 <label for="phone">N° Telefono</label>
-                                <input type="tel" name="phone" required v-model="phone" >
+                                <input type="tel" name="phone" v-model="phone" required  minlength="10" maxlength="15">
                             </div>
                         </div>
 

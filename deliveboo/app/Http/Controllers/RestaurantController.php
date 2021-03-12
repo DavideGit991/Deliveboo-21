@@ -57,6 +57,7 @@ class RestaurantController extends Controller
             'city'=>'required|string|min:5|max:40',
             'phone'=>'required|string| min:10|max:15',
         ])-> validate();
+
         $restaurant=Restaurant::findOrFail($id);
         $restaurant->update($data);
         return redirect('home');

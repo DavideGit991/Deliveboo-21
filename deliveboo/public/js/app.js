@@ -76479,7 +76479,13 @@ var render = function() {
                             expression: "name"
                           }
                         ],
-                        attrs: { type: "text", name: "name", required: "" },
+                        attrs: {
+                          type: "text",
+                          name: "name",
+                          required: "",
+                          minlength: "2",
+                          maxlength: "60"
+                        },
                         domProps: { value: _vm.name },
                         on: {
                           input: function($event) {
@@ -76506,7 +76512,13 @@ var render = function() {
                             expression: "lastname"
                           }
                         ],
-                        attrs: { type: "text", name: "lastname", required: "" },
+                        attrs: {
+                          type: "text",
+                          name: "lastname",
+                          required: "",
+                          minlength: "2",
+                          maxlength: "60"
+                        },
                         domProps: { value: _vm.lastname },
                         on: {
                           input: function($event) {
@@ -76533,7 +76545,13 @@ var render = function() {
                             expression: "address"
                           }
                         ],
-                        attrs: { type: "text", name: "address", required: "" },
+                        attrs: {
+                          type: "text",
+                          name: "address",
+                          required: "",
+                          minlength: "5",
+                          maxlength: "60"
+                        },
                         domProps: { value: _vm.address },
                         on: {
                           input: function($event) {
@@ -76560,7 +76578,13 @@ var render = function() {
                             expression: "phone"
                           }
                         ],
-                        attrs: { type: "tel", name: "phone", required: "" },
+                        attrs: {
+                          type: "tel",
+                          name: "phone",
+                          required: "",
+                          minlength: "10",
+                          maxlength: "15"
+                        },
                         domProps: { value: _vm.phone },
                         on: {
                           input: function($event) {
