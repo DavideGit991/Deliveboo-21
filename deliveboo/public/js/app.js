@@ -2187,6 +2187,7 @@ __webpack_require__.r(__webpack_exports__);
         phone: this.phone,
         id: this.iddishes
       };
+      console.log(fields);
       axios.post('/payment', fields).then(function (res) {
         console.log(res);
         _this2.showpage = false;

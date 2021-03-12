@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Restaurant;
-
+use App\Typology;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -29,7 +29,8 @@ class RestaurantController extends Controller
     }
     public function create()
     {
-        return view('pages.restaurant-create');
+        $typologies=Typology::all();
+        return view('pages.restaurant-create',compact('typologies'));
     }
     public function store(Request $request)
     {
@@ -39,8 +40,14 @@ class RestaurantController extends Controller
             'address'=>'required|string|max:100|min:5',
             'city'=>'required|string|min:5|max:40',
             'phone'=>'required|string|min:10|max:15',
+            'typologies'=>'required',
         ])-> validate();
+
+
         $newRestaurant=Restaurant::create($data);
+
+        $newRestaurant->typologies()->attach($data['typologies']);
+
         return redirect()->route('home');
     }
     public function edit($id)

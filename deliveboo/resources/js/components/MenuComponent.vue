@@ -247,22 +247,23 @@ export default {
 
                     id:this.iddishes
                 }
+                console.log(fields);
 
 
-                   axios.post('/payment', fields)
+                    axios.post('/payment', fields)
                     .then(res => {
-                       console.log(res);
-                        this.showpage=false;
-                        this.showmessage=true;
-                        this.redirectTo();
+                        console.log(res);
+                         this.showpage=false;
+                         this.showmessage=true;
+                         this.redirectTo();
 
-                   })
+                    })
 
-                      .catch(error => {
-                     if (error.response.status === 422) {
-                       this.errors = error.response.data.errors || {};
-                  }
-           });
+                    .catch(error => {
+                        if (error.response.status === 422) {
+                        this.errors = error.response.data.errors || {};
+                         }
+                    });
         },
 
         redirectTo() {

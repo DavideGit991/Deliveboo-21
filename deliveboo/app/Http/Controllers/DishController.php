@@ -39,9 +39,8 @@ class DishController extends Controller
         $dish -> restaurant() -> associate($restaurant);
         $dish -> save();
 
-        // dd($restaurant);
 
-        return redirect() -> route('dishes-index', $restaurant->id);
+        return redirect() -> route('dishes-index', $restaurant-> id);
     }
 
     public function edit($id)

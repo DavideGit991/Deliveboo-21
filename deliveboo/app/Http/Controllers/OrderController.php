@@ -36,9 +36,10 @@ class OrderController extends Controller
 
         $order->save();
 
-        $idplate=Dish::find($data['id']);
+        foreach ($data['id'] as $idplate) {
 
-        $order->dishes()->attach($idplate);
+            $order->dishes()->attach($idplate);
+        }
 
 
        return response()->json($data,200) ;
