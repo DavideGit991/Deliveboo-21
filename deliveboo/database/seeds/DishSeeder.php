@@ -12,35 +12,18 @@ class DishSeeder extends Seeder
      * @return void
      */
 
-
-    public $a=1;
-
     public function run()
     {
 
-
-
-        factory(Dish::class, 100)
+        factory(Dish::class, 200)
         -> make()
         ->each(function($dish){
-            // $finito=false;
-            // $a=1;
 
-            // while ($a <= 20 ) {
-            //     if (condition) {
-            //         # code...
-            //     } idRestaurant=Restaurant::
+            $restaurant=Restaurant::inRandomOrder()->first();
+            $dish-> restaurant() -> associate($restaurant);
 
-            //     for ($i=1; $i < 5; $i++) {
+            $dish->save();
 
-                   $restaurant=Restaurant::inRandomOrder()->first();
-                   $dish-> restaurant() -> associate($restaurant);
-
-            //\     }
-            //     $a++;
-            //     $finito=true;
-                $dish->save();
-            // }
         });
     }
 }

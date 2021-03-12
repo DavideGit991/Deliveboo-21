@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Dish;
 use App\Order;
-use App\Restaurant;
-use GuzzleHttp\Psr7\LimitStream;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class OrderController extends Controller
 {
@@ -15,6 +15,13 @@ class OrderController extends Controller
    public function payment(Request $req)
    {
        $data=$req->all();
+
+       Validator::make($data,[          //validazione
+        'name'=>'required|string|max:60|min:2',
+        'lastname'=>'required|string|max:60|min:2',
+        'address'=>'required|string|min:5|max:60',
+        'phone'=>'required|min:10|max:15'
+    ])-> validate();
 
        $order=Order::make([
            'name'=>$data['name'],

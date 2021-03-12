@@ -7,7 +7,29 @@ use Faker\Generator as Faker;
 
 $factory->define(Restaurant::class, function (Faker $faker) {
     return [
-        'name'    => $faker -> company,
+        'name'    => $faker-> unique -> randomElement($array = array (
+            'da Ciro',
+            'il pollino',
+            'da giuliano',
+            'civico36',
+            'circoloco',
+            'nori restaurant',
+            'birreria italiana',
+            'orso bianco',
+            'la mucca pazza',
+            'voglia di pizza',
+            'da carlo',
+            'velo',
+            'bbq restaurant',
+            'il ghiottone',
+            'cacio e pepe',
+            'strapizzami',
+            'illegal burger',
+            'piadineria rimini',
+            'pizza club',
+            'manzo criminale',
+
+        )),
         'address' => $faker -> streetAddress,
         'city'=> $faker -> randomElement($array = array (
             'roma',
@@ -16,7 +38,6 @@ $factory->define(Restaurant::class, function (Faker $faker) {
             'Messina',
             'Monza'
         )),
-        'url'     => $faker -> url,
         'logo'    => null,
         'phone'   => $faker -> e164PhoneNumber,
         'vote'    =>           rand(1,5)

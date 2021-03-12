@@ -2141,15 +2141,17 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     DeletePrice: function DeletePrice(price, i) {
       if (this.totPrice - price >= 0) {
-        console.log(i);
-        this.totPrice -= price;
+        // console.log(i);
+        this.totPrice -= price; // this.totPrice.toFixed(1);
+
         this.dishesOrdered.splice(i, 1);
       } // console.log('prezzo totale',this.totPrice);
 
     },
     AddPrice: function AddPrice(price, name, id) {
-      console.log(name);
-      this.totPrice += price;
+      // console.log(name);
+      this.totPrice += price; // this.totPrice.toFixed(1);
+
       this.dishesOrdered.push({
         name: name,
         price: price
@@ -2176,7 +2178,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = new Date();
       var mese = data.getMonth() + 1;
       var fields = {
-        tot_price: this.totPrice,
+        tot_price: this.totPrice.toFixed(2),
         status: 1,
         name: this.name,
         month: mese,
@@ -76231,7 +76233,7 @@ var render = function() {
                             _vm._v(
                               "\n                                    " +
                                 _vm._s(dish.name) +
-                                " \n                                "
+                                "\n                                "
                             )
                           ]),
                           _vm._v(" "),
@@ -76379,7 +76381,7 @@ var render = function() {
                     _c("h2", [
                       _vm._v(
                         "\n                                Totale: " +
-                          _vm._s(_vm.totPrice) +
+                          _vm._s(_vm.totPrice.toFixed(2)) +
                           "€\n                            "
                       )
                     ]),
@@ -76475,7 +76477,13 @@ var render = function() {
                             expression: "name"
                           }
                         ],
-                        attrs: { type: "text", name: "name", required: "" },
+                        attrs: {
+                          type: "text",
+                          name: "name",
+                          required: "",
+                          minlength: "2",
+                          maxlength: "60"
+                        },
                         domProps: { value: _vm.name },
                         on: {
                           input: function($event) {
@@ -76502,7 +76510,13 @@ var render = function() {
                             expression: "lastname"
                           }
                         ],
-                        attrs: { type: "text", name: "lastname", required: "" },
+                        attrs: {
+                          type: "text",
+                          name: "lastname",
+                          required: "",
+                          minlength: "2",
+                          maxlength: "60"
+                        },
                         domProps: { value: _vm.lastname },
                         on: {
                           input: function($event) {
@@ -76529,7 +76543,13 @@ var render = function() {
                             expression: "address"
                           }
                         ],
-                        attrs: { type: "text", name: "address", required: "" },
+                        attrs: {
+                          type: "text",
+                          name: "address",
+                          required: "",
+                          minlength: "5",
+                          maxlength: "60"
+                        },
                         domProps: { value: _vm.address },
                         on: {
                           input: function($event) {
@@ -76556,7 +76576,13 @@ var render = function() {
                             expression: "phone"
                           }
                         ],
-                        attrs: { type: "tel", name: "phone", required: "" },
+                        attrs: {
+                          type: "tel",
+                          name: "phone",
+                          required: "",
+                          minlength: "10",
+                          maxlength: "15"
+                        },
                         domProps: { value: _vm.phone },
                         on: {
                           input: function($event) {
@@ -89581,9 +89607,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\boolean\Progetto finale\Deliveboo#21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

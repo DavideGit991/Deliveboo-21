@@ -35,10 +35,10 @@ class RestaurantController extends Controller
     {
         $data=$request->all();
         Validator::make($data,[          //validazione
-            'name'=>'required|max:40',
-            'address'=>'required',
-            'city'=>'required',
-            'phone'=>'required',
+            'name'=>'required|string|max:40|min:5',
+            'address'=>'required|string|max:100|min:5',
+            'city'=>'required|string|min:5|max:40',
+            'phone'=>'required|string|min:10|max:15',
         ])-> validate();
         $newRestaurant=Restaurant::create($data);
         return redirect()->route('home');
@@ -52,11 +52,12 @@ class RestaurantController extends Controller
     {
         $data=$request->all();
         Validator::make($data,[          //validazione
-            'name'=>'required|max:40',
-            'address'=>'required',
-            'city'=>'required',
-            'phone'=>'required',
+            'name'=>'required|string|max:40|min:5',
+            'address'=>'required|string|max:100|min:5',
+            'city'=>'required|string|min:5|max:40',
+            'phone'=>'required|string| min:10|max:15',
         ])-> validate();
+
         $restaurant=Restaurant::findOrFail($id);
         $restaurant->update($data);
         return redirect('home');

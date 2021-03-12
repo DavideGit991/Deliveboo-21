@@ -18,12 +18,11 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name',60);
+            $table->string('name',40);
             $table->string('address',100);
             $table->string('city',40);
-            $table->string('url')->nullable();
             $table->string('logo')->nullable();
-            $table->string('phone',30);
+            $table->string('phone',15);
             $table->integer('vote')->nullable();
 
             $table->bigInteger('user_id')->unsigned();
