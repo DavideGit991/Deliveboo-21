@@ -169,8 +169,14 @@ function init(){
                 axios.post('/search',data)
                 .then(res=>{
 
-                    this.showSearchResult=true;
                     this.searchResults=res.data;
+
+                    if(this.inputName !== '') {
+                        
+                        this.showSearchResult=true;
+                    }else {
+                        this.showSearchResult=false;
+                    }
                 })
             },
 

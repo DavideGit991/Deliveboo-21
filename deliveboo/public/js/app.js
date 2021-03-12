@@ -76223,9 +76223,7 @@ var render = function() {
                     "div",
                     { key: dish.message, staticClass: "dish-card" },
                     [
-                      _c("div", { staticClass: "img-container" }, [
-                        _c("img", { attrs: { src: dish.img, alt: "" } })
-                      ]),
+                      _c("div", { staticClass: "img-container" }),
                       _vm._v(" "),
                       _c("div", { staticClass: "food-body" }, [
                         _c("div", [
@@ -89161,8 +89159,13 @@ function init() {
           name: this.inputName
         };
         axios.post('/search', data).then(function (res) {
-          _this4.showSearchResult = true;
           _this4.searchResults = res.data;
+
+          if (_this4.inputName !== '') {
+            _this4.showSearchResult = true;
+          } else {
+            _this4.showSearchResult = false;
+          }
         });
       },
       //funzione per far apparire alert

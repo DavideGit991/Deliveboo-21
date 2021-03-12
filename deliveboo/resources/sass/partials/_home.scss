@@ -1,3 +1,8 @@
+.Home-page {
+    height: calc(100vh - 180px);
+    overflow: auto;
+}
+
 // Jumbotron
 #jumbo {
     background-color: $maingreen;
@@ -139,9 +144,5 @@ svg {
     }
 }
 
-//Risultati ricerca 
-#search-results {
-    background-color: #fde290;
-    color: $mainpurple;
-}
+
 

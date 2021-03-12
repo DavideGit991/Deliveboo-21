@@ -2,6 +2,7 @@
 @extends('layouts.main-layout')
 
 @section('content')
+<div class="Home-page">
   {{-- Jumbotron --}}
   <div id="jumbo">
 
@@ -32,27 +33,6 @@
           @{{typology.name}}
         </h3>
       </div>
-  </div>
-
-  {{-- Risultato ricerca --}}
-  <div id="search-results" v-show="showSearchResult" class="bestRated">
-    <h2>
-      Risultati Ricerca per '@{{ inputName }}':
-    </h2>
-    <div v-if="searchResults.length===0" class="noRes">
-      <h3>Nessun risultato</h3>
-    </div>
-    <div class="best">
-      <div v-for="element in searchResults" @@click='GoToMenu(element.id)'>
-        <div class="img-container">
-          <img src="" alt="">
-        </div>
-        <div>
-          <h4>@{{element.name}}</h4>
-          <p class="stars"><i class="fas fa-star" v-for="star in element.vote "></i><i class="far fa-star" v-for="star in 5 - (element.vote)"></i></p>
-        </div>
-      </div>
-    </div>
   </div>
 
   {{-- elenco ristoranti per città --}}
@@ -105,5 +85,5 @@
 
         </div>
   </div>
-
+</div>
 @endsection

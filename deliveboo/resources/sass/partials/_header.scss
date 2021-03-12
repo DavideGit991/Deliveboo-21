@@ -35,35 +35,87 @@ header {
         }
     }
 }
-    #search {
-        background-color: white;
-        height: 40px;
+
+    .search-bar {
+
         width: 40%;
-        display: flex;
-        border-radius: 3px;
-        
-        &:focus-within {
-            box-shadow: 0px 0px 2px 4px #7cf1e8;
-        }
+        position: relative;
 
-        i {
+        #search {
+            background-color: white;
+            height: 40px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px; 
-            color: dimgray;
-        }
-
-        input {
-            height: 100%;
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-            &:focus {
-                outline: none;
+            border-radius: 3px;
+            
+            &:focus-within {
+                box-shadow: 0px 0px 2px 4px #7cf1e8;
+            }
+    
+            i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px; 
+                color: dimgray;
+            }
+    
+            input {
+                height: 100%;
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+                &:focus {
+                    outline: none;
+                }
             }
         }
+    
+        //Risultati ricerca 
+        
+        .search-results {
+
+            background-color: white;
+            width: 100%;
+            border-radius: 3px;
+            color: $mainpurple;
+            position: absolute;
+            z-index: 1;
+            margin-top: 5px;
+
+            .noRes {
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 40px;
+            }
+
+            .results-name {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 5px 15px;
+                height: 40px;
+                transition: 0.3s;
+
+                &:hover {
+
+                    cursor: pointer;
+                    background-color: #f1f0f0;
+                    border-radius: 3px;
+                }
+
+                i {
+
+                    font-size: 14px;
+                    color: $mainyellow;
+                    
+                }
+            }
+        } 
+       
     }
+    
     
     #burger-links {
         display: inline-block;

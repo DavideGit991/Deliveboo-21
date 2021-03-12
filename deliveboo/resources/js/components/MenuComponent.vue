@@ -12,7 +12,7 @@
                     <div id="dish-card-container" class="dish-card-container">
                         <div class="dish-card" v-for="dish in dishes" :key="dish.message">
                             <div class="img-container">
-                                <img :src="dish.img" alt="" >
+                                <!-- <img :src="dish.img" alt="" > -->
                             </div>
 
                             <div class="food-body">

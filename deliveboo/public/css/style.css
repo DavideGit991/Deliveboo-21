@@ -49,19 +49,23 @@ header #logo a i {
   }
 }
 
-#search {
+.search-bar {
+  width: 40%;
+  position: relative;
+}
+
+.search-bar #search {
   background-color: white;
   height: 40px;
-  width: 40%;
   display: flex;
   border-radius: 3px;
 }
 
-#search:focus-within {
+.search-bar #search:focus-within {
   box-shadow: 0px 0px 2px 4px #7cf1e8;
 }
 
-#search i {
+.search-bar #search i {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,15 +73,52 @@ header #logo a i {
   color: dimgray;
 }
 
-#search input {
+.search-bar #search input {
   height: 100%;
   width: 100%;
   border: none;
   border-radius: 5px;
 }
 
-#search input:focus {
+.search-bar #search input:focus {
   outline: none;
+}
+
+.search-bar .search-results {
+  background-color: white;
+  width: 100%;
+  border-radius: 3px;
+  color: #660066;
+  position: absolute;
+  z-index: 1;
+  margin-top: 5px;
+}
+
+.search-bar .search-results .noRes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.search-bar .search-results .results-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+  height: 40px;
+  transition: 0.3s;
+}
+
+.search-bar .search-results .results-name:hover {
+  cursor: pointer;
+  background-color: #f1f0f0;
+  border-radius: 3px;
+}
+
+.search-bar .search-results .results-name i {
+  font-size: 14px;
+  color: #ffcc33;
 }
 
 #burger-links {
@@ -137,6 +178,11 @@ header #logo a i {
 }
 
 /* HOME */
+
+.Home-page {
+  height: calc(100vh - 180px);
+  overflow: auto;
+}
 
 #jumbo {
   background-color: #d0eb99;
@@ -280,11 +326,6 @@ svg {
 
 .bestRated .stars {
   color: #ffcc33;
-}
-
-#search-results {
-  background-color: #fde290;
-  color: #660066;
 }
 
 /* LOGIN PAGE */
