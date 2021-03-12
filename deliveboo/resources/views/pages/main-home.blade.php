@@ -2,6 +2,7 @@
 @extends('layouts.main-layout')
 
 @section('content')
+<div class="Home-page">
   {{-- Jumbotron --}}
   <div id="jumbo">
 
@@ -14,7 +15,7 @@
 
     <div class="jumbo">
       <h1>Ristorante a casa tua.</h1>
-      <label for="citta">Scegli la tua città</label> 
+      <label for="citta">Scegli la tua città</label>
         <select @@change="selectCity($event)" id="citta" name="citta">
             <option disable selected>Seleziona Città</option>
             <option  :key="city.city" :value="city.city" v-for="city in cities" >@{{city.city}}</option>
@@ -28,29 +29,10 @@
   {{-- Elenco tipologia ristoranti --}}
   <div id="typologies" v-show='showTypologies'>
       <div v-for="(typology, i) in typologiesCity" @@click="selectTypology(typology.name)" :value='typology.name' :key='typology.name' :style="'background-color:' + typologyColors[i]">
-        @{{typology.name}}
+        <h3>
+          @{{typology.name}}
+        </h3>
       </div>
-  </div>
-
-  {{-- Risultato ricerca --}}
-  <div id="search-results" v-show="showSearchResult" class="bestRated">
-    <h2>
-      Risultati Ricerca per '@{{ inputName }}':
-    </h2>
-    <div v-if="searchResults.length===0" class="noRes">
-      <h3>Nessun risultato</h3>
-    </div>
-    <div class="best">
-      <div v-for="element in searchResults" @@click='GoToMenu(element.id)'>
-        <div class="img-container">
-          <img src="" alt="">
-        </div>
-        <div>
-          <h4>@{{element.name}}</h4>
-          <p class="stars"><i class="fas fa-star" v-for="star in element.vote "></i><i class="far fa-star" v-for="star in 5 - (element.vote)"></i></p>
-        </div>
-      </div>
-    </div>
   </div>
 
   {{-- elenco ristoranti per città --}}
@@ -92,7 +74,7 @@
 
           <div v-for="element in restaurantsVotes" @@click='GoToMenu(element.id)'>
             <div class="img-container">
-              <img :src="element.logo" alt="">
+              <img :src="'storage/avatar/'+ element.logo" alt="">
             </div>
             <div>
               <h4>@{{element.name}}</h4>
@@ -103,5 +85,5 @@
 
         </div>
   </div>
-
+</div>
 @endsection

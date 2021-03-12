@@ -10,7 +10,7 @@ $factory->define(Order::class, function (Faker $faker) {
       'name'     => $faker -> firstName,
       'lastname' => $faker -> lastName,
       'address'  => $faker -> streetAddress,
-      'tot_price'    => rand(10,10000),
+      'tot_price'    => $faker ->randomFloat($nbMaxDecimals = 1, $min = 20, $max = 100),
       'month'     => rand(1,12),
       'phone'    => $faker -> e164PhoneNumber,
       'status'   =>           rand(0, 1)

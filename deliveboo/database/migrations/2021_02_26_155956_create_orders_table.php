@@ -20,9 +20,9 @@ class CreateOrdersTable extends Migration
             $table -> string('name',60) -> nullable();
             $table -> string('lastname',60) -> nullable();
             $table -> string('address',60) -> nullable();
-            $table -> integer('tot_price') -> nullable();
+            $table -> float('tot_price') -> nullable();
             $table -> integer('month') -> nullable();
-            $table -> string('phone',20) -> nullable();
+            $table -> string('phone',15) -> nullable();
             $table -> boolean('status') -> nullable();
 
             $table -> timestamps();

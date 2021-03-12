@@ -1,10 +1,17 @@
 #dashboard {
     height: calc(100vh - 180px);
+    padding: 30px;
     
     .card {
         width: 60%;
         border: 1px solid $main;
         border-radius: 10px;
+        margin-bottom: 30px;
+
+        .resto-name {
+
+            text-align: center;
+        }
 
     }
 
@@ -24,6 +31,7 @@
     }
     
     #dashboard-buttons {
+        text-align: center;
 
         button {
             margin-left: 10px;
@@ -46,10 +54,57 @@
 
 #box-det {
     margin-bottom: 10px;
+    padding-left: 40px;
 }
 
 .hide {
     display: none;
+}
+
+//Ordini
+.resto-name {
+    button {
+        @include buttonStyle($mainpink, $mainpurple);
+        margin: 15px 0;
+    
+    }
+}
+.orders-container {
+
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .ultimoOrdine, .ordini {
+
+        @include cardStyle($mainshadow);
+        padding: 10px;
+        height: 220px;
+        overflow: auto;
+        
+        .utente {
+            
+            margin-bottom: 10px;
+            
+            &:nth-child(2) {
+                line-height: 7px;
+
+            }
+        }
+
+        .ordine {
+
+            ol {
+
+                padding-left: 30px;
+                li {
+
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
 }
 
 /* Overlay */
@@ -57,7 +112,6 @@
 .description-overlay {
   display: flex;
   justify-content: center;
-  align-items: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -70,31 +124,37 @@
     @include buttonStyle(#ff3535, white);
     }
 
+     #card-warning {
+        height: 150px;
+        width: 450px;
+        margin-top: 100px;
+        background-color: white;
+        border: 2px solid $mainpink;
+        border-radius: 5px;
+
+        .card-header {
+            background-color: $mainpink;
+            font-size: 20px;
+            border-radius: 5px 5px 0 0;
+            margin-top: -2px;
+            
+            h4 {
+                margin-bottom: 0;
+            }
+        }
+        
+        .card-body {
+            height: calc(100% - 53px);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+     }   
 }
 
-.description-full-screen {
-    display: flex;
-    align-items: center;
-    padding: 70px;
-    border: 2px solid $main;
-    background-color: white;
-    border-radius: 5px;
-}
 
-.description-wrapper {
-
-    text-align: center;
-  
-    h2 {
-        font-size: 25px;
-        color: $mainpurple;
-        margin-bottom: 10px;
-    }
-
-    a {
-        margin: 5px;
-    }
-}
 
 //Media query
 

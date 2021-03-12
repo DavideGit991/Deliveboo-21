@@ -9,25 +9,30 @@
 
                 <div v-show="showpayment" >
                     <h2 class="title">Menu Ristorante</h2>
-                    <div id="dish-card-container">
+                    <div id="dish-card-container" class="dish-card-container">
                         <div class="dish-card" v-for="dish in dishes" :key="dish.message">
-
-                            <img :src="dish.img" alt="" height="100">
-
-                            <h4>
-                                {{dish.name}}
-                            </h4>
-                            <p>
-                                {{dish.price}} &euro;
-                            </p>
-
-                            <div v-if="dish.availability== 1">
-                                <i class="fas fa-plus-circle" @click="AddPrice(dish.price,dish.name,dish.id)"></i>
+                            <div class="img-container">
+                                <!-- <img :src="dish.img" alt="" > -->
                             </div>
 
-                            <div v-if="dish.availability== 0">
-                                 <p>Non Disponibile.</p>
+                            <div class="food-body">
+                                <div>
+                                    <h3>
+                                        {{dish.name}}
+                                    </h3>
+                                    <span>
+                                        {{dish.price}} &euro;
+                                    </span>
+                                </div>
+
+                                <div class="plus" v-if="dish.availability== 1">
+                                    <i class="fas fa-plus-circle" @click="AddPrice(dish.price,dish.name,dish.id)"></i>
+                                </div>
+                                <div class="plus" v-if="dish.availability== 0">
+                                    <p>Non Disponibile.</p>
+                                </div>
                             </div>
+
 
                         </div>
                     </div>
@@ -35,22 +40,22 @@
 
                 <!-- Carrello -->
                 <div>
-                    <div id="cart-container">
+                    <div class="cart-container">
                         <div class="cart-header">
                             <h3>
                                 Carrello
                             </h3>
                             <i class="fas fa-shopping-cart"></i>
                             <span v-show="dishesOrdered.length==0"> 0</span>
-                            
+
                         </div>
                         <div class="cart" v-show="dishesOrdered.length>0">
                             <div>
                                 <div class="cart-element" v-for='(dishOrdered,i) in dishesOrdered' :key='dishOrdered.message'>
                                     <div>
                                         <span>
-                                            {{i}}. {{dishOrdered.name}}
-                                        </span>  
+                                            {{i + 1}}. {{dishOrdered.name}}
+                                        </span>
                                         <p>
                                             {{dishOrdered.price}}&euro;
                                         </p>
@@ -63,7 +68,7 @@
 
                             <div>
                                 <h2>
-                                    Totale: {{totPrice}}&#8364;
+                                    Totale: {{totPrice.toFixed(2)}}&#8364;
                                 </h2>
                                 <button @click="GoToCheckout(totPrice)" v-show="dishesOrdered.length>0 && checkout">
                                     Checkout
@@ -90,19 +95,19 @@
                         <div class="form-container">
                             <div>
                                 <label for="name">Nome:</label>
-                                <input type="text" name="name" required v-model="name">
+                                <input type="text" name="name" v-model="name" required  minlength="2" maxlength="60">
                             </div>
                             <div>
                                 <label for="lastname">Cognome:</label>
-                                <input type="text" name="lastname" required v-model="lastname">
+                                <input type="text" name="lastname"  v-model="lastname" required  minlength="2" maxlength="60">
                             </div>
                             <div>
                                 <label for="address">Indirizzo:</label>
-                                <input type="text" name="address" required v-model="address">
+                                <input type="text" name="address"  v-model="address" required  minlength="5" maxlength="60">
                             </div>
                             <div>
                                 <label for="phone">N° Telefono</label>
-                                <input type="tel" name="phone" required v-model="phone" >
+                                <input type="tel" name="phone" v-model="phone" required  minlength="10" maxlength="15">
                             </div>
                         </div>
 
@@ -112,11 +117,15 @@
             </div>
         </div>
         <!-- messaggio pagamento completato -->
-        <div class="message" v-show="showmessage">
-            <h1>
-                grazie!! il tuo ordine e' in lavorazione
-            </h1>
+        <div class="description-overlay" v-show="showmessage">
+            <div class="card">
+
+                    <h1>Grazie!</h1>
+                    <h2>Il tuo ordine è in lavorazione <i class="fas fa-paper-plane"></i></h2>
+
+            </div>
         </div>
+
     </div>
 </template>
 
@@ -130,6 +139,7 @@ export default {
             count:0,
             dishes:[],
             dishesOrdered:[],
+            iddishes:[],
             totPrice:0,
 
             showform:false,
@@ -183,8 +193,9 @@ export default {
 
         DeletePrice(price,i){
             if(this.totPrice-price>=0){
-                console.log(i);
-                this.totPrice-=price;
+                // console.log(i);
+                this.totPrice-= price;
+                // this.totPrice.toFixed(1);
                 this.dishesOrdered.splice(i,1);
             }
             // console.log('prezzo totale',this.totPrice);
@@ -192,12 +203,15 @@ export default {
 
         AddPrice(price,name,id){
 
-            console.log(name);
+            // console.log(name);
             this.totPrice += price;
+            // this.totPrice.toFixed(1);
             this.dishesOrdered.push({
                 name:name,
                 price:price
-            })
+            });
+
+            this.iddishes.push(id);
             // console.log(this.dishesOrdered);
             // console.log('prezzo totale',this.totPrice);
         },
@@ -223,7 +237,7 @@ export default {
                 let mese= data.getMonth() + 1 ;
 
                  const fields= {
-                    tot_price: this.totPrice,
+                    tot_price: this.totPrice.toFixed(2),
                     status:1,
                     name:this.name,
                     month:mese,
@@ -231,7 +245,9 @@ export default {
                     address:this.address,
                     phone:this.phone,
 
-            }
+                    id:this.iddishes
+                }
+
 
                    axios.post('/payment', fields)
                     .then(res => {

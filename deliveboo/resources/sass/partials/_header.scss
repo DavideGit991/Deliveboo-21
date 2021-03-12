@@ -5,45 +5,185 @@ header {
     align-items: center;
     height: 70px;
     padding: 15px 20px;
+    color: white;
 
     a {
         text-decoration: none;
         margin: 0 10px;
         color: white; 
-        font-weight: bold;
+        font-weight: bold;   
     }
 
     #logo {
-        font-size: 20px;
-    }
-}
-    #search {
-        background-color: white;
-        height: 40px;
-        width: 40%;
-        display: flex;
-        border-radius: 3px;
-        
-        &:focus-within {
-            box-shadow: 0px 0px 2px 4px #7cf1e8;
-        }
 
-        i {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px; 
-            color: dimgray;
-        }
+        a {
 
-        input {
-            height: 100%;
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-            &:focus {
-                outline: none;
+            font-size: 25px;
+
+            @media all and (max-width: 479px){
+                font-size: 18px 
+            }
+
+            i {
+                font-size: 18px;
+                margin: 1px;
+
+                @media all and (max-width: 479px){
+                    font-size: 14px 
+                }
             }
         }
     }
+}
+
+    .search-bar {
+
+        width: 40%;
+        position: relative;
+
+        #search {
+            background-color: white;
+            height: 40px;
+            display: flex;
+            border-radius: 3px;
+            
+            &:focus-within {
+                box-shadow: 0px 0px 2px 4px #7cf1e8;
+            }
     
+            i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px; 
+                color: dimgray;
+            }
+    
+            input {
+                height: 100%;
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    
+        //Risultati ricerca 
+        
+        .search-results {
+
+            background-color: white;
+            width: 100%;
+            border-radius: 3px;
+            color: $mainpurple;
+            position: absolute;
+            z-index: 1;
+            margin-top: 5px;
+
+            .noRes {
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 40px;
+            }
+
+            .results-name {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 5px 15px;
+                height: 40px;
+                transition: 0.3s;
+
+                &:hover {
+
+                    cursor: pointer;
+                    background-color: #f1f0f0;
+                    border-radius: 3px;
+                }
+
+                i {
+
+                    font-size: 14px;
+                    color: $mainyellow;
+                    
+                }
+            }
+        } 
+       
+    }
+    
+    
+    #burger-links {
+        display: inline-block;
+        display: none;
+        font-size: 20px;
+        margin-right: 10px;
+
+        &:active {
+
+            color: $mainpurple;
+        }
+    }
+
+    //Burger Menu
+    .burger-menu {
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 120px;
+        height: 100px;
+        background-color: $main;
+        z-index: 1;
+        border: 1px solid white;
+        display: none;
+
+        a {
+
+            text-decoration: none;
+            color: white;
+            margin: 7px 0;
+    
+            &:active {
+                color: $mainpurple;
+            }
+        }
+    }
+
+
+//Media query
+@media all and (max-width: 991px) {
+
+    #burger-links {
+        display: block;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+    
+    #links {
+        display: none;
+    }
+    
+}
+
+@media all and (max-width: 767px) {
+      
+}
+
+@media all and (max-width: 479px) {
+
+    #search {
+
+        width: 175px;
+    }
+    
+}

@@ -28,6 +28,13 @@ Route::post('/update/{id}', 'RestaurantController@update')->name('restaurant-upd
 
 Route::get('/destroy/{id}', 'RestaurantController@destroy')->name('restaurant-destroy');
 
+// img ristorante
+Route::post('/upload', 'RestaurantController@upload')
+    ->name('upload');
+Route::get('/delete/avatar', 'RestaurantController@deleteDb')
+    ->name('delete-avatar');
+
+
 // Rotte Piatti
 Route::get('/home/restaurant/{id}/dishes', 'DishController@index')->name('dishes-index');
 Route::get('/home/restaurant/{id}/dish/create', 'DishController@create')->name('dish-create');
@@ -59,3 +66,9 @@ Route::post('/payment', 'OrderController@payment');
 
 //stats
 Route::get('/stats/{id}','RestaurantController@getstats')->name('stats');
+
+//ordini del ristorante
+ Route::get('/orders/{id}','OrderController@getOrders')->name('get-orders');
+// ultimo ordine
+ Route::get('/lastorder/{id}','OrderController@getLastOrder')->name('get-lastorder');
+

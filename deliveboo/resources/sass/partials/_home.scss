@@ -1,3 +1,7 @@
+body {
+    background-color: #006666;
+}
+
 // Jumbotron
 #jumbo {
     background-color: $maingreen;
@@ -73,9 +77,11 @@ svg {
         margin: 0 10px;
         padding: 5px;
         background-color: $main;
+        transition: 0.3s;
 
         &:hover {
             cursor: pointer;
+            box-shadow: 0px 3px 10px 1px rgb(189, 189, 189);
         }
     }
 }
@@ -83,7 +89,7 @@ svg {
 //Ristoranti 
 .bestRated {
     background-color: $mainpink;
-    padding: 20px;
+    padding: 20px 20px 50px;
     color: white;
 
     .best {
@@ -137,9 +143,5 @@ svg {
     }
 }
 
-//Risultati ricerca 
-#search-results {
-    background-color: #fde290;
-    color: $mainpurple;
-}
+
 

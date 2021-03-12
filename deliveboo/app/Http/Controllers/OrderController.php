@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Dish;
 use App\Order;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class OrderController extends Controller
 {
@@ -12,7 +16,14 @@ class OrderController extends Controller
    {
        $data=$req->all();
 
-       Order::create([
+       Validator::make($data,[          //validazione
+        'name'=>'required|string|max:60|min:2',
+        'lastname'=>'required|string|max:60|min:2',
+        'address'=>'required|string|min:5|max:60',
+        'phone'=>'required|min:10|max:15'
+    ])-> validate();
+
+       $order=Order::make([
            'name'=>$data['name'],
            'lastname'=> $data['lastname'],
            'tot_price'=>$data['tot_price'],
@@ -20,81 +31,47 @@ class OrderController extends Controller
            'address'=>$data['address'],
            'status'=>$data['status'],
            'phone'=>$data['phone'],
+           ]);
 
-       ]);
+
+        $order->save();
+
+        $idplate=Dish::find($data['id']);
+
+        $order->dishes()->attach($idplate);
+
 
        return response()->json($data,200) ;
    }
 
+     public function getOrders($id)
+     {
 
-    public function index()
-    {
-        //
-    }
+         //         SELECT orders.id as 'ordine' ,dishes.id as 'piatto',restaurants.id as 'restaurant'
+         // FROM restaurants
+         //     join dishes on dishes.restaurant_id=restaurants.id
+         //     join dish_order on dish_order.dish_id=dishes.id
+         //     join orders on orders.id= dish_order.order_id
+         // WHERE restaurants.id=5
+         // ORDER BY `ordine` DESC
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $orders=DB::table('restaurants')
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
+          ->select('orders.id as ordine','orders.name as uname','orders.lastname','orders.address','orders.phone'
+                ,'dishes.name','orders.tot_price')
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
+          ->join('dishes','dishes.restaurant_id','=','restaurants.id')
+          ->join('dish_order','dishes.id','=','dish_order.dish_id')
+          ->join('orders','orders.id','=','dish_order.order_id')
+          ->where('restaurants.id','=',$id)
+          ->orderBy('orders.id','desc')
+          ->get();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
-    }
+
+         return response()->json($orders);
+     }
+
+
 }

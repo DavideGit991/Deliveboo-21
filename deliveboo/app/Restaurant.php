@@ -12,7 +12,6 @@ class Restaurant extends Model
         'name',
         'address',
         'city',
-        'url',
         'logo',
         'phone',
         'vote',
@@ -31,7 +30,6 @@ class Restaurant extends Model
         return $this->hasMany(Dish::class);
     }
 
-    // completare la relazione con la tabella restaurateur
     public function user()
     {
         return $this->belongsTo(User::class);

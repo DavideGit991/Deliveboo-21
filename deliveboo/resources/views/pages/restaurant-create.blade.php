@@ -7,7 +7,7 @@
             <div class="card-header">
                 Nuovo Ristorante
             </div>
-                    
+
             <div class="card-body">
 
                 <form action="{{route('restaurant-store')}}" method="post">
@@ -16,27 +16,23 @@
 
                     <div>
                         <label for="name">Nome Ristorante*</label>
-                        <input type="text" class="form-control" name="name" required maxlength="40" >
-                    </div>
-                    <div>
-                        <label for="url">Sito internet</label>
-                        <input type="text" class="form-control" name="url">
+                        <input type="text" class="form-control" name="name" required maxlength="40" minlength="5" >
                     </div>
                     <div>
                         <label for="address">Indirizzo*</label>
-                        <input type="text" class="form-control" name="address" required >
+                        <input type="text" class="form-control" name="address" required maxlength="100" minlength="5">
                     </div>
                     <div>
                         <label for="city">Città*</label>
-                        <input type="text" class="form-control" name="city" required>
+                        <input type="text" class="form-control" name="city" required maxlength="40" minlength="5">
                     </div>
                     <div>
                         <label for="phone">Telefono*</label>
-                        <input type="tel" class="form-control" name="phone" required>
+                        <input type="tel" class="form-control" name="phone" required maxlength="15" minlength="10">
                     </div>
-                    
+
                     <input type="text" hidden name="user_id" value="{{Auth::user()->id}}">
-                    
+
                     <div>
                         <button type="submit" class="btn btn-primary">
                             Salva
@@ -45,11 +41,11 @@
                 </form>
             </div>
         </div>
-    </div>  
+    </div>
 @endsection
 
 
-        
+
 
 
 

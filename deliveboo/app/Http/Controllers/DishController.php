@@ -25,16 +25,23 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $data=$request-> all();
+
         Validator::make($data,[          //validazione
-            'name'=>'required',
+            'name'=>'required|string|min:5|max:60',
             'description'=>'required|min:5',
             'price'=>'required|numeric',
+
         ])-> validate();
+
         $dish = Dish::make($request -> all());
+
         $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
         $dish -> restaurant() -> associate($restaurant);
         $dish -> save();
-        return redirect() -> route('dishes-index', $restaurant-> id);
+
+        // dd($restaurant);
+
+        return redirect() -> route('dishes-index', $restaurant->id);
     }
 
     public function edit($id)
@@ -48,10 +55,11 @@ class DishController extends Controller
         $dish=Dish::findOrFail($id);
         $data=$request-> all();
         Validator::make($data,[          //validazione
-            'name'=>'required',
+            'name'=>'required|string|min:5|max:60',
             'description'=>'required|min:5',
             'price'=>'required|numeric',
         ])-> validate();
+
         $dish->update($data);
         return redirect() -> route('dishes-index', $dish-> restaurant_id );
     }

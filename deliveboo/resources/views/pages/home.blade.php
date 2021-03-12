@@ -2,6 +2,7 @@
 @extends('layouts.main-layout')
 
 @section('content')
+<section>
 
     <div id="dashboard" class="login-register">
         <div class="card">
@@ -9,18 +10,32 @@
                 Dashboard di <b>{{Auth::user()->name}}</b>
             </div>
 
+            {{-- <div>
+
+
+
+                @if ($restaurant->logo)
+                    <img class='rounded ' src="{{asset('storage/avatar/'.$restaurant->logo)}}" height='50'>
+                @else
+                    <img class='rounded' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.A-Iz4F74iibUzjTjBpKljQHaE7%26pid%3DApi&f=1" height='50'>
+                @endif
+            </div> --}}
+
             <div class="card-body">
                 @if (!$restaurant)
-                <h3>
-                    Non esiste nessun ristorante associato
-                </h3>
-                <a href="{{route('restaurant-create')}}">
-                    <button>
-                        Aggiungi ristorante
-                    </button>
-                </a>
+
+                <div class="resto-name">
+                    <h3>
+                        Non esiste nessun ristorante associato
+                    </h3>
+                    <a href="{{route('restaurant-create')}}">
+                        <button>
+                            Aggiungi ristorante
+                        </button>
+                    </a>
+                </div>
                 @else
-                <div>
+                <div class="resto-name">
                     <h3>
                         {{$restaurant->name}}
                         <i id='icon' class="fas fa-sort-down" @@click="showDetails()"></i>
@@ -39,21 +54,34 @@
                         </h4>
                         <span>{{$restaurant->city}}</span>
                     </div>
-                    <div>
-                        <h4>
-                            Piva:
-                        </h4>
-                        <span>{{$restaurant->piva}}</span>
-                    </div>
+
                     <div>
                         <h4>
                             Phone:
                         </h4>
                         <span>{{$restaurant->phone}}</span>
                     </div>
+
+                    {{-- upload img ristorante --}}
+                    <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
+
+                        <input name='iconUser' type="file" >
+
+                        <input type="submit" value="Invia">
+                    </form>
+
+                    {{-- delete img --}}
+                    <a href="{{route('delete-avatar')}}">
+                        Reset Icon
+                    </a>
+
+
+
+
+
                 </div>
-
-
 
                 <div id="dashboard-buttons">
                     <a href="{{route('restaurant-edit', $restaurant->id)}}">
@@ -77,23 +105,31 @@
                         </button>
                     </a>
                 </div>
-
-                <div class="description-overlay" v-show='showAlert' >
-                  <div class="description-full-screen">
-
-                    <div class="description-wrapper">
-                        <h2>Sei sicuro di voler eliminare il ristorante?</h2>
-
-                        <a href="{{route('restaurant-destroy', $restaurant->id)}}"><button class="alert">Conferma</button></a>
-                        <a @@click="showAlert = false"><button>Annulla</button></a>
-
-                    </div>
-                  </div>
-                </div>
-
-                @endif
             </div>
         </div>
-    </div>
 
+            {{-- componente ordine --}}
+            <div class="card">
+
+                <orders-component
+                    :id="{{$restaurant->id}}"
+                >
+                </orders-component>
+
+            </div>
+
+            {{-- alert --}}
+            <div class="description-overlay" v-show='showAlert' >
+              <div id="card-warning">
+                <div class="card-header">
+                    <h4>Sei sicuro di voler eliminare il ristorante?</h4>
+                </div>
+                <div class="card-body">
+                    <a href="{{route('restaurant-destroy', $restaurant->id)}}"><button class="alert">Conferma</button></a>
+                    <a @@click="showAlert = false"><button>Annulla</button></a>
+                </div>
+            </div>
+        @endif
+    </div>
+</section>
 @endsection
