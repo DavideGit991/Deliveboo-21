@@ -44,17 +44,6 @@ Route::get('/home/dish/edit/{id}', 'DishController@edit')->name('dish-edit');
 Route::post('/home/dish/update/{id}', 'DishController@update')->name('dish-update');
 Route::get('/home/dish/delete/{id}', 'DishController@delete')->name('dish-delete');
 
-Route::post('/typologiesCity', 'RestaurantController@getTypologiesCity')-> name('get-typologyCity');
-Route::get('/cities', 'RestaurantController@getCity')-> name('get-city');
-Route::post('/restaurantCity', 'RestaurantController@getrestaurantCity')-> name('get-restaurant-city');
-
-//ristoranti piu' votati
-Route::get('/votes', 'RestaurantController@getRestaurantVotes');
-//ricerca ristoranti per nome
-Route::post('/search','RestaurantController@searchRestaurant');
-//restituisce ristoranti della cita per tipologia
-Route::post('/selectedTypology','RestaurantController@getRestaurantTypologies');
-
 //restituisce pagina menu per il ristorante
 Route::get('/show/restaurant/menu/{id}', 'DishController@showMenu') ->name('show-menu');
 
@@ -68,7 +57,18 @@ Route::post('/payment', 'OrderController@payment');
 Route::get('/stats/{id}','RestaurantController@getstats')->name('stats');
 
 //ordini del ristorante
- Route::get('/orders/{id}','OrderController@getOrders')->name('get-orders');
+Route::get('/orders/{id}','OrderController@getOrders')->name('get-orders');
 // ultimo ordine
- Route::get('/lastorder/{id}','OrderController@getLastOrder')->name('get-lastorder');
+Route::get('/lastorder/{id}','OrderController@getLastOrder')->name('get-lastorder');
 
+
+// ApiController
+Route::post('/typologiesCity', 'ApiController@getTypologiesCity')-> name('get-typologyCity');
+Route::get('/cities', 'ApiController@getCity')-> name('get-city');
+Route::post('/restaurantCity', 'ApiController@getrestaurantCity')-> name('get-restaurant-city');
+    //ristoranti piu' votati
+Route::get('/votes', 'ApiController@getRestaurantVotes');
+    //ricerca ristoranti per nome
+Route::post('/search','ApiController@searchRestaurant');
+    //restituisce ristoranti della cita per tipologia
+Route::post('/selectedTypology','ApiController@getRestaurantTypologies');

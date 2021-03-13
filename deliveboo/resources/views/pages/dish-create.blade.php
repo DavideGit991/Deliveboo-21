@@ -16,7 +16,7 @@
 
                     <div>
                         <label for="name">Nome Piatto: </label>
-                        <input type="text" name="name" required>
+                        <input type="text" name="name" required minlength="5" maxlength="60">
                     </div>
                     <div>
                         <label for="description">Descrizione: </label>

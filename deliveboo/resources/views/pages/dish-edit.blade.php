@@ -12,7 +12,7 @@
                     @csrf
                     <div>
                         <label for="name">Nome: </label>
-                        <input type="text" name="name" value="{{$dish-> name}}" required>
+                        <input type="text" name="name" value="{{$dish-> name}}" required minlength="5" maxlength="60">
                     </div>
                     <div>
                         <label for="description">Descrizione: </label>
