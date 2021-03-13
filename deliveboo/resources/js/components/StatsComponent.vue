@@ -19,32 +19,69 @@ export default {
     options: {
         responsive: true,
         maintainAspectRatio: false
-    }
+    },
   }),
 
   mounted () {
 
+    
     let arr = [];
-    for (let index = 0; index <= 11; index++) {
-        console.log(this.stats[index].month);
-        if (this.stats[index].month!=index+1) {
-            this.stats.splice(index,0,{
-                 month:index,
-                 ordineMese:0
-            })
-         }
+    let arrayCopia=[];
+  
+    for (let index = 1; index <= 12; index++) {
+      let cont=0;
+      this.stats.forEach(item => {
+        if (index==item.month) {
+          cont++;
+        }
+      });
+      if(cont>0){
+        arrayCopia.push({
+          month:index,
+          ordineMese:cont
+        });
+      }else{
+        arrayCopia.push({
+          month:index,
+          ordineMese:0
+        });
+      }
     }
 
+
+    // for (let index = 1; index <= 12; index++) {
+    //    let trovato=false;
+    //   this.stats.forEach(item => {
+    //     if (index==item.month && trovato==false) {
+    //       arrayCopia.push(item);
+    //       trovato=true;
+    //     }
+    //   });
+    //   if(trovato==false){
+    //       arrayCopia.push({
+    //         month:index,
+    //         ordineMese:0
+    //       });
+    //     }
+    // }
+    
+    console.log('copia',arrayCopia);
+
+
     // inserisce ordine mesi nell'array di chart.js
-    this.stats.forEach((element,i) => {
-       arr.push(element['ordineMese']);
+    arrayCopia.forEach((element,i) => {
+      arr.push(element['ordineMese']);
     });
     this.chartdata.datasets[0].data = arr;
     this.renderChart(this.chartdata, this.options)
+    
+    
+    
+    
 
   },
     props:{
-      stats:Array
+      stats:Array,
   }
 
 }
