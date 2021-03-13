@@ -178,10 +178,11 @@ class RestaurantController extends Controller
     // upload img
     public function upload(Request $req)
     {
-
-        $req->validate([
-               'iconUser'=> 'required|image|max:2048'
-         ]);
+        
+        // $req->validate([
+        //     'iconUser'=> 'required|image|max:2048'
+        //     ]);
+            
 
         $this->deleteFile();
 

@@ -89128,7 +89128,8 @@ function init() {
       openMenu: true,
       // dati del carrello
       // quadratini colorati
-      typologyColors: ["coral", "#660066", "skyblue", "#ffcc33", "#6b9023", "salmon", "darkCyan", "#660066", "#ffcc33", "salmon"]
+      typologyColors: ["coral", "#660066", "skyblue", "#ffcc33", "#6b9023", "salmon", "darkCyan", "#660066", "#ffcc33", "salmon"],
+      randomAvatars: ["ateneo-zozzerie.jpg", "birreria.jpg", "bbq.jpg", "panini.jpg", "sushi2.jpg", "pizza.jpg", "fragola.jpg"]
     },
     mounted: function mounted() {
       var _this = this;
