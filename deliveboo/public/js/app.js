@@ -2394,16 +2394,20 @@ __webpack_require__.r(__webpack_exports__);
     var arrayCopia = [];
 
     var _loop = function _loop(index) {
-      var trovato = false;
+      var cont = 0;
 
       _this.stats.forEach(function (item) {
-        if (index == item.month && trovato == false) {
-          arrayCopia.push(item);
-          trovato = true;
+        if (index == item.month) {
+          cont++;
         }
       });
 
-      if (trovato == false) {
+      if (cont > 0) {
+        arrayCopia.push({
+          month: index,
+          ordineMese: cont
+        });
+      } else {
         arrayCopia.push({
           month: index,
           ordineMese: 0
@@ -2413,7 +2417,22 @@ __webpack_require__.r(__webpack_exports__);
 
     for (var index = 1; index <= 12; index++) {
       _loop(index);
-    }
+    } // for (let index = 1; index <= 12; index++) {
+    //    let trovato=false;
+    //   this.stats.forEach(item => {
+    //     if (index==item.month && trovato==false) {
+    //       arrayCopia.push(item);
+    //       trovato=true;
+    //     }
+    //   });
+    //   if(trovato==false){
+    //       arrayCopia.push({
+    //         month:index,
+    //         ordineMese:0
+    //       });
+    //     }
+    // }
+
 
     console.log('copia', arrayCopia); // inserisce ordine mesi nell'array di chart.js
 
