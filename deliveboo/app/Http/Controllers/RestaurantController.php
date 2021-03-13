@@ -169,20 +169,21 @@ class RestaurantController extends Controller
         ->join('dish_order','dishes.id','=','dish_order.dish_id')
         ->join('orders','orders.id','=','dish_order.order_id')
         ->where('restaurants.id','=',$id)
-        ->groupBy('orders.id')
-
+        ->groupBy('orders.id','orders.month')
         ->get();
+
         return view('pages.stats', compact('stats'));
+
     }
 
     // upload img
     public function upload(Request $req)
     {
-        
+
         // $req->validate([
         //     'iconUser'=> 'required|image|max:2048'
         //     ]);
-            
+
 
         $this->deleteFile();
 
