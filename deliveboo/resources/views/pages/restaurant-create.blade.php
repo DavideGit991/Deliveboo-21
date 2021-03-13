@@ -17,26 +17,30 @@
 
                     <div>
                         <label for="name">Nome Ristorante*</label>
-                        <input type="text" class="form-control" name="name" required maxlength="40" minlength="5" >
+                        <input type="text" class="form-control form" name="name" required maxlength="40" minlength="5" >
                     </div>
                     <div>
                         <label for="address">Indirizzo*</label>
-                        <input type="text" class="form-control" name="address" required maxlength="100" minlength="5">
+                        <input type="text" class="form-control form" name="address" required maxlength="100" minlength="5">
                     </div>
                     <div>
                         <label for="city">Città*</label>
-                        <input type="text" class="form-control" name="city" required maxlength="40" minlength="5">
+                        <input type="text" class="form-control form" name="city" required maxlength="40" minlength="5">
                     </div>
                     <div>
                         <label for="phone">Telefono*</label>
-                        <input type="tel" class="form-control" name="phone" required maxlength="15" minlength="10">
+                        <input type="tel" class="form-control form" name="phone" required maxlength="15" minlength="10">
                     </div>
                     <div>
                         <label for="typologies[]">Tipologie*</label>
-                        @foreach ($typologies as $typology)
 
-                        <input type="checkbox" class="form-control" name="typologies[]" value="{{$typology->id}}" > {{$typology->name}}
-                        @endforeach
+                        <div class="check-container">
+                            @foreach ($typologies as $typology)
+                            <p>
+                                <input type="checkbox" class="form-control" name="typologies[]" value="{{$typology->id}}">{{$typology->name}}
+                            </p>
+                            @endforeach
+                        </div>
                     </div>
                     @if ($errors->any())
                     <div class="alert alert-danger">

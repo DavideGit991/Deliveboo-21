@@ -33,11 +33,11 @@
 
                           @if ($dish->img)
 
-                            <img class='imgDish' src="{{asset('storage/dish/'.$dish->img)}}" alt="immagine piatto">
+                            <img class='imgDish' src="{{asset('storage/dish/'.$dish->img)}}" alt="">
 
                           @else
 
-                            <img class='imgDish' src="/img/food.jpg" alt="immagine piatto">
+                            <img class='imgDish' src="/img/generic.jpg" alt="immagine piatto">
 
                           @endif
 

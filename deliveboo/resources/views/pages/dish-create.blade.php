@@ -16,20 +16,20 @@
 
                     <div>
                         <label for="name">Nome Piatto: </label>
-                        <input type="text" name="name" required minlength="5" maxlength="60">
+                        <input class="form-control form" type="text" name="name" required minlength="5" maxlength="60">
                     </div>
                     <div>
                         <label for="description">Descrizione: </label>
-                        <input type="text" name="description" minlength="5" required >
+                        <input class="form-control form" type="text" name="description" minlength="5" required >
                     </div>
                     <div>
                         <label for="price">Prezzo: </label>
-                        <input type="number" step="0.01" name="price" required>
+                        <input class="form-control form" type="number" step="0.01" name="price" required>
                     </div>
 
                     <div>
                         <label for="image">Immagine: </label>
-                        <input type="file" name='iconUser'  >
+                        <input class="form-control form image" type="file" name='iconUser'  >
                     </div>
 
                     <div class="select">

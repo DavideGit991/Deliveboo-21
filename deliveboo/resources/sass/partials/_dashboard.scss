@@ -72,36 +72,26 @@
 #box-det {
     margin-bottom: 10px;
     padding-left: 40px;
+    
 
     .img-avatar-container {
 
-        margin-left: -40px;
-        column-count: 2;
-        padding: 25px;
-        border: 1px solid grey;
+        border: 1px solid gray;
+        padding: 10px;
+        border-radius: 3px;
 
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-radius: 3px;
+        @media all and (max-width: 767px){
+            border: none;
+        }
 
-            @media all and (max-width: 479px){
-                border: none;
-            }
+        .selectImg {
+            margin-top: 20px;
+            margin-left: -100px
+        }
 
-            div:last-child {
-
-                margin-top: 15px;
-
-                button {
-                    margin: 0 5px;
-                }
-
-                button.alert {
-                    @include buttonStyle(#ff3535, white);
-                }
-            }
+        button.alert {
+            @include buttonStyle(#ff3535, white);
+            margin-top: 10px;
         }
     }
 }

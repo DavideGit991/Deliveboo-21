@@ -10,8 +10,25 @@
         color: white;
     }
 
-    input {
+    .form-control.form {
         @include inputStyle($main);
         padding-left: 7px;
+
+    }
+
+    .form-control.form.image {
+        border: none;
+        margin-top: 15px;
+    }
+
+    .check-container {
+
+        border: 1px solid $mainpurple;
+        border-radius: 3px;
+        padding: 10px;
+
+        input {
+            margin-bottom: 10px;
+        }
     }
 }

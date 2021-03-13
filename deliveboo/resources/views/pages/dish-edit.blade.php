@@ -24,7 +24,7 @@
                     </div>
                     <div>
                         <label for="image">Immagine: </label>
-                        <input type="file" name='iconUser'  >
+                        <input class="form-control form image" type="file" name='iconUser'  >
                     </div>
                     <div class="select">
                         <label for="availability">Disponibilità: </label>
