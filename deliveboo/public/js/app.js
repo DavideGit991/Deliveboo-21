@@ -2144,8 +2144,11 @@ __webpack_require__.r(__webpack_exports__);
         // console.log(i);
         this.totPrice -= price; // this.totPrice.toFixed(1);
 
-        this.dishesOrdered.splice(i, 1);
+        this.dishesOrdered.splice(i, 1); // this.iddishes.splice(id);
+
+        Vue["delete"](this.iddishes, i);
       } // console.log('prezzo totale',this.totPrice);
+      // console.log('alla rimozione',this.iddishes);
 
     },
     AddPrice: function AddPrice(price, name, id) {
@@ -2158,6 +2161,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.iddishes.push(id); // console.log(this.dishesOrdered);
       // console.log('prezzo totale',this.totPrice);
+      // console.log('all aggiunta',this.iddishes);
     },
     GoToCheckout: function GoToCheckout() {
       this.deleteDish = false;
