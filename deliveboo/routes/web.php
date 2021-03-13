@@ -34,6 +34,10 @@ Route::post('/upload', 'RestaurantController@upload')
 Route::get('/delete/avatar', 'RestaurantController@deleteDb')
     ->name('delete-avatar');
 
+Route::post('/delete/imgDish', 'DishController@dishDeleteDb')
+        ->name('delete-imgDish');
+
+
 
 // Rotte Piatti
 Route::get('/home/restaurant/{id}/dishes', 'DishController@index')->name('dishes-index');

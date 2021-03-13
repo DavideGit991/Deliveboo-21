@@ -2094,6 +2094,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2112,7 +2114,8 @@ __webpack_require__.r(__webpack_exports__);
       name: '',
       lastname: '',
       address: '',
-      phone: ''
+      phone: '',
+      baseURL: "storage/dish/"
     };
   },
   mounted: function mounted() {
@@ -76264,7 +76267,23 @@ var render = function() {
                     "div",
                     { key: dish.message, staticClass: "dish-card" },
                     [
-                      _c("div", { staticClass: "img-container" }),
+                      _c("div", { staticClass: "img-container" }, [
+                        dish.img
+                          ? _c("img", {
+                              attrs: {
+                                src: "/storage/dish/" + dish.img,
+                                alt: "immagine piatto"
+                              }
+                            })
+                          : _c("img", {
+                              attrs: {
+                                src: "/img/food.jpg",
+                                width: "230px;",
+                                height: "104px;",
+                                alt: "immagine piatto"
+                              }
+                            })
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "food-body" }, [
                         _c("div", [

@@ -7,7 +7,7 @@
             </div>
 
             <div class="card-body">
-                <form action="{{route('dish-update', $dish-> id)}}" method="post" >
+                <form action="{{route('dish-update', $dish-> id)}}" method="post" enctype="multipart/form-data">
                     @method('post')
                     @csrf
                     <div>
@@ -22,6 +22,10 @@
                         <label for="price">Prezzo: </label>
                         <input type="number" step="0.01" name="price" value="{{$dish-> price}}" required>
                     </div>
+                    <div>
+                        <label for="image">Immagine: </label>
+                        <input type="file" name='iconUser'  >
+                    </div>
                     <div class="select">
                         <label for="availability">Disponibilità: </label>
                         <select name="availability">
@@ -35,7 +39,10 @@
                         </select>
                     </div>
 
+
+
                     <input type="text" hidden name="restaurant_id" value="{{$dish-> restaurant_id}}">
+
                     <div>
                         <button type="submit">
                             Salva

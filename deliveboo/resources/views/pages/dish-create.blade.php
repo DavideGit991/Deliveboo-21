@@ -10,7 +10,7 @@
             </div>
 
             <div class="card-body">
-                <form action="{{route('dish-store')}}" method="post">
+                <form action="{{route('dish-store')}}" method="post" enctype="multipart/form-data">
                     @method('post')
                     @csrf
 
@@ -25,6 +25,11 @@
                     <div>
                         <label for="price">Prezzo: </label>
                         <input type="number" step="0.01" name="price" required>
+                    </div>
+
+                    <div>
+                        <label for="image">Immagine: </label>
+                        <input type="file" name='iconUser'  >
                     </div>
 
                     <div class="select">

@@ -6,6 +6,8 @@ use App\Dish;
 use App\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -24,23 +26,35 @@ class DishController extends Controller
 
     public function store(Request $request)
     {
-        $data=$request-> all();
+      $data=$request-> all();
 
-        Validator::make($data,[          //validazione
-            'name'=>'required|string|min:5|max:60',
-            'description'=>'required|min:5',
-            'price'=>'required|',
+      Validator::make($data,[          //validazione
+          'name'=>'required|string|min:5|max:60',
+          'description'=>'required|min:5',
+          'price'=>'required|numeric',
+      ])-> validate();
+      
+      $image = $request->file('iconUser');
 
-        ])-> validate();
+      $ext = $image->getClientOriginalExtension();
 
-        $dish = Dish::make($request -> all());
+      $name = rand(100000, 999999) . '_' . time();
 
-        $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
-        $dish -> restaurant() -> associate($restaurant);
-        $dish -> save();
+      $destFile = $name . '.' . $ext;
 
+      $file = $image->storeAs('dish', $destFile, 'public');
 
-        return redirect() -> route('dishes-index', $restaurant-> id);
+      $dish = Dish::make($request -> all());
+
+      $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
+
+      $dish -> restaurant() -> associate($restaurant);
+
+      $dish->img = $destFile;
+
+      $dish->save();
+
+      return redirect() -> route('dishes-index', $restaurant->id);
     }
 
     public function edit($id)
@@ -51,16 +65,59 @@ class DishController extends Controller
 
     public function update(Request $request, $id)
     {
-        $dish=Dish::findOrFail($id);
-        $data=$request-> all();
-        Validator::make($data,[          //validazione
-            'name'=>'required|string|min:5|max:60',
-            'description'=>'required|min:5',
-            'price'=>'required|',
-        ])-> validate();
+      $dish=Dish::findOrFail($id);
+      $data=$request-> all();
+      Validator::make($data,[          //validazione
+          'name'=>'required|string|min:5|max:60',
+          'description'=>'required|min:5',
+          'price'=>'required|numeric',
+      ])-> validate();
 
-        $dish->update($data);
+      if ($request->has('iconUser')) {
+
+          $fileName = $dish->img;
+
+          $file = storage_path('app/public/dish/' . $fileName);
+          File::delete($file);
+
+          $image = $request->file('iconUser');
+
+          $ext = $image->getClientOriginalExtension();
+
+          $name = rand(100000, 999999) . '_' . time();
+
+          $destFile = $name . '.' . $ext;
+
+          $file = $image->storeAs('dish', $destFile, 'public');
+
+          $dish->update(
+            [
+              'name' => $request->name,
+              'price' => $request->price,
+              'description' => $request->description,
+              'availability' => $request->availability,
+              'image' => $destFile,
+            ]
+          );
+
+          $dish->img = $destFile;
+
+        } else {
+
+          $dish->update(
+            [
+              'name' => $request->name,
+              'price' => $request->price,
+              'description' => $request->description,
+              'availability' => $request->availability,
+            ]
+          );
+        }
+
+        $dish->save();
+
         return redirect() -> route('dishes-index', $dish-> restaurant_id );
+
     }
 
     public function delete(Request $request, $id)     //lo rendo non disponibile ma esiste ancora nel db

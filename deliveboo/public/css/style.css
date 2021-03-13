@@ -956,6 +956,19 @@ svg {
   padding-bottom: 20px;
 }
 
+#dishes-index .dish-container .dish .container-imgDish {
+  width: 100%;
+  height: 100px;
+  margin-top: 5px;
+}
+
+#dishes-index .dish-container .dish .imgDish {
+  display: block;
+  margin: 0 auto;
+  max-width: 100px;
+  max-height: 100px;
+}
+
 #dishes-index .dish-container .card-header {
   border-radius: 5px 5px 0 0;
   font-size: 18px;
@@ -1034,9 +1047,6 @@ svg {
 }
 
 #menu .ordine .dish-card-container .dish-card .img-container {
-  background-image: url(/images/food.jpg?f1573d3b1ff4cbe449954c83d50803fe);
-  background-size: cover;
-  background-position: left;
   width: 230px;
   height: 104px;
 }
@@ -1045,6 +1055,8 @@ svg {
   margin: auto;
   max-width: 100%;
   max-height: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 #menu .ordine .dish-card-container .dish-card .food-body {
