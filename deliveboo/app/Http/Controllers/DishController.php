@@ -29,7 +29,7 @@ class DishController extends Controller
         Validator::make($data,[          //validazione
             'name'=>'required|string|min:5|max:60',
             'description'=>'required|min:5',
-            'price'=>'required|numeric',
+            'price'=>'required|',
 
         ])-> validate();
 
@@ -56,7 +56,7 @@ class DishController extends Controller
         Validator::make($data,[          //validazione
             'name'=>'required|string|min:5|max:60',
             'description'=>'required|min:5',
-            'price'=>'required|numeric',
+            'price'=>'required|',
         ])-> validate();
 
         $dish->update($data);
