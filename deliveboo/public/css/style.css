@@ -483,6 +483,26 @@ svg {
   text-align: center;
 }
 
+#dashboard .card .imgRest {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+#dashboard .card .reset {
+  text-align: center;
+  position: relative;
+  top: 18px;
+}
+
+#dashboard .card .selectImg {
+  position: relative;
+  left: 100px;
+  bottom: 13px;
+}
+
 #dashboard h3 {
   color: #660066;
   font-size: 18px;
@@ -554,14 +574,16 @@ svg {
 
 #box-det .img-avatar-container {
   margin-left: -40px;
+  -moz-column-count: 2;
+       column-count: 2;
+  padding: 25px;
+  border: 1px solid grey;
 }
 
 #box-det .img-avatar-container form {
-  border: 1px solid gray;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
   border-radius: 3px;
 }
 

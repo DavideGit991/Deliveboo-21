@@ -10,14 +10,13 @@
                 Dashboard di <b>{{Auth::user()->name}}</b>
             </div>
 
-            {{-- <div>
-
+            <div>
                 @if ($restaurant->logo)
-                    <img class='rounded ' src="{{asset('storage/avatar/'.$restaurant->logo)}}" height='50'>
+                    <img class='imgRest' src="{{asset('storage/avatar/'.$restaurant->logo)}}" >
                 @else
-                    <img class='rounded' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.A-Iz4F74iibUzjTjBpKljQHaE7%26pid%3DApi&f=1" height='50'>
+                    <img class='imgRest'src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freactnativecode.com%2Fwp-content%2Fuploads%2F2018%2F02%2FDefault_Image_Thumbnail.png&f=1&nofb=1">
                 @endif
-            </div> --}}
+            </div>
 
             <div class="card-body">
                 @if (!$restaurant)
@@ -69,20 +68,20 @@
                                 @method('POST')
 
                                 <div>
-                                    <input name='iconUser' type="file" >
+                                    <input class="selectImg" name='iconUser' type="file" >
                                 </div>
 
                                 <button type="submit" value="Invia">Invia</button>
                             </form>
 
                             {{-- delete img --}}
-                                <div>
-                                    <a href="{{route('delete-avatar')}}">
-                                        <button class="alert">
-                                            Resetta Immagine
-                                        </button>
-                                    </a>
-                                </div>
+                            <div class="reset">
+                                <a href="{{route('delete-avatar')}}">
+                                    <button class="alert">
+                                        Resetta Immagine
+                                    </button>
+                                </a>
+                            </div>
 
                         </div>
                     </div>
