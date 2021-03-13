@@ -313,11 +313,10 @@ svg {
 
 .bestRated .best > div .img-container {
   background-color: dimgray;
-  background-image: url(/images/generic.jpg?29b1ffa3a9893269870537a7ca513eb6);
-  background-size: cover;
   width: 100%;
   height: 138px;
   padding: initial;
+  overflow: hidden;
 }
 
 .bestRated .best > div .img-container img {
@@ -344,7 +343,6 @@ svg {
 .msric {
   background-color: #006666;
   height: 100vh;
-  width: 100vw;
   position: absolute;
   top: 0;
   left: 0;

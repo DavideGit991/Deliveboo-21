@@ -61,7 +61,7 @@
                     </div>
                     
                     <div> 
-                        <h4>Aggiungi Immagine Ristorante:</h4>
+                        <h4>Immagine Ristorante:</h4>
                         {{-- upload img ristorante --}}
                         <div class="img-avatar-container">
                             <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
