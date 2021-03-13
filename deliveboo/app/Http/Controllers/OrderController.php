@@ -33,7 +33,6 @@ class OrderController extends Controller
            'phone'=>$data['phone'],
            ]);
 
-
         $order->save();
 
         foreach ($data['id'] as $idplate) {
@@ -41,7 +40,7 @@ class OrderController extends Controller
             $order->dishes()->attach($idplate);
         }
 
-
+       dd($data['phone']);
        return response()->json($data,200) ;
    }
 

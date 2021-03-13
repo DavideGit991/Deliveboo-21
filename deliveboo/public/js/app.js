@@ -2095,6 +2095,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -76267,16 +76268,18 @@ var render = function() {
                     { key: dish.message, staticClass: "dish-card" },
                     [
                       _c("div", { staticClass: "img-container" }, [
-                        dish.img == null
+                        dish.img
                           ? _c("img", {
                               attrs: {
-                                src: "/img/food.jpg",
+                                src: "/storage/dish/" + dish.img,
                                 alt: "immagine piatto"
                               }
                             })
                           : _c("img", {
                               attrs: {
-                                src: "/storage/dish/" + dish.img,
+                                src: "/img/food.jpg",
+                                width: "230px;",
+                                height: "104px;",
                                 alt: "immagine piatto"
                               }
                             })
@@ -89678,9 +89681,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/sass/style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

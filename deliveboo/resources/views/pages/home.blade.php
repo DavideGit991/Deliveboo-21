@@ -10,15 +10,8 @@
                 Dashboard di <b>{{Auth::user()->name}}</b>
             </div>
 
-            {{-- <div>
-                @if ($restaurant->logo)
-                    <img class='imgRest' src="{{asset('storage/avatar/'.$restaurant->logo)}}" >
-                @else
-                    <img class='imgRest'src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freactnativecode.com%2Fwp-content%2Fuploads%2F2018%2F02%2FDefault_Image_Thumbnail.png&f=1&nofb=1">
-                @endif
-            </div> --}}
-
             <div class="card-body">
+
                 @if (!$restaurant)
 
                 <div class="resto-name">
@@ -33,6 +26,13 @@
                 </div>
                 @else
                 <div class="resto-name">
+                    <div>
+                        @if ($restaurant->logo)
+                            <img class='imgRest' src="{{asset('storage/avatar/'.$restaurant->logo)}}" >
+                        @else
+                            <img class='imgRest'src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Freactnativecode.com%2Fwp-content%2Fuploads%2F2018%2F02%2FDefault_Image_Thumbnail.png&f=1&nofb=1">
+                        @endif
+                    </div>
                     <h3>
                         {{$restaurant->name}}
                         <i id='icon' class="fas fa-sort-down" @@click="showDetails()"></i>

@@ -12,8 +12,9 @@
                     <div id="dish-card-container" class="dish-card-container">
                         <div class="dish-card" v-for="dish in dishes" :key="dish.message">
                             <div class="img-container">
-                                 <img v-if="dish.img == null" :src="'/img/food.jpg'" alt="immagine piatto">
-                                 <img v-else :src="'/storage/dish/' + dish.img" alt="immagine piatto">
+                                 <img v-if="dish.img" :src="'/storage/dish/' + dish.img" alt="immagine piatto">
+                                 <img v-else="dish.img == null" :src="'/img/food.jpg'" width=230px;
+                                 height=104px; alt="immagine piatto">
                             </div>
 
                             <div class="food-body">
