@@ -7,6 +7,8 @@ use App\Order;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailOrder;
 
 
 class OrderController extends Controller
@@ -31,6 +33,7 @@ class OrderController extends Controller
            'address'=>$data['address'],
            'status'=>$data['status'],
            'phone'=>$data['phone'],
+           'mail'=>$data['mail']
            ]);
 
         $order->save();
@@ -40,7 +43,8 @@ class OrderController extends Controller
             $order->dishes()->attach($idplate);
         }
 
-       dd($data['phone']);
+       Mail::to($data['mail'])->send(new EmailOrder($order));
+
        return response()->json($data,200) ;
    }
 

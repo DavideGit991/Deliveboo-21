@@ -2096,6 +2096,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2115,7 +2119,7 @@ __webpack_require__.r(__webpack_exports__);
       lastname: '',
       address: '',
       phone: '',
-      baseURL: "storage/dish/"
+      mail: ''
     };
   },
   mounted: function mounted() {
@@ -2192,6 +2196,7 @@ __webpack_require__.r(__webpack_exports__);
         lastname: this.lastname,
         address: this.address,
         phone: this.phone,
+        mail: this.mail,
         id: this.iddishes
       };
       console.log(fields);
@@ -76648,6 +76653,33 @@ var render = function() {
                               return
                             }
                             _vm.phone = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("label", { attrs: { for: "mail" } }, [
+                        _vm._v("Email:")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.mail,
+                            expression: "mail"
+                          }
+                        ],
+                        attrs: { type: "tex", name: "mail", required: "" },
+                        domProps: { value: _vm.mail },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.mail = $event.target.value
                           }
                         }
                       })

@@ -14,6 +14,7 @@ class Order extends Model
         'month',
         'phone',
         'status',
+        'mail'
     ];
 
     public function dishes()

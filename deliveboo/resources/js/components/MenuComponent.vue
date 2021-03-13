@@ -111,6 +111,10 @@
                                 <label for="phone">N° Telefono</label>
                                 <input type="tel" name="phone" v-model="phone" required  minlength="10" maxlength="15">
                             </div>
+                            <div>
+                                <label for="mail">Email:</label>
+                                <input type="tex" name="mail" v-model="mail" required>
+                            </div>
                         </div>
 
                         <button type="submit">Completa Pagamento</button>
@@ -156,9 +160,7 @@ export default {
             lastname:'',
             address:'',
             phone:'',
-
-            baseURL: "storage/dish/",
-
+            mail:'',
 
         }
     },
@@ -253,6 +255,7 @@ export default {
                     lastname:this.lastname,
                     address:this.address,
                     phone:this.phone,
+                    mail:this.mail,
 
                     id:this.iddishes
                 }
