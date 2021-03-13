@@ -121,7 +121,7 @@ function init(){
                     this.showName=false;
                     this.showSearchResult=false;
 
-                    console.log(cittaSelezionata);
+                    // console.log(cittaSelezionata);
 
                     //chiamata restituzione tipologie per città selezionata
                     axios.post('/typologiesCity',cittaSelezionata)
@@ -192,7 +192,7 @@ function init(){
                     this.searchResults=res.data;
 
                     if(this.inputName !== '') {
-                        
+
                         this.showSearchResult=true;
                     }else {
                         this.showSearchResult=false;

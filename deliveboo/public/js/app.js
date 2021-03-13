@@ -89175,8 +89175,8 @@ function init() {
           this.showBest = false;
           this.showRestaurantCity = true;
           this.showName = false;
-          this.showSearchResult = false;
-          console.log(cittaSelezionata); //chiamata restituzione tipologie per città selezionata
+          this.showSearchResult = false; // console.log(cittaSelezionata);
+          //chiamata restituzione tipologie per città selezionata
 
           axios.post('/typologiesCity', cittaSelezionata).then(function (res) {
             _this2.showTypologies = true;

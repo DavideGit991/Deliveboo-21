@@ -59,33 +59,35 @@
                         </h4>
                         <span>{{$restaurant->phone}}</span>
                     </div>
-                    
-                    <div> 
+
+                    <div>
                         <h4>Immagine Ristorante:</h4>
                         {{-- upload img ristorante --}}
                         <div class="img-avatar-container">
                             <form action="{{route('upload')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('POST')
-                                
+
                                 <div>
                                     <input name='iconUser' type="file" >
                                 </div>
-                                
+
+                                <button type="submit" value="Invia">Invia</button>
+                            </form>
+
+                            {{-- delete img --}}
                                 <div>
-                                    <button type="submit" value="Invia">Invia</button>
-                                    {{-- delete img --}}
                                     <a href="{{route('delete-avatar')}}">
                                         <button class="alert">
                                             Resetta Immagine
                                         </button>
                                     </a>
                                 </div>
-                            </form>
+
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="dashboard-buttons">
                     <a href="{{route('restaurant-edit', $restaurant->id)}}">
                         <button>
