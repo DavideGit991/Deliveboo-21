@@ -16,15 +16,30 @@
 
                     <div>
                         <label for="name">Nome Piatto: </label>
-                        <input class="form-control form" type="text" name="name" required minlength="5" maxlength="60">
+                        <input class="form-control form" type="text" name="name" minlength="5" maxlength="60">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div>
                         <label for="description">Descrizione: </label>
-                        <input class="form-control form" type="text" name="description" minlength="5" required >
+                        <input class="form-control form" type="text" name="description" minlength="5" >
+                        @error('description')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div>
                         <label for="price">Prezzo: </label>
-                        <input class="form-control form" type="number" step="0.01" name="price" required>
+                        <input class="form-control form" type="number" step="0.01" name="price">
+                        @error('price')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
                     <div>

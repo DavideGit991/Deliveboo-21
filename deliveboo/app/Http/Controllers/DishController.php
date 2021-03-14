@@ -32,25 +32,47 @@ class DishController extends Controller
           'name'=>'required|string|min:5|max:60',
           'description'=>'required|min:5',
           'price'=>'required|numeric',
-      ])-> validate();
-      
-      $image = $request->file('iconUser');
+      ],
+      [
+          'name.required' => 'Campo obbligatorio',
+          'name.min' => 'Il nome deve essere di almeno 5 caratteri',
+          'name.max' => 'Il nome deve avere massimo 60 cifre',
+          'description.required' => 'Campo obbligatorio',
+          'description.min' => 'La descrizione deve essere di almeno 5 caratteri',
+          'price.required' => 'Campo obbligatorio',
+          'price.numeric' => 'Deve essere un numero',
+      ])
+      -> validate();
 
-      $ext = $image->getClientOriginalExtension();
+      if ($request->has('iconUser')) {
 
-      $name = rand(100000, 999999) . '_' . time();
+        $image = $request->file('iconUser');
 
-      $destFile = $name . '.' . $ext;
+        $ext = $image->getClientOriginalExtension();
 
-      $file = $image->storeAs('dish', $destFile, 'public');
+        $name = rand(100000, 999999) . '_' . time();
 
-      $dish = Dish::make($request -> all());
+        $destFile = $name . '.' . $ext;
 
-      $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
+        $file = $image->storeAs('dish', $destFile, 'public');
 
-      $dish -> restaurant() -> associate($restaurant);
+        $dish = Dish::make($request -> all());
 
-      $dish->img = $destFile;
+        $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
+
+        $dish -> restaurant() -> associate($restaurant);
+
+        $dish->img = $destFile;
+
+      } else {
+
+        $dish = Dish::make($request -> all());
+
+        $restaurant = Restaurant::findOrFail($data['restaurant_id']);    //recupero id del ristorante del ristoratore loggato
+
+        $dish -> restaurant() -> associate($restaurant);
+
+      }
 
       $dish->save();
 

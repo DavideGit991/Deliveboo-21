@@ -11,9 +11,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 
-
-
-
 class RestaurantController extends Controller
 {
       public function __construct()
@@ -41,7 +38,23 @@ class RestaurantController extends Controller
             'city'=>'required|string|min:5|max:40',
             'phone'=>'required|string|min:10|max:15',
             'typologies'=>'required',
-        ])-> validate();
+        ],
+        [
+            'name.required' => 'Campo obbligatorio',
+            'name.min' => 'Il nome deve essere di almeno 5 caratteri',
+            'name.max' => 'Il nome deve avere massimo 40 cifre',
+            'address.required' => 'Campo obbligatorio',
+            'address.min' => 'Deve essere di almeno 5 caratteri',
+            'address.max' => 'Deve avere massimo 100 cifre',
+            'city.required' => 'Campo obbligatorio',
+            'city.max' => 'Deve avere massimo 40 cifre',
+            'city.min' => 'Deve essere di almeno 5 caratteri',
+            'phone.required' => 'Campo obbligatorio',
+            'phone.min' => 'Deve essere di almeno 10 cifre',
+            'phone.max' => 'Deve avere massimo 15 cifre',
+            'typologies.required' => 'Campo obbligatorio'
+        ])
+        -> validate();
 
 
         $newRestaurant=Restaurant::create($data);
@@ -63,7 +76,22 @@ class RestaurantController extends Controller
             'address'=>'required|string|max:100|min:5',
             'city'=>'required|string|min:5|max:40',
             'phone'=>'required|string| min:10|max:15',
-        ])-> validate();
+        ],
+        [
+            'name.required' => 'Campo obbligatorio',
+            'name.min' => 'Il nome deve essere di almeno 5 caratteri',
+            'name.max' => 'Il nome deve avere massimo 40 cifre',
+            'address.required' => 'Campo obbligatorio',
+            'address.min' => 'Deve essere di almeno 5 caratteri',
+            'address.max' => 'Deve avere massimo 100 cifre',
+            'city.required' => 'Campo obbligatorio',
+            'city.max' => 'Deve avere massimo 40 cifre',
+            'city.min' => 'Deve essere di almeno 5 caratteri',
+            'phone.required' => 'Campo obbligatorio',
+            'phone.min' => 'Deve essere di almeno 10 cifre',
+            'phone.max' => 'Deve avere massimo 15 cifre',
+        ])
+        -> validate();
 
         $restaurant=Restaurant::findOrFail($id);
         $restaurant->update($data);
