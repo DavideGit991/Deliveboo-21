@@ -67,7 +67,10 @@ function init(){
                 "panini.jpg",
                 "sushi2.jpg",
                 "pizza.jpg",
-                "fragola.jpg"
+                "fragola.jpg",
+                "messicana.jpg",
+                "kebab.jpg",
+                "cinese.jpg"
             ]
         },
         mounted(){

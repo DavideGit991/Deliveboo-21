@@ -20,16 +20,29 @@ header {
 
             font-size: 25px;
 
-            @media all and (max-width: 479px){
-                font-size: 18px 
-            }
+            // @media all and (max-width: 479px){
+            //     font-size: 18px 
+            // }
 
             i {
                 font-size: 18px;
                 margin: 1px;
 
+                // @media all and (max-width: 479px){
+                //     font-size: 14px;
+                // }
+            }
+
+            &:first-child {
                 @media all and (max-width: 479px){
-                    font-size: 14px 
+                    display: none;
+                }
+            }
+
+            &:last-child {
+                display: none;
+                @media all and (max-width: 479px){
+                    display: block; 
                 }
             }
         }
@@ -40,6 +53,7 @@ header {
 
         width: 40%;
         position: relative;
+        margin-left: -50px;
 
         #search {
             background-color: white;
@@ -88,6 +102,11 @@ header {
                 justify-content: center;
                 align-items: center;
                 height: 40px;
+
+                @media all and (max-width: 479px){
+                        
+                    font-size: 12px;
+                }
             }
 
             .results-name {
@@ -97,6 +116,33 @@ header {
                 padding: 5px 15px;
                 height: 40px;
                 transition: 0.3s;
+
+                h4 {
+                    @media all and (max-width: 479px){
+                        
+                        font-size: 12px;
+                    }
+                }
+
+                .stars:nth-child(2) {
+
+                    @media all and (max-width: 767px) {
+                        display: none;
+                    }
+                }
+
+                .stars:last-child {
+                    display: none;
+
+                    @media all and (max-width: 767px) {
+                        display: block;
+                    }
+
+                    @media all and (max-width: 479px){
+                        
+                        font-size: 12px;
+                    }
+                }
 
                 &:hover {
 

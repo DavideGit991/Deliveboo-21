@@ -251,7 +251,11 @@
 
         .card {
 
-            width: 99%;
+            width: 100%;
+
+            .card-body {
+                width: 100%;
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 <header>
     <div id="logo">
         <a href="{{ url('/') }}">Deliveb<i class="fas fa-cookie-bite"></i>o</a>
+        <a href="{{ url('/') }}"><i class="fas fa-cookie-bite"></i></a>
     </div>
 
     {{-- Search --}}
@@ -20,6 +21,7 @@
                     <div class="results-name">
                         <h4>@{{element.name}}</h4>
                         <p class="stars"><i class="fas fa-star" v-for="star in element.vote "></i><i class="far fa-star" v-for="star in 5 - (element.vote)"></i></p>
+                        <p class="stars">@{{element.vote}}<i class="fas fa-star"></i></p>
                     </div>
                 </div>
             </div>

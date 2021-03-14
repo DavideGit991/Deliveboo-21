@@ -32,26 +32,31 @@ header #logo a {
   font-size: 25px;
 }
 
-@media all and (max-width: 479px) {
-  header #logo a {
-    font-size: 18px;
-  }
-}
-
 header #logo a i {
   font-size: 18px;
   margin: 1px;
 }
 
 @media all and (max-width: 479px) {
-  header #logo a i {
-    font-size: 14px;
+  header #logo a:first-child {
+    display: none;
+  }
+}
+
+header #logo a:last-child {
+  display: none;
+}
+
+@media all and (max-width: 479px) {
+  header #logo a:last-child {
+    display: block;
   }
 }
 
 .search-bar {
   width: 40%;
   position: relative;
+  margin-left: -50px;
 }
 
 .search-bar #search {
@@ -101,6 +106,12 @@ header #logo a i {
   height: 40px;
 }
 
+@media all and (max-width: 479px) {
+  .search-bar .search-results .noRes {
+    font-size: 12px;
+  }
+}
+
 .search-bar .search-results .results-name {
   display: flex;
   align-items: center;
@@ -108,6 +119,34 @@ header #logo a i {
   padding: 5px 15px;
   height: 40px;
   transition: 0.3s;
+}
+
+@media all and (max-width: 479px) {
+  .search-bar .search-results .results-name h4 {
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .search-bar .search-results .results-name .stars:nth-child(2) {
+    display: none;
+  }
+}
+
+.search-bar .search-results .results-name .stars:last-child {
+  display: none;
+}
+
+@media all and (max-width: 767px) {
+  .search-bar .search-results .results-name .stars:last-child {
+    display: block;
+  }
+}
+
+@media all and (max-width: 479px) {
+  .search-bar .search-results .results-name .stars:last-child {
+    font-size: 12px;
+  }
 }
 
 .search-bar .search-results .results-name:hover {
@@ -312,7 +351,8 @@ svg {
 }
 
 .bestRated .best > div .img-container {
-  background-color: dimgray;
+  background-image: url(/images/generic.jpg?29b1ffa3a9893269870537a7ca513eb6);
+  background-size: cover;
   width: 100%;
   height: 138px;
   padding: initial;
@@ -768,7 +808,11 @@ svg {
 
 @media all and (max-width: 479px) {
   #dashboard .card {
-    width: 99%;
+    width: 100%;
+  }
+
+  #dashboard .card .card-body {
+    width: 100%;
   }
 }
 
@@ -1053,12 +1097,23 @@ svg {
   text-align: center;
 }
 
+#menu .ordine .title h2 {
+  margin-bottom: 15px;
+}
+
+#menu .ordine .title .line {
+  border-bottom: 3px solid #660066;
+  width: 100px;
+  margin: auto;
+}
+
 #menu .ordine .dish-card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 20px;
   width: calc(100vw - 300px);
-  height: calc(100vh - 220px);
+  height: calc(100vh - 245px);
   overflow: auto;
 }
 
@@ -1085,7 +1140,7 @@ svg {
 
 #menu .ordine .dish-card-container .dish-card .img-container img {
   margin: auto;
-  max-width: 200px;
+  max-width: 180px;
   display: block;
   margin: 0 auto;
 }
@@ -1157,6 +1212,7 @@ svg {
 
 #menu .ordine .cart-container .cart {
   height: calc(100vh - 256px);
+  max-height: 500px;
   padding: 5px;
 }
 
@@ -1224,10 +1280,14 @@ svg {
 
 #menu .ordine .pagamento {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 40px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 40px;
   width: calc(100vw - 380px);
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-color: white;
+  padding: 20px;
 }
 
 @media all and (max-width: 767px) {
@@ -1246,6 +1306,7 @@ svg {
   font-size: 16px;
   text-decoration: none;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
 #menu .ordine .pagamento button:active {
@@ -1264,31 +1325,37 @@ svg {
   margin: 20px 0;
 }
 
-#menu .ordine .pagamento #form {
+#menu .ordine .pagamento #form > div {
   background-color: white;
   padding: 10px;
-  margin-top: 20px;
   border: 1px solid gray;
   border-radius: 3px;
-  width: 80%;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#menu .ordine .pagamento #form h2 {
+@media all and (max-width: 479px) {
+  #menu .ordine .pagamento #form > div {
+    width: 100%;
+  }
+}
+
+#menu .ordine .pagamento #form > div h2 {
   color: #660066;
 }
 
-#menu .ordine .pagamento #form .form-container {
-  display: flex;
-  flex-wrap: wrap;
+#menu .ordine .pagamento #form > div .form-container {
   padding: 10px;
 }
 
-#menu .ordine .pagamento #form .form-container label {
+#menu .ordine .pagamento #form > div .form-container label {
   font-size: 18px;
   color: #660066;
 }
 
-#menu .ordine .pagamento #form .form-container input {
+#menu .ordine .pagamento #form > div .form-container input {
   height: 30px;
   width: 100%;
   margin-bottom: 10px;
@@ -1300,12 +1367,12 @@ svg {
   margin-right: 10px;
 }
 
-#menu .ordine .pagamento #form .form-container input:focus {
+#menu .ordine .pagamento #form > div .form-container input:focus {
   outline-color: #00ccbc;
 }
 
 @media all and (max-width: 991px) {
-  #menu .ordine .pagamento #form .form-container input {
+  #menu .ordine .pagamento #form > div .form-container input {
     width: 100%;
   }
 }

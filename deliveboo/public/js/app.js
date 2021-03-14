@@ -2100,6 +2100,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -76259,7 +76261,7 @@ var render = function() {
               ]
             },
             [
-              _c("h2", { staticClass: "title" }, [_vm._v("Menu Ristorante")]),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "div",
@@ -76273,18 +76275,16 @@ var render = function() {
                     { key: dish.message, staticClass: "dish-card" },
                     [
                       _c("div", { staticClass: "img-container" }, [
-                        dish.img
+                        dish.img == null
                           ? _c("img", {
                               attrs: {
-                                src: "/storage/dish/" + dish.img,
+                                src: "/img/food.jpg",
                                 alt: "immagine piatto"
                               }
                             })
                           : _c("img", {
                               attrs: {
-                                src: "/img/food.jpg",
-                                width: "230px;",
-                                height: "104px;",
+                                src: "/storage/dish/" + dish.img,
                                 alt: "immagine piatto"
                               }
                             })
@@ -76509,7 +76509,7 @@ var render = function() {
               staticClass: "pagamento"
             },
             [
-              _vm._m(0),
+              _vm._m(1),
               _vm._v(" "),
               _c(
                 "form",
@@ -76523,171 +76523,183 @@ var render = function() {
                   }
                 },
                 [
-                  _c("h2", [_vm._v("Inserisci i tuoi dati")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-container" }, [
-                    _c("div", [
-                      _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Nome:")
+                  _c("div", [
+                    _c("h2", [_vm._v("Inserisci i tuoi dati")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-container" }, [
+                      _c("div", [
+                        _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Nome:")
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.name,
+                              expression: "name"
+                            }
+                          ],
+                          attrs: {
+                            type: "text",
+                            name: "name",
+                            required: "",
+                            minlength: "2",
+                            maxlength: "60"
+                          },
+                          domProps: { value: _vm.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.name = $event.target.value
+                            }
+                          }
+                        })
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.name,
-                            expression: "name"
-                          }
-                        ],
-                        attrs: {
-                          type: "text",
-                          name: "name",
-                          required: "",
-                          minlength: "2",
-                          maxlength: "60"
-                        },
-                        domProps: { value: _vm.name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c("div", [
+                        _c("label", { attrs: { for: "lastname" } }, [
+                          _vm._v("Cognome:")
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.lastname,
+                              expression: "lastname"
                             }
-                            _vm.name = $event.target.value
+                          ],
+                          attrs: {
+                            type: "text",
+                            name: "lastname",
+                            required: "",
+                            minlength: "2",
+                            maxlength: "60"
+                          },
+                          domProps: { value: _vm.lastname },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.lastname = $event.target.value
+                            }
                           }
-                        }
-                      })
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("label", { attrs: { for: "address" } }, [
+                          _vm._v("Indirizzo:")
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.address,
+                              expression: "address"
+                            }
+                          ],
+                          attrs: {
+                            type: "text",
+                            name: "address",
+                            required: "",
+                            minlength: "5",
+                            maxlength: "60"
+                          },
+                          domProps: { value: _vm.address },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.address = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("label", { attrs: { for: "phone" } }, [
+                          _vm._v("N° Telefono")
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.phone,
+                              expression: "phone"
+                            }
+                          ],
+                          attrs: {
+                            type: "tel",
+                            name: "phone",
+                            required: "",
+                            minlength: "10",
+                            maxlength: "15"
+                          },
+                          domProps: { value: _vm.phone },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.phone = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("label", { attrs: { for: "mail" } }, [
+                          _vm._v("Email:")
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.mail,
+                              expression: "mail"
+                            }
+                          ],
+                          attrs: { type: "tex", name: "mail", required: "" },
+                          domProps: { value: _vm.mail },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.mail = $event.target.value
+                            }
+                          }
+                        })
+                      ])
                     ]),
                     _vm._v(" "),
-                    _c("div", [
-                      _c("label", { attrs: { for: "lastname" } }, [
-                        _vm._v("Cognome:")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.lastname,
-                            expression: "lastname"
-                          }
-                        ],
-                        attrs: {
-                          type: "text",
-                          name: "lastname",
-                          required: "",
-                          minlength: "2",
-                          maxlength: "60"
-                        },
-                        domProps: { value: _vm.lastname },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.lastname = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("label", { attrs: { for: "address" } }, [
-                        _vm._v("Indirizzo:")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.address,
-                            expression: "address"
-                          }
-                        ],
-                        attrs: {
-                          type: "text",
-                          name: "address",
-                          required: "",
-                          minlength: "5",
-                          maxlength: "60"
-                        },
-                        domProps: { value: _vm.address },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.address = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("label", { attrs: { for: "phone" } }, [
-                        _vm._v("N° Telefono")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.phone,
-                            expression: "phone"
-                          }
-                        ],
-                        attrs: {
-                          type: "tel",
-                          name: "phone",
-                          required: "",
-                          minlength: "10",
-                          maxlength: "15"
-                        },
-                        domProps: { value: _vm.phone },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.phone = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c("label", { attrs: { for: "mail" } }, [
-                        _vm._v("Email:")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.mail,
-                            expression: "mail"
-                          }
-                        ],
-                        attrs: { type: "tex", name: "mail", required: "" },
-                        domProps: { value: _vm.mail },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.mail = $event.target.value
-                          }
-                        }
-                      })
+                    _c("button", { attrs: { type: "submit" } }, [
+                      _vm._v("Completa Pagamento")
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("button", { attrs: { type: "submit" } }, [
-                    _vm._v("Completa Pagamento")
                   ])
                 ]
               )
@@ -76710,11 +76722,21 @@ var render = function() {
         ],
         staticClass: "description-overlay"
       },
-      [_vm._m(1)]
+      [_vm._m(2)]
     )
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title" }, [
+      _c("h2", [_vm._v("Menu Ristorante")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -89184,7 +89206,7 @@ function init() {
       // dati del carrello
       // quadratini colorati
       typologyColors: ["coral", "#660066", "skyblue", "#ffcc33", "#6b9023", "salmon", "darkCyan", "#660066", "#ffcc33", "salmon"],
-      randomAvatars: ["ateneo-zozzerie.jpg", "birreria.jpg", "bbq.jpg", "panini.jpg", "sushi2.jpg", "pizza.jpg", "fragola.jpg"]
+      randomAvatars: ["ateneo-zozzerie.jpg", "birreria.jpg", "bbq.jpg", "panini.jpg", "sushi2.jpg", "pizza.jpg", "fragola.jpg", "messicana.jpg", "kebab.jpg", "cinese.jpg"]
     },
     mounted: function mounted() {
       var _this = this;
@@ -89713,9 +89735,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /Users/carmelocarnamucio/Desktop/Boolean/Esercizi/Deliveboo-21/deliveboo/resources/sass/style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Boolean\Laravel\Deliveboo-21\deliveboo\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ })

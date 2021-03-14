@@ -8,13 +8,15 @@
             <div class="ordine">
 
                 <div v-show="showpayment" >
-                    <h2 class="title">Menu Ristorante</h2>
+                    <div class="title">
+                        <h2>Menu Ristorante</h2>
+                        <div class="line"></div>
+                    </div>
                     <div id="dish-card-container" class="dish-card-container">
                         <div class="dish-card" v-for="dish in dishes" :key="dish.message">
                             <div class="img-container">
-                                 <img v-if="dish.img" :src="'/storage/dish/' + dish.img" alt="immagine piatto">
-                                 <img v-else="dish.img == null" :src="'/img/food.jpg'" width=230px;
-                                 height=104px; alt="immagine piatto">
+                                 <img v-if="dish.img == null" :src="'/img/food.jpg'"  alt="immagine piatto">
+                                 <img v-else :src="'/storage/dish/' + dish.img" alt="immagine piatto">
                             </div>
 
                             <div class="food-body">
@@ -34,8 +36,6 @@
                                     <p>Non Disponibile.</p>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -92,32 +92,34 @@
                     </div>
 
                     <!-- sezione form-->
-                    <form id='form' hidden @submit.prevent="submit">
-                        <h2>Inserisci i tuoi dati</h2>
-                        <div class="form-container">
-                            <div>
-                                <label for="name">Nome:</label>
-                                <input type="text" name="name" v-model="name" required  minlength="2" maxlength="60">
+                    <form id='form' hidden @submit.prevent="submit" >
+                        <div>
+                            <h2>Inserisci i tuoi dati</h2>
+                            <div class="form-container">
+                                <div>
+                                    <label for="name">Nome:</label> <br>
+                                    <input type="text" name="name" v-model="name" required  minlength="2" maxlength="60">
+                                </div>
+                                <div>
+                                    <label for="lastname">Cognome:</label> <br>
+                                    <input type="text" name="lastname"  v-model="lastname" required  minlength="2" maxlength="60">
+                                </div>
+                                <div>
+                                    <label for="address">Indirizzo:</label> <br>
+                                    <input type="text" name="address"  v-model="address" required  minlength="5" maxlength="60">
+                                </div>
+                                <div>
+                                    <label for="phone">N° Telefono</label> <br>
+                                    <input type="tel" name="phone" v-model="phone" required  minlength="10" maxlength="15">
+                                </div>
+                                <div>
+                                    <label for="mail">Email:</label> <br>
+                                    <input type="tex" name="mail" v-model="mail" required>
+                                </div>
                             </div>
-                            <div>
-                                <label for="lastname">Cognome:</label>
-                                <input type="text" name="lastname"  v-model="lastname" required  minlength="2" maxlength="60">
-                            </div>
-                            <div>
-                                <label for="address">Indirizzo:</label>
-                                <input type="text" name="address"  v-model="address" required  minlength="5" maxlength="60">
-                            </div>
-                            <div>
-                                <label for="phone">N° Telefono</label>
-                                <input type="tel" name="phone" v-model="phone" required  minlength="10" maxlength="15">
-                            </div>
-                            <div>
-                                <label for="mail">Email:</label>
-                                <input type="tex" name="mail" v-model="mail" required>
-                            </div>
-                        </div>
 
-                        <button type="submit">Completa Pagamento</button>
+                            <button type="submit">Completa Pagamento</button>
+                        </div>
                     </form>
                 </div>
             </div>
