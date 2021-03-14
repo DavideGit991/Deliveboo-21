@@ -63,7 +63,7 @@ class OrderController extends Controller
         $orders=DB::table('restaurants')
 
           ->select('orders.id as ordine','orders.name as uname','orders.lastname','orders.address','orders.phone'
-                ,'dishes.name','orders.tot_price')
+                ,'dishes.name','orders.tot_price','orders.mail')
 
           ->join('dishes','dishes.restaurant_id','=','restaurants.id')
           ->join('dish_order','dishes.id','=','dish_order.dish_id')
