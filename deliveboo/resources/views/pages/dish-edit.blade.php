@@ -12,15 +12,30 @@
                     @csrf
                     <div>
                         <label for="name">Nome: </label>
-                        <input type="text" name="name" value="{{$dish-> name}}" required minlength="5" maxlength="60">
+                        <input type="text" name="name" value="{{$dish-> name}}">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div>
                         <label for="description">Descrizione: </label>
-                        <input type="text" name="description" value="{{$dish-> description}}" required minlength="5">
+                        <input type="text" name="description" value="{{$dish-> description}}">
+                        @error('description')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div>
                         <label for="price">Prezzo: </label>
-                        <input type="number" step="0.01" name="price" value="{{$dish-> price}}" required>
+                        <input type="number" step="0.01" name="price" value="{{$dish-> price}}">
+                        @error('price')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div>
                         <label for="image">Immagine: </label>

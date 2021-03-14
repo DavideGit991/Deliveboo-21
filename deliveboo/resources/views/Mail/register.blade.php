@@ -110,7 +110,7 @@
                                                                                       </td>
                                                                                   </tr>
                                                                                   <tr>
-                                                                                      <td class="esd-block-button es-p35t es-p35b es-p10r es-p10l" align="center"><span class="es-button-border"><a href="http://localhost:8000/" class="es-button" target="_blank" style="border-width: 15px 30px;"> Inizia subito</a></span></td>
+                                                                                      <td class="esd-block-button es-p35t es-p35b es-p10r es-p10l" align="center"><span class="es-button-border"><a href="http://localhost:8000/login" class="es-button" target="_blank" style="border-width: 15px 30px;"> Inizia subito</a></span></td>
                                                                                   </tr>
                                                                                   <tr>
                                                                                       <td class="esd-block-text es-p20t es-p30r es-p30l es-m-txt-l" align="left">
@@ -118,7 +118,7 @@
                                                                                       </td>
                                                                                   </tr>
                                                                                   <tr>
-                                                                                      <td class="esd-block-text es-p20t es-p30r es-p30l es-m-txt-l" align="center"><a target="_blank" href="http://localhost:8000/">http://localhost:8000</a></td>
+                                                                                      <td class="esd-block-text es-p20t es-p30r es-p30l es-m-txt-l" align="center"><a target="_blank" href="http://localhost:8000/">http://localhost:8000/login</a></td>
                                                                                   </tr>
                                                                                   <tr>
                                                                                       <td class="esd-block-text es-p20t es-p30r es-p30l es-m-txt-l" align="left">

@@ -32,6 +32,20 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'piva'=>['required', 'string', 'min:11','max:11'],
             'business_name'=>['required', 'string', 'min:5' ,'max:60']
+        ],
+        [
+            'name.required' => 'Campo obbligatorio',
+            'email.required' => 'Campo obbligatorio',
+            'email.email' => 'Inserire una email valida',
+            'email.unique' => 'Email già utilizzata',
+            'password.required' => 'Campo obbligatorio',
+            'password.min' => 'La password inserita deve essere di almeno 8 caratteri',
+            'piva.required' => 'Campo obbligatorio',
+            'piva.min' => 'Il valore inserito deve avere almeno 11 cifre',
+            'piva.max' => 'Il valore inserito deve avere massimo 11 cifre',
+            'business_name' => 'Campo obbligatorio',
+            'business_name.min' => 'Il valore inserito deve avere almeno 5 cifre',
+            'business_name.max' => 'Il valore inserito deve avere massimo 60 cifre',
         ]);
     }
 

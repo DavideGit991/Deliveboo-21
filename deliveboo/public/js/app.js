@@ -2303,6 +2303,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     id: Number
@@ -76854,6 +76860,15 @@ var render = function() {
                                 _vm._s(item.phone) +
                                 "\n                        "
                             )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "utente" }, [
+                            _c("h4", [_vm._v("Mail:")]),
+                            _vm._v(
+                              " " +
+                                _vm._s(item.mail) +
+                                "\n                        "
+                            )
                           ])
                         ])
                       : _vm._e()
@@ -76921,6 +76936,15 @@ var render = function() {
                               _vm._v(
                                 " " +
                                   _vm._s(item.phone) +
+                                  "\n                        "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "utente" }, [
+                              _c("h4", [_vm._v("Mail:")]),
+                              _vm._v(
+                                " " +
+                                  _vm._s(item.mail) +
                                   "\n                        "
                               )
                             ])
