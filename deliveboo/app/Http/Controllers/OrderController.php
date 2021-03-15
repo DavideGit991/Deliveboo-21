@@ -23,7 +23,7 @@ class OrderController extends Controller
         'lastname'=>'required|string|max:60|min:2',
         'address'=>'required|string|min:5|max:60',
         'phone'=>'required|min:10|max:15',
-        'email' => ['required', 'string', 'email', 'max:255']
+        //'email' => ['required', 'string', 'email', 'max:255']
     ])-> validate();
 
        $order=Order::make([
