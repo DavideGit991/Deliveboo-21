@@ -60,7 +60,7 @@
                                                                               <tbody>
                                                                                   <tr>
                                                                                       <td class="esd-block-text es-p35t es-p5b es-p30r es-p30l" align="center">
-                                                                                          <h1>Grazie per aver scelto Deliveoo!</h1>
+                                                                                          <h1>Grazie per aver scelto Deliveboo!</h1>
                                                                                       </td>
                                                                                   </tr>
                                                                                   <tr>
@@ -128,7 +128,7 @@
                                                                                   <tr>
                                                                                       <td class="esd-block-text es-p20t es-p40b es-p30r es-p30l es-m-txt-l" align="left">
                                                                                           <p>Saluti,</p>
-                                                                                          <p>Team Deliveoo</p>
+                                                                                          <p>Team Deliveboo</p>
                                                                                       </td>
                                                                                   </tr>
                                                                               </tbody>

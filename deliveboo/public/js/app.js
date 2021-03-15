@@ -76689,7 +76689,7 @@ var render = function() {
                               expression: "mail"
                             }
                           ],
-                          attrs: { type: "tex", name: "mail", required: "" },
+                          attrs: { type: "mail", name: "mail", required: "" },
                           domProps: { value: _vm.mail },
                           on: {
                             input: function($event) {

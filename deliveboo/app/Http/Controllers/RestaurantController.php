@@ -35,7 +35,7 @@ class RestaurantController extends Controller
         Validator::make($data,[          //validazione
             'name'=>'required|string|max:40|min:5',
             'address'=>'required|string|max:100|min:5',
-            'city'=>'required|string|min:5|max:40',
+            'city'=>'required|string|min:3|max:40',
             'phone'=>'required|string|min:10|max:15',
             'typologies'=>'required',
         ],
@@ -48,7 +48,7 @@ class RestaurantController extends Controller
             'address.max' => 'Deve avere massimo 100 cifre',
             'city.required' => 'Campo obbligatorio',
             'city.max' => 'Deve avere massimo 40 cifre',
-            'city.min' => 'Deve essere di almeno 5 caratteri',
+            'city.min' => 'Deve essere di almeno 3 caratteri',
             'phone.required' => 'Campo obbligatorio',
             'phone.min' => 'Deve essere di almeno 10 cifre',
             'phone.max' => 'Deve avere massimo 15 cifre',

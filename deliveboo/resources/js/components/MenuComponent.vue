@@ -114,7 +114,7 @@
                                 </div>
                                 <div>
                                     <label for="mail">Email:</label> <br>
-                                    <input type="tex" name="mail" v-model="mail" required>
+                                    <input type="mail" name="mail" v-model="mail" required>
                                 </div>
                             </div>
 

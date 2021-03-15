@@ -17,7 +17,7 @@
 
                     <div>
                         <label for="name">Nome Ristorante*</label>
-                        <input type="text" class="form-control form" name="name" >
+                        <input type="text" class="form-control form" name="name" required maxlength="40" minlength="5">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
                     </div>
                     <div>
                         <label for="address">Indirizzo*</label>
-                        <input type="text" class="form-control form" name="address">
+                        <input type="text" class="form-control form" name="address" required maxlength="100" minlength="5">
                         @error('address')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -35,7 +35,7 @@
                     </div>
                     <div>
                         <label for="city">Città*</label>
-                        <input type="text" class="form-control form" name="city">
+                        <input type="text" class="form-control form" name="city" required maxlength="40" minlength="5">
                         @error('city')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -44,7 +44,7 @@
                     </div>
                     <div>
                         <label for="phone">Telefono*</label>
-                        <input type="tel" class="form-control form" name="phone">
+                        <input type="tel" class="form-control form" name="phone" required maxlength="15" minlength="10">
                         @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
