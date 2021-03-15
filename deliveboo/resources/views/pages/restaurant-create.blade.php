@@ -35,7 +35,7 @@
                     </div>
                     <div>
                         <label for="city">Città*</label>
-                        <input type="text" class="form-control form" name="city" required maxlength="40" minlength="5">
+                        <input type="text" class="form-control form" name="city" required maxlength="40" minlength="3">
                         @error('city')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
