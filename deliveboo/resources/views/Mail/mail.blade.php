@@ -112,10 +112,7 @@
                                                                                       <td class="esd-block-text es-p20t es-p30r es-p30l es-m-txt-l" align="left">
                                                                                           <h3>Buon appetito dallo staff di Deliveroo!</h3>
                                                                                       </td>
-                                                                                  </tr>
-                                                                                  <tr>
-                                                                                      <td class="esd-block-text es-p20t es-p30r es-p30l es-m-txt-l" align="center"><a target="_blank" href="http://localhost:8000/">http://localhost:8000</a></td>
-                                                                                  </tr>
+                                                                                  </tr>                                                    
                                                                                   <tr>
                                                                                       <td class="esd-block-text es-p20t es-p30r es-p30l es-m-txt-l" align="left">
                                                                                           <p>Se hai delle domande, scrivici a questa e-mail: <em>deliveboohelp@food.it</em></p> <p>siamo sempre felici di aiutarti.</p>
