@@ -6,7 +6,7 @@
         <div>
             <div class="resto-name">
                 <button @click='getLastOrder()'>
-                    Visualizza la tua comanda
+                    Visualizza i tuoi ordini
                 </button>
             </div>
 

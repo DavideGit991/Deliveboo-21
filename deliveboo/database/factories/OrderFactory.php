@@ -11,7 +11,7 @@ $factory->define(Order::class, function (Faker $faker) {
       'lastname' => $faker -> lastName,
       'address'  => $faker -> streetAddress,
       'tot_price'    => $faker ->randomFloat($nbMaxDecimals = 1, $min = 20, $max = 100),
-      'month'     => rand(1,12),
+      'month'     => rand(1,3),
       'phone'    => $faker -> e164PhoneNumber,
       'status'   =>           rand(0, 1),
       'mail'     => $faker -> freeEmail

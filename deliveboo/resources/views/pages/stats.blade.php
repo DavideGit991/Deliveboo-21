@@ -6,7 +6,7 @@
     
         <div class="login-register">
             <h1>
-                Statistiche degli ordini
+                Statistiche degli ordini anno 2021
             </h1>
 
             {{-- @dd($stats); --}}

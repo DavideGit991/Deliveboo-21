@@ -20,7 +20,8 @@ class ApiController extends Controller
     {
         $city=$request-> all();
         $restaurants=DB::table('restaurants')
-        ->where('city','=',$city)-> get();
+        ->where('city','=',$city)
+        ->where('deleted_at','=',null)-> get();
 
         return response()-> json($restaurants);
     }
@@ -44,7 +45,8 @@ class ApiController extends Controller
             ->join('restaurant_typology','restaurants.id', '=', 'restaurant_typology.restaurant_id')
             ->join('typologies','restaurant_typology.typology_id','=','typologies.id')
             ->where('restaurants.city','=',$city)
-            ->get();
+            ->where('deleted_at','=',null)-> get();
+        
         // query sql
         // SELECT restaurants.name, restaurant_typology.typology_id, typologies.name
         // FROM restaurants
@@ -72,6 +74,7 @@ class ApiController extends Controller
             ->join('typologies','restaurant_typology.typology_id','=','typologies.id')
             ->where('restaurants.city','=',$city)
             ->where('typologies.name','=',$typology)
+            ->where('deleted_at','=',null)
             ->orderBy('restaurants.vote','desc')
             ->get();
         // SELECT restaurants.name, restaurants.address, restaurants.vote

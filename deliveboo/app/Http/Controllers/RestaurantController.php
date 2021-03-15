@@ -74,7 +74,7 @@ class RestaurantController extends Controller
         Validator::make($data,[          //validazione
             'name'=>'required|string|max:40|min:5',
             'address'=>'required|string|max:100|min:5',
-            'city'=>'required|string|min:5|max:40',
+            'city'=>'required|string|min:3|max:40',
             'phone'=>'required|string| min:10|max:15',
         ],
         [
